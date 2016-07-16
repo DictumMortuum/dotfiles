@@ -4,3 +4,6 @@
 [submodule ".themes/arc-flatabulous-theme"]
 	path = .themes/arc-flatabulous-theme
 	url = https://github.com/andreisergiu98/arc-flatabulous-theme.git
+[submodule ".icons/yltra-flat-icon-theme"]
+	path = .icons/yltra-flat-icon-theme
+	url = https://github.com/erikdubois/yltra-flat-icon-theme.git
