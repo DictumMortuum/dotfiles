@@ -1,4 +1,4 @@
-*
+/*
 !.gitignore
 !.fonts
 !.fonts.conf
@@ -6,3 +6,4 @@
 !.oh-my-zsh
 !.themes
 !zsh
+!.zshrc
