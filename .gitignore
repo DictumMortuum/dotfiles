@@ -1,0 +1,8 @@
+*
+!.gitignore
+!.fonts
+!.fonts.conf
+!.icons
+!.oh-my-zsh
+!.themes
+!zsh
