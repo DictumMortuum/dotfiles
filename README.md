@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-sh -c "$(wget https://raw.githubusercontent.com/DictumMortuum/dotfiles/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.githubusercontent.com/DictumMortuum/dotfiles/master/install.sh -O -)"
 ```
