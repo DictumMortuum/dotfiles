@@ -2,7 +2,7 @@ ZSH="$HOME/.dotfiles/oh-my-zsh"
 
 main() {
 	cd $ZSH/custom
-	ln -s $HOME/.zsh/openbet.zsh
+	ln -s $HOME/.zsh/cvs.zsh
 
   if [ ! -d themes ]
   then
