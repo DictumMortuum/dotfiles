@@ -9,4 +9,5 @@
 !.zshrc
 !.dotfiles
 !.backgrounds
+!.vim/bundle/vundle
 !install.sh

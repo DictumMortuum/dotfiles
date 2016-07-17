@@ -1,5 +1,7 @@
+ZSH="$HOME/.dotfiles/oh-my-zsh"
+
 main() {
-	cd $HOME/.oh-my-zsh/custom
+	cd $ZSH/custom
 	ln -s $HOME/.zsh/openbet.zsh
 	cd themes
 	ln -s $HOME/.zsh/anmol.zsh-theme
