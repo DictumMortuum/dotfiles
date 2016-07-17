@@ -10,6 +10,8 @@ main() {
 	do
 		sh $module/install.sh > /dev/null
 	done
+
+  vim +PluginInstall +qall
 }
 
 main

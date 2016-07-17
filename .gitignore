@@ -10,4 +10,5 @@
 !.dotfiles
 !.backgrounds
 !.vim/bundle/vundle
+!.vimrc
 !install.sh
