@@ -16,3 +16,6 @@
 [submodule ".dotfiles/Vundle.vim"]
 	path = .dotfiles/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule ".dotfiles/NARKOZ"]
+	path = .dotfiles/NARKOZ
+	url = https://github.com/NARKOZ/dotfiles.git

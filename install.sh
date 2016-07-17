@@ -6,7 +6,7 @@ main() {
 	git submodule update
 	git submodule foreach git pull origin master
 	
-	for module in ".zsh"
+	for module in .zsh
 	do
 		sh $module/install.sh > /dev/null
 	done

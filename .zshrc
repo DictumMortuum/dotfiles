@@ -89,3 +89,4 @@ export cvsd=:pserver:draviolo@pserver:/cvsroot
 export CVSROOT=$cvsd
 export CVS_RSH=ssh
 
+[ -f ~/.zsh/env.zsh ] && source ~/.zsh/env.zsh
