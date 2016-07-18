@@ -1,14 +1,19 @@
+# Ignore all files
 /*
-!.gitignore
-!.fonts
+
+# Top-level repo files
 !.fonts.conf
-!.icons
-!.oh-my-zsh
-!.themes
-!.zsh
-!.zshrc
-!.dotfiles
-!.backgrounds
-!.vim/bundle/vundle
+!.gitignore
+!.gitmodules
 !.vimrc
+!.zshrc
+!README.md
 !install.sh
+
+# Top-level repo directories
+!.backgrounds
+!.dotfiles
+!.fonts
+!.icons
+!.vim/bundle/vundle
+!.zsh
