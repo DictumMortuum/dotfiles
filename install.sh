@@ -1,21 +1,19 @@
-#! /bin/bash
-
-icons () {
-	cd ~/.icons/yltra-flat-icon-theme
-	git checkout master
-	git pull origin master
-	cd
+_icons () {
+  cd $HOME/.icons/yltra-flat-icon-theme
+  git checkout master
+  git pull origin master
+  cd
 }
 
-themes () {
-	cd ~/.themes/Flatabulous
-	git checkout master
-	git pull origin master
-	cd
+_themes () {
+  cd $HOME/.themes/Flatabulous
+  git checkout master
+  git pull origin master
+  cd
 }
 
-dotfiles () {
-  cd ~/.dotfiles/NARKOZ
+_dotfiles () {
+  cd $HOME/.dotfiles/NARKOZ
   git checkout narkoz
   git pull origin narkoz
   cd ../Vundle.vim
@@ -27,59 +25,59 @@ dotfiles () {
   cd
 }
 
-vim () {
-  # Persistent undo folder
-  if [ -d backups ]; then
+_vim () {
+  cd $HOME/.vim
+  if [ ! -d backups ]; then
     mkdir backups
   else
     echo "already exists"
   fi
+  cd
 
-	vim +PluginInstall +qall
+  vim +PluginInstall +qall
 }
 
-init () {
-	git init .
-	git remote add -t \* -f origin https://github.com/DictumMortuum/dotfiles.git
-	git checkout master
-	git submodule init
-	git submodule update
-  icons
-  themes
-  dotfiles
-  vim
-  zsh
+_init () {
+  git init .
+  git remote add -t \* -f origin https://github.com/DictumMortuum/dotfiles.git
+  git checkout master
+  git submodule init
+  git submodule update
+  _icons
+  _themes
+  _dotfiles
+  _vim
+  _zsh
 }
 
-zsh () {
-	ZSH="$HOME/.dotfiles/oh-my-zsh"
+_zsh () {
+  ZSH="$HOME/.dotfiles/oh-my-zsh"
 
-	cd $HOME/.zsh/zsh-syntax-highlighting
-	git checkout master
-	git pull origin master
+  cd $HOME/.zsh/zsh-syntax-highlighting
+  git checkout master
+  git pull origin master
 
-	cd $ZSH/custom
-	ln -s $HOME/.zsh/cvs.zsh
+  cd $ZSH/custom
+  ln -s $HOME/.zsh/cvs.zsh
 
-	if [ ! -d themes ]; then
-		mkdir themes
-	fi
+  if [ ! -d themes ]; then
+    mkdir themes
+  fi
 
-	cd themes
-	ln -s $HOME/.zsh/anmol.zsh-theme
+  cd themes
+  ln -s $HOME/.zsh/anmol.zsh-theme
 
-	if [ ! -d plugins ]; then
-		mkdir plugins
-	fi
+  if [ ! -d plugins ]; then
+    mkdir plugins
+  fi
 
-	cd plugins
-	ln -s $HOME/.zsh/zsh-syntax-highlighting
-	cd
+  cd plugins
+  ln -s $HOME/.zsh/zsh-syntax-highlighting
+  cd
 }
 
-if [[ $# -eq 1 ]]; then
+if [ "$#" -eq 1 ]; then
   $1
 else
   init
 fi
-
