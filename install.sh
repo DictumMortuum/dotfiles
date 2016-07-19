@@ -79,5 +79,5 @@ _zsh () {
 if [ "$#" -eq 1 ]; then
   $1
 else
-  init
+  _init
 fi
