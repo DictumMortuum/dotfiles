@@ -59,7 +59,6 @@ _zsh () {
 
   cd $ZSH/custom
   ln -s $HOME/.zsh/cvs.zsh
-  ln -s $HOME/.zsh/docker.zsh
 
   if [ ! -d themes ]; then
     mkdir themes

@@ -1,21 +1,11 @@
-# the basics
+# BASICS
+
 : ${HOME=~}
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
 
 # complete hostnames from this file
 : ${HOSTFILE=~/.ssh/known_hosts}
-
-# ----------------------------------------------------------------------
-# PATH
-# ----------------------------------------------------------------------
-
-# put ~/bin on PATH if you have it
-test -d "$HOME/.dotfiles/NARKOZ/bin" && PATH="$HOME/.dotfiles/NARKOZ/bin:$PATH"
-
-# ----------------------------------------------------------------------
-# ENVIRONMENT CONFIGURATION
-# ----------------------------------------------------------------------
 
 # enable en_US locale w/ utf-8 encodings if not already configured
 : ${LANG:="en_US.UTF-8"}
@@ -24,56 +14,25 @@ test -d "$HOME/.dotfiles/NARKOZ/bin" && PATH="$HOME/.dotfiles/NARKOZ/bin:$PATH"
 : ${LC_ALL:="en_US.UTF-8"}
 export LANG LANGUAGE LC_CTYPE LC_ALL
 
-# ----------------------------------------------------------------------
-# PAGER / EDITOR
-# ----------------------------------------------------------------------
+# PATH
 
-# See what we have to work with ...
-HAVE_VIM=$(command -v vim)
-HAVE_GVIM=$(command -v gvim)
+# put ~/bin on PATH if you have it
+test -d "$HOME/.dotfiles/NARKOZ/bin" && PATH="$HOME/.dotfiles/NARKOZ/bin:$PATH"
 
-# EDITOR
-test -n "$HAVE_VIM" && EDITOR=vim || EDITOR=vi
-export EDITOR
-
-# PAGER
-if test -n "$(command -v less)" ; then
-    PAGER="less -FirSwX"
-    MANPAGER="less -FiRswX"
-else
-    PAGER=more
-    MANPAGER="$PAGER"
-fi
-export PAGER MANPAGER
-
-# Ack
-ACK_PAGER="$PAGER"
-ACK_PAGER_COLOR="$PAGER"
-
-# ----------------------------------------------------------------------
 # ALIASES / FUNCTIONS
-# ----------------------------------------------------------------------
 
-# Test and then source alias definitions.
-#if [ -f $HOME/.zsh/.aliases ]; then
-#    source $HOME/.zsh/.aliases
-#else
-#    print "NOTE: $HOME/.zsh/.aliases is unavailable."
-#fi
+_load_file () {
+  if [ -f "$1" ]; then
+      source $1
+  else
+      print "NOTE: $1 is unavailable."
+  fi
+}
 
-# Test and then source the functions.
-if [ -f $HOME/.dotfiles/NARKOZ/.zsh/.functions ]; then
-    source $HOME/.dotfiles/NARKOZ/.zsh/.functions
-else
-    print "NOTE: $HOME/.zsh/.functions is unavailable."
-fi
+_load_file $HOME/.dotfiles/NARKOZ/.zsh/.functions
+_load_file $HOME/.zsh/docker.zsh
 
-# This loads RVM into a shell session.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# -------------------------------------------------------------------
 # USER SHELL ENVIRONMENT
-# -------------------------------------------------------------------
 
 # Usage: puniq [<path>]
 # Remove duplicate entries from a PATH style value while retaining

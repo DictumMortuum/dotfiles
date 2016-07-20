@@ -1,9 +1,9 @@
-docker_containers () {
+__docker_containers () {
   return $(sudo docker ps -a | awk '{print $1}' | grep -v CONTAINER)
 }
 
-docker_op () {
-  CONTAINERS=docker_containers
+__docker_op () {
+  CONTAINERS=__docker_containers
   NOCONTAINERS=$(echo $CONTAINERS | wc -l)
 
   if [ $NCONTAINERS > 0 ]; then
@@ -17,8 +17,8 @@ docker_stop () {
   docker_op stop
 }
 
-docker_rm () {
-  docker_op rm
+__docker_rm () {
+  __docker_op rm
 }
 
 docker_clean () {
