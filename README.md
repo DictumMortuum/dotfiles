@@ -1,5 +1,13 @@
 # dotfiles
 
+## Dependencies
+
+- git
+- zsh
+- vim
+- unity-tweak-tool (optional, for themes, icons and fonts)
+- atom
+
 ## Installation
 
 ```
