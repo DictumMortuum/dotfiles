@@ -31,6 +31,7 @@ _load_file () {
 
 _load_file $HOME/.dotfiles/NARKOZ/.zsh/.functions
 _load_file $HOME/.zsh/docker.zsh
+_load_file $HOME/.zsh/files.zsh
 
 # USER SHELL ENVIRONMENT
 
