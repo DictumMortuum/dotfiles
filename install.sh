@@ -58,7 +58,6 @@ _zsh () {
   git pull origin master
 
   cd $ZSH/custom
-  ln -s $HOME/.zsh/cvs.zsh
 
   if [ ! -d themes ]; then
     mkdir themes
@@ -66,6 +65,7 @@ _zsh () {
 
   cd themes
   ln -s $HOME/.zsh/anmol.zsh-theme
+  cd ..
 
   if [ ! -d plugins ]; then
     mkdir plugins
