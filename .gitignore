@@ -17,3 +17,8 @@
 !.icons
 !.vim/bundle/vundle
 !.zsh
+
+# Only include atom's config.cson
+!.atom
+.atom/*
+!.atom/config.cson
