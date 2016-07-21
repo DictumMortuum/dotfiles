@@ -51,29 +51,10 @@ _init () {
 }
 
 _zsh () {
-  ZSH="$HOME/.dotfiles/oh-my-zsh"
-
-  cd $HOME/.zsh/zsh-syntax-highlighting
+  cd $HOME/.zsh/custom/plugins/zsh-syntax-highlighting
   git checkout master
   git pull origin master
 
-  cd $ZSH/custom
-
-  if [ ! -d themes ]; then
-    mkdir themes
-  fi
-
-  cd themes
-  ln -s $HOME/.zsh/anmol.zsh-theme
-  cd ..
-
-  if [ ! -d plugins ]; then
-    mkdir plugins
-  fi
-
-  cd plugins
-  ln -s $HOME/.zsh/zsh-syntax-highlighting
-  cd
 }
 
 if [ "$#" -eq 1 ]; then
