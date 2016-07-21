@@ -1,7 +1,18 @@
 "*":
+  core:
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "CVS"
+    ]
   "exception-reporting":
     userId: "1f590c8c-b4c8-6163-1c46-64df5999717e"
   "tree-view":
+    hideIgnoredNames: true
     hideVcsIgnoredFiles: true
     squashDirectoryNames: true
   welcome:
