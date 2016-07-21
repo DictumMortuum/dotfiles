@@ -4,6 +4,7 @@ __compile_ssh_config () {
     return
   fi
 
+  echo "ssh config not found. Generating..."
   cat $HOME/.ssh/*.config > $HOME/.ssh/config
 }
 
