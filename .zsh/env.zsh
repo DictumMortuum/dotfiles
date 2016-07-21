@@ -16,8 +16,11 @@ export LANG LANGUAGE LC_CTYPE LC_ALL
 
 # PATH
 
-# put ~/bin on PATH if you have it
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 test -d "$HOME/.dotfiles/NARKOZ/bin" && PATH="$HOME/.dotfiles/NARKOZ/bin:$PATH"
+test -d "/snap/bin" && PATH="/snap/bin:$PATH"
+test -d "/usr/games" && PATH="/usr/games:$PATH"
+test -d "/usr/local/games" && PATH="/usr/local/games:$PATH"
 
 # ALIASES / FUNCTIONS
 
@@ -30,8 +33,10 @@ _load_file () {
 }
 
 _load_file $HOME/.dotfiles/NARKOZ/.zsh/.functions
-_load_file $HOME/.zsh/docker.zsh
-_load_file $HOME/.zsh/files.zsh
+
+foreach f in $(ls $HOME/.zsh/autoload); do 
+  _load_file $HOME/.zsh/autoload/$f
+done
 
 # USER SHELL ENVIRONMENT
 
@@ -49,3 +54,4 @@ puniq () {
 
 # condense PATH entries
 PATH=$(puniq $PATH)
+export EDITOR='vim'

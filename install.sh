@@ -54,7 +54,7 @@ _zsh () {
   cd $HOME/.zsh/custom/plugins/zsh-syntax-highlighting
   git checkout master
   git pull origin master
-
+  cd
 }
 
 if [ "$#" -eq 1 ]; then
