@@ -5,6 +5,7 @@
 !.fonts.conf
 !.gitignore
 !.gitmodules
+!.gitconfig
 !.vimrc
 !.zshrc
 !README.md
