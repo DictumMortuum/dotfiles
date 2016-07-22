@@ -28,3 +28,4 @@
 !.atom
 .atom/*
 !.atom/config.cson
+!.atom/styles.less
