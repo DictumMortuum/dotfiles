@@ -1,15 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-setIdentity() {
-    git config --get --local remote.origin.url | grep $1 > /dev/null
-
-    if [[ $? -eq 0 ]]; then
-      git config --local user.name $2
-      git config --local user.email $3
-    fi
-}
-
-setIdentity github  "DictumMortuum" "theio.vrefos@gmail.com"
-setIdentity openbet "draviolo"      "dimitris.raviolos@openbet.com"
-
-exit 0
+for hook in $(ls pre-commit.d/*);
+do
+  ./$hook
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+done
