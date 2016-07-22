@@ -3,9 +3,6 @@
 
 # Top-level repo files
 !.fonts.conf
-!.gitignore
-!.gitmodules
-!.gitconfig
 !.vimrc
 !.zshrc
 !README.md
@@ -19,12 +16,18 @@
 !.vim/bundle/vundle
 !.zsh
 
-# Only include the global ssh config
+# [git]
+!.gitignore
+!.gitmodules
+!.gitconfig
+!.githooks
+
+# [ssh] Only include the global ssh config
 !.ssh
 .ssh/*
 !.ssh/global.config
 
-# Only include atom's config.cson
+# [atom]
 !.atom
 .atom/*
 !.atom/config.cson
