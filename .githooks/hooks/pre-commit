@@ -1,13 +1,14 @@
 #!/bin/bash
 
 setIdentity() {
-    git config --get --local remote.origin.url | grep github > /dev/null
+    git config --get --local remote.origin.url | grep $1 > /dev/null
 
     if [[ $? -eq 0 ]]; then
-      git config --local user.name "DictumMortuum"
-      git config --local user.email "dictummortuum339@gmail.com"
+      git config --local user.name $2
+      git config --local user.email $3
     fi
 }
 
-setIdentity
+setIdentity github  "DictumMortuum" "theio.vrefos@gmail.com"
+setIdentity openbet "draviolo"      "dimitris.raviolos@openbet.com"
 exit 0

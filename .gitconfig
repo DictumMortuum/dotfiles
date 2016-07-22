@@ -81,4 +81,4 @@
   implicitIdentity = false
   detachedHead = false
 [init]
-	templatedir = ~/.githooks/
+  templatedir = ~/.githooks/
