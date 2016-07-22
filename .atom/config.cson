@@ -1,5 +1,4 @@
 "*":
-  autosave: {}
   core:
     ignoredNames: [
       ".git"
@@ -14,7 +13,8 @@
       "atom-material-ui"
       "atom-material-syntax-dark"
     ]
-  editor: {}
+  editor:
+    fontFamily: "Droid Sans Mono"
   "exception-reporting":
     userId: "1f590c8c-b4c8-6163-1c46-64df5999717e"
   "tree-view":
@@ -23,4 +23,5 @@
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
-  whitespace: {}
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
