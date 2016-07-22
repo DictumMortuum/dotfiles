@@ -11,4 +11,5 @@ setIdentity() {
 
 setIdentity github  "DictumMortuum" "theio.vrefos@gmail.com"
 setIdentity openbet "draviolo"      "dimitris.raviolos@openbet.com"
+
 exit 0
