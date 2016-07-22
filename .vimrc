@@ -2,14 +2,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
-
 " ================ General Config ====================
-
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -55,7 +48,6 @@ set laststatus=2
 map <C-n> :NERDTreeToggle<CR>
 
 " ================ Turn Off Swap Files ==============
-
 set noswapfile
 set nobackup
 set nowb
@@ -64,6 +56,12 @@ set nowb
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 if has('persistent_undo')
+
+  " Create the persistent undo directory if it doesn't exist
+  if !isdirectory($HOME . "/.vim/backups")
+    call mkdir($HOME . "/.vim/backups", "p")
+  endif
+
   set undodir=$HOME/.vim/backups/
   set undolevels=1000         " How many undos
   set undoreload=10000        " number of lines to save for undo
@@ -71,7 +69,6 @@ if has('persistent_undo')
 endif
 
 " ================ Indentation ======================
-
 set autoindent
 set smartindent
 set smarttab
@@ -94,13 +91,11 @@ set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
 " ================ Folds ============================
-
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 " ================ Completion =======================
-
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -114,9 +109,7 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-"
 " ================ Scrolling ========================
-
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
@@ -139,7 +132,6 @@ augroup vimrcEx
 augroup END
 
 " ================ Search ===========================
-
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
