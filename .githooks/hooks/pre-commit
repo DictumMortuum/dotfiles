@@ -7,8 +7,6 @@ setIdentity() {
       git config --local user.name "DictumMortuum"
       git config --local user.email "dictummortuum339@gmail.com"
     fi
-
-    return 0
 }
 
 setIdentity

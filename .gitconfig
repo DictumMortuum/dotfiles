@@ -1,8 +1,5 @@
 [core]
   editor = atom --wait
-[user]
-  email = dimitris.raviolos@openbet.com
-  name = draviolo
 [color]
   branch = auto
   diff = auto
