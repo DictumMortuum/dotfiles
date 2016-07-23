@@ -82,3 +82,7 @@
   detachedHead = false
 [init]
   templatedir = ~/.githooks/
+[hooks]
+  user = github DictumMortuum theio.vrefos@gmail.com
+  user = openbet draviolo dimitris.raviolos@openbet.com
+  notabs = true

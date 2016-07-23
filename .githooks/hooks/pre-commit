@@ -1,7 +1,6 @@
 #!/bin/sh
 
-for hook in $(ls pre-commit.d/*);
-do
+for hook in $(ls pre-commit.d/*); do
   ./$hook
   if [ $? -ne 0 ]; then
     exit 1
