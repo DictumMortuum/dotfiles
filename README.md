@@ -7,6 +7,7 @@
 - vim
 - unity-tweak-tool (optional, for themes, icons and fonts)
 - atom
+- perl (for ack)
 
 ## Installation
 
