@@ -2,6 +2,10 @@
 
 #
 # Detects if staged items contain lines starting with a tab.
+# To enable, add this to your gitconfig:
+#
+# [hooks]
+#   notabs = true
 #
 
 if [[ $(git config hooks.notabs) -eq "true" ]]; then
