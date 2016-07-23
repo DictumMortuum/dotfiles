@@ -26,6 +26,7 @@
 !.ssh
 .ssh/*
 !.ssh/global.config
+!.ssh/control
 
 # [atom]
 !.atom
