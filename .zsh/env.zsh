@@ -17,25 +17,19 @@ export LANG LANGUAGE LC_CTYPE LC_ALL
 # PATH
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-test -d "$HOME/.dotfiles/NARKOZ/bin" && PATH="$HOME/.dotfiles/NARKOZ/bin:$PATH"
 test -d "/snap/bin" && PATH="/snap/bin:$PATH"
 test -d "/usr/games" && PATH="/usr/games:$PATH"
 test -d "/usr/local/games" && PATH="/usr/local/games:$PATH"
+test -d "$HOME/.dotfiles/bin" && PATH="$HOME/.dotfiles/bin:$PATH"
 
 # ALIASES / FUNCTIONS
 
-_load_file () {
-  if [ -f "$1" ]; then
-      source $1
-  else
-      print "NOTE: $1 is unavailable."
-  fi
-}
-
-_load_file $HOME/.dotfiles/NARKOZ/.zsh/.functions
-
 foreach f in $(ls $HOME/.zsh/autoload); do
-  _load_file $HOME/.zsh/autoload/$f
+  if [ -f "$HOME/.zsh/autoload/$f" ]; then
+      source $HOME/.zsh/autoload/$f
+  else
+      print "NOTE: $HOME/.zsh/autoload/$f is unavailable."
+  fi
 done
 
 # USER SHELL ENVIRONMENT
