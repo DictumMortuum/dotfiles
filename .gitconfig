@@ -46,6 +46,7 @@
   lg = log --oneline --decorate --graph
   m = merge
   n = config --local user.name
+  p = push -u origin master
   r = rebase
   ri = rebase --interactive
   rc = rebase --continue
