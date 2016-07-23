@@ -34,7 +34,7 @@ _load_file () {
 
 _load_file $HOME/.dotfiles/NARKOZ/.zsh/.functions
 
-foreach f in $(ls $HOME/.zsh/autoload); do 
+foreach f in $(ls $HOME/.zsh/autoload); do
   _load_file $HOME/.zsh/autoload/$f
 done
 
