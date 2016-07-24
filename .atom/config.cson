@@ -27,7 +27,7 @@
     onChanges: true
   "linter-eslint":
     disableWhenNoEslintConfig: false
-    eslintrcPath: "$HOME/.eslintrc.js"
+    eslintrcPath: "$HOME/.eslintrc.json"
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true

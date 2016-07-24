@@ -1,7 +1,9 @@
-module.exports = {
+{
     "env": {
         "browser": true,
-        "node": true
+        "node": true,
+        "es6": true,
+        "jquery": true
     },
     "extends": "eslint:recommended",
     "rules": {
@@ -22,4 +24,4 @@ module.exports = {
             "never"
         ]
     }
-};
+}
