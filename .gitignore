@@ -6,7 +6,6 @@
 !.vimrc
 !.zshrc
 !.ackrc
-!.npmrc
 !README.md
 !install.sh
 
@@ -17,6 +16,10 @@
 !.icons
 !.vim/bundle/vundle
 !.zsh
+
+# [npm]
+!.npmrc
+.dotfiles/node_modules
 
 # [git]
 !.gitignore
