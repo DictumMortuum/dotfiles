@@ -4,6 +4,7 @@ main () {
   git checkout master
   git submodule update --init --recursive
   vim +PluginInstall +qall
+  npm install
 }
 
 main

@@ -20,6 +20,7 @@
 # [npm]
 !.npmrc
 .dotfiles/node_modules
+!package.json
 
 # [git]
 !.gitignore
