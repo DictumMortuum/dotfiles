@@ -8,6 +8,8 @@
 - unity-tweak-tool (optional, for themes, icons and fonts)
 - atom
 - perl (for ack)
+- nodejs / npm (for vtop, bcat, http-server and eslint)
+- tclsh (for identity.tcl pre-commit hook)
 
 ## Installation
 
