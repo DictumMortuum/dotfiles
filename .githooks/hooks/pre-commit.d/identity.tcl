@@ -9,7 +9,7 @@
 #   user = repository2 username2 email2
 #
 
-foreach {repo user email} [exec git config --get-all hooks.user] {
+foreach {repo user email} [exec git config --global --get-all hooks.user] {
   if {![catch {
     exec git config --get --local remote.origin.url | grep $repo
   } msg]} {
