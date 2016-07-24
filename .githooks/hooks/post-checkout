@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DIR=$(dirname "${BASH_SOURCE[0]}")
+
+for hook in $(ls $DIR/post-checkout.d/*); do
+  $hook
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+done
