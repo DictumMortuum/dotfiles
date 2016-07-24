@@ -20,6 +20,7 @@
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
+    softWrap: true
   "exception-reporting":
     userId: "1f590c8c-b4c8-6163-1c46-64df5999717e"
   "file-icons":
