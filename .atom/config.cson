@@ -1,10 +1,5 @@
 "*":
-  "atom-ctags":
-    autoBuildTagsWhenActive: true
   core:
-    disabledPackages: [
-      "symbols-view"
-    ]
     ignoredNames: [
       ".git"
       ".hg"
@@ -14,6 +9,7 @@
       "Thumbs.db"
       "CVS"
     ]
+    projectHome: "$HOME/Code"
     themes: [
       "atom-material-ui"
       "atom-material-syntax-dark"
