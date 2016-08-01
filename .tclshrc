@@ -1,7 +1,15 @@
 global tcl_interactive tcl_prompt1 tcl_prompt2
 
 if {[info exists tcl_interactive] && $tcl_interactive > 0} {
-  set tcl_prompt1 {puts -nonewline "$env(LOGNAME) at $env(HOSTNAME) % "}
+
+  proc color {foreground text} {
+      # tput is a little Unix utility that lets you use the termcap database
+      # *much* more easily...
+      return [exec tput setaf $foreground]$text[exec tput sgr0]
+  }
+
+  set prompt "# [color 6 $env(LOGNAME)] at [color 6 $env(HOSTNAME)] % "
+  set tcl_prompt1 {puts -nonewline "$prompt"}
   set tcl_prompt2 {puts -nonewline ">> "}
 
   if {$env(HOSTNAME) in [list apparatus]} {
