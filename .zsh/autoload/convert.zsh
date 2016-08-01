@@ -1,10 +1,3 @@
-# rfc2396 url encoding (by Bart Schaefer)
-function @urlencode() {
-    setopt localoptions extendedglob
-    input=( ${(s::)1} )
-    print ${(j::)input/(#b)([^A-Za-z0-9_.--version\'\(\)-])/%$(([##16]#match))}
-}
-
 # generate thumbnails page ;)
 function @thumbs() {
   echo "
@@ -17,5 +10,5 @@ function @thumbs() {
     echo "    <a href=\"$f\"><img src=\"thumb-$f\"></a>" >> index.html
   done
   echo "</body></html>" >> index.html
-  sensible-browser ./index.html
+  #sensible-browser ./index.html
 }
