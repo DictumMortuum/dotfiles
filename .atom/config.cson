@@ -12,7 +12,7 @@
     projectHome: "$HOME/Code"
     themes: [
       "atom-material-ui"
-      "solarized-dark-syntax"
+      "base16-tomorrow-dark-theme"
     ]
   editor:
     fontFamily: "Droid Sans Mono"
