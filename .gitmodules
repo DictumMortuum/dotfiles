@@ -10,9 +10,6 @@
 [submodule ".dotfiles/Vundle.vim"]
 	path = .dotfiles/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
-[submodule ".dotfiles/NARKOZ"]
-	path = .dotfiles/NARKOZ
-	url = https://github.com/NARKOZ/dotfiles.git
 [submodule ".zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = .zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
