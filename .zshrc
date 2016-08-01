@@ -58,7 +58,6 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/env.zsh
 
 # ALIASES / FUNCTIONS
-
 foreach file in $(ls $HOME/.zsh/autoload); do
   # http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
   comm="${file%.*}"
