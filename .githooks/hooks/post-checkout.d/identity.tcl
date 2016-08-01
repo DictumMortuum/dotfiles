@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh
+#!/usr/bin/env tclsh
 
 #
 # Determines user.name and user.email from remote repository URL.
