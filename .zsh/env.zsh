@@ -24,11 +24,12 @@ test -d "$HOME/.dotfiles/bin" && PATH="$HOME/.dotfiles/bin:$PATH"
 
 # ALIASES / FUNCTIONS
 
-foreach f in $(ls $HOME/.zsh/autoload); do
-  if [ -f "$HOME/.zsh/autoload/$f" ]; then
-      source $HOME/.zsh/autoload/$f
-  else
-      print "NOTE: $HOME/.zsh/autoload/$f is unavailable."
+foreach file in $(ls $HOME/.zsh/autoload); do
+  # http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+  comm="${file%.*}"
+  # http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+  if type $comm >/dev/null 2>&1; then
+    source $HOME/.zsh/autoload/$file
   fi
 done
 
