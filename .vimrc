@@ -17,8 +17,11 @@ set autoread                    "Reload files changed outside vim
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-"turn on syntax highlighting
+" turn on syntax highlighting
 syntax on
+
+" Access colors present in 256 colorspace
+let base16colorspace=256
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -36,6 +39,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
