@@ -44,4 +44,4 @@
 
 # [tclsh]
 !.tclsh
-.tclshrc
+!.tclshrc
