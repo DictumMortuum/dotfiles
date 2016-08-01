@@ -41,3 +41,7 @@
 .atom/*
 !.atom/config.cson
 !.atom/styles.less
+
+# [tclsh]
+!.tclsh
+.tclshrc

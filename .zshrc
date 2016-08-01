@@ -53,4 +53,20 @@ plugins=(zsh-syntax-highlighting)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
-[ -f ~/.zsh/env.zsh ] && source ~/.zsh/env.zsh
+
+# ENVIRONMENT SETUP
+source $HOME/.zsh/env.zsh
+
+# ALIASES / FUNCTIONS
+
+foreach file in $(ls $HOME/.zsh/autoload); do
+  # http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+  comm="${file%.*}"
+  # http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+  if type $comm >/dev/null 2>&1; then
+    source $HOME/.zsh/autoload/$file
+  fi
+done
+
+# condense PATH entries
+PATH=$(path.tcl)
