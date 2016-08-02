@@ -1,6 +1,6 @@
-foreach {lib version} {
-  combinations 1.0
-  permutations 1.0
+foreach lib {
+  combinations
+  permutations
 } {
-  package ifneeded $lib $version [list source [file join $dir $lib.tcl]]
+  package ifneeded $lib 1.0 [list source [file join $dir $lib.tcl]]
 }
