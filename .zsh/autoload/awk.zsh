@@ -1,2 +1,2 @@
 # update path
-PATH="$HOME/.awk/:$PATH"
+PATH="$HOME/.awk/bin/:$PATH"
