@@ -57,6 +57,10 @@ source $ZSH/oh-my-zsh.sh
 # ENVIRONMENT SETUP
 source $HOME/.zsh/env.zsh
 
+if [[ $HOSTNAME == dev* ]]; then
+  source $HOME/.zsh/openbet.zsh
+fi
+
 # ALIASES / FUNCTIONS
 foreach file in $(ls $HOME/.zsh/autoload); do
   # http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
