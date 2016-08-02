@@ -18,6 +18,7 @@
 !.icons
 !.vim/bundle/vundle
 !.zsh
+!.awk
 
 # [npm]
 !.npmrc
