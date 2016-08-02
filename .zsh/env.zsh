@@ -5,7 +5,8 @@ LOGNAME=$(id -un)
 UNAME=$(uname)
 HOSTNAME=$(hostname)
 EDITOR=vim
-export HOME LOGNAME UNAME EDITOR HOSTNAME
+VISUAL=$EDITOR
+export HOME LOGNAME UNAME EDITOR HOSTNAME VISUAL
 
 # complete hostnames from this file
 : ${HOSTFILE=~/.ssh/known_hosts}
