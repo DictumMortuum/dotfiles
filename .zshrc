@@ -71,5 +71,8 @@ foreach file in $(ls $HOME/.zsh/autoload); do
   fi
 done
 
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+
 # condense PATH entries
 PATH=$(path.tcl)
