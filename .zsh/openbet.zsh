@@ -23,3 +23,5 @@ export LD_LIBRARY_PATH='/usr/lib:/space/pmu/tibems/lib/64:/space/pmu/tibems/lib:
 
 # Path
 PATH="$PATH:/opt/TclDevKit/bin:/opt/apache-ant/bin:/opt/apache-maven/bin:/opt/informix/bin:/opt/puppetlabs/bin:/shared/orbis/Support/CustomerDB:/shared/prj/openbet/appserv/rhel/6/x86_64/bin:/shared/prj/openbet/liveserv/rhel/6/x86_64/sbin:/usr/java/latest/bin:/usr/lib64/qt-3.3/bin"
+
+unset LS_COLORS
