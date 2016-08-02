@@ -14,4 +14,5 @@
 
 tabLength=2
 backgroundColor=#1a1a1a
-foregroundColor=#ecf0f1;
+foregroundColor=#ecf0f1
+port=5799
