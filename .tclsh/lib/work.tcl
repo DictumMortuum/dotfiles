@@ -36,6 +36,8 @@ namespace eval work {
   foreach {cfg default} {
     ENV_SHARED_TCL_DIR $::env(HOME)/current/shared_tcl
     SHARED_TCL         $::env(HOME)/current/shared_tcl
+    DB_STORE_ACTIVE_SESS 0
+    DB_STORE_SESS_INFO   0
   } {
     OT_CfgSet $cfg $default
   }
