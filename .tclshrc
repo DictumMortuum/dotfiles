@@ -3,9 +3,9 @@ global tcl_interactive tcl_prompt1 tcl_prompt2
 if {[info exists tcl_interactive] && $tcl_interactive > 0} {
 
   proc color {foreground text} {
-      # tput is a little Unix utility that lets you use the termcap database
-      # *much* more easily...
-      return [exec tput setaf $foreground]$text[exec tput sgr0]
+    # tput is a little Unix utility that lets you use the termcap database
+    # *much* more easily...
+    return [exec tput setaf $foreground]$text[exec tput sgr0]
   }
 
   set prompt "# [color 6 $env(LOGNAME)] at [color 6 $env(HOSTNAME)] % "

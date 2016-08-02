@@ -55,7 +55,7 @@ plugins=(zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # ENVIRONMENT SETUP
-source $HOME/.zsh/env.zsh
+source $HOME/.zsh/default.zsh
 
 if [[ $HOSTNAME == dev* ]]; then
   source $HOME/.zsh/openbet.zsh
