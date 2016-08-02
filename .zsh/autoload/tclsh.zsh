@@ -3,3 +3,5 @@ alias tclsh="rlwrap -z $HOME/.tclsh/autocomplete tclsh"
 
 # update path
 PATH="$HOME/.tclsh/bin:$PATH"
+
+export TCLLIBPATH="$HOME/.tclsh"
