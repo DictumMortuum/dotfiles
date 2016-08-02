@@ -72,6 +72,7 @@ foreach file in $(ls $HOME/.zsh/autoload); do
 done
 
 # http://www.zsh.org/mla/users/2002/msg00496.html
+# http://zshwiki.org/home/cfg/zyrnix
 # I don't know why this doesn't work in my cvs.zsh file.
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
