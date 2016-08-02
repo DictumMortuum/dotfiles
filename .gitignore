@@ -8,6 +8,7 @@
 !.ackrc
 !.eslintrc.json
 !.bcatrc
+!.cvsrc
 !README.md
 !install.sh
 
