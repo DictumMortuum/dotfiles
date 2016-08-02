@@ -4,30 +4,32 @@ namespace eval work {
 
   global DB
 
-  load libOT_Tcl.so
-  load libOT_InfTcl.so
+  proc init {} {
+    load libOT_Tcl.so
+    load libOT_InfTcl.so
 
-  OT_CfgRead $env(HOME)/current/conf/env/env_local.cfg
+    OT_CfgRead $env(HOME)/current/conf/env/env_local.cfg
 
-  foreach {cfg default} {
-  	ENV_SHARED_TCL_DIR $env(HOME)/current/shared_tcl
-    SHARED_TCL         $env(HOME)/current/shared_tcl
-  } {
-  	OT_CfgSet $cfg $default
+    foreach {cfg default} {
+    	ENV_SHARED_TCL_DIR $env(HOME)/current/shared_tcl
+      SHARED_TCL         $env(HOME)/current/shared_tcl
+    } {
+    	OT_CfgSet $cfg $default
+    }
+
+    set xtn [OT_CfgGet TCL_XTN tbc]
+    lappend auto_path $env(HOME)/current/shared_tcl
+
+    package require util_log 4.5
+    package require bin_standalone
+    package require util_db_multi 4.5
+    package require util_xl 4.5
+
+    ob_log::sl_init "/tmp" "<<stdout>>"
+    ob_xl::init
+
+    init_db SOURCE [OT_CfgGet DB_SERVER] [OT_CfgGet DB_DATABASE]
   }
-
-  set xtn [OT_CfgGet TCL_XTN tbc]
-  lappend auto_path $env(HOME)/current/shared_tcl
-
-  package require util_log 4.5
-  package require bin_standalone
-  package require util_db_multi 4.5
-  package require util_xl 4.5
-
-  ob_log::sl_init "/tmp" "<<stdout>>"
-  ob_xl::init
-
-  init_db SOURCE [OT_CfgGet DB_SERVER] [OT_CfgGet DB_DATABASE]
 
   proc init_db {conn server database args} {
   	global DB
@@ -52,4 +54,6 @@ namespace eval work {
   proc rs_close {rs {conn_name SOURCE}}  {
   	ob_db_multi::rs_close $conn_name $rs
   }
+
+  init
 }
