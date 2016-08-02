@@ -15,8 +15,6 @@ if {[info exists tcl_interactive] && $tcl_interactive > 0} {
   if {$env(HOSTNAME) in [list apparatus]} {
     # personal environment
   } else {
-    # work
-    load libOT_Tcl.so
-    load libOT_InfTcl.so
+    package require work 1.0
   }
 }
