@@ -9,6 +9,8 @@
 !.eslintrc.json
 !.bcatrc
 !.cvsrc
+!.wgetrc
+!.curlrc
 !README.md
 !install.sh
 
