@@ -49,3 +49,7 @@
 # [tclsh]
 !.tclsh
 !.tclshrc
+
+# [curl]
+!.curlrc
+!.curl
