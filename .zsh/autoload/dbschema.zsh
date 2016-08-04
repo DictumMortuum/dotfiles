@@ -1,4 +1,7 @@
+# $1 should be:
+# -f for functions
+# -t for tables
 function @dbschema() {
-  table=$2:l
+  item=$2:l
   dbschema $1 $2
 }
