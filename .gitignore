@@ -9,6 +9,7 @@
 !.eslintrc.json
 !.bcatrc
 !.cvsrc
+!.wgetrc
 !README.md
 !install.sh
 
@@ -47,3 +48,7 @@
 # [tclsh]
 !.tclsh
 !.tclshrc
+
+# [curl]
+!.curlrc
+!.curl
