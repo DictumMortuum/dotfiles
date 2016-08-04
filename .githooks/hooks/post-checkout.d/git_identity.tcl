@@ -1,0 +1,1 @@
+/home/dictummortuum/.tclsh/bin/git_identity.tcl
