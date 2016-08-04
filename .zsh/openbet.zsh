@@ -34,3 +34,5 @@ test -d "/usr/lib64/qt-3.3/bin" && PATH="/usr/lib64/qt-3.3/bin:$PATH"
 
 unset LS_COLORS
 unset LSCOLORS
+
+alias dbschema="dbschema-11.50 -d pmu_0"
