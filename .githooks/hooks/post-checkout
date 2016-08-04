@@ -1,10 +1,7 @@
-#!/usr/bin/env bash
+#! /usr/bin/env tclsh
 
-DIR=$(dirname "${BASH_SOURCE[0]}")
+package require githook 1.0
 
-for hook in $(ls $DIR/post-checkout.d/*); do
-  $hook
-  if [ $? -ne 0 ]; then
-    exit 1
-  fi
-done
+githook::source {
+  git_identity.tcl
+}

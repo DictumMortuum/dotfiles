@@ -52,3 +52,6 @@
 # [curl]
 !.curlrc
 !.curl
+
+# [bash]
+!.bash
