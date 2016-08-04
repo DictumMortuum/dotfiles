@@ -14,7 +14,7 @@
 @ssh_push () {
   local _host
 
-  if [ -f "$HOME/.ssh/id_rsa.pub" ]; then
+  if [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
     echo "$HOME/.ssh/id_rsa.pub doesn't exist."
     return
   fi
