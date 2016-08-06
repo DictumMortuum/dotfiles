@@ -2,4 +2,4 @@
 silent
 show-error
 output=/dev/null
-write-out="%{http_code}"
+write-out="%{http_code}\n"
