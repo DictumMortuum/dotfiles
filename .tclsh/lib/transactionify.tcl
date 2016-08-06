@@ -2,17 +2,24 @@ package provide transactionify 1.0
 
 namespace eval transactionify {
 
+  # Tested for Informix 11.50
   proc process {fc fr file} {
     set fp [open $file "r"]
     set data [read $fp]
     close $fp
 
-    set transaction [regexp -all {begin.*(commit|rollback)} $data]
-    set trans_in_proc [regexp -all {create procedure.*begin.*(commit|rollback).*end procedure} $data]
+    # Remove procs
+    regsub -all {create procedure.*end procedure} $data "" check
+    # Remove multiline comments
+    regsub -all {\{.*\}} $check "" check
+    # Remove drop procedure statement
+    regsub -all -line {drop procedure .*} $check "" check
+    # Remove single line comments
+    regsub -all -line {\-\-.*} $check "" check
 
-    # If there is a transaction in a stored proc, we're ok.
-    # If there is no transaction, we're ok.
-    if { ($transaction && $trans_in_proc) || ! $transaction} {
+    # If there is a begin/rollback/commit statement in whatever's left,
+    # then we've got a problem
+    if {![regexp {begin[a-zA-Z ]*;|commit[a-zA-Z ]*;|rollback[a-zA-Z ]*;} $check]} {
       puts $fc $data
       puts $fr $data
     # If there is a transaction outside of a proc, we have a problem.
