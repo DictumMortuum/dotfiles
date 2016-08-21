@@ -40,6 +40,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'chriskempson/base16-vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

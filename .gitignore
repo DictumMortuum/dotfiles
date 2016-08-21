@@ -10,6 +10,7 @@
 !.bcatrc
 !.cvsrc
 !.wgetrc
+!.editorconfig
 !README.md
 !install.sh
 
