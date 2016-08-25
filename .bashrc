@@ -131,11 +131,14 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM=xterm-256color
 fi
 
+BASE16_SHELL=$HOME/.dotfiles/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 if tput setaf 1 &> /dev/null; then
 	tput sgr0
-	MAGENTA=$(tput setaf 1)
-	ORANGE=$(tput setaf 2)
-	GREEN=$(tput setaf 3)
+	MAGENTA=$(tput setaf 5)
+	ORANGE=$(tput setaf 3)
+	GREEN=$(tput setaf 2)
 	PURPLE=$(tput setaf 4)
 	BOLD=$(tput bold)
 	RESET=$(tput sgr0)
@@ -154,9 +157,6 @@ export GREEN
 export PURPLE
 export BOLD
 export RESET
-
-BASE16_SHELL=$HOME/.dotfiles/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Git branch details
 function parse_git_dirty() {
