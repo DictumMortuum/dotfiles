@@ -1,4 +1,6 @@
 "*":
+  "base16-syntax":
+    scheme: "Ashes"
   core:
     ignoredNames: [
       ".git"
@@ -12,7 +14,7 @@
     projectHome: "$HOME/Code"
     themes: [
       "atom-material-ui"
-      "base16-tomorrow-dark-theme"
+      "base16-syntax"
     ]
   editor:
     fontFamily: "Droid Sans Mono"

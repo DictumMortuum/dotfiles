@@ -11,6 +11,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set encoding=utf-8
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -37,10 +38,11 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'chriskempson/base16-vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -49,6 +51,21 @@ filetype plugin indent on    " required
 " Vundle plugin configuration
 " lightline
 set laststatus=2
+let g:airline_theme='base16_ashes'
+let g:airline_skip_empty_sections = 1
+let g:airline_detect_paste = 1
+let g:airline_powerline_fonts = 0
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
 " NERDtree
 map <C-n> :NERDTreeToggle<CR>
 
