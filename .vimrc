@@ -51,7 +51,7 @@ filetype plugin indent on    " required
 " Vundle plugin configuration
 " lightline
 set laststatus=2
-let g:airline_theme='base16_ashes'
+let g:airline_theme='raven'
 let g:airline_skip_empty_sections = 1
 let g:airline_detect_paste = 1
 let g:airline_powerline_fonts = 0
