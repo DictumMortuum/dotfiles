@@ -57,6 +57,9 @@ source $ZSH/oh-my-zsh.sh
 # ENVIRONMENT SETUP
 source $HOME/.zsh/default.zsh
 
+BASE16_SHELL=$HOME/.dotfiles/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 if [[ $HOSTNAME == dev* ]]; then
   source $HOME/.zsh/openbet.zsh
 fi

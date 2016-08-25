@@ -50,7 +50,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Vundle plugin configuration
-" lightline
+" airline
 set laststatus=2
 let g:airline_theme='base16_ashes'
 let g:airline_skip_empty_sections = 1
@@ -69,6 +69,10 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " NERDtree
 map <C-n> :NERDTreeToggle<CR>
+
+" base16
+colorscheme base16-ashes
+set background=dark
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
