@@ -133,17 +133,10 @@ fi
 
 if tput setaf 1 &> /dev/null; then
 	tput sgr0
-	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
-		MAGENTA=$(tput setaf 9)
-		ORANGE=$(tput setaf 172)
-		GREEN=$(tput setaf 190)
-		PURPLE=$(tput setaf 141)
-	else
-		MAGENTA=$(tput setaf 5)
-		ORANGE=$(tput setaf 4)
-		GREEN=$(tput setaf 2)
-		PURPLE=$(tput setaf 1)
-	fi
+	MAGENTA=$(tput setaf 1)
+	ORANGE=$(tput setaf 2)
+	GREEN=$(tput setaf 3)
+	PURPLE=$(tput setaf 4)
 	BOLD=$(tput bold)
 	RESET=$(tput sgr0)
 else
