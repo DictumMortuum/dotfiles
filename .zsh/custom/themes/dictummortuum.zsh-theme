@@ -6,6 +6,7 @@
 # %n => username
 # %m => shortname host
 # %(?..) => prompt conditional - %(condition.true.false)
+
 # terminal codes:
 # \e7   => save cursor position
 # \e[2A => move cursor 2 lines up
@@ -30,15 +31,21 @@
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 
+DICTUM_USER="%F{blue}%n%f"
+DICTUM_HOST="%F{magenta}%m%f"
+DICTUM_BRANCH="%F{red}%b%m%c%u%f"
+DICTUM_PROMPT="%F{blue}%~%f"
+DICTUM_VCS="%F{cyan}%s%f"
+
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' enable git svn cvs
-zstyle ':vcs_info:*' formats "%F{blue}%s %b%m %c%u%f"
-zstyle ':vcs_info:*' actionformats "%F{blue}%s %b%m %c%u%a%f"
-zstyle ':vcs_info:cvs*+set-message:*' hooks cvs-tag
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-
+zstyle ':vcs_info:*' formats "$DICTUM_BRANCH at $DICTUM_VCS in $DICTUM_PROMPT "
+zstyle ':vcs_info:*' actionformats "$DICTUM_BRANCH at $DICTUM_VCS in $DICTUM_PROMPT "
+zstyle ':vcs_info:*' nvcsformats "$DICTUM_USER at $DICTUM_HOST in $DICTUM_PROMPT "
 zstyle ':vcs_info:*:*' unstagedstr '+'
 zstyle ':vcs_info:*:*' stagedstr '-'
+zstyle ':vcs_info:cvs*+set-message:*' hooks cvs-tag
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 # Use cvs tag instead of branch
 function +vi-cvs-tag() {
@@ -64,20 +71,13 @@ function +vi-git-untracked(){
 
 add-zsh-hook precmd vcs_info
 
-### Needed for a pretty prompt
-#setopt prompt_subst # Enables additional prompt extentions
-#autoload -U colors && colors    # Enables colours
-
 ### My default prompt
-PROMPT='%F{blue}%n%f at %F{magenta}%m%f in %F{cyan}%~%f '
+PROMPT='%B${vcs_info_msg_0_}%b'
 ### My default prompt's right side
-RPROMPT='${vcs_info_msg_0_}'
-
+#RPOMPT=''
 ### My prompt for loops
 PROMPT2='{%_}  '
-
 ### My prompt for selections
 PROMPT3='{ … }  '
-
 ### So far I don't use "setopt xtrace", so I don't need this prompt
 #PROMPT4=''
