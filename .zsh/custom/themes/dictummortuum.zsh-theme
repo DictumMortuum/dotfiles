@@ -31,11 +31,11 @@
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 
-DICTUM_USER="%F{blue}%n%f"
+DICTUM_USER="%F{8}%n%f"
 DICTUM_HOST="%F{magenta}%m%f"
 DICTUM_BRANCH="%F{8}%b%f%F{red}%m%f%c%u"
 DICTUM_PROMPT="%F{blue}%~%f"
-DICTUM_VCS="%F{13}%s%f"
+DICTUM_VCS="%F{magenta}%s%f"
 
 DICTUM_UNTRACKED="?"
 DICTUM_STAGED="-"
