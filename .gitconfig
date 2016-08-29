@@ -56,7 +56,7 @@
   s = status -sb
   su = submodule update --init --recursive
   supgrade = submodule foreach 'git f && git co FETCH_HEAD'
-  slastest = submodule foreach 'git checkout master && git pull origin master'
+  slatest = submodule foreach 'git checkout master && git pull origin master'
   sync = !git pull && git slatest
   t = tag
   td = tag -d
