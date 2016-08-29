@@ -33,19 +33,26 @@ autoload -Uz vcs_info
 
 DICTUM_USER="%F{blue}%n%f"
 DICTUM_HOST="%F{magenta}%m%f"
-DICTUM_BRANCH="%F{red}%b%m%c%u%f"
+DICTUM_BRANCH="%F{8}%b%m%c%u%f"
 DICTUM_PROMPT="%F{blue}%~%f"
-DICTUM_VCS="%F{cyan}%s%f"
+DICTUM_VCS="%F{13}%s%f"
+
+DICTUM_UNTRACKED="?"
+DICTUM_STAGED="-"
+DICTUM_UNSTAGED="+"
 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' enable git svn cvs
-zstyle ':vcs_info:*' formats "$DICTUM_BRANCH at $DICTUM_VCS in $DICTUM_PROMPT "
-zstyle ':vcs_info:*' actionformats "$DICTUM_BRANCH at $DICTUM_VCS in $DICTUM_PROMPT "
-zstyle ':vcs_info:*' nvcsformats "$DICTUM_USER at $DICTUM_HOST in $DICTUM_PROMPT "
-zstyle ':vcs_info:*:*' unstagedstr '+'
-zstyle ':vcs_info:*:*' stagedstr '-'
+zstyle ':vcs_info:*' formats "%%B$DICTUM_BRANCH%%b at \
+%%B$DICTUM_VCS%%b in %%B$DICTUM_PROMPT%%b "
+zstyle ':vcs_info:*' actionformats "%%B$DICTUM_BRANCH|%a at \
+%%B$DICTUM_VCS%%b in %%B$DICTUM_PROMPT%%b "
+zstyle ':vcs_info:*' nvcsformats "%B$DICTUM_USER%b at \
+%B$DICTUM_HOST%b in %B$DICTUM_PROMPT%b "
+zstyle ':vcs_info:*:*' unstagedstr "$DICTUM_UNSTAGED"
+zstyle ':vcs_info:*:*' stagedstr "$DICTUM_STAGED"
 zstyle ':vcs_info:cvs*+set-message:*' hooks cvs-tag
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-aheadbehind git-remotebranch
 
 # Use cvs tag instead of branch
 function +vi-cvs-tag() {
@@ -65,14 +72,51 @@ function +vi-git-untracked(){
     # If instead you want to show the marker only if there are untracked
     # files in $PWD, use:
     #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
-    hook_com[unstaged]+='?'
+    hook_com[unstaged]+="$DICTUM_UNTRACKED"
+  fi
+}
+
+### git: Show +N/-N when your local branch is ahead-of or behind remote HEAD.
+# Make sure you have added misc to your 'formats':  %m
+function +vi-git-aheadbehind() {
+  local ahead behind
+  local -a gitstatus
+
+  # for git prior to 1.7
+  # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
+  ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+  (( $ahead )) && gitstatus+=( "%B%F{blue}+${ahead}%f%b" )
+
+  # for git prior to 1.7
+  # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
+  behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l | tr -d ' ')
+  (( $behind )) && gitstatus+=( "%B%F{red}-${behind}%f%b" )
+
+  hook_com[misc]+=${(j::)gitstatus}
+}
+
+### git: Show remote branch name for remote-tracking branches
+# Make sure you have added staged to your 'formats':  %b
+function +vi-git-remotebranch() {
+  local remote
+
+  # Are we on a remote-tracking branch?
+  remote=${$(git rev-parse --verify ${hook_com[branch]}@{upstream} \
+      --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+
+  # The first test will show a tracking branch whenever there is one. The
+  # second test, however, will only show the remote branch's name if it
+  # differs from the local one.
+  #if [[ -n ${remote} ]] ; then
+  if [[ -n ${remote} && ${remote#*/} != ${hook_com[branch]} ]] ; then
+    hook_com[branch]+="(${remote})"
   fi
 }
 
 add-zsh-hook precmd vcs_info
 
 ### My default prompt
-PROMPT='%B${vcs_info_msg_0_}%b'
+PROMPT='${vcs_info_msg_0_}'
 ### My default prompt's right side
 #RPOMPT=''
 ### My prompt for loops
