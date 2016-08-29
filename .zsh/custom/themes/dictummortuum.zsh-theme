@@ -1,29 +1,83 @@
-#Get more characters from http://copypastecharacter.com/
-local ret_status="%(?:%{$fg_bold[blue]%}#:%{$fg_bold[red]%}#%s)"
+# prompt:
+# %F => color dict
+# %f => reset color
+# %~ => current path
+# %* => time
+# %n => username
+# %m => shortname host
+# %(?..) => prompt conditional - %(condition.true.false)
+# terminal codes:
+# \e7   => save cursor position
+# \e[2A => move cursor 2 lines up
+# \e[1G => go to position 1 in terminal
+# \e8   => restore cursor position
+# \e[K  => clears everything after the cursor on the current line
+# \e[2K => clear everything on the current line
 
-function cvs_prompt_info() {
-  if [[ -d "CVS" ]] && [[ -e "CVS/Tag" ]]; then
-    CVS_BRANCH=$(cat CVS/Tag | cut -c 2-)
-    echo "${ZSH_THEME_CVS_PROMPT_PREFIX}${CVS_BRANCH}${ZSH_THEME_CVS_PROMPT_SUFFIX}"
+# vcs_info:
+# %a => action
+# %b => branch
+# %c => staged
+# %i => revision
+# %m => misc
+# %r => base-name
+# %s => vcs
+# %u => unstaged
+# %Q => quilt
+# %R => base
+# %S => subdir
+
+autoload -Uz add-zsh-hook
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' enable git svn cvs
+zstyle ':vcs_info:*' formats "%F{blue}%s %b%m %c%u%f"
+zstyle ':vcs_info:*' actionformats "%F{blue}%s %b%m %c%u%a%f"
+zstyle ':vcs_info:cvs*+set-message:*' hooks cvs-tag
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+
+zstyle ':vcs_info:*:*' unstagedstr '+'
+zstyle ':vcs_info:*:*' stagedstr '-'
+
+# Use cvs tag instead of branch
+function +vi-cvs-tag() {
+  if [[ -f ./CVS/Tag ]]; then
+    hook_com[branch] = $(< ./CVS/Tag)
+  else
+    hook_com[branch] = "trunk"
   fi
 }
 
-function svn_prompt_info() {
-  SVN_INFO=$(svn info 2> /dev/null)
-  if [ $? -eq 0 ]; then
-    SVN_BRANCH=$(echo $SVN_INFO | grep 'Relative URL' | awk '{print $3}')
-    SVN_REV=$(echo $SVN_INFO | grep 'Revision' | awk '{print $2}')
-    echo "${ZSH_THEME_SVN_PROMPT_PREFIX}$SVN_BRANCH:$SVN_REV${ZSH_THEME_SVN_PROMPT_SUFFIX}"
+### git: Show marker (T) if there are untracked files in repository
+# Make sure you have added staged to your 'formats':  %c
+function +vi-git-untracked(){
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+    git status --porcelain | fgrep '??' &> /dev/null ; then
+    # This will show the marker if there are any untracked files in repo.
+    # If instead you want to show the marker only if there are untracked
+    # files in $PWD, use:
+    #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+    hook_com[unstaged]+='?'
   fi
 }
 
-PROMPT='${ret_status}%{$reset_color%} %{$fg[cyan]%}%n%{$reset_color%} at %{$fg[cyan]%}%m%{$reset_color%} in %{$fg[cyan]%}%~%{$reset_color%} $(cvs_prompt_info)$(svn_prompt_info)$(git_prompt_info)% %{$reset_color%}'
-RPROMPT='%{$fg_bold[cyan]%}[%*]%{$reset_color%}'
-ZSH_THEME_CVS_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
-ZSH_THEME_CVS_PROMPT_SUFFIX="%{$fg[blue]%})%{$fg[red]%}%{$reset_color%}%{$reset_color%}%{$fg_bold[blue]%} "
-ZSH_THEME_SVN_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
-ZSH_THEME_SVN_PROMPT_SUFFIX="%{$fg[blue]%})%{$fg[red]%}%{$reset_color%}%{$reset_color%}%{$fg_bold[blue]%} "
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}%{$fg_bold[blue]%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[red]%}+%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg[red]%}-%{$reset_color%} "
+add-zsh-hook precmd vcs_info
+
+### Needed for a pretty prompt
+#setopt prompt_subst # Enables additional prompt extentions
+#autoload -U colors && colors    # Enables colours
+
+### My default prompt
+PROMPT='%F{blue}%n%f at %F{magenta}%m%f in %F{cyan}%~%f '
+### My default prompt's right side
+RPROMPT='${vcs_info_msg_0_}'
+
+### My prompt for loops
+PROMPT2='{%_}  '
+
+### My prompt for selections
+PROMPT3='{ … }  '
+
+### So far I don't use "setopt xtrace", so I don't need this prompt
+#PROMPT4=''
