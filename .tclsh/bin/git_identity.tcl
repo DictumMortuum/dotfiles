@@ -9,10 +9,13 @@
 #   user = repository2 username2 email2
 #
 
+set default 1
+
 foreach {repo user email} [exec git config --global --get-all hooks.user] {
   if {![catch {
     exec git config --get --local remote.origin.url | grep $repo
-  } msg]} {
+  } msg] || $default} {
+    set default 0
     exec git config --local user.name $user
     exec git config --local user.email $email
   }
