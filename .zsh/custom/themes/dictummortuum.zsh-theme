@@ -33,7 +33,7 @@ autoload -Uz vcs_info
 
 DICTUM_USER="%F{blue}%n%f"
 DICTUM_HOST="%F{magenta}%m%f"
-DICTUM_BRANCH="%F{8}%b%m%c%u%f"
+DICTUM_BRANCH="%F{8}%b%f%F{red}%m%f%c%u"
 DICTUM_PROMPT="%F{blue}%~%f"
 DICTUM_VCS="%F{13}%s%f"
 
@@ -59,7 +59,7 @@ function +vi-cvs-tag() {
   if [[ -f ./CVS/Tag ]]; then
     hook_com[branch] = $(< ./CVS/Tag)
   else
-    hook_com[branch] = "trunk"
+    hook_com[branch] = "HEAD"
   fi
 }
 
@@ -85,12 +85,12 @@ function +vi-git-aheadbehind() {
   # for git prior to 1.7
   # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
   ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l | tr -d ' ')
-  (( $ahead )) && gitstatus+=( "%B%F{blue}+${ahead}%f%b" )
+  (( $ahead )) && gitstatus+=( "+${ahead}" )
 
   # for git prior to 1.7
   # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
   behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l | tr -d ' ')
-  (( $behind )) && gitstatus+=( "%B%F{red}-${behind}%f%b" )
+  (( $behind )) && gitstatus+=( "-${behind}" )
 
   hook_com[misc]+=${(j::)gitstatus}
 }
