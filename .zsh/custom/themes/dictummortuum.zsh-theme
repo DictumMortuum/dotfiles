@@ -56,8 +56,11 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-aheadbehind git-re
 
 # Use cvs tag instead of branch
 function +vi-cvs-tag() {
+  local branch
+
   if [[ -f ./CVS/Tag ]]; then
-    hook_com[branch]=$(< ./CVS/Tag)
+    branch=$(< ./CVS/Tag)
+    hook_com[branch]=${branch:1}
   else
     hook_com[branch]="HEAD"
   fi
