@@ -1,4 +1,4 @@
-preinstall() {
+ubuntu() {
   sudo add-apt-repository --yes ppa:webupd8team/atom
   sudo apt-get update
   sudo apt-get install --yes git
@@ -32,9 +32,8 @@ install() {
   npm install
 }
 
-main() {
-  preinstall
-  install
-}
+if [ "$#" -ne 0 ]; then
+  $1
+fi
 
-main
+install
