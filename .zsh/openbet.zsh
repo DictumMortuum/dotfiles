@@ -37,3 +37,4 @@ unset LSCOLORS
 
 alias dbschema="dbschema-11.50 -d pmu_0"
 alias db="dbaccess pmu_0 -"
+alias pmu="$HOME/pmu-build/pmu-build.sh"
