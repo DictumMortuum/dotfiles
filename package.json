@@ -4,7 +4,7 @@
   "description": "dotfiles",
   "main": "install.sh",
   "scripts": {
-    "preinstall": "npm i -g eslint && npm i -g vtop && npm i -g http-server && npm i -g bcat"
+    "preinstall": "npm i -g eslint && npm i -g vtop && npm i -g bcat"
   },
   "repository": {
     "type": "git",
