@@ -12,7 +12,6 @@
 !.cvsrc
 !.wgetrc
 !.editorconfig
-!.gedit
 !README.md
 !install.sh
 
@@ -24,6 +23,7 @@
 !.vim/bundle/vundle
 !.zsh
 !.awk
+!.gedit
 
 # [npm]
 !.npmrc
@@ -58,3 +58,6 @@
 
 # [bash]
 !.bash
+
+# [gpg]
+!.gnupg/gpg.conf
