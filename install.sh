@@ -28,8 +28,14 @@ install() {
   git remote add -t \* -f origin git@github.com:DictumMortuum/dotfiles.git
   git checkout master
   git submodule update --init --recursive
-  vim +PluginInstall +qall
-  npm install
+
+  if type vim >/dev/null 2>&1; then
+    vim +PluginInstall +qall
+  fi
+
+  if type npm >/dev/null 2>&1; then
+    npm install
+  fi
 }
 
 if [ "$#" -ne 0 ]; then
