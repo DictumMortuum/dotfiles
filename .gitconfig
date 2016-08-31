@@ -37,6 +37,7 @@
   fm = !git f && git m
   h = show HEAD --word-diff=color
   hf = show HEAD --name-only
+  i = !git init && git_identity.tcl
   l = log --oneline --decorate
   laf = log --oneline --decorate --follow --all --
   lag = log --oneline --decorate --graph --all
