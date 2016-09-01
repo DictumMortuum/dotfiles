@@ -31,11 +31,14 @@
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 
-DICTUM_USER="%F{8}%n%f"
-DICTUM_HOST="%F{magenta}%m%f"
-DICTUM_BRANCH="%F{8}%b%f%F{red}%m%f%c%u"
-DICTUM_PROMPT="%F{blue}%~%f"
-DICTUM_VCS="%F{magenta}%s%f"
+DICTUM_USER="%B%F{8}%n%f%b"
+DICTUM_USER_VCS="%%B%F{8}%%n%f%%b"
+DICTUM_HOST="%B%F{magenta}%m%f%b"
+DICTUM_HOST_VCS="%%B%F{magenta}%%m%f%%b"
+DICTUM_BRANCH="%%B%F{8}%b%f%F{red}%m%f%c%u%%b"
+DICTUM_PROMPT="%B%F{blue}%~%f%b"
+DICTUM_PROMPT_VCS="%%B%F{blue}%~%f%%b"
+DICTUM_VCS="%%B%F{magenta}%s%f%%b"
 
 DICTUM_UNTRACKED="?"
 DICTUM_STAGED="-"
@@ -43,12 +46,9 @@ DICTUM_UNSTAGED="+"
 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' enable git svn cvs
-zstyle ':vcs_info:*' formats "%%B$DICTUM_BRANCH%%b at \
-%%B$DICTUM_VCS%%b in %%B$DICTUM_PROMPT%%b "
-zstyle ':vcs_info:*' actionformats "%%B$DICTUM_BRANCH|%a at \
-%%B$DICTUM_VCS%%b in %%B$DICTUM_PROMPT%%b "
-zstyle ':vcs_info:*' nvcsformats "%B$DICTUM_USER%b at \
-%B$DICTUM_HOST%b in %B$DICTUM_PROMPT%b "
+zstyle ':vcs_info:*' formats "$DICTUM_VCS:$DICTUM_BRANCH on $DICTUM_HOST_VCS in $DICTUM_PROMPT_VCS "
+zstyle ':vcs_info:*' actionformats "$DICTUM_VCS:$DICTUM_BRANCH|%a  on $DICTUM_HOST_VCS in $DICTUM_PROMPT_VCS "
+zstyle ':vcs_info:*' nvcsformats "$DICTUM_USER on $DICTUM_HOST in $DICTUM_PROMPT "
 zstyle ':vcs_info:*:*' unstagedstr "$DICTUM_UNSTAGED"
 zstyle ':vcs_info:*:*' stagedstr "$DICTUM_STAGED"
 zstyle ':vcs_info:cvs*+set-message:*' hooks cvs-tag
