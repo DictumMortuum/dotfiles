@@ -42,6 +42,9 @@
 !.ssh/global.config
 !.ssh/control
 
+# [couchdb]
+!.couchdb
+
 # [atom]
 !.atom
 .atom/*

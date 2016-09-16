@@ -6,3 +6,7 @@ function @couchdb_cors() {
   curl -X PUT $1/_config/cors/methods -d '"GET, PUT, POST, HEAD, DELETE"'
   curl -X PUT $1/_config/cors/headers -d '"accept, authorization, content-type, origin, referer, x-csrf-token"'
 }
+
+function @couchdb_instance() {
+  sudo couchdb -a $HOME/.couchdb/${1}.ini
+}
