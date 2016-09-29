@@ -49,11 +49,7 @@ ZSH_CUSTOM="$HOME/.zsh/custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-if [[ $ZSH_VERSION == 4.3.* ]]; then
-  plugins=()
-elif [[ $ZSH_VERSION == 5.1.* ]]; then
-  plugins=(zsh-syntax-highlighting)
-fi
+plugins=(zsh-syntax-highlighting)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
