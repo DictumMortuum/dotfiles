@@ -12,6 +12,7 @@
       "CVS"
     ]
     projectHome: "$HOME/Code"
+    telemetryConsent: "no"
     themes: [
       "atom-material-ui"
       "base16-syntax"
