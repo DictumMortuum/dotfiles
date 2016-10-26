@@ -50,6 +50,7 @@
 .atom/*
 !.atom/config.cson
 !.atom/styles.less
+!.atom/snippets.cson
 
 # [tclsh]
 !.tclsh

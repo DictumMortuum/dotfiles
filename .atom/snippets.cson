@@ -1,0 +1,9 @@
+'.text.html, .text.html .meta.scope.between-tag-pair, .text.html .punctuation.tag.begin':
+  'Flashcard':
+    'prefix': 'flashcard'
+    'body': """
+      <div class="center flashcard">
+        <p class="front">$1</p>
+        <p class="back">$2</p>
+      </div>
+    """
