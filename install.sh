@@ -24,22 +24,13 @@ ubuntu() {
 }
 
 install() {
-  git init .
+  git init --separate-git-dir=$HOME/dotfiles.git .
   git remote add -t \* -f origin git@github.com:DictumMortuum/dotfiles.git
   git checkout master
   git submodule update --init --recursive
-
-  if type vim >/dev/null 2>&1; then
-    vim +PluginInstall +qall
-  fi
-
-  if type npm >/dev/null 2>&1; then
-    npm install
-  fi
+  type vim >/dev/null 2>&1 && vim +PluginInstall +qall
+  type npm >/dev/null 2>&1 && npm install
 }
 
-if [ "$#" -ne 0 ]; then
-  $1
-fi
-
+[ "$#" -ne 0 ] && $1
 install
