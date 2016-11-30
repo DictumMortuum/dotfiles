@@ -3,7 +3,7 @@ alias apt-update="sudo apt-get --yes update ; sudo apt-get --yes upgrade ; sudo 
 
 # https://news.ycombinator.com/item?id=11070797
 # http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules
-alias dotfiles="git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+alias dot="git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 
 # Assumes HIST_IGNORE_SPACE is set
 # making aliases to certain commands to start with space to be ignored from history
