@@ -9,5 +9,6 @@ function @serve() {
   elif [[ $version == 3.* ]]; then
     module="http.server"
   fi
+  echo "http://localhost:${1:-8000}"
   python -m $module $1
 }
