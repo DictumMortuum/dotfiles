@@ -10,3 +10,9 @@ alias dot="git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 alias ls=" ls --color=tty"
 alias ll=" ls -lh"
 alias history=" fc -il 1"
+
+# Common typos
+# Warning: highly personalized
+alias ψδ=" cd"
+alias λσ=" ls"
+alias γιτ="git"
