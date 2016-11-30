@@ -1,4 +1,5 @@
 alias dictum="~/Code/dictum/tools/client.js"
+alias dotfiles="~/.bash/bin/dotfiles.sh"
 alias apt-update="sudo apt-get --yes update ; sudo apt-get --yes upgrade ; sudo apt-get --yes autoclean ; sudo apt-get --yes autoremove"
 
 # Assumes HIST_IGNORE_SPACE is set
