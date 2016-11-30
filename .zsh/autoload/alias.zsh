@@ -1,5 +1,7 @@
 alias dictum="~/Code/dictum/tools/client.js"
-alias dotfiles="~/.bash/bin/dotfiles.sh"
+
+# https://news.ycombinator.com/item?id=11070797
+alias dotfiles="git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 alias apt-update="sudo apt-get --yes update ; sudo apt-get --yes upgrade ; sudo apt-get --yes autoclean ; sudo apt-get --yes autoremove"
 
 # Assumes HIST_IGNORE_SPACE is set
