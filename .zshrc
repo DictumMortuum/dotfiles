@@ -73,9 +73,7 @@ foreach file in $(ls $HOME/.zsh/autoload); do
   # http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
   comm="${file%.*}"
   # http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
-  if type $comm >/dev/null 2>&1; then
-    source $HOME/.zsh/autoload/$file
-  fi
+  type $comm >/dev/null 2>&1 && source $HOME/.zsh/autoload/$file
 done
 
 # http://www.zsh.org/mla/users/2002/msg00496.html
