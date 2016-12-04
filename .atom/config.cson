@@ -32,6 +32,29 @@
   "linter-eslint":
     disableWhenNoEslintConfig: false
     eslintrcPath: "$HOME/.eslintrc.json"
+  "lisp-paredit":
+    indentationForms: [
+      "try"
+      "catch"
+      "finally"
+      "let"
+      "are"
+      "/^def.*/"
+      "fn"
+      "cond"
+      "if"
+      "if-let"
+      "for"
+      "/when.*/"
+      "testing"
+      "doseq"
+      "dotimes"
+      "loop"
+      "ns"
+    ]
+    strict: false
+  "proto-repl":
+    autoPrettyPrint: true
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
@@ -40,3 +63,9 @@
     showOnStartup: false
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
+".clojure.source":
+  editor:
+    autoIndent: false
+    autoIndentOnPaste: false
+    nonWordCharacters: "()\"':,;~@#$%^&{}[]`"
+    tabLength: 1
