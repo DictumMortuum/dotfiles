@@ -68,4 +68,3 @@
     autoIndent: false
     autoIndentOnPaste: false
     nonWordCharacters: "()\"':,;~@#$%^&{}[]`"
-    tabLength: 1
