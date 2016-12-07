@@ -49,7 +49,13 @@ ZSH_CUSTOM="$HOME/.zsh/custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-syntax-highlighting)
+if [[ $HOSTNAME == dev* ]]; then
+  plugins=(zsh-syntax-highlighting openbet)
+elif [[ $HOSTNAME == work ]]; then
+  plugins=(zsh-syntax-highlighting openbet-drupal)
+else
+  plugins=(zsh-syntax-highlighting)
+fi
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
@@ -59,14 +65,6 @@ source $HOME/.zsh/default.zsh
 
 BASE16_SHELL=$HOME/.dotfiles/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-if [[ $LOGNAME == openbet ]]; then
-  source $HOME/.zsh/drupal.zsh
-fi
-
-if [[ $HOSTNAME == dev* ]]; then
-  source $HOME/.zsh/openbet.zsh
-fi
 
 # ALIASES / FUNCTIONS
 foreach file in $(ls $HOME/.zsh/autoload); do
