@@ -55,6 +55,7 @@
     strict: false
   "proto-repl":
     autoPrettyPrint: true
+    leinPath: "/usr/bin/lein"
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
