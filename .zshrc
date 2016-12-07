@@ -45,23 +45,19 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="$HOME/.zsh/custom"
 
+# ENVIRONMENT SETUP
+source $HOME/.zsh/default.zsh
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-if [[ $HOSTNAME == dev* ]]; then
-  plugins=(zsh-syntax-highlighting openbet)
-elif [[ $HOSTNAME == work ]]; then
-  plugins=(zsh-syntax-highlighting openbet-drupal)
-else
-  plugins=(zsh-syntax-highlighting)
-fi
+plugins=(zsh-syntax-highlighting)
+[[ $HOSTNAME == dev* ]] && plugins+=(openbet)
+[[ $HOSTNAME == work ]] && plugins+=(openbet-drupal)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
-
-# ENVIRONMENT SETUP
-source $HOME/.zsh/default.zsh
 
 BASE16_SHELL=$HOME/.dotfiles/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
