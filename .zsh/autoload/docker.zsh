@@ -27,5 +27,5 @@ docker_clean () {
 }
 
 docker_run () {
-  sudo docker run -i -t --dns=10.197.0.20 -v /tmp/sb1/:/home/openbet/Projects/ -v ~/.ssh/:/home/openbet/.ssh $1 boot
+  sudo docker run -i -t --dns=10.197.0.20 -v /tmp/volume -v ~/.ssh/:/home/user/.ssh $1 boot
 }

@@ -1,7 +1,6 @@
 foreach lib {
   combinations
   permutations
-  work
   githook
   execsafe
   transactionify

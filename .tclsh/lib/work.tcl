@@ -1,3 +1,5 @@
+# openbet
+
 package provide work 1.0
 
 namespace eval work {
