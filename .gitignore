@@ -12,6 +12,7 @@
 !.cvsrc
 !.wgetrc
 !.editorconfig
+!.minttyrc
 !README.md
 !install.sh
 
