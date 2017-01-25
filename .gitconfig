@@ -1,5 +1,6 @@
 [core]
   editor = vim
+	trustctime = false
 [color]
   branch = auto
   diff = auto
@@ -64,7 +65,7 @@
   unstage = reset HEAD --
   up = push origin
 [push]
-  default = tracking
+	default = matching
 [diff]
   renames = copies
 [rerere]
@@ -90,4 +91,5 @@
   user = github DictumMortuum theio.vrefos@gmail.com
   user = gitlab DictumMortuum theio.vrefos@gmail.com
   user = bitbucket DictumMortuum dictummortuum339@gmail.com
+  user = gratgt02 rd090575 dimitrios.raviolos@unify.com
   notabs = true
