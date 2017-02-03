@@ -1,4 +1,4 @@
-alias dictum="~/Code/dictum/tools/client.js"
+alias dictum="tclsh ~/Code/dictum/tools/client.tcl"
 alias apt-update="sudo apt-get --yes update ; sudo apt-get --yes upgrade ; sudo apt-get --yes autoclean ; sudo apt-get --yes autoremove"
 
 # https://news.ycombinator.com/item?id=11070797
