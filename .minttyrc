@@ -1,17 +1,16 @@
 BoldAsFont=no
-Transparency=high
+Transparency=off
 Font=Roboto Mono for Powerline
 FontHeight=11
 FontSmoothing=full
 Locale=C
 Charset=UTF-8
-RightClickAction=paste
+RightClickAction=menu
 Scrollbar=none
 OpaqueWhenFocused=yes
 Term=xterm-256color
 CursorType=block
 CursorBlinks=yes
-
 ForegroundColour=199,204,209
 BackgroundColour=28,32,35
 CursorColour=199,204,209
