@@ -11,6 +11,10 @@
   cat $HOME/.ssh/*.config > $HOME/.ssh/config
 }
 
+@ssh() {
+  ssh "$@" -t zsh
+}
+
 @ssh_push () {
   local _host
 
