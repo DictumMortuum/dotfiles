@@ -29,4 +29,3 @@
   done
 }
 
-@ssh_compile
