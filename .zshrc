@@ -6,7 +6,8 @@ foreach file in $(ls $HOME/.zsh/*.zsh); do
 done
 
 # Theme
-source ~/.zsh/custom/themes/dictummortuum.zsh-theme
+[[ $ZSH_VERSION == <5->* ]] && source ~/.zsh/custom/themes/dictummortuum.zsh-theme
+[[ $ZSH_VERSION == 4.3.<4->* ]] && source ~/.zsh/custom/themes/simple.zsh-theme
 
 # Plugins
 [[ $ZSH_VERSION == <5->* ]] && source ~/.zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
