@@ -29,7 +29,32 @@
 # %S => subdir
 
 autoload -Uz add-zsh-hook
-autoload -Uz vcs_info
+#autoload -Uz vcs_info
+
+# this is taken from grml's zshrc
+function zrcautoload() {
+  emulate -L zsh
+  setopt extended_glob
+  local fdir ffile
+  local -i ffound
+
+  ffile=$1
+  (( found = 0 ))
+  for fdir in ${fpath} ; do
+    [[ -e ${fdir}/${ffile} ]] && (( ffound = 1 ))
+  done
+
+  (( ffound == 0 )) && return 1
+  if [[ $ZSH_VERSION == 3.1.<6-> || $ZSH_VERSION == <4->* ]] ; then
+    autoload -U ${ffile} || return 1
+  else
+    autoload ${ffile} || return 1
+  fi
+
+  return 0
+}
+
+zrcautoload vcs_info || vcs_info() {return 1}
 
 DICTUM_USER="%B%F{8}%n%f%b"
 DICTUM_USER_VCS="%%B%F{8}%%n%f%%b"
@@ -120,7 +145,11 @@ add-zsh-hook precmd vcs_info
 setopt prompt_subst
 
 ### My default prompt
-PROMPT='${vcs_info_msg_0_}'
+if zrcautoload vcs_info; then
+  PROMPT='${vcs_info_msg_0_}'
+else
+  PROMPT='$LOGNAME on $HOSTNAME in $PWD '
+fi
 ### My default prompt's right side
 #RPOMPT=''
 ### My prompt for loops
