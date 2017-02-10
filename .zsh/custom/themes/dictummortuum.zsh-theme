@@ -117,6 +117,7 @@ function +vi-git-remotebranch() {
 }
 
 add-zsh-hook precmd vcs_info
+setopt prompt_subst
 
 ### My default prompt
 PROMPT='${vcs_info_msg_0_}'
