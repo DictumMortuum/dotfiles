@@ -9,5 +9,4 @@ PATH="$HOME/.tclsh/bin:$PATH"
 # It will check that folder and its subfolders for pkgIndex.tcl files to source.
 # If a package is required.
 export TCLLIBPATH="$HOME/.tclsh:$TCLLIBPATH"
-
-TCLLIBPATH=$(tcllibpath.tcl)
+type tcllibpath.tcl >/dev/null 2>&1 && TCLLIBPATH=$(tcllibpath.tcl)
