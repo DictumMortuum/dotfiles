@@ -18,7 +18,6 @@ include() {
 }
 
 foreach file in $(ls $HOME/.zsh/autoload/* $HOME/.zsh/custom/themes/*); do
-  echo $file
   include $file
 done
 
