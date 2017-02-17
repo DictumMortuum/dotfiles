@@ -1,3 +1,5 @@
+require convert && return 1
+
 # generate thumbnails page ;)
 function @thumbs() {
   echo "

@@ -1,3 +1,5 @@
+require dbschema && return 1
+
 # $1 should be:
 # -f for functions
 # -t for tables

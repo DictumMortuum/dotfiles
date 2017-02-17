@@ -25,6 +25,8 @@
 # curl output http status code    curl -o /dev/null -w%%{http_code} <url>
 # curl resolve ip from other dns  curl --resolve "www.cnn.com:80:8.8.8.8" http://www.cnn.com
 
+require curl && return 1
+
 alias curltime="curl -K $HOME/.curl/time.curl"
 alias curlcode="curl -K $HOME/.curl/code.curl"
 alias @weather="curl -q http://wttr.in/Athens"

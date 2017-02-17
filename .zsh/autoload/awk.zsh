@@ -1,3 +1,5 @@
+require awk && return 1
+
 # update path
 PATH="$HOME/.awk/bin/:$PATH"
 

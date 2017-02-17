@@ -1,3 +1,5 @@
+require mkdir && return 1
+
 # Make directory and change into it.
 function @mkcd() {
   mkdir -p "$1" && cd "$1"

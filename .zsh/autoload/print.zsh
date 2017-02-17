@@ -1,3 +1,5 @@
+require print && require printf && return 1
+
 # rfc2396 url encoding (by Bart Schaefer)
 function @urlencode() {
   setopt localoptions extendedglob

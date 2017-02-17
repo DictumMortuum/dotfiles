@@ -28,6 +28,8 @@
 # %R => base
 # %S => subdir
 
+[[ $ZSH_VERSION != <5->* ]] && return 1
+
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 

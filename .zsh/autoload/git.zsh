@@ -1,3 +1,5 @@
+require git && return 1
+
 # Outputs current branch info in prompt format
 function git_prompt_info() {
   local ref

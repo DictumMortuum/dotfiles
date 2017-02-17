@@ -1,3 +1,5 @@
+require python && return 1
+
 #
 # Usage: @serve [port]
 #

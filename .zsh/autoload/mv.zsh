@@ -1,3 +1,5 @@
+require mv && return 1
+
 # Change file extensions recursively in current directory
 function @extension() {
   foreach f (**/*.$1)

@@ -1,3 +1,5 @@
+require ssh && return 1
+
 @ssh_compile () {
   if [[ $# -eq 1 ]] && [[ $1 = -f ]]; then
     rm $HOME/.ssh/config
@@ -28,4 +30,3 @@
     ssh $_host 'cat >> ~/.ssh/authorized_keys' < $HOME/.ssh/id_rsa.pub
   done
 }
-

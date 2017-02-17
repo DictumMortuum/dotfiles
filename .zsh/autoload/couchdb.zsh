@@ -1,3 +1,5 @@
+require couchdb && return 1
+
 function @couchdb_cors() {
   # $1 is in the form of http://adminname:password@localhost:5984
   curl -X PUT $1/_config/httpd/enable_cors -d '"true"'

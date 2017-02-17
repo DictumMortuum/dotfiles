@@ -1,3 +1,5 @@
+require docker && return 1
+
 __docker_containers () {
   return $(sudo docker ps -a | awk '{print $1}' | grep -v CONTAINER)
 }
