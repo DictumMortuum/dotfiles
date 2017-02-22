@@ -1,4 +1,4 @@
-require cd && return 1
+require zsh && return 1
 
 # Changing/making/removing directory
 setopt auto_pushd
