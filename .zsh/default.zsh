@@ -43,6 +43,8 @@ foreach file in $(ls $SCRIPTS/* $THEMES/*); do
   include $file
 done
 
+[[ ${#NOT_INCLUDED[@]} -gt 0 ]] && echo "Skipping: $NOT_INCLUDED"
+
 # PATH
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 test -d "/snap/bin" && PATH="/snap/bin:$PATH"
