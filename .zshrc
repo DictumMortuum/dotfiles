@@ -1,8 +1,4 @@
-# ENVIRONMENT SETUP
 source $HOME/.zsh/default.zsh
-SCRIPTS=$HOME/.zsh/autoload
-THEMES=$HOME/.zsh/custom/themes
-PLUGINS=$HOME/.zsh/custom/plugins
 NOT_INCLUDED=()
 
 require() {

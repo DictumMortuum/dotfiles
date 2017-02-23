@@ -2,6 +2,9 @@
 
 HOME=~
 DOT_HOME=$HOME
+SCRIPTS=$HOME/.zsh/autoload
+THEMES=$HOME/.zsh/custom/themes
+PLUGINS=$HOME/.zsh/custom/plugins
 LOGNAME=$(id -un)
 UNAME=$(uname)
 HOSTNAME=$(hostname)
