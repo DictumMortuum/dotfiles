@@ -1,15 +1,15 @@
 # BASICS
 HOME=~
-DOT_HOME=$HOME
-SCRIPTS=$HOME/.zsh/autoload
-THEMES=$HOME/.zsh/custom/themes
-PLUGINS=$HOME/.zsh/custom/plugins
+: ${DOT_HOME:=$HOME}
+SCRIPTS=$DOT_HOME/.zsh/autoload
+THEMES=$DOT_HOME/.zsh/custom/themes
+PLUGINS=$DOT_HOME/.zsh/custom/plugins
 LOGNAME=$(id -un)
 UNAME=$(uname)
 HOSTNAME=$(hostname)
 EDITOR=vim
 VISUAL=$EDITOR
-export HOME LOGNAME UNAME EDITOR HOSTNAME VISUAL
+export HOME DOT_HOME LOGNAME UNAME EDITOR HOSTNAME VISUAL
 
 # complete hostnames from this file
 : ${HOSTFILE=$HOME/.ssh/known_hosts}

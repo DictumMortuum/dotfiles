@@ -1,4 +1,4 @@
-source $HOME/.zsh/default.zsh
+source $DOT_HOME/.zsh/default.zsh
 NOT_INCLUDED=()
 
 require() {
