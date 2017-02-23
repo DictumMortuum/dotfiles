@@ -1,6 +1,7 @@
 # BASICS
 
 HOME=~
+DOT_HOME=$HOME
 LOGNAME=$(id -un)
 UNAME=$(uname)
 HOSTNAME=$(hostname)
@@ -9,7 +10,7 @@ VISUAL=$EDITOR
 export HOME LOGNAME UNAME EDITOR HOSTNAME VISUAL
 
 # complete hostnames from this file
-: ${HOSTFILE=~/.ssh/known_hosts}
+: ${HOSTFILE=$HOME/.ssh/known_hosts}
 export HOSTFILE
 
 # enable en_US locale w/ utf-8 encodings if not already configured

@@ -27,8 +27,8 @@
 
 require curl && return 1
 
-alias curltime="curl -K $HOME/.curl/time.curl"
-alias curlcode="curl -K $HOME/.curl/code.curl"
+alias curltime="curl -K $DOT_HOME/.curl/time.curl"
+alias curlcode="curl -K $DOT_HOME/.curl/code.curl"
 alias @weather="curl -q http://wttr.in/Athens"
 alias @moon="curl -q http://wttr.in/Moon"
 
