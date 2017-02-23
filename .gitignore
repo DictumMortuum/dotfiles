@@ -17,7 +17,6 @@
 !install.sh
 
 # Top-level repo directories
-!.backgrounds
 !.dotfiles
 !.fonts
 !.icons
