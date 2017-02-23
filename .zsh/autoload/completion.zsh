@@ -10,6 +10,10 @@ unsetopt flowcontrol
 setopt auto_menu         # show completion menu on successive tab press
 setopt complete_in_word
 setopt always_to_end
+# Changing/making/removing directory
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
 
 # should this be in keybindings?
 bindkey -M menuselect '^o' accept-and-infer-next-history
