@@ -1,5 +1,4 @@
 # BASICS
-
 HOME=~
 DOT_HOME=$HOME
 SCRIPTS=$HOME/.zsh/autoload
@@ -24,7 +23,6 @@ export HOSTFILE
 export LANG LANGUAGE LC_CTYPE LC_ALL
 
 # PATH
-
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 test -d "/snap/bin" && PATH="/snap/bin:$PATH"
 test -d "/usr/games" && PATH="/usr/games:$PATH"

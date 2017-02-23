@@ -10,5 +10,5 @@ function @couchdb_cors() {
 }
 
 function @couchdb_instance() {
-  sudo couchdb -a $HOME/.couchdb/${1}.ini
+  sudo couchdb -a $DOT_HOME/.couchdb/${1}.ini
 }

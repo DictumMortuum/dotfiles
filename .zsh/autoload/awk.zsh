@@ -1,9 +1,9 @@
 require awk && return 1
 
 # update path
-PATH="$HOME/.awk/bin/:$PATH"
+PATH="$DOT_HOME/.awk/bin/:$PATH"
 
 # For common awk functions
-export AWKPATH="$HOME/.awk/lib"
+export AWKPATH="$DOT_HOME/.awk/lib"
 
 alias awk="awk -i common.awk"
