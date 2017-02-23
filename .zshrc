@@ -25,10 +25,5 @@ done
 
 [[ $HOSTNAME != apparatus ]] && echo "Skipping: $NOT_INCLUDED"
 
-# Plugins
-[[ $ZSH_VERSION == <5->* ]] && source $PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-BASE_16=$HOME/.dotfiles/base16-shell
-[ -n "$PS1" ] && [ -s $BASE_16/profile_helper.sh ] && eval "$($BASE_16/profile_helper.sh)"
-
 # condense PATH entries
 PATH=$(path.tcl)
