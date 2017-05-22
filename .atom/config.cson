@@ -2,6 +2,7 @@
   "base16-syntax":
     scheme: "Ashes"
   core:
+    disabledPackages: []
     ignoredNames: [
       ".git"
       ".hg"
@@ -18,7 +19,8 @@
       "base16-syntax"
     ]
   editor:
-    fontFamily: "Droid Sans Mono"
+    fontFamily: "Hack"
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -32,6 +34,8 @@
   "linter-eslint":
     disableWhenNoEslintConfig: false
     eslintrcPath: "$HOME/.eslintrc.json"
+  "linter-ui-default":
+    showPanel: true
   "lisp-paredit":
     indentationForms: [
       "try"
