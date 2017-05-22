@@ -2,7 +2,6 @@
   "base16-syntax":
     scheme: "Ashes"
   core:
-    disabledPackages: []
     ignoredNames: [
       ".git"
       ".hg"
@@ -60,6 +59,8 @@
   "proto-repl":
     autoPrettyPrint: true
     leinPath: "/usr/bin/lein"
+  "tool-bar":
+    visible: false
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
