@@ -52,7 +52,5 @@ test -d "/usr/games" && PATH="/usr/games:$PATH"
 test -d "/usr/local/games" && PATH="/usr/local/games:$PATH"
 test -d "$HOME/.dotfiles/bin" && PATH="$HOME/.dotfiles/bin:$PATH"
 
-source $PLUGINS/unify/unify.plugin.zsh
-
 # condense PATH entries
 export PATH=$(path.tcl)
