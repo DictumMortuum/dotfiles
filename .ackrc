@@ -69,7 +69,7 @@
 #  --flush                       Flush output immediately, even when ack is used
 #                                non-interactively (when output goes to a pipe or
 #                                file).
---group
+--nogroup
 --color
 
 #

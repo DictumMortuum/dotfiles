@@ -1,5 +1,7 @@
 # Plugins
 [[ $ZSH_VERSION == <5->* ]] && source $PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source $PLUGINS/zsh-async/async.plugin.zsh
+source $PLUGINS/pure/pure.plugin.zsh
 
 export BASE16_THEME=base16-ashes
 . $DOT_HOME/.base16_theme

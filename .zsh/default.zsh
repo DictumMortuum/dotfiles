@@ -39,7 +39,7 @@ include() {
   fi
 }
 
-foreach file in $(ls $SCRIPTS/* $THEMES/*); do
+foreach file in $(ls $SCRIPTS/* ); do
   include $file
 done
 
@@ -51,6 +51,8 @@ test -d "/snap/bin" && PATH="/snap/bin:$PATH"
 test -d "/usr/games" && PATH="/usr/games:$PATH"
 test -d "/usr/local/games" && PATH="/usr/local/games:$PATH"
 test -d "$HOME/.dotfiles/bin" && PATH="$HOME/.dotfiles/bin:$PATH"
+
+source $PLUGINS/unify/unify.plugin.zsh
 
 # condense PATH entries
 export PATH=$(path.tcl)

@@ -33,7 +33,9 @@
   "linter-eslint":
     disableWhenNoEslintConfig: false
     eslintrcPath: "$HOME/.eslintrc.json"
+  "linter-javac": {}
   "linter-ui-default":
+    panelHeight: 294
     showPanel: true
   "lisp-paredit":
     indentationForms: [
@@ -58,7 +60,7 @@
     strict: false
   "proto-repl":
     autoPrettyPrint: true
-    leinPath: "/usr/bin/lein"
+    leinPath: "/home/rd905075/.dotfiles/bin/lein"
   "tool-bar":
     visible: false
   "tree-view":
