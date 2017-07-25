@@ -12,5 +12,6 @@ function @serve() {
     module="http.server"
   fi
   echo "http://localhost:${1:-8000}"
+  echo "http://$(hostname -f):${1:-8000}"
   python -m $module $1
 }
