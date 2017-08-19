@@ -1,4 +1,4 @@
-[[ $HOSTNAME == apparatus ]] && return 1
+[[ $LOGNAME != rd905075 ]] && return 1
 
 export ftp_proxy=ftp://172.28.12.5:8080/
 export http_proxy=http://172.28.12.5:8080/
