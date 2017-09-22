@@ -43,7 +43,9 @@ foreach file in $(ls $SCRIPTS/* ); do
   include $file
 done
 
-[[ ${#NOT_INCLUDED[@]} -gt 0 ]] && echo "Skipping: $NOT_INCLUDED"
+@included() {
+  for module in "${NOT_INCLUDED[@]}"; do echo $module ; done
+}
 
 # PATH
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
