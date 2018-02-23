@@ -1,6 +1,6 @@
 require alias && return 1
 
-alias apt-update="sudo apt-get --yes update ; sudo apt-get --yes upgrade ; sudo apt-get --yes autoclean ; sudo apt-get --yes autoremove"
+alias apt-update="sudo -E apt-get --yes update ; sudo -E apt-get --yes upgrade ; sudo -E apt-get --yes autoclean ; sudo -E apt-get --yes autoremove"
 
 # https://news.ycombinator.com/item?id=11070797
 # http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules
@@ -17,3 +17,10 @@ alias history=" fc -il 1"
 alias ψδ=" cd"
 alias λσ=" ls"
 alias γιτ="git"
+
+#
+alias today="date +%Y-%m-%d"
+
+# Ubuntu custom shortcuts
+# ctrl + alt + d
+# sh -c 'xdotool type --clearmodifiers -- "$(date +%Y-%m-%d)"'
