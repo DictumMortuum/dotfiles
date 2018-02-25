@@ -1,6 +1,6 @@
 [core]
   editor = vim
-	trustctime = false
+  trustctime = false
 [color]
   branch = auto
   diff = auto
@@ -88,11 +88,12 @@
 [init]
   templatedir = ~/.githooks/
 [hooks]
+  notabs = false
   user = github DictumMortuum theio.vrefos@gmail.com
   user = gitlab DictumMortuum theio.vrefos@gmail.com
   user = bitbucket DictumMortuum dictummortuum339@gmail.com
   user = gratgt02 {Dimitris Raviolos} dimitrios.raviolos@unify.com
   user = gitsrv2 {Dimitris Raviolos} dimitrios.raviolos@unify.com
 [user]
-	email = dictummortuum339@gmail.com
-	name = Δημήτρης Ραβιόλος
+  email = dictummortuum339@gmail.com
+  name = Δημήτρης Ραβιόλος
