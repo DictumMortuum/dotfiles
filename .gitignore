@@ -1,5 +1,7 @@
 # Ignore all files
 /*
+!.config
+.config/*
 
 # Top-level repo files
 !.fonts.conf
@@ -50,6 +52,13 @@
 !.atom/config.cson
 !.atom/styles.less
 !.atom/snippets.cson
+
+# [code]
+!.config/Code
+.config/Code/*
+!.config/Code/User
+.config/Code/User/*
+!.config/Code/User/settings.json
 
 # [tclsh]
 !.tclsh
