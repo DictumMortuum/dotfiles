@@ -8,6 +8,22 @@ case $- in
       *) return;;
 esac
 
+# .bash_profile is executed for login shells,
+# .bashrc is executed for interactive non-login shells.
+# We want the same behaviour for both, so we source .bashrc from .bash_profile.
+# TODO
+
+if [ -z "${NOZSH}" ] && [ $TERM = "xterm" -o $TERM = "xterm-256color" -o $TERM = "screen" ] && type zsh &> /dev/null
+then
+    export SHELL=$(which zsh)
+    if [[ -o login ]]
+    then
+        exec zsh -l
+    else
+        exec zsh
+    fi
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
