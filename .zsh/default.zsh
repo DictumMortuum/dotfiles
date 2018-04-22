@@ -7,6 +7,7 @@ PLUGINS=$DOT_HOME/.zsh/custom/plugins
 LOGNAME=$(id -un)
 UNAME=$(uname)
 HOSTNAME=$(hostname)
+SYSTEM=$(lsb_release -is)
 EDITOR=vim
 VISUAL=$EDITOR
 export HOME DOT_HOME LOGNAME UNAME EDITOR HOSTNAME VISUAL
@@ -24,6 +25,14 @@ export LANG LANGUAGE LC_CTYPE LC_ALL
 
 # modules
 NOT_INCLUDED=()
+
+system() {
+  if [[ $SYSTEM = $1 ]]; then
+    return 1
+  else
+    return 0
+  fi
+}
 
 require() {
   if type $1 > /dev/null 2>&1 ; then
@@ -53,9 +62,6 @@ test -d "/snap/bin" && PATH="/snap/bin:$PATH"
 test -d "/usr/games" && PATH="/usr/games:$PATH"
 test -d "/usr/local/games" && PATH="/usr/local/games:$PATH"
 test -d "$HOME/.dotfiles/bin" && PATH="$HOME/.dotfiles/bin:$PATH"
-
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # condense PATH entries
 export PATH=$(path.tcl)

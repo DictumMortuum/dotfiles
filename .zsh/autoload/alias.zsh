@@ -1,10 +1,9 @@
 require alias && return 1
 
-alias apt-update="sudo -E apt-get --yes update ; sudo -E apt-get --yes upgrade ; sudo -E apt-get --yes autoclean ; sudo -E apt-get --yes autoremove"
-
 # https://news.ycombinator.com/item?id=11070797
 # http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules
 alias dot="git --git-dir=$DOT_HOME/dotfiles.git --work-tree=$DOT_HOME"
+alias notes="git --git-dir=$DOT_HOME/notes/.git --work-tree=$DOT_HOME/notes"
 
 # Assumes HIST_IGNORE_SPACE is set
 # making aliases to certain commands to start with space to be ignored from history
@@ -18,7 +17,7 @@ alias ψδ=" cd"
 alias λσ=" ls"
 alias γιτ="git"
 
-#
+# 
 alias today="date +%Y-%m-%d"
 
 # Ubuntu custom shortcuts
