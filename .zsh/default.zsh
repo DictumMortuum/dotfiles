@@ -7,6 +7,7 @@ PLUGINS=$DOT_HOME/.zsh/custom/plugins
 LOGNAME=$(id -un)
 UNAME=$(uname)
 HOSTNAME=$(hostname)
+SYSTEM=$(lsb_release -is)
 EDITOR=vim
 VISUAL=$EDITOR
 export HOME DOT_HOME LOGNAME UNAME EDITOR HOSTNAME VISUAL
@@ -24,6 +25,14 @@ export LANG LANGUAGE LC_CTYPE LC_ALL
 
 # modules
 NOT_INCLUDED=()
+
+system() {
+  if [[ $SYSTEM = $1 ]]; then
+    return 1
+  else
+    return 0
+  fi
+}
 
 require() {
   if type $1 > /dev/null 2>&1 ; then
