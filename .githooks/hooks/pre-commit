@@ -1,7 +1,0 @@
-#! /usr/bin/env tclsh
-
-package require githook 1.0
-
-githook::source {
-  git_notabs.sh
-}
