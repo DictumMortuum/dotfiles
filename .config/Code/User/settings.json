@@ -12,5 +12,8 @@
         "editor.tabSize": 1,
         "editor.detectIndentation": false 
     },
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "files.associations": {
+        "*.hy": "clojure"
+    }
 }
