@@ -15,5 +15,6 @@
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         "*.hy": "clojure"
-    }
+    },
+    "editor.renderWhitespace": "boundary"
 }
