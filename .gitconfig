@@ -20,6 +20,7 @@
   b = branch -avv
   bd = branch -d
   bm = branch -m
+  branch-exists = show-ref --verify --quiet
   ci = commit
   cia = commit --amend
   ciaa = commit --all --amend
@@ -29,6 +30,9 @@
   com = checkout master
   cm = !git add --all && git commit -m
   contains = branch -avv --contains
+  commits = rev-list --count
+  committers = log --format=%ae
+  current-branch = rev-parse --abbrev-ref HEAD
   d = diff --word-diff=color
   di = diff --staged --word-diff=color
   discard = checkout HEAD --
@@ -36,6 +40,7 @@
   f = fetch --prune --all
   fd = filter-branch --subdirectory-filter
   fm = !git f && git m
+  files = diff-tree --no-commit-id --name-only -r
   h = show HEAD --word-diff=color
   hf = show HEAD --name-only
   i = !git init && git_identity.tcl
@@ -80,6 +85,7 @@
   rewriteRef = refs/notes/*
 [merge]
   defaultToUpstream = true
+	tool = meld
 [advice]
   statusHints = false
   pushNonFastForward = false
