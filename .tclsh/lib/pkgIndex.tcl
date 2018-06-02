@@ -1,9 +1,7 @@
-foreach lib {
-  combinations
-  permutations
-  githook
-  execsafe
-  transactionify
-} {
-  package ifneeded $lib 1.0 [list source [file join $dir $lib.tcl]]
-}
+package ifneeded combinations 1.0 [list source [file join $dir combinations.tcl]]
+package ifneeded permutations 1.0 [list source [file join $dir permutations.tcl]]
+package ifneeded githook 1.0 [list source [file join $dir githook.tcl]]
+package ifneeded git 1.15 [list source [file join $dir git.tcl]]
+package ifneeded store 1.7 [list source [file join $dir store.tcl]]
+package ifneeded sqlite 1.4 [list source [file join $dir sqlite.tcl]]
+package ifneeded logic 1.0 [list source [file join $dir logic.tcl]]
