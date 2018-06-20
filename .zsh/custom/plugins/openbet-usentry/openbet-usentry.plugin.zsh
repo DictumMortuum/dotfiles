@@ -16,3 +16,5 @@
 
   ssh sports2 "$CMD"
 }
+
+alias pipeline=~/Code/us-entry-current-branches/pipeline
