@@ -32,6 +32,7 @@
   contains = branch -avv --contains
   commits = rev-list --count
   committers = log --format=%ae
+  current-commit = rev-parse --short HEAD
   current-branch = rev-parse --abbrev-ref HEAD
   d = diff --word-diff=color
   di = diff --staged --word-diff=color
