@@ -103,4 +103,6 @@
   user = stash.int.openbet.com {Dimitris Raviolos} dimitris.raviolos@sgdigital.com
 [user]
   email = dictummortuum339@gmail.com
-  name = Δημήτρης Ραβιόλος
+  name = Dimitris Raviolos
+[sequence]
+  editor = interactive-rebase-tool
