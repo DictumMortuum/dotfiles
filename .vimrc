@@ -33,7 +33,7 @@ let mapleader=","
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
-set rtp+=$DOT_HOME/.dotfiles/Vundle.vim
+set rtp+=$DOT_HOME/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -85,11 +85,11 @@ set nowb
 if has('persistent_undo')
 
   " Create the persistent undo directory if it doesn't exist
-  if !isdirectory($DOT_HOME . "/.vim/backups")
-    call mkdir($DOT_HOME . "/.vim/backups", "p")
+  if !isdirectory($HOME . "/.vim/backups")
+    call mkdir($HOME . "/.vim/backups", "p")
   endif
 
-  set undodir=$DOT_HOME/.vim/backups/
+  set undodir=$HOME/.vim/backups/
   set undolevels=1000         " How many undos
   set undoreload=10000        " number of lines to save for undo
   set undofile

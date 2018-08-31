@@ -4,17 +4,16 @@
 .config/*
 
 # Top-level repo files
-!.fonts.conf
 !.vimrc
 !.zshrc
-!.ackrc
 !.eslintrc.json
-!.bcatrc
 !.bashrc
 !.cvsrc
 !.wgetrc
 !.editorconfig
 !.minttyrc
+!.npmrc
+!.curlrc
 !README.md
 !install.sh
 
@@ -23,13 +22,6 @@
 !.dotfiles/bin
 !.fonts
 !.icons
-!.vim/bundle/vundle
-!.zsh
-!.awk
-!.gedit
-
-# [npm]
-!.npmrc
 
 # [git]
 !.gitignore
@@ -42,9 +34,6 @@
 .ssh/*
 !.ssh/global.config
 !.ssh/control
-
-# [couchdb]
-!.couchdb
 
 # [atom]
 !.atom
@@ -60,18 +49,8 @@
 .config/Code/User/*
 !.config/Code/User/settings.json
 
-# [tclsh]
-!.tclsh
-!.tclshrc
-
-# [curl]
-!.curlrc
-!.curl
-
-# [bash]
-!.bash
-
 # [gpg]
 !.gnupg
 .gnupg/*
 !.gnupg/gpg.conf
+
