@@ -20,7 +20,7 @@
 
 # Top-level repo directories
 !.dotfiles
-.dotfiles/bin
+!.dotfiles/bin
 !.fonts
 !.icons
 !.vim/bundle/vundle

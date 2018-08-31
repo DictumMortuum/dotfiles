@@ -1,9 +1,9 @@
 # BASICS
 HOME=~
 : ${DOT_HOME:=$HOME}
-SCRIPTS=$DOT_HOME/.zsh/autoload
-THEMES=$DOT_HOME/.zsh/custom/themes
-PLUGINS=$DOT_HOME/.zsh/custom/plugins
+SCRIPTS=$DOT_HOME/zsh/autoload
+THEMES=$DOT_HOME/zsh/custom/themes
+PLUGINS=$DOT_HOME/zsh/custom/plugins
 LOGNAME=$(id -un)
 UNAME=$(uname)
 HOSTNAME=$(hostname)
