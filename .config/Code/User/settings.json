@@ -16,5 +16,6 @@
     "files.associations": {
         "*.hy": "clojure"
     },
-    "editor.renderWhitespace": "boundary"
+    "editor.renderWhitespace": "boundary",
+    "git.confirmSync": false
 }
