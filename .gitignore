@@ -27,7 +27,6 @@
 !.gitignore
 !.gitmodules
 !.gitconfig
-!.githooks
 
 # [ssh] Only include the global ssh config
 !.ssh
