@@ -1,6 +1,3 @@
-[submodule ".icons/yltra-flat-icon-theme"]
-	path = .icons/yltra-flat-icon-theme
-	url = https://github.com/erikdubois/yltra-flat-icon-theme.git
 [submodule ".dotfiles/Vundle.vim"]
 	path = .dotfiles/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
