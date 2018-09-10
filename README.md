@@ -1,11 +1,5 @@
 # dotfiles
 
-## Dependencies
-
-- git
-- nodejs / npm (for npm install)
-- tcl (for githooks)
-
 ## Installation
 
 ```
