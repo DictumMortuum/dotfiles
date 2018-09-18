@@ -1,3 +1,0 @@
-cvs -q
-checkout -P
-update -dP

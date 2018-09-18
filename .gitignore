@@ -6,13 +6,9 @@
 # Top-level repo files
 !.vimrc
 !.zshrc
-!.eslintrc.json
 !.bashrc
-!.cvsrc
 !.wgetrc
 !.editorconfig
-!.minttyrc
-!.npmrc
 !.curlrc
 !.boostnoterc
 !README.md
@@ -34,13 +30,6 @@
 .ssh/*
 !.ssh/global.config
 !.ssh/control
-
-# [atom]
-!.atom
-.atom/*
-!.atom/config.cson
-!.atom/styles.less
-!.atom/snippets.cson
 
 # [code]
 !.config/Code
