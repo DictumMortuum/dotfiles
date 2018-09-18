@@ -16,9 +16,6 @@
 
 # Top-level repo directories
 !.dotfiles
-!.dotfiles/bin
-!.fonts
-!.icons
 
 # [git]
 !.gitignore
