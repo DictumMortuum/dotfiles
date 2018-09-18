@@ -1,3 +1,7 @@
+## Installation
+#curl -s https://raw.githubusercontent.com/DictumMortuum/dotfiles/master/install.sh | bash /dev/stdin
+#curl -s https://raw.githubusercontent.com/DictumMortuum/dotfiles/master/install.sh | bash /dev/stdin ubuntu
+
 ubuntu() {
   sudo add-apt-repository --yes ppa:webupd8team/atom
   sudo apt-get update
