@@ -29,3 +29,6 @@ alias cl="checklist -f ~/Notes/checklist/checklist.txt"
 # daily list
 alias dl="checklist -f ~/Notes/checklist/checklist.$(date +%Y-%m-%d).txt"
 
+# Based on youtube-dl
+alias mp3-dl="noglob youtube-dl --extract-audio --audio-format mp3"
+
