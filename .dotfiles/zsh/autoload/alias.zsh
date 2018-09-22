@@ -27,7 +27,7 @@ alias today="date +%Y-%m-%d"
 # Using checklist: https://github.com/marinintim/checklist
 alias cl="checklist -f ~/Notes/checklist/checklist.txt"
 # daily list
-alias dl="checklist -f ~/Notes/checklist/checklist.$(date +%Y-%m-%d).txt"
+alias dl="checklist -f ~/Notes/checklist/checklist.$(today).txt"
 
 # Based on youtube-dl
 alias mp3-dl="noglob youtube-dl --extract-audio --audio-format mp3"
