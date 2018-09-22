@@ -1,8 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
     "editor.tabSize": 2,
-    "http.proxy": "http://172.28.12.5:8080/",
-    "http.proxyStrictSSL": false,
     "editor.fontFamily": "'hack'",
     "window.zoomLevel": 1,
     "telemetry.enableTelemetry": false,
