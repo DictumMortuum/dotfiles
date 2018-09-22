@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+  *i*) ;;
+    *) return;;
 esac
 
 # .bash_profile is executed for login shells,
@@ -13,13 +13,13 @@ esac
 # We want the same behaviour for both, so we source .bashrc from .bash_profile.
 if [ -z "${NOZSH}" ] && [ $TERM = "xterm" -o $TERM = "xterm-256color" -o $TERM = "screen" ] && type zsh &> /dev/null
 then
-    export SHELL=$(which zsh)
-    if [[ -o login ]]
-    then
-        exec zsh -l
-    else
-        exec zsh
-    fi
+  export SHELL=$(which zsh)
+  if [[ -o login ]]
+  then
+    exec zsh -l
+  else
+    exec zsh
+  fi
 fi
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -46,10 +46,10 @@ shopt -s checkwinsize
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # Alias definitions.
@@ -58,7 +58,7 @@ fi
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -94,9 +94,9 @@ alias sudo='sudo '
 # Modified version of @gf3’s Sexy Bash Prompt
 # (https://github.com/gf3/dotfiles)
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-	export TERM=gnome-256color
+  export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
-	export TERM=xterm-256color
+  export TERM=xterm-256color
 fi
 
 BASE16_SHELL=$HOME/.dotfiles/base16-shell/
@@ -111,11 +111,11 @@ export RESET="\033[m"
 
 # Git branch details
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo " +"
+  [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo " +"
 }
 
 function parse_git_branch() {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
 export PS1="\[$BOLD\]#\[$RESET\] \[${GREEN}\]\u \[$RESET\]at \[$PURPLE\]\h \[$RESET\]in \[$ORANGE\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$MAGENTA\]\$(parse_git_branch)\[$RESET\]\[$RESET\] "

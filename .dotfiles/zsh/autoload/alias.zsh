@@ -32,3 +32,5 @@ alias dl="checklist -f ~/Notes/checklist/checklist.$(date +%Y-%m-%d).txt"
 # Based on youtube-dl
 alias mp3-dl="noglob youtube-dl --extract-audio --audio-format mp3"
 
+# Openbet pipeline
+alias pipeline=~/Code/us-entry-current-branches/pipeline
