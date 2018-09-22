@@ -23,45 +23,21 @@ export HOSTFILE
 : ${LC_ALL:="en_US.UTF-8"}
 export LANG LANGUAGE LC_CTYPE LC_ALL
 
-# modules
-NOT_INCLUDED=()
-
-system() {
-  if [[ $SYSTEM = $1 ]]; then
-    return 1
-  else
-    return 0
-  fi
-}
-
-require() {
-  if type $1 > /dev/null 2>&1 ; then
-    return 1
-  else
-    return 0
-  fi
-}
-
-include() {
-  if ! source $1; then
-    NOT_INCLUDED+=($(basename $1))
-  fi
-}
-
 foreach file in $(ls $SCRIPTS/* ); do
-  include $file
+  . $file
 done
 
-@included() {
-  for module in "${NOT_INCLUDED[@]}"; do echo $module ; done
-}
+# For common awk functions
+export AWKPATH="$DOT_HOME/awk"
+
+# This path will be added to auto_path tcl global.
+# It will check that folder and its subfolders for pkgIndex.tcl files to source.
+# If a package is required.
+export TCLLIBPATH="$DOT_HOME/tclsh"
 
 # PATH
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
-test -d "/snap/bin" && PATH="/snap/bin:$PATH"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.dotfiles/bin:$PATH"
 test -d "/usr/games" && PATH="/usr/games:$PATH"
-test -d "/usr/local/games" && PATH="/usr/local/games:$PATH"
-test -d "$HOME/.dotfiles/bin" && PATH="$HOME/.dotfiles/bin:$PATH"
 
 # condense PATH entries
 export PATH=$(clearpath)
