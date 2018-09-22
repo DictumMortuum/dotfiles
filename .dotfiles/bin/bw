@@ -3,7 +3,7 @@
 #
 # @field
 # Returns the @field'th field from the end.
-# Usage: ./backwards.awk -v field=1
+# Usage: ./bw -v field=1
 #
 
 BEGIN {

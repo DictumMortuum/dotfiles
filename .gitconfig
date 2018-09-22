@@ -24,7 +24,8 @@
   current-branch = rev-parse --abbrev-ref HEAD
   e = config --local user.email
   files = diff-tree --no-commit-id --name-only -r
-  i = !git init && git_identity.tcl
+  i = !git init && gitid
+  id = !gitid
   l = log --oneline --decorate
   lg = log --oneline --decorate --graph
   n = config --local user.name

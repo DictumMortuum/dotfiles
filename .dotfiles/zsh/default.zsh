@@ -64,4 +64,4 @@ test -d "/usr/local/games" && PATH="/usr/local/games:$PATH"
 test -d "$HOME/.dotfiles/bin" && PATH="$HOME/.dotfiles/bin:$PATH"
 
 # condense PATH entries
-export PATH=$(path.tcl)
+export PATH=$(clearpath)
