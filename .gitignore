@@ -38,4 +38,3 @@
 !.gnupg
 .gnupg/*
 !.gnupg/gpg.conf
-
