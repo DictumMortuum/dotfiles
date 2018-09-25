@@ -11,6 +11,8 @@ alias pipeline=$HOME/Code/us-entry-current-branches/pipeline
 alias http_code='curl --silent --show-error --output /dev/null --write-out "%{http_code}\n"'
 alias weather="curl -q http://wttr.in/Athens"
 alias moon="curl -q http://wttr.in/Moon"
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
 # Using checklist: https://github.com/marinintim/checklist
 alias cl="checklist -f ~/Notes/checklist/checklist.txt"
