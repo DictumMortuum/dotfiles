@@ -5,13 +5,6 @@ function urlencode() {
   print ${(j::)input/(#b)([^A-Za-z0-9_.--version\'\(\)-])/%$(([##16]#match))}
 }
 
-# Create a temp directory and change into it.
-function mkt() {
-  tpl="temp.$(date +%F).XXXXXXXXXX"
-  temp=$(mktemp -d -p . $tpl)
-  cd $temp
-}
-
 function system-update() {
   if [[ $SYSTEM == Ubuntu ]]; then
     sudo apt-get --yes update
