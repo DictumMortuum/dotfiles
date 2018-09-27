@@ -1,9 +1,5 @@
 HOME=~
 export PLUGINS=$HOME/.dotfiles/zsh/custom/plugins
-#export LOGNAME=$(id -un)
-#export UNAME=$(uname)
-#export HOSTNAME=$(hostname)
-#export SYSTEM=$(lsb_release -is)
 export EDITOR=vim
 export VISUAL=$EDITOR
 export AWKPATH=$HOME/.dotfiles/awk
