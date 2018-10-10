@@ -1,19 +1,21 @@
 // Place your settings in this file to overwrite the default settings
 {
     "editor.tabSize": 2,
-    "editor.fontFamily": "'hack'",
+    "editor.fontFamily": "Hack",
     "window.zoomLevel": 1,
     "telemetry.enableTelemetry": false,
     "workbench.colorTheme": "Base16 Dark Ashes",
     "typescript.check.npmIsInstalled": false,
     "[clojure]": {
         "editor.tabSize": 1,
-        "editor.detectIndentation": false 
+        "editor.detectIndentation": false
     },
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         "*.hy": "clojure"
     },
     "editor.renderWhitespace": "boundary",
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "terminal.explorerKind": "external",
+    "terminal.integrated.fontFamily": "Hack"
 }
