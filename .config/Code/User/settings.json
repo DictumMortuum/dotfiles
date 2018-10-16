@@ -17,5 +17,6 @@
     "editor.renderWhitespace": "boundary",
     "git.confirmSync": false,
     "terminal.explorerKind": "external",
-    "terminal.integrated.fontFamily": "Hack"
+    "terminal.integrated.fontFamily": "Hack",
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }
