@@ -41,3 +41,7 @@ time_pretransfer: %{time_pretransfer}
 time_redirect: %{time_redirect}
 time_starttransfer: %{time_starttransfer}
 time_total: %{time_total}"'
+
+function unescape() {
+  printf '%b\n' "$(<$1)"
+}
