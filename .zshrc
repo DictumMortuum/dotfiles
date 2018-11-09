@@ -22,6 +22,7 @@ done
 
 # PATH
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.dotfiles/bin:$PATH"
+test -d "$HOME/Code/scripts/dist" && PATH="$HOME/Code/scripts/dist:$PATH"
 test -d "/usr/games" && PATH="/usr/games:$PATH"
 
 # condense PATH entries
