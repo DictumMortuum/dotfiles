@@ -7,17 +7,12 @@ alias today="date +%F"
 alias tmp='mktemp -d -p . "temp.$(today).XXXXXXXXX"'
 alias mkt='cd $(tmp)'
 alias mp3-dl="noglob youtube-dl --extract-audio --audio-format mp3"
-alias pipeline=$HOME/Code/us-entry-current-branches/pipeline
 alias http_code='curl --silent --show-error --output /dev/null --write-out "%{http_code}\n"'
 alias weather="curl -q http://wttr.in/Athens"
 alias moon="curl -q http://wttr.in/Moon"
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias vi='vim'
-
-# Using checklist: https://github.com/marinintim/checklist
-alias cl="checklist -f ~/Notes/checklist/checklist.txt"
-alias dl="checklist -f ~/Notes/checklist/checklist.$(today).txt"
 
 # Assumes HIST_IGNORE_SPACE is set
 # making aliases to certain commands to start with space to be ignored from history
