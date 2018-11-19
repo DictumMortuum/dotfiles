@@ -5,7 +5,6 @@
         "fontSize": "14",
         "indentSize": "2",
         "indentType": "space",
-        "keyMap": "vim",
         "switchPreview": "BLUR",
         "theme": "default"
     },

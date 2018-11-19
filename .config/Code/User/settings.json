@@ -18,5 +18,6 @@
     "git.confirmSync": false,
     "terminal.explorerKind": "external",
     "terminal.integrated.fontFamily": "Hack",
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false
 }
