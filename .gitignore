@@ -27,12 +27,16 @@
 !.ssh/global.config
 !.ssh/control
 
-# [code]
+# [config]
 !.config/Code
 .config/Code/*
 !.config/Code/User
 .config/Code/User/*
 !.config/Code/User/settings.json
+!.config/i3
+!.config/polybar
+!.config/terminator
+!.config/rofi
 
 # [gpg]
 !.gnupg

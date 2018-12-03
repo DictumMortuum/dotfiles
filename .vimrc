@@ -39,7 +39,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'chriskempson/base16-vim'
+Plugin 'arcticicestudio/nord-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
@@ -49,10 +49,19 @@ Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+let g:nord_italic = 1
+let g:nord_uniform_status_lines = 1
+let g:nord_comment_brightness = 12
+let g:nord_uniform_diff_background = 1
+let g:nord_cursor_line_number_background = 1
+
+
 " Vundle plugin configuration
 " airline
 set laststatus=2
-let g:airline_theme='base16_ashes'
+let g:airline_theme='nord'
 let g:airline_skip_empty_sections = 1
 let g:airline_detect_paste = 1
 let g:airline_powerline_fonts = 1
@@ -71,7 +80,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 map <C-n> :NERDTreeToggle<CR>
 
 " base16
-colorscheme base16-ashes
+colorscheme nord
 set background=dark
 
 " ================ Turn Off Swap Files ==============

@@ -4,7 +4,6 @@
     "editor.fontFamily": "Hack",
     "window.zoomLevel": 1,
     "telemetry.enableTelemetry": false,
-    "workbench.colorTheme": "Base16 Dark Ashes",
     "typescript.check.npmIsInstalled": false,
     "[clojure]": {
         "editor.tabSize": 1,
@@ -19,5 +18,7 @@
     "terminal.explorerKind": "external",
     "terminal.integrated.fontFamily": "Hack",
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Nord",
+    "window.titleBarStyle": "custom"
 }
