@@ -10,6 +10,3 @@
 [submodule ".dotfiles/zsh/custom/plugins/zsh-async"]
 	path = .dotfiles/zsh/custom/plugins/zsh-async
 	url = https://github.com/mafredri/zsh-async.git
-[submodule ".dotfiles/base16-shell"]
-	path = .dotfiles/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
