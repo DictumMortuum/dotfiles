@@ -10,7 +10,7 @@ export TCLLIBPATH=$HOME/.dotfiles/tclsh
 export HOSTFILE
 
 # enable en_US locale w/ utf-8 encodings if not already configured
-: ${LANG:="en_US.UTF-8"}
+LANG="en_US.UTF-8"
 : ${LANGUAGE:="en_US.UTF-8"}
 : ${LC_CTYPE:="en_US.UTF-8"}
 : ${LC_ALL:="en_US.UTF-8"}
