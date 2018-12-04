@@ -12,6 +12,7 @@
 !.curlrc
 !.boostnoterc
 !install.sh
+!.Xresources
 
 # Top-level repo directories
 !.dotfiles
