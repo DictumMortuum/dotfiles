@@ -20,6 +20,14 @@ foreach file in $(ls $HOME/.dotfiles/zsh/autoload/* ); do
   . $file
 done
 
+# Monitors
+function _get_monitors() {
+  xrandr -q | grep " connected" | cut -d ' ' -f1 | grep -v "eDP" | grep -v "LVDS" | sed -n ${1}p
+}
+
+export MONITOR1=$(_get_monitors 1)
+export MONITOR2=$(_get_monitors 2)
+
 # PATH
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.dotfiles/bin:$PATH"
 test -d "$HOME/Code/scripts/dist" && PATH="$HOME/Code/scripts/dist:$PATH"
