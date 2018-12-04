@@ -20,5 +20,6 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "explorer.confirmDragAndDrop": false,
     "workbench.colorTheme": "Nord",
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "breadcrumbs.enabled": true
 }

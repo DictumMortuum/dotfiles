@@ -12,53 +12,41 @@ shade2 = #434c5e
 format-background = ${colors.background2}
 format-foreground = ${colors.foreground}
 
-[module/vpn]
-type = custom/script
-exec = echo " "
-exec-if = ps ax | grep [o]penvpn
-interval = 5
-format-background = ${colors.shade2}
-
 [module/wired]
 type = internal/network
-interface = enp0s25
-label-connected = "  "
+interface = enp1s0
+label-connected = %local_ip%
 format-connected = <label-connected>
-format-connected-background = ${colors.shade2}
+format-connected-background = ${colors.background}
 
-[module/wireless]
-type = internal/network
-interface = wlp3s0
-label-connected = "  "
-format-connected = <label-connected>
-format-connected-background = ${colors.shade2}
-
-[module/date]
+[module/datetime]
 type = internal/date
 interval = 1.0
-date = %A, %B %dth
+date = "%Y-%m-%d%"
+time = "%H:%M"
+label = "%date% - %time%"
+format-background = ${colors.background}
 
-label = %date%
-format-padding = 1
-
-[module/time]
-type = internal/date
-interval = 1.0
-time = " %H:%M "
-time-alt = " %A, %B %dth "
-label = %time%
-format-background = ${colors.background2}
-format-foreground = ${colors.foreground}
+[module/cpu]
+type = internal/cpu
+format = <ramp-coreload>
+format-background = ${colors.background}
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
 
 [module/i3]
 type = internal/i3
 pin-workspaces = true
-
 label-focused = %index%
 label-focused-padding = 1
-label-focused-foreground = ${colors.selection}
+label-focused-foreground = ${colors.background2}
 label-focused-background = ${colors.selection}
-
 label-unfocused = %index%
 label-unfocused-background = ${colors.background2}
 label-unfocused-padding = 1
@@ -75,15 +63,12 @@ full-at = 90
 battery = BAT0
 adapter = AC
 poll-interval = 5
-
 format-full =
 format-full-background = #4c566a
 format-full-padding = 1
-
 format-charging-padding = 1
 format-charging = <animation-charging>
 format-charging-background = #4c566a
-
 label-discharging = %percentage%%
 format-discharging = <ramp-capacity>
 format-discharging-padding = 1
@@ -100,12 +85,21 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 
+[module/keyboard]
+type = internal/xkeyboard
+format = <label-layout>
+format-background = ${colors.background}
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+label-layout = %name%
+label-layout-padding = 2
+
 [bar/bar]
 monitor-strict = true
 bottom = true
 modules-left = i3
-modules-center =
-modules-right = time wired wireless vpn battery
+modules-center = datetime
+modules-right = battery wired keyboard
 monitor = ${env:MONITOR1}
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -113,15 +107,11 @@ font-0 = DejaVu Sans Mono:size=10;3
 font-1 = Material Icons:size=10;3
 font-2 = Font Awesome 5 Free:size=10;3
 font-3 = FontAwesome:size=10;3
-height = 24
-tray-position =
-tray-padding = 4
 wm-restack = i3
-
 
 [bar/second]
 inherit = bar/bar
 modules-left = i3
-modules-right = time
-modules-center =
+modules-center = cpu
+modules-right = 
 monitor = ${env:MONITOR2}

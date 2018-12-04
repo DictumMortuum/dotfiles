@@ -99,6 +99,17 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+workspace $ws1 output $MONITOR1
+workspace $ws2 output $MONITOR2
+workspace $ws3 output $MONITOR1
+workspace $ws4 output $MONITOR2
+workspace $ws5 output $MONITOR1
+workspace $ws6 output $MONITOR2
+workspace $ws7 output $MONITOR1
+workspace $ws8 output $MONITOR2
+workspace $ws9 output $MONITOR1
+workspace $ws10 output $MONITOR2
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -123,36 +134,25 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-workspace $ws1 output $MONITOR1
-workspace $ws2 output $MONITOR2
-workspace $ws3 output $MONITOR1
-workspace $ws4 output $MONITOR2
-workspace $ws5 output $MONITOR1
-workspace $ws6 output $MONITOR2
-workspace $ws7 output $MONITOR1
-workspace $ws8 output $MONITOR2
-workspace $ws9 output $MONITOR1
-workspace $ws10 output $MONITOR2
+bindsym $mod+r mode "resize"
 
 mode "resize" {
-  # These bindings trigger as soon as you enter the resize mode
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Left  resize grow   width  5 px or 5 ppt
+  bindsym Down  resize shrink height 5 px or 5 ppt
+  bindsym Up    resize grow   height 5 px or 5 ppt
+  bindsym Right resize shrink width  5 px or 5 ppt
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
 exec_always "setxkbmap -option 'caps:super'"
 exec_always "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
 exec_always --no-startup-id xsetroot -solid "#434c5e"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id ~/.screenlayout/layout.sh
+exec_always --no-startup-id start-pulseaudio-x11
 exec nm-applet
 #exec_always --no-startup-id feh --bg-fill $HOME/.config/feh/current
 #exec dbus-launch compton --config ~/.config/compton.conf &
