@@ -242,6 +242,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym Scroll_Lock exec $HOME/.dotfiles/bin/lockscreen
 bindsym $mod+Shift+w exec emacs
 
+exec_always "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
 #exec_always --no-startup-id feh --bg-fill $HOME/.config/feh/current
 exec_always --no-startup-id xsetroot -solid "#434c5e"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
