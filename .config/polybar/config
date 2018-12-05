@@ -112,6 +112,10 @@ font-1 = Material Icons:size=10;3
 font-2 = Font Awesome 5 Free:size=10;3
 font-3 = FontAwesome:size=10;3
 wm-restack = i3
+border-left= 10
+border-right = 10
+border-bottom = 10
+border-color = #434c5e
 
 [bar/second]
 inherit = bar/bar
