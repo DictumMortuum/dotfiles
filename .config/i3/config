@@ -61,6 +61,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # screen cap
 # scrot & gimp - root
 bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindsym $mod+Print exec scrot -s -e 'mv $f ~/Pictures'
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -147,13 +148,14 @@ mode "resize" {
   bindsym $mod+r mode "default"
 }
 
+for_window [class="^.*"] border pixel 0
+
 exec_always "setxkbmap -option 'caps:super'"
 exec_always "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
 exec_always --no-startup-id xsetroot -solid "#434c5e"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id ~/.screenlayout/layout.sh
 exec_always --no-startup-id start-pulseaudio-x11
-exec nm-applet
 #exec_always --no-startup-id feh --bg-fill $HOME/.config/feh/current
 #exec dbus-launch compton --config ~/.config/compton.conf &
 #exec --no-startup-id dunst -config ~/.config/dunst/dunstrc

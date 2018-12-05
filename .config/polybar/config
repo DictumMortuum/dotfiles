@@ -12,12 +12,16 @@ shade2 = #434c5e
 format-background = ${colors.background2}
 format-foreground = ${colors.foreground}
 
-[module/wired]
+[module/homewired]
 type = internal/network
 interface = enp1s0
 label-connected = %local_ip%
 format-connected = <label-connected>
 format-connected-background = ${colors.background}
+
+[module/workwired]
+inherit = module/homewired
+interface = enxa44cc8daf8d2
 
 [module/datetime]
 type = internal/date
@@ -63,16 +67,16 @@ full-at = 90
 battery = BAT0
 adapter = AC
 poll-interval = 5
-format-full =
-format-full-background = #4c566a
+format-full = 
+format-full-background = ${colors.background}
 format-full-padding = 1
 format-charging-padding = 1
 format-charging = <animation-charging>
-format-charging-background = #4c566a
+format-charging-background = ${colors.background}
 label-discharging = %percentage%%
 format-discharging = <ramp-capacity>
 format-discharging-padding = 1
-format-discharging-background = #4c566a
+format-discharging-background = ${colors.background}
 animation-charging-framerate = 750
 ramp-capacity-0 = "%{F#bf616a}"
 ramp-capacity-1 = 
@@ -99,7 +103,7 @@ monitor-strict = true
 bottom = true
 modules-left = i3
 modules-center = datetime
-modules-right = battery wired keyboard
+modules-right = battery homewired workwired keyboard
 monitor = ${env:MONITOR1}
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -113,5 +117,5 @@ wm-restack = i3
 inherit = bar/bar
 modules-left = i3
 modules-center = cpu
-modules-right = 
+modules-right =
 monitor = ${env:MONITOR2}
