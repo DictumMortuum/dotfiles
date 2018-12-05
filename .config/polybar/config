@@ -2,22 +2,21 @@
 background = ${xrdb:background:#ff0000}
 background2 = ${xrdb:lighterbg:#ff0000}
 selection = ${xrdb:selection:#ff0000}
-;foreground = ${xrdb:foreground:#ff0000}
-foreground = #839496
+foreground = ${xrdb:foreground:#ff0000}
 separator = ${xrdb:separator:#ff0000}
 lightfg = ${xrdb:color7:#ff0000}
-shade2 = #434c5e
+wallpaper = ${xrdb:wallpaper:#ff0000}
 
 [settings]
-format-background = ${colors.background2}
+format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 
 [module/homewired]
 type = internal/network
 interface = enp1s0
 label-connected = %local_ip%
+label-connected-padding = 1
 format-connected = <label-connected>
-format-connected-background = ${colors.background}
 
 [module/workwired]
 inherit = module/homewired
@@ -27,14 +26,12 @@ interface = enxa44cc8daf8d2
 type = internal/date
 interval = 1.0
 date = "%Y-%m-%d%"
-time = "%H:%M"
+time = "%H:%M:%S"
 label = "%date% - %time%"
-format-background = ${colors.background}
 
 [module/cpu]
 type = internal/cpu
 format = <ramp-coreload>
-format-background = ${colors.background}
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
 ramp-coreload-2 = ▃
@@ -49,7 +46,7 @@ type = internal/i3
 pin-workspaces = true
 label-focused = %index%
 label-focused-padding = 1
-label-focused-foreground = ${colors.background2}
+label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.selection}
 label-unfocused = %index%
 label-unfocused-background = ${colors.background2}
@@ -68,15 +65,12 @@ battery = BAT0
 adapter = AC
 poll-interval = 5
 format-full = 
-format-full-background = ${colors.background}
 format-full-padding = 1
 format-charging-padding = 1
 format-charging = <animation-charging>
-format-charging-background = ${colors.background}
 label-discharging = %percentage%%
 format-discharging = <ramp-capacity>
 format-discharging-padding = 1
-format-discharging-background = ${colors.background}
 animation-charging-framerate = 750
 ramp-capacity-0 = "%{F#bf616a}"
 ramp-capacity-1 = 
@@ -96,14 +90,14 @@ format-background = ${colors.background}
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 label-layout = %name%
-label-layout-padding = 2
+label-layout-padding = 1
 
 [bar/bar]
 monitor-strict = true
 bottom = true
 modules-left = i3
 modules-center = datetime
-modules-right = battery homewired workwired keyboard
+modules-right = battery keyboard homewired workwired
 monitor = ${env:MONITOR1}
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -112,10 +106,8 @@ font-1 = Material Icons:size=10;3
 font-2 = Font Awesome 5 Free:size=10;3
 font-3 = FontAwesome:size=10;3
 wm-restack = i3
-border-left= 10
-border-right = 10
-border-bottom = 10
-border-color = #434c5e
+border-top = 8
+border-color = ${colors.wallpaper}
 
 [bar/second]
 inherit = bar/bar
