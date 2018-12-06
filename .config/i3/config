@@ -32,13 +32,14 @@ client.placeholder      $background    #282D37    $background  $background
 
 set $mod Mod4
 font pango:DejaVu Sans Mono 10
+#font pango:Hack 10
 
 hide_edge_borders   both
-new_window pixel    1
-new_float pixel     1
+#new_window pixel    1
+#new_float pixel     1
 focus_follows_mouse no
-gaps inner          8
-gaps outer          -8
+gaps inner          20
+gaps outer          0
 floating_modifier   $mod
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute

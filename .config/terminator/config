@@ -1,5 +1,8 @@
 [global_config]
   always_split_with_profile = True
+  borderless = True
+  extra_styling = False
+  handle_size = 0
   inactive_color_offset = 1.0
   suppress_multiple_term_dialog = True
   title_font = Hack 13
@@ -22,10 +25,10 @@
 [plugins]
 [profiles]
   [[default]]
-    background_image = None
+    cursor_color = "#aaaaaa"
   [[nord]]
     background_color = "#2e3440"
-    background_image = None
+    background_darkness = 1.0
     copy_on_selection = True
     cursor_color = "#D8DEE9"
     font = Hack 13
