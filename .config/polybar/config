@@ -11,15 +11,18 @@ wallpaper = ${xrdb:wallpaper:#ff0000}
 format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 
-[module/homewired]
+[module/wired]
 type = internal/network
-interface = enp1s0
 label-connected = %local_ip%
 label-connected-padding = 1
 format-connected = <label-connected>
 
+[module/homewired]
+inherit = module/wired
+interface = enp1s0
+
 [module/workwired]
-inherit = module/homewired
+inherit = module/wired
 interface = enxa44cc8daf8d2
 
 [module/datetime]
@@ -98,7 +101,7 @@ bottom = true
 modules-left = i3
 modules-center = datetime
 modules-right = battery keyboard homewired workwired
-monitor = ${env:MONITOR1}
+monitor = ${env:MONITOR}
 background = ${colors.background}
 foreground = ${colors.foreground}
 font-0 = DejaVu Sans Mono:size=10;3
@@ -108,10 +111,3 @@ font-3 = FontAwesome:size=10;3
 wm-restack = i3
 border-top = 8
 border-color = ${colors.wallpaper}
-
-[bar/second]
-inherit = bar/bar
-modules-left = i3
-modules-center = cpu
-modules-right =
-monitor = ${env:MONITOR2}
