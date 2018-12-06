@@ -150,7 +150,7 @@ mode "resize" {
 
 for_window [class="^.*"] border pixel 0
 
-exec_always "setxkbmap -option 'caps:super'"
+exec_always "setxkbmap -option compose:caps"
 exec_always "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
 exec_always --no-startup-id xsetroot -solid "#434c5e"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
