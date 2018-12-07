@@ -38,6 +38,9 @@
 !.config/polybar
 !.config/terminator
 !.config/rofi
+!.config/gtk-3.0
+.config/gtk-3.0/*
+!.config/gtk-3.0/gtk.css
 
 # [gpg]
 !.gnupg
