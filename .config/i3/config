@@ -32,11 +32,8 @@ client.placeholder      $background    #282D37    $background  $background
 
 set $mod Mod4
 font pango:DejaVu Sans Mono 10
-#font pango:Hack 10
 
 hide_edge_borders   both
-#new_window pixel    1
-#new_float pixel     1
 focus_follows_mouse no
 gaps inner          20
 gaps outer          0
@@ -57,38 +54,20 @@ bindsym $mod+d exec rofi -show drun
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# screen cap
-# scrot & gimp - root
-bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
-bindsym $mod+Print exec scrot -s -e 'mv $f ~/Pictures'
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-# toggle tiling / floating
+bindsym --release $mod+Print exec scrot -s
 bindsym $mod+Shift+space floating toggle
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-# focus the parent container
-bindsym $mod+a focus parent
 
-# alternatively, you can use the cursor keys:
+# Workspaces
+
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 
 set $ws0 "0"
 set $ws1 "1"
@@ -101,7 +80,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
-# switch to workspace
 bindsym $mod+0 workspace $ws0
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -113,7 +91,6 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
-# move focused container to workspace
 bindsym $mod+Shift+0 move container to workspace $ws0
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -125,7 +102,9 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
-mode "resize" {
+set $mode_resize Use arrow buttons to resize window
+bindsym $mod+r mode "$mode_resize"
+mode "$mode_resize" {
   bindsym Left  resize grow   width  5 px or 5 ppt
   bindsym Down  resize shrink height 5 px or 5 ppt
   bindsym Up    resize grow   height 5 px or 5 ppt
@@ -136,27 +115,19 @@ mode "resize" {
   bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
-set $Locker i3lock && sleep 1
-set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) logout, (r) reboot, (s) shutdown
+bindsym $mod+Pause mode "$mode_system"
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+  bindsym l exec --no-statrup-id dm-tool switch-to-greeter, mode "default"
+  bindsym r exec --no-startup-id systemctl reboot, mode "default"
+  bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+Pause mode "default"
 }
 
-bindsym $mod+Pause mode "$mode_system"
-
-for_window [class="^.*"] border pixel 0
-
-exec_always "setxkbmap -option compose:caps"
-exec_always "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
+exec_always "setxkbmap -model pc105 -layout us,gr -option 'grp:alt_shift_toggle,compose:caps'"
 exec_always --no-startup-id xsetroot -solid "#434c5e"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id ~/.screenlayout/layout.sh
@@ -164,3 +135,4 @@ exec_always --no-startup-id start-pulseaudio-x11
 #exec_always --no-startup-id feh --bg-fill $HOME/.config/feh/current
 #exec dbus-launch compton --config ~/.config/compton.conf &
 #exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+for_window [class="^.*"] border pixel 0
