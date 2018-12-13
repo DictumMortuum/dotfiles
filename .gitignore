@@ -13,6 +13,7 @@
 !.boostnoterc
 !install.sh
 !.Xresources
+!.xprofile
 
 # Top-level repo directories
 !.dotfiles

@@ -22,6 +22,8 @@ set_from_resource $background i3wm.background $base3
 set_from_resource $foreground i3wm.foreground $base00
 set_from_resource $lighterbg  i3wm.lighterbg  $base02
 set_from_resource $separator  i3wm.separator  $lighterbg
+set_from_resource $monitor1   i3wm.monitor1
+set_from_resource $monitor2   i3wm.monitor2
 
 #class                  border         backgr     text         indicator
 client.focused	        #2C313D        #2e3440    $background  $background
@@ -81,15 +83,15 @@ set $ws8 "8"
 set $ws9 "9"
 
 bindsym $mod+0 workspace $ws0
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
+bindsym $mod+1 workspace $ws1; move workspace to output $monitor1
+bindsym $mod+2 workspace $ws2; move workspace to output $monitor2
+bindsym $mod+3 workspace $ws3; move workspace to output $monitor1
+bindsym $mod+4 workspace $ws4; move workspace to output $monitor2
+bindsym $mod+5 workspace $ws5; move workspace to output $monitor1
+bindsym $mod+6 workspace $ws6; move workspace to output $monitor2
+bindsym $mod+7 workspace $ws7; move workspace to output $monitor1
+bindsym $mod+8 workspace $ws8; move workspace to output $monitor2
+bindsym $mod+9 workspace $ws9; move workspace to output $monitor1
 
 bindsym $mod+Shift+0 move container to workspace $ws0
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -115,10 +117,11 @@ mode "$mode_resize" {
   bindsym $mod+r mode "default"
 }
 
-set $mode_system System (l) logout, (r) reboot, (s) shutdown
+set $mode_system System (l) logout, (r) reboot, (s) shutdown, (e) exit
 bindsym $mod+Pause mode "$mode_system"
 mode "$mode_system" {
-  bindsym l exec --no-statrup-id dm-tool switch-to-greeter, mode "default"
+  bindsym e exec --no-startup-id i3-msg exit, mode "default"
+  bindsym l exec --no-startup-id dm-tool switch-to-greeter, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"
   bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "*monitor1: $MONITOR1" > /tmp/monitor
+echo "*monitor2: $MONITOR2" >> /tmp/monitor
+xrdb -merge /tmp/monitor
