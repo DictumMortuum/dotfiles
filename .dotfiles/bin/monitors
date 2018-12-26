@@ -4,10 +4,11 @@ proc get_monitors {} {
   return [exec xrandr -q | grep " connected" | cut -d " " -f1]
 }
 
+set monitors [get_monitors]
 set external [list]
 set internal [list]
 
-foreach m [get_monitors] {
+foreach m $monitors {
   switch -regexp $m {
     eDP* {
       lappend internal $m
@@ -44,5 +45,11 @@ puts $fp "*monitor0: $monitor0"
 puts $fp "*monitor1: $monitor1"
 puts $fp "*monitor2: $monitor2"
 
-close $fp
+set i 0
 
+foreach m $monitors {
+  puts $fp "*bar${i}: $m"
+  incr i
+}
+
+close $fp

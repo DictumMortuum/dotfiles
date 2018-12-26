@@ -2,4 +2,3 @@
 
 tclsh ~/.dotfiles/bin/monitors   && xrdb -merge /tmp/monitors
 tclsh ~/.dotfiles/bin/interfaces && xrdb -merge /tmp/interfaces
-

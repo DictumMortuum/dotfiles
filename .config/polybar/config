@@ -1,11 +1,8 @@
 [colors]
-background = ${xrdb:background:#ff0000}
-background2 = ${xrdb:lighterbg:#ff0000}
-selection = ${xrdb:selection:#ff0000}
-foreground = ${xrdb:foreground:#ff0000}
-separator = ${xrdb:separator:#ff0000}
-lightfg = ${xrdb:color7:#ff0000}
-wallpaper = ${xrdb:wallpaper:#ff0000}
+background = ${xrdb:background}
+lightbg = ${xrdb:color0}
+selection = ${xrdb:color1}
+foreground = ${xrdb:foreground}
 
 [settings]
 format-background = ${colors.background}
@@ -15,8 +12,9 @@ format-foreground = ${colors.foreground}
 type = internal/network
 label-connected = %local_ip%
 interface = ${xrdb:wired}
+interval = 3.0
 
-[module/wlan]
+[module/wireless]
 type = internal/network
 label-connected = %local_ip%
 interface = ${xrdb:wireless}
@@ -37,11 +35,11 @@ label-focused-padding = 1
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.selection}
 label-unfocused = %index%
-label-unfocused-background = ${colors.background2}
+label-unfocused-background = ${colors.lightbg}
 label-unfocused-padding = 1
 label-visible = %index%
 label-visible-padding = 1
-label-visible-background = ${colors.background2}
+label-visible-background = ${colors.lightbg}
 label-urgent = %index%
 label-urgent-padding = 1
 index-sort = true
@@ -57,13 +55,14 @@ padding = 1
 [module/battery]
 type = internal/battery
 
-[bar/bar]
+[bar/one]
 monitor-strict = true
 modules-left = i3
 modules-center = keyboard
 modules-right = battery wired wlan datetime
 module-margin-right = 2
-monitor = ${env:MONITOR}
+monitor = ${xrdb:bar0}
+monitor-strict = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 font-0 = Hack:size=10;2
@@ -72,3 +71,10 @@ padding-right = 1
 tray-detached = false
 tray-position = right
 
+[bar/two]
+inherit = bar/one
+monitor = ${xrdb:bar1}
+
+[bar/three]
+inherit = bar/one
+monitor = ${xrdb:bar2}
