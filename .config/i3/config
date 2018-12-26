@@ -2,29 +2,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set_from_resource $base03     i3wm.color8     #002b36
-set_from_resource $base02     i3wm.color0     #073642
-set_from_resource $base01     i3wm.color10    #586e75
-set_from_resource $base00     i3wm.color11    #657b83
-set_from_resource $base0      i3wm.color12    #839496
-set_from_resource $base1      i3wm.color14    #93a1a1
-set_from_resource $base2      i3wm.color7     #eee8d5
-set_from_resource $base3      i3wm.color15    #fdf6e3
-set_from_resource $yellow     i3wm.color3     #b58900
-set_from_resource $orange     i3wm.color9     #cb4b16
-set_from_resource $red        i3wm.color1     #dc322f
-set_from_resource $magenta    i3wm.color5     #d33682
-set_from_resource $violet     i3wm.color13    #6c71c4
-set_from_resource $blue       i3wm.color4     #268bd2
-set_from_resource $cyan       i3wm.color6     #2aa198
-set_from_resource $green      i3wm.color2     #859900
-set_from_resource $background i3wm.background $base3
-set_from_resource $foreground i3wm.foreground $base00
-set_from_resource $lighterbg  i3wm.lighterbg  $base02
-set_from_resource $separator  i3wm.separator  $lighterbg
+set_from_resource $background i3wm.background
+set_from_resource $monitor0   i3wm.monitor0
 set_from_resource $monitor1   i3wm.monitor1
 set_from_resource $monitor2   i3wm.monitor2
-set_from_resource $wallpaper  i3wm.wallpaper  $base02
+set_from_resource $wallpaper  i3wm.wallpaper
 
 #class                  border         backgr     text         indicator
 client.focused	        #2C313D        #2e3440    $background  $background
@@ -83,7 +65,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
-bindsym $mod+0 workspace $ws0
+bindsym $mod+0 workspace $ws0; move workspace to output $monitor0
 bindsym $mod+1 workspace $ws1; move workspace to output $monitor1
 bindsym $mod+2 workspace $ws2; move workspace to output $monitor1
 bindsym $mod+3 workspace $ws3; move workspace to output $monitor1

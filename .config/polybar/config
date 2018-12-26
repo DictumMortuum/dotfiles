@@ -56,10 +56,9 @@ padding = 1
 type = internal/battery
 
 [bar/one]
-monitor-strict = true
 modules-left = i3
 modules-center = keyboard
-modules-right = battery wired wlan datetime
+modules-right = battery wired wireless datetime
 module-margin-right = 2
 monitor = ${xrdb:bar0}
 monitor-strict = true
