@@ -136,6 +136,7 @@ exec_always --no-startup-id xsetroot -solid "$wallpaper"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id ~/.screenlayout/layout.sh
 exec_always --no-startup-id start-pulseaudio-x11
+exec_always --no-startup-id nm-applet
 #exec_always --no-startup-id feh --bg-fill $HOME/.config/feh/current
 #exec dbus-launch compton --config ~/.config/compton.conf &
 #exec --no-startup-id dunst -config ~/.config/dunst/dunstrc

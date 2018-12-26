@@ -14,8 +14,13 @@ format-foreground = ${colors.foreground}
 [module/wired]
 type = internal/network
 label-connected = %local_ip%
-format-connected = <label-connected>
-interface = ${env:INTERFACE}
+interface = ${xrdb:wired}
+
+[module/wlan]
+type = internal/network
+label-connected = %local_ip%
+interface = ${xrdb:wireless}
+interval = 3.0
 
 [module/datetime]
 type = internal/date
@@ -49,11 +54,14 @@ blacklist-1 = scroll lock
 label-layout = %layout%
 padding = 1
 
+[module/battery]
+type = internal/battery
+
 [bar/bar]
 monitor-strict = true
 modules-left = i3
 modules-center = keyboard
-modules-right = battery wired datetime
+modules-right = battery wired wlan datetime
 module-margin-right = 2
 monitor = ${env:MONITOR}
 background = ${colors.background}
@@ -61,3 +69,6 @@ foreground = ${colors.foreground}
 font-0 = Hack:size=10;2
 wm-restack = i3
 padding-right = 1
+tray-detached = false
+tray-position = right
+

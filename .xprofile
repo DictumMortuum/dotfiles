@@ -1,5 +1,68 @@
-#!/bin/bash
+#!/usr/bin/tclsh
 
-echo "*monitor1: $MONITOR1" > /tmp/monitor
-echo "*monitor2: $MONITOR2" >> /tmp/monitor
-xrdb -merge /tmp/monitor
+proc get_monitors {} {
+  return [exec xrandr -q | grep " connected" | cut -d " " -f1]
+}
+
+proc get_interface {n} {
+  return [exec ls /sys/class/net | grep $n | tail -n 1]
+}
+
+set external [list]
+set internal [list]
+
+foreach m [get_monitors] {
+  switch -regexp $m {
+    eDP* {
+      lappend internal $m
+    }
+    HDMI* -
+    DP* -
+    default {
+      lappend external $m
+    }
+  }
+}
+
+if {[llength $internal] > 0} {
+  set default_monitor [lindex $internal 0]
+} else {
+  set default_monitor [lindex $external 0]
+}
+
+set monitor0 $default_monitor
+
+foreach m {1 2} {
+  set i [expr {$m - 1}]
+
+  if {[llength $external] > $i} {
+    set monitor$m [lindex $external $i]
+  } else {
+    set monitor$m $default_monitor
+  }
+}
+
+set fp [open /tmp/xsession w]
+
+puts $fp "*monitor0: $monitor0"
+puts $fp "*monitor1: $monitor1"
+puts $fp "*monitor2: $monitor2"
+
+if {![catch {
+  set wireless [get_interface wlp]
+}]} {
+  puts $fp "*wireless: $wireless"
+}
+
+if {![catch {
+  set wired [get_interface en]
+}]} {
+  puts $fp "*wired: $wired"
+}
+
+close $fp
+
+catch {
+  exec xrdb -merge /tmp/xsession
+}
+
