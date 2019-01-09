@@ -67,12 +67,12 @@ foreground = ${colors.foreground}
 font-0 = Hack:size=10;2
 wm-restack = i3
 padding-right = 1
-tray-detached = false
-tray-position = right
 
 [bar/two]
 inherit = bar/one
 monitor = ${xrdb:bar1}
+tray-detached = false
+tray-position = center
 
 [bar/three]
 inherit = bar/one
