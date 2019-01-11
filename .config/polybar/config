@@ -64,7 +64,7 @@ monitor = ${xrdb:bar0}
 monitor-strict = true
 background = ${colors.background}
 foreground = ${colors.foreground}
-font-0 = Hack:size=10;2
+font-0 = Hack:size=10:weight=bold;2
 wm-restack = i3
 padding-right = 1
 
@@ -73,7 +73,10 @@ inherit = bar/one
 monitor = ${xrdb:bar1}
 tray-detached = false
 tray-position = center
+modules-right = datetime
 
 [bar/three]
 inherit = bar/one
 monitor = ${xrdb:bar2}
+modules-right = datetime
+
