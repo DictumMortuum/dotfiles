@@ -1,4 +1,4 @@
-rofi.show-icons:            false
+rofi.show-icons:            true
 rofi.modi:                  drun,run,window,ssh
 rofi.theme:                 nord
 rofi.lines:                 7
@@ -9,4 +9,4 @@ rofi.padding:               0
 rofi.separator-style:       none
 rofi.hide-scrollbar:        true
 rofi.line-margin:           0
-rofi.font:                  sans-serif 10
+rofi.font:                  sans-serif 11
