@@ -6,7 +6,7 @@ set_from_resource $background i3wm.background
 set_from_resource $monitor0   i3wm.monitor0
 set_from_resource $monitor1   i3wm.monitor1
 set_from_resource $monitor2   i3wm.monitor2
-set_from_resource $wallpaper  i3wm.color5
+set_from_resource $wallpaper  i3wm.color4
 
 #class                  border         backgr     text         indicator
 client.focused	        #2C313D        #2e3440    $background  $background
