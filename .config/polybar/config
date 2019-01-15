@@ -58,7 +58,7 @@ type = internal/battery
 [bar/one]
 modules-left = i3
 modules-center = keyboard
-modules-right = battery wired wireless datetime
+modules-right = wired wireless datetime
 module-margin-right = 2
 monitor = ${xrdb:bar0}
 monitor-strict = true
@@ -73,10 +73,8 @@ inherit = bar/one
 monitor = ${xrdb:bar1}
 tray-detached = false
 tray-position = center
-modules-right = datetime
 
 [bar/three]
 inherit = bar/one
 monitor = ${xrdb:bar2}
-modules-right = datetime
 
