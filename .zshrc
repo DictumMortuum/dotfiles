@@ -16,14 +16,16 @@ LANG="en_US.UTF-8"
 : ${LC_ALL:="en_US.UTF-8"}
 export LANG LANGUAGE LC_CTYPE LC_ALL
 
-foreach file in $(ls $HOME/.dotfiles/zsh/autoload/* ); do
+[[ -d $HOME/.bashrc.d ]] && mkdir -p $HOME/.bashrc.d
+
+foreach file in $(ls $HOME/.dotfiles/zsh/autoload/* $HOME/.bashrc.d/*); do
   . $file
 done
 
 # PATH
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.dotfiles/bin:$PATH"
-test -d "$HOME/Code/scripts/dist" && PATH="$HOME/Code/scripts/dist:$PATH"
-test -d "/usr/games" && PATH="/usr/games:$PATH"
+[[ -d $HOME/Code/scripts/dist ]] && PATH="$HOME/Code/scripts/dist:$PATH"
+[[ -d /usr/games ]] && PATH="/usr/games:$PATH"
 
 # condense PATH entries
 export PATH=$(clearpath)
