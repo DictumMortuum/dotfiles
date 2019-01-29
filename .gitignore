@@ -7,6 +7,9 @@
 !.vimrc
 !.zshrc
 !.bashrc
+!.bashrc.d
+.bashrc.d/*
+!.bashrc.d/base.sh
 !.wgetrc
 !.editorconfig
 !.curlrc

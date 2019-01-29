@@ -16,8 +16,6 @@ LANG="en_US.UTF-8"
 : ${LC_ALL:="en_US.UTF-8"}
 export LANG LANGUAGE LC_CTYPE LC_ALL
 
-[[ -d $HOME/.bashrc.d ]] && mkdir -p $HOME/.bashrc.d
-
 foreach file in $(ls $HOME/.dotfiles/zsh/autoload/* $HOME/.bashrc.d/*); do
   . $file
 done
