@@ -114,7 +114,7 @@ mode "$mode_resize" {
 }
 
 set $mode_system System (l) logout, (r) reboot, (s) shutdown, (e) exit
-bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+BackSpace mode "$mode_system"
 mode "$mode_system" {
   bindsym e exec --no-startup-id i3-msg exit, mode "default"
   bindsym l exec --no-startup-id dm-tool switch-to-greeter, mode "default"
