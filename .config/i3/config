@@ -134,7 +134,7 @@ exec_always --no-startup-id nm-applet
 exec_always --no-startup-id xfce4-power-manager
 exec_always --no-startup-id compton &
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec_always "setxkbmap -model pc105 -layout us,gr -option 'grp:alt_shift_toggle,compose:caps'"
+exec_always (sleep 5 && setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps')
 
 for_window [class="^.*"] border pixel 0
 assign [class="Firefox"] 5
