@@ -133,9 +133,9 @@ exec_always --no-startup-id nm-applet
 exec_always --no-startup-id xfce4-power-manager
 exec_always --no-startup-id compton
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec_always --no-startup-id (sleep 3 && ~/.screenlayout/layout.sh)
-exec_always --no-startup-id (sleep 3 && ~/.config/i3/polybar.sh)
-exec_always --no-startup-id (sleep 3 && setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps')
+exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
+exec_always --no-startup-id (sleep 1 && ~/.screenlayout/layout.sh)
+exec_always --no-startup-id (sleep 1 && ~/.config/i3/polybar.sh)
 
 for_window [class="^.*"] border pixel 0
 assign [class="Firefox"] 5
