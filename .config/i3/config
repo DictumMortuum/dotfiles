@@ -16,7 +16,7 @@ client.urgent           $background    #282d37    $background  $background
 client.placeholder      $background    #282D37    $background  $background
 
 set $mod Mod4
-font pango:DejaVu Sans Mono 10
+font pango:Roboto Regular 12
 
 hide_edge_borders   both
 focus_follows_mouse no
