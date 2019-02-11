@@ -41,18 +41,22 @@ label-visible = %icon%
 label-visible-padding = 1
 label-visible-background = ${colors.background}
 label-urgent = %icon%
+label-urgent-background = ${colors.lightbg}
 label-urgent-padding = 1
 index-sort = true
-ws-icon-0 = 0;0
+ws-icon-0 = 0;~
 ws-icon-1 = 1;1
 ws-icon-2 = 2;2
 ws-icon-3 = 3;3
 ws-icon-4 = 4;4
-ws-icon-5 = 5;
-ws-icon-6 = 6;
+ws-icon-5 = 5;5
+ws-icon-6 = 6;6
+#ws-icon-5 = 5;
+#ws-icon-6 = 6;
 ws-icon-7 = 7;7
 ws-icon-8 = 8;8
 ws-icon-9 = 9;9
+ws-icon-10 = 10;A
 
 [module/keyboard]
 type = internal/xkeyboard

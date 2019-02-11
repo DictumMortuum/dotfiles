@@ -25,13 +25,7 @@ gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym Scroll_Lock exec $HOME/.dotfiles/bin/lockscreen
+bindsym $mod+Scroll_Lock exec $HOME/.dotfiles/bin/lockscreen
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+h split h
 bindsym $mod+v split v
@@ -66,6 +60,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
+set $wsA "10"
 
 workspace $ws0 output $monitor0
 workspace $ws1 output $monitor1
@@ -77,8 +72,9 @@ workspace $ws6 output $monitor2
 workspace $ws7 output $monitor2
 workspace $ws8 output $monitor2
 workspace $ws9 output $monitor2
+workspace $wsA output $monitor2
 
-bindsym $mod+0 workspace $ws0
+bindsym $mod+grave workspace $ws0
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -88,8 +84,9 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $wsA
 
-bindsym $mod+Shift+0 move container to workspace $ws0
+bindsym $mod+Shift+grave move container to workspace $ws0
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -99,6 +96,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $wsA
 
 set $mode_resize Use arrow buttons to resize window
 bindsym $mod+r mode "$mode_resize"
@@ -107,7 +105,6 @@ mode "$mode_resize" {
   bindsym Down  resize shrink height 5 px or 5 ppt
   bindsym Up    resize grow   height 5 px or 5 ppt
   bindsym Right resize shrink width  5 px or 5 ppt
-
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+r mode "default"
@@ -120,7 +117,6 @@ mode "$mode_system" {
   bindsym l exec --no-startup-id dm-tool switch-to-greeter, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"
   bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
-
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+Pause mode "default"
