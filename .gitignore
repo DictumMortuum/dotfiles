@@ -26,11 +26,10 @@
 !.gitmodules
 !.gitconfig
 
-# [ssh] Only include the global ssh config
 !.ssh
 .ssh/*
-!.ssh/global.config
-!.ssh/control
+!.ssh/config
+!.ssh/env
 
 # [config]
 !.config/Code
