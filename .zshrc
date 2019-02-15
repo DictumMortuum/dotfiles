@@ -5,6 +5,7 @@ export VISUAL=$EDITOR
 export AWKPATH=$HOME/.dotfiles/awk
 export TCLLIBPATH=$HOME/.dotfiles/tclsh
 export NO_AT_BRIDGE=1
+export LOGNAME=$(id -un)
 
 # complete hostnames from this file
 : ${HOSTFILE=$HOME/.ssh/known_hosts}

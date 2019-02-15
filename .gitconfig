@@ -16,7 +16,6 @@
   remote = green
 [alias]
   branch-exists = show-ref --verify --quiet
-  branch-temp = !git checkout -b $(randomname draviolo)
   cm = !git add --all && git commit -m
   contains = branch -avv --contains
   commits = rev-list --count
@@ -34,6 +33,7 @@
   s = status -sb
   slatest = submodule foreach 'git checkout master && git pull origin master'
   sync = !git pull && git slatest
+  temp = !git checkout -b ${LOGNAME}-$(date +%s%3N)
   versions = tag --sort -version:refname
 [push]
 	default = matching
