@@ -28,8 +28,9 @@
 
 !.ssh
 .ssh/*
-!.ssh/config
+!.ssh/*.config
 !.ssh/env
+!.ssh/hosts
 
 # [config]
 !.config/Code

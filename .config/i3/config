@@ -31,7 +31,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+d exec rofi -show drun
-bindsym $mod+s exec rofi -show ssh
+bindsym $mod+s exec $HOME/.dotfiles/bin/rofi-ssh.sh
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
