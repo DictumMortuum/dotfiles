@@ -33,7 +33,7 @@
   s = status -sb
   slatest = submodule foreach 'git checkout master && git pull origin master'
   sync = !git pull && git slatest
-  temp = !git checkout -b ${LOGNAME}-$(date +%s%3N)
+  temp = !zsh -i -c 'git checkout -b $(branch)'
   versions = tag --sort -version:refname
 [push]
 	default = matching
