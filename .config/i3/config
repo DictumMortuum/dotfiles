@@ -25,18 +25,18 @@ gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
 
-bindsym $mod+Scroll_Lock exec $HOME/.dotfiles/bin/lockscreen
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+a exec thunar
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+f fullscreen toggle
 bindsym $mod+h split h
 bindsym $mod+v split v
-bindsym $mod+f fullscreen toggle
-bindsym $mod+d exec rofi -show drun
 bindsym $mod+s exec $HOME/.dotfiles/bin/rofi-ssh.sh
+bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym --release $mod+Print exec scrot -s
 bindsym $mod+Shift+space floating toggle
+bindsym --release $mod+Print exec scrot -s
 
 # Workspaces
 
@@ -110,13 +110,14 @@ mode "$mode_resize" {
   bindsym $mod+r mode "default"
 }
 
-set $mode_system System (l) logout, (r) reboot, (s) shutdown, (e) exit
+set $mode_system System (l) logout, (r) reboot, (s) shutdown, (e) exit, (Scrl) lock
 bindsym $mod+BackSpace mode "$mode_system"
 mode "$mode_system" {
   bindsym e exec --no-startup-id i3-msg exit, mode "default"
   bindsym l exec --no-startup-id dm-tool switch-to-greeter, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"
   bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+  bindsym Scroll_Lock exec $HOME/.dotfiles/bin/lockscreen, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+Pause mode "default"
