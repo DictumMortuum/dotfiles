@@ -47,6 +47,7 @@
 !.config/gtk-3.0/gtk.css
 !.config/compton.conf
 !.config/dunst
+!.config/greenclip.cfg
 
 # [gpg]
 !.gnupg

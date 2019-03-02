@@ -26,6 +26,7 @@ smart_gaps          true
 floating_modifier   $mod
 
 bindsym $mod+a exec thunar
+bindsym $mod+c exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+f fullscreen toggle
 bindsym $mod+h split h
@@ -128,10 +129,11 @@ exec_always --no-startup-id start-pulseaudio-x11
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id compton
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec_always --no-startup-id (killall greenclip ; greenclip daemon)
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
 exec_always --no-startup-id ~/.screenlayout/layout.sh
 exec_always --no-startup-id (sleep 1 && ~/.config/i3/polybar.sh)
 
 for_window [class="^.*"] border pixel 0
 assign [class="Firefox"] 5
-assign [class="Slack"] 6
+
