@@ -1,3 +1,12 @@
-#!/usr/bin/env tclsh
+#!/usr/bin/tclsh
 
-puts [join [lsort -unique [split $env(PATH) :]] :]
+set res {}
+
+foreach path [lsort -unique [split $env(PATH) :]] {
+  if {[file isdirectory $path]} {
+    lappend res $path
+  }
+}
+
+puts [join $res :]
+

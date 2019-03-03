@@ -23,9 +23,15 @@ foreach file in $(ls $HOME/.dotfiles/zsh/autoload/* $HOME/.bashrc.d/*); do
 done
 
 # PATH
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.dotfiles/bin:$PATH"
-[[ -d $HOME/Code/scripts/dist ]] && PATH="$HOME/Code/scripts/dist:$PATH"
-[[ -d /usr/games ]] && PATH="/usr/games:$PATH"
-
-# condense PATH entries
+PATH="/usr/local/sbin:$PATH"
+PATH="/usr/local/bin:$PATH"
+PATH="/usr/sbin:$PATH"
+PATH="/usr/bin:$PATH"
+PATH="/usr/games:$PATH"
+PATH="/sbin:$PATH"
+PATH="/bin:$PATH"
+PATH="$HOME/.dotfiles/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/Code/scripts/dist:$PATH"
 export PATH=$(clearpath)
+
