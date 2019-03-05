@@ -91,13 +91,7 @@ set nowb
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 if has('persistent_undo')
-
-  " Create the persistent undo directory if it doesn't exist
-  if !isdirectory($HOME . "/.vim/backups")
-    call mkdir($HOME . "/.vim/backups", "p")
-  endif
-
-  set undodir=$HOME/.vim/backups/
+  set undodir=$HOME/.cache/vim/
   set undolevels=1000         " How many undos
   set undoreload=10000        " number of lines to save for undo
   set undofile
