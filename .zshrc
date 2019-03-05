@@ -1,11 +1,11 @@
 HOME=~
-export PLUGINS=$HOME/.dotfiles/zsh/custom/plugins
 export EDITOR=vim
 export VISUAL=$EDITOR
 export AWKPATH=$HOME/.dotfiles/awk
 export TCLLIBPATH=$HOME/.dotfiles/tclsh
 export NO_AT_BRIDGE=1
 export LOGNAME=$(id -un)
+export THIRDPARTY=$HOME/.thirdparty
 
 # complete hostnames from this file
 : ${HOSTFILE=$HOME/.ssh/known_hosts}
@@ -18,11 +18,10 @@ LANG="en_US.UTF-8"
 : ${LC_ALL:="en_US.UTF-8"}
 export LANG LANGUAGE LC_CTYPE LC_ALL
 
-foreach file in $(ls $HOME/.dotfiles/zsh/autoload/* $HOME/.bashrc.d/*); do
+foreach file in $(ls $HOME/.dotfiles/zsh/* $HOME/.bashrc.d/*); do
   . $file
 done
 
-# PATH
 PATH="/usr/local/sbin:$PATH"
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/sbin:$PATH"
@@ -33,4 +32,11 @@ PATH="/bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 export PATH=$(clearpath)
+
+FPATH="$HOME/.dotfiles/path:$FPATH"
+
+autoload -U promptinit; promptinit
+prompt pure
+
+source $THIRDPARTY/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 

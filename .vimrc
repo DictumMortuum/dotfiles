@@ -33,7 +33,7 @@ let mapleader=","
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
-set rtp+=$HOME/.dotfiles/Vundle.vim
+set rtp+=$THIRDPARTY/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
