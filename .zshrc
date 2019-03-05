@@ -32,6 +32,5 @@ PATH="/sbin:$PATH"
 PATH="/bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
-PATH="$HOME/Code/scripts/dist:$PATH"
 export PATH=$(clearpath)
 
