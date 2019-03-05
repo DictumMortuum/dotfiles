@@ -9,4 +9,3 @@ foreach path [lsort -unique [split $env(PATH) :]] {
 }
 
 puts [join $res :]
-

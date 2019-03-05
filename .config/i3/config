@@ -136,4 +136,3 @@ exec_always --no-startup-id (sleep 1 && ~/.config/i3/polybar.sh)
 
 for_window [class="^.*"] border pixel 0
 assign [class="Firefox"] 5
-

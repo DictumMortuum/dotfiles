@@ -91,4 +91,3 @@ tray-position =
 inherit = bar/one
 monitor = ${xrdb:bar2}
 tray-position =
-
