@@ -1,6 +1,6 @@
 # https://news.ycombinator.com/item?id=11070797
 # http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules
-alias dot="git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+alias dot="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 alias notes="git --git-dir=$HOME/Notes/.git --work-tree=$HOME/Notes"
 alias awk="awk -i common.awk"
 alias today="date +%F"
