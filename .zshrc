@@ -39,4 +39,3 @@ autoload -U promptinit; promptinit
 prompt pure
 
 source $THIRDPARTY/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-

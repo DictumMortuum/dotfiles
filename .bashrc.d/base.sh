@@ -9,4 +9,3 @@ function ssht() {
 function chromiumt() {
   chromium-browser --proxy-server="socks5://localhost:${PORT}" --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE localhost"
 }
-
