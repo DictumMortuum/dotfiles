@@ -4,23 +4,11 @@
     dest: ~/.thirdparty/pure
     update: yes
 
-- name: Symlink pure to fpath
-  file:
-    src: ~/.thirdparty/pure/pure.zsh
-    dest: ~/.cache/zsh/prompt_pure_setup
-    state: link
-
 - name: Install zsh-async
   git:
     repo: git@github.com:mafredri/zsh-async.git
     dest: ~/.thirdparty/zsh-async
     update: yes
-
-- name: Symlink zsh-async to fpath
-  file:
-    src: ~/.thirdparty/zsh-async/async.zsh
-    dest: ~/.cache/zsh/async
-    state: link
 
 - name: Install vundle
   git:
@@ -34,9 +22,6 @@
     dest: ~/.thirdparty/zsh-syntax-highlighting
     update: yes
 
-- name: Install vundle plugins
-  shell: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa
-
 - name: Install personal notes
   git:
     repo: git@gitlab.com:DictumMortuum/notes.git
@@ -47,4 +32,10 @@
   git:
     repo: git@gitlab.com:DictumMortuum/pass.git
     dest: ~/.password-store
+    update: yes
+
+- name: Install personal assets repo
+  git:
+    repo: git@github.com:DictumMortuum/release.git
+    dest: ~/.thirdparty/assets
     update: yes

@@ -57,3 +57,9 @@ ubuntu_apt_repositories:
   - deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
   - deb https://apt.syncthing.net/ syncthing stable
   - ppa:papirus/papirus
+
+ubuntu_deb_packages:
+  - https://release.gitkraken.com/linux/gitkraken-amd64.deb
+  - https://github.com/BoostIO/boost-releases/releases/download/v0.11.15/boostnote_0.11.15_amd64.deb
+
+install_deb: false

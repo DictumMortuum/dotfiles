@@ -9,6 +9,7 @@
         - ~/.cache/ssh/
         - ~/.cache/vim/
         - ~/.cache/zsh/
+        - ~/.themes/
 
 - name: Provision ubuntu packages
   hosts: all
@@ -21,3 +22,26 @@
   hosts: all
   roles:
     - git
+
+- name: Applying dotfile changes
+  hosts: all
+  tasks:
+    - name: Symlink pure to fpath
+      file:
+        src: ~/.thirdparty/pure/pure.zsh
+        dest: ~/.cache/zsh/prompt_pure_setup
+        state: link
+
+    - name: Symlink zsh-async to fpath
+      file:
+        src: ~/.thirdparty/zsh-async/async.zsh
+        dest: ~/.cache/zsh/async
+        state: link
+
+    - name: Install vundle plugins
+      shell: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa
+
+    - name: Untar theme
+      unarchive:
+        src: ~/.thirdparty/assets/oomox-nord.tar.gz
+        dest: ~/.themes
