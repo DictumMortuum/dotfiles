@@ -1,32 +1,59 @@
 ubuntu_packages:
   - apt-transport-https
+  - aptitude
+  - ansible
   - arandr
   - autoconf
+  - automake
+  - chromium-browser
   - cmake
   - cmake-data
+  - code
   - compton
+  - ffmpeg
+  - firefox
   - fonts-font-awesome
   - fonts-hack-ttf
+  - fonts-materialdesignicons-webfont
   - fonts-roboto
+  - gawk
+  - git
+  - gpg-agent
+  - htop
   - i3
-  - firefox
+  - i3lock
+  - inkscape
   - jq
   - materia-gtk-theme
+  - meld
+  - minidlna
+  - neofetch
   - nodejs
+  - oomox
   - openvpn
   - openvpn-systemd-resolved
+  - p7zip-full
   - papirus-icon-theme
   - pass
+  - pavucontrol
+  - rlwrap
+  - rofi
   - silversearcher-ag
   - sqlite3
-  - xdotool
-  - xclip
-  - zsh
-  - git
-  - zsh
-  - vim
-  - unity-tweak-tool
-  - gawk
-  - tcl
+  - syncthing
+  - terminator
   - thunar
-  - 
+  - tree
+  - vim
+  - xclip
+  - xdotool
+  - zsh
+
+ubuntu_apt_keys:
+  - https://packages.microsoft.com/keys/microsoft.asc
+  - https://syncthing.net/release-key.txt
+
+ubuntu_apt_repositories:
+  - deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+  - deb https://apt.syncthing.net/ syncthing stable
+  - ppa:papirus/papirus

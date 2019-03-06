@@ -36,3 +36,15 @@
 
 - name: Install vundle plugins
   shell: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa
+
+- name: Install personal notes
+  git:
+    repo: git@gitlab.com:DictumMortuum/notes.git
+    dest: ~/Notes
+    update: yes
+
+- name: Install passwords
+  git:
+    repo: git@gitlab.com:DictumMortuum/pass.git
+    dest: ~/.password-store
+    update: yes

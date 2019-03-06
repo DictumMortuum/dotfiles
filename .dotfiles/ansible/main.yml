@@ -10,8 +10,10 @@
         - ~/.cache/vim/
         - ~/.cache/zsh/
 
-- name: Provision ubuntu specific packages
-  hosts: ubuntu
+- name: Provision ubuntu packages
+  hosts: all
+  become: yes
+  become_method: sudo
   roles:
     - ubuntu
 
