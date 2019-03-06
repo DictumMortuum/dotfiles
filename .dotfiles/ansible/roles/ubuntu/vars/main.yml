@@ -1,0 +1,32 @@
+ubuntu_packages:
+  - apt-transport-https
+  - arandr
+  - autoconf
+  - cmake
+  - cmake-data
+  - compton
+  - fonts-font-awesome
+  - fonts-hack-ttf
+  - fonts-roboto
+  - i3
+  - firefox
+  - jq
+  - materia-gtk-theme
+  - nodejs
+  - openvpn
+  - openvpn-systemd-resolved
+  - papirus-icon-theme
+  - pass
+  - silversearcher-ag
+  - sqlite3
+  - xdotool
+  - xclip
+  - zsh
+  - git
+  - zsh
+  - vim
+  - unity-tweak-tool
+  - gawk
+  - tcl
+  - thunar
+  - 

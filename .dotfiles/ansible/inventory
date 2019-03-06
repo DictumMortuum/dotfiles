@@ -1,0 +1,5 @@
+[all]
+athlp0451 ansible_connection=local
+
+[ubuntu]
+athlp0451 ansible_connection=local
