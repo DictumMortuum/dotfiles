@@ -6,24 +6,46 @@
     - name: Create folder
       file: path={{item}} state=directory
       with_items:
-        - "~/.thirdparty/"
-        - "~/.cache/ssh/"
-        - "~/.cache/vim/"
-
-#    - name: Install dotfiles
-#      git: repo=git@github.com:DictumMortuum/dotfiles.git dest=~ separate_git_dir=~/.dotfiles.git
+        - ~/.thirdparty/
+        - ~/.cache/ssh/
+        - ~/.cache/vim/
+        - ~/.cache/zsh/
 
     - name: Install pure
-      git: repo=git@github.com:sindresorhus/pure.git dest=~/.thirdparty/pure update=yes
+      git:
+        repo: git@github.com:sindresorhus/pure.git
+        dest: ~/.thirdparty/pure
+        update: yes
+
+    - name: Symlink pure to fpath
+      file:
+        src: ~/.thirdparty/pure/pure.zsh
+        dest: ~/.cache/zsh/prompt_pure_setup
+        state: link
 
     - name: Install zsh-async
-      git: repo=git@github.com:mafredri/zsh-async.git dest=~/.thirdparty/zsh-async update=yes
+      git:
+        repo: git@github.com:mafredri/zsh-async.git
+        dest: ~/.thirdparty/zsh-async
+        update: yes
+
+    - name: Symlink zsh-async to fpath
+      file:
+        src: ~/.thirdparty/zsh-async/async.zsh
+        dest: ~/.cache/zsh/async
+        state: link
 
     - name: Install vundle
-      git: repo=git@github.com:VundleVim/Vundle.vim.git dest=~/.thirdparty/Vundle.vim update=yes
+      git:
+       repo: git@github.com:VundleVim/Vundle.vim.git
+       dest: ~/.thirdparty/Vundle.vim
+       update: yes
 
     - name: Install zsh-syntax-highlighting
-      git: repo=git@github.com:zsh-users/zsh-syntax-highlighting.git dest=~/.thirdparty/zsh-syntax-highlighting update=yes
+      git: 
+        repo: git@github.com:zsh-users/zsh-syntax-highlighting.git
+        dest: ~/.thirdparty/zsh-syntax-highlighting
+        update: yes
 
     - name: Install vundle plugins
       shell: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa

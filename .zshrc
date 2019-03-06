@@ -33,7 +33,7 @@ PATH="$HOME/.dotfiles/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 export PATH=$(clearpath)
 
-FPATH="$HOME/.dotfiles/path:$FPATH"
+FPATH="$HOME/.cache/zsh:$FPATH"
 
 autoload -U promptinit; promptinit
 prompt pure
