@@ -1,0 +1,7 @@
+dotfiles_repositories:
+  - repo: git@gitlab.com:DictumMortuum/notes.git
+    dest: ~/Notes
+  - repo: git@gitlab.com:DictumMortuum/pass.git
+    dest: ~/.password-store
+  - repo: git@github.com:DictumMortuum/release.git
+    dest: "{{ thirdparty }}/assets"

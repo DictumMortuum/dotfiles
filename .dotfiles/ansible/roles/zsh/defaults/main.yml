@@ -1,0 +1,41 @@
+zsh_cache: ~/.cache/zsh
+
+zsh_directories:
+  - "{{ zsh_cache }}"
+  - ~/.cache/ssh/
+
+zsh_repositories:
+  - repo: git@github.com:sindresorhus/pure.git
+    dest: "{{ thirdparty }}/pure"
+  - repo: git@github.com:mafredri/zsh-async.git
+    dest: "{{ thirdparty }}/zsh-async"
+  - repo: git@github.com:zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ thirdparty }}/zsh-syntax-highlighting"
+
+zsh_links:
+  - src: "{{ thirdparty }}/zsh-async/async.zsh"
+    dest: "{{ zsh_cache }}/async"
+  - src: "{{ thirdparty }}/pure/pure.zsh"
+    dest: "{{ zsh_cache }}/prompt_pure_setup"
+
+zsh_packages:
+  - ansible
+  - arandr
+  - curl
+  - fonts-font-awesome
+  - fonts-hack-ttf
+  - fonts-roboto
+  - gawk
+  - git
+  - htop
+  - jq
+  - neofetch
+  - openvpn
+  - openvpn-systemd-resolved
+  - rlwrap
+  - silversearcher-ag
+  - sqlite3
+  - tcl
+  - tree
+  - wget
+  - zsh

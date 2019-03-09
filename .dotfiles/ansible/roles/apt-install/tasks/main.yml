@@ -1,0 +1,9 @@
+- apt:
+    update_cache: yes
+    autoremove: yes
+    autoclean: yes
+    cache_valid_time: 3600
+    name: "{{ apt_packages }}"
+  become: true
+  tags:
+    - ubuntu

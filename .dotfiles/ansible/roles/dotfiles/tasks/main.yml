@@ -1,0 +1,20 @@
+- name: dotfiles - clone repositories
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    update: yes
+  loop: "{{ dotfiles_repositories }}"
+
+- name: dotfiles - create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ thirdparty }}"
+    - ~/.themes/
+    - ~/.screenlayout/
+
+- name: dotfiles - untar theme
+  unarchive:
+    src: "{{ thirdparty }}/assets/oomox-nord.tar.gz"
+    dest: ~/.themes

@@ -1,0 +1,25 @@
+- name: vim - install packages
+  include_role:
+    name: apt-install
+  vars: 
+    apt_packages:
+      - vim
+
+- name: vim - create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - ~/.cache/vim/
+
+- name: vim - clone repositories
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    update: yes
+  loop: "{{ vim_repositories }}"
+
+- name: vim - install vundle plugins
+  shell: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa
+  tags:
+    - install

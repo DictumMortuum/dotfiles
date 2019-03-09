@@ -1,0 +1,18 @@
+i3_packages:
+  - compton
+  - firefox
+  - i3
+  - i3lock
+  - inkscape
+  - meld
+  - papirus-icon-theme
+  - pass
+  - pavucontrol
+  - rofi
+  - terminator
+  - thunar
+  - xclip
+  - xdotool
+
+i3_apt_repositories:
+  - ppa:papirus/papirus

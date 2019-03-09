@@ -1,0 +1,28 @@
+---
+
+i3_gaps_git_path: "/tmp/i3-gaps-git"
+
+i3_gaps_dependencies:
+  - i3status
+  - curl
+  - git
+  - gcc
+  - automake
+  - make
+  - libxcb-keysyms1-dev
+  - libpango1.0-dev
+  - libxcb-util0-dev
+  - xcb
+  - libxcb1-dev
+  - libxcb-icccm4-dev
+  - libyajl-dev
+  - libev-dev
+  - libxcb-xkb-dev
+  - libxcb-cursor-dev
+  - libxkbcommon-dev
+  - libxcb-xinerama0-dev
+  - libxkbcommon-x11-dev
+  - libstartup-notification0-dev
+  - libxcb-randr0-dev
+  - libxcb-xrm0
+  - libxcb-xrm-dev

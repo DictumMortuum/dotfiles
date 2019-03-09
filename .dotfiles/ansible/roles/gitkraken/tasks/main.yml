@@ -1,0 +1,6 @@
+- name: gitkraken - install deb package
+  apt:
+    deb: https://release.gitkraken.com/linux/gitkraken-amd64.deb
+  tags:
+    - ubuntu
+    - install

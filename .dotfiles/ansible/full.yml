@@ -1,0 +1,13 @@
+---
+- name: Full desktop provision
+  hosts: all
+  roles:
+    - dotfiles
+    - zsh
+    - vim
+    - vscode
+    - i3
+    - i3-gaps
+    - boostnote
+    - gitkraken
+    - syncthing

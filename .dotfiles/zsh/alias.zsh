@@ -16,7 +16,8 @@ alias vi='vim'
 alias tempfox='firefox --new-instance --profile $(mktemp -d)'
 alias unixtime='date +%s%3N'
 alias branch='echo ${LOGNAME}-$(unixtime)'
-alias system-update='ANSIBLE_CONFIG=~/.dotfiles/ansible/ansible.cfg ansible-playbook ~/.dotfiles/ansible/main.yml'
+alias system-update='ANSIBLE_CONFIG=~/.dotfiles/ansible/ansible.cfg ansible-playbook ~/.dotfiles/ansible/update.yml --skip-tags "install"'
+alias system-update-full='ANSIBLE_CONFIG=~/.dotfiles/ansible/ansible.cfg ansible-playbook ~/.dotfiles/ansible/full.yml'
 
 # Assumes HIST_IGNORE_SPACE is set
 # making aliases to certain commands to start with space to be ignored from history

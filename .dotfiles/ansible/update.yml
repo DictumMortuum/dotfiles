@@ -1,0 +1,9 @@
+---
+- name: Provision
+  hosts: all
+  roles:
+    - dotfiles
+    - zsh
+    - vim
+    - vscode
+    - i3
