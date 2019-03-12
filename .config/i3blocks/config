@@ -1,0 +1,24 @@
+align=center
+separator=false
+separator_block_width=20
+markup=pango
+
+[keyboard]
+label=
+command=~/.local/bin/xkb-switch -W
+interval=persist
+
+[wired]
+label=
+command=~/.dotfiles/bin/iface en
+interval=once
+
+[wireless]
+label=
+command=~/.dotfiles/bin/iface wlp
+interval=once
+
+[time]
+label=
+command=date "+%Y-%m-%d %H:%M:%S "
+interval=1

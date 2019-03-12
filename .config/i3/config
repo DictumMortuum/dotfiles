@@ -7,16 +7,12 @@ set_from_resource $monitor0   i3wm.monitor0
 set_from_resource $monitor1   i3wm.monitor1
 set_from_resource $monitor2   i3wm.monitor2
 set_from_resource $wallpaper  i3wm.foreground
-
-#class                  border         backgr     text         indicator
-client.focused	        #2C313D        #2e3440    $background  $background
-client.focused_inactive	#2C313D        #303743    $background  $background
-client.unfocused        #2C313D        #303743    $background  $background
-client.urgent           $background    #282d37    $background  $background
-client.placeholder      $background    #282D37    $background  $background
+set_from_resource $text       i3wm.text
+set_from_resource $selection  i3wm.color1
+set_from_resource $lightbg    i3wm.color0
 
 set $mod Mod4
-font pango:Roboto Regular 12
+font pango:Roboto 10, FontAwesome 10
 
 hide_edge_borders   both
 focus_follows_mouse no
@@ -61,7 +57,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $wsA "10"
+set $wsA "A"
 
 workspace $ws0 output $monitor0
 workspace $ws1 output $monitor1
@@ -126,13 +122,28 @@ mode "$mode_system" {
 
 exec_always --no-startup-id hsetroot -solid "$wallpaper"
 exec_always --no-startup-id start-pulseaudio-x11
-exec_always --no-startup-id nm-applet
 exec_always --no-startup-id compton
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id (killall greenclip ; greenclip daemon)
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
 exec_always --no-startup-id ~/.screenlayout/layout.sh
-exec_always --no-startup-id (sleep 1 && ~/.config/i3/polybar.sh)
+
+bar {
+  status_command i3blocks
+  i3bar_command i3bar -t
+  position top
+  tray_output none
+  height 30
+  colors {
+    background         $background
+    separator          $background
+    focused_workspace  $selection   $selection   $background
+    inactive_workspace $background  $background  $text
+    active_workspace   $background  $background  $text
+    urgent_workspace   $lightbg     $lightbg     $text
+    binding_mode       $background  $background  $text
+  }
+}
 
 for_window [class="^.*"] border pixel 0
 assign [class="Firefox"] 5

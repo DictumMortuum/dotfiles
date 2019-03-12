@@ -16,11 +16,12 @@
 #define nord14 #A3BE8C
 #define nord15 #B48EAD
 
-*foreground:   nord4
-*background:   nord0
-*cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
+*foreground:  nord4
+*background:  nord0
+*cursorColor: nord4
+*fading:      35
+*fadeColor:   nord3
+*text:        #ffffff
 
 *color0: nord1
 *color1: nord11

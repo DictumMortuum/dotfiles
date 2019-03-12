@@ -3,6 +3,7 @@ i3_packages:
   - firefox
   - i3
   - i3lock
+  - i3blocks
   - inkscape
   - meld
   - papirus-icon-theme

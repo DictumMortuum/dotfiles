@@ -1,0 +1,6 @@
+---
+
+xkb_switch_git_path: "/tmp/xkb_switch-git"
+
+xkb_switch_dependencies:
+  - libxkbfile-dev

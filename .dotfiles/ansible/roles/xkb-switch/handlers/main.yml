@@ -1,0 +1,32 @@
+---
+
+- name: delete xkb_switch build folder
+  file:
+    state: absent
+    path: "{{ xkb_switch_git_path }}/build"
+
+- name: create xkb_switch build folder
+  file:
+    state: directory
+    path: "{{ xkb_switch_git_path }}/build"
+
+- name: configure xkb_switch
+  command: cmake ..
+  args:
+    chdir: "{{ xkb_switch_git_path }}/build"
+
+- name: compile xkb_switch
+  command: make
+  args:
+    chdir: "{{ xkb_switch_git_path }}/build"
+
+- name: install xkb_switch
+  command: make install
+  args:
+    chdir: "{{ xkb_switch_git_path }}/build"
+  become: true
+
+- name: copy xkb_switch binary
+  copy:
+    src: "{{ xkb_switch_git_path }}/build/xkb-switch"
+    dest: ~/.local/bin

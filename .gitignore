@@ -39,7 +39,7 @@
 .config/Code/User/*
 !.config/Code/User/settings.json
 !.config/i3
-!.config/polybar
+!.config/i3blocks
 !.config/terminator
 !.config/rofi
 !.config/gtk-3.0
