@@ -47,7 +47,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-set $ws0 "0"
+set $ws0 "0:~"
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -57,7 +57,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $wsA "A"
+set $wsA "10:A"
 
 workspace $ws0 output $monitor0
 workspace $ws1 output $monitor1
@@ -134,10 +134,12 @@ bar {
   position top
   tray_output none
   height 25
+  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:Hack Regular 10
+  strip_workspace_numbers yes
   colors {
     background         $background
-    separator          $background
+    separator          $text
     focused_workspace  $selection   $selection   $background
     inactive_workspace $background  $background  $text
     active_workspace   $background  $background  $text
