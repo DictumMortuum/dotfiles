@@ -14,6 +14,7 @@ i3_packages:
   - thunar
   - xclip
   - xdotool
+  - dunst
 
 i3_apt_repositories:
   - ppa:papirus/papirus

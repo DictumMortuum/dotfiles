@@ -1,0 +1,5 @@
+- name: greenclip - get binary
+  get_url:
+    url: https://github.com/erebe/greenclip/releases/download/3.2/greenclip
+    dest: ~/.local/bin/greenclip
+    mode: 0700

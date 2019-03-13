@@ -13,9 +13,3 @@
     apt_packages: "{{ i3_packages }}"
   tags:
     - ubuntu
-
-- name: i3 - get greenclip binary
-  get_url:
-    url: https://github.com/erebe/greenclip/releases/download/3.0/greenclip
-    dest: ~/.local/bin/greenclip
-    mode: 0700
