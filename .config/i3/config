@@ -12,7 +12,7 @@ set_from_resource $selection  i3wm.color1
 set_from_resource $lightbg    i3wm.color0
 
 set $mod Mod4
-font pango:Roboto 10, FontAwesome 10
+font pango:Roboto 12
 
 hide_edge_borders   both
 focus_follows_mouse no
@@ -133,7 +133,8 @@ bar {
   i3bar_command i3bar -t
   position top
   tray_output none
-  height 30
+  height 25
+  font pango:Hack Regular 10
   colors {
     background         $background
     separator          $background
