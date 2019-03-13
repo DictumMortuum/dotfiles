@@ -1,6 +1,7 @@
 - name: boostnote - install deb package
   apt:
     deb: https://github.com/BoostIO/boost-releases/releases/download/v0.11.15/boostnote_0.11.15_amd64.deb
+  become: true
   tags:
     - ubuntu
     - install

@@ -30,3 +30,5 @@
   copy:
     src: "{{ xkb_switch_git_path }}/build/xkb-switch"
     dest: ~/.local/bin
+    mode: 0700
+

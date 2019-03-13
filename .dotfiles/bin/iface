@@ -1,5 +1,5 @@
 #!/bin/bash
 
-IFACE=$(ls /sys/class/net | grep $1)
+IFACE=$(ls /sys/class/net | grep $1 | tail -n 1)
 [[ -z $IFACE ]] && exit 1
 ip -4 addr show $IFACE | awk '/inet/ {print $2}'
