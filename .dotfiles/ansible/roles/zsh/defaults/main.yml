@@ -3,6 +3,7 @@ zsh_cache: ~/.cache/zsh
 zsh_directories:
   - "{{ zsh_cache }}"
   - ~/.cache/ssh/
+  - ~/.cache/zsh_completion
 
 zsh_repositories:
   - repo: git@github.com:sindresorhus/pure.git
