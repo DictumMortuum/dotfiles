@@ -1,7 +1,6 @@
 HOME=~
 export EDITOR=vim
 export VISUAL=$EDITOR
-export AWKPATH=$HOME/.dotfiles/awk
 export TCLLIBPATH=$HOME/.dotfiles/tclsh
 export NO_AT_BRIDGE=1
 export LOGNAME=$(id -un)
