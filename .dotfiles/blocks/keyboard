@@ -1,0 +1,6 @@
+#!/bin/bash
+while true
+do
+  xkb-switch -p
+  xkb-switch -w
+done

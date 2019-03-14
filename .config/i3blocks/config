@@ -1,25 +1,20 @@
 align=center
 separator_block_width=15
 markup=none
+command=~/.dotfiles/blocks/$BLOCK_NAME
 
 [keyboard]
-command=~/.local/bin/xkb-switch -W
 interval=persist
 
 [battery]
-command=~/.dotfiles/bin/battery
-markup=pango
-instance=BAT0
 interval=30
 
-[wired]
-label=
-command=~/.dotfiles/bin/iface en
+[interface]
 interval=once
 
 [wireless]
-label=
-command=~/.dotfiles/bin/iface wlp
+label=W
+command=~/.dotfiles/blocks/interface wlp
 interval=once
 
 [time]
