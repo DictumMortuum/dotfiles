@@ -2,6 +2,7 @@
 - name: Full desktop provision
   hosts: all
   roles:
+    - apt-upgrade
     - dotfiles
     - zsh
     - vim

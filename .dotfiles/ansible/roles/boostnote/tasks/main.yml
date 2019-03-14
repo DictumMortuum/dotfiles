@@ -1,6 +1,19 @@
+- name: boostnote - get latest
+  uri:
+    url: https://github.com/BoostIO/boost-releases/releases/latest
+  register: result
+  tags:
+    - install
+
+- name: boostnote - extracting
+  set_fact:
+    version: "{{ result.url | regex_replace('^.*v(\\d\\.\\d\\d\\.\\d\\d)$', '\\1')}}"
+  tags:
+    - install
+
 - name: boostnote - install deb package
   apt:
-    deb: https://github.com/BoostIO/boost-releases/releases/download/v0.11.15/boostnote_0.11.15_amd64.deb
+    deb: "https://github.com/BoostIO/boost-releases/releases/download/v{{ version }}/boostnote_{{ version }}_amd64.deb"
   become: true
   tags:
     - ubuntu
