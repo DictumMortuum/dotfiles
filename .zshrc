@@ -4,7 +4,6 @@ export VISUAL=$EDITOR
 export TCLLIBPATH=$HOME/.dotfiles/tclsh
 export NO_AT_BRIDGE=1
 export LOGNAME=$(id -un)
-export THIRDPARTY=$HOME/.thirdparty
 
 # complete hostnames from this file
 : ${HOSTFILE=$HOME/.ssh/known_hosts}
