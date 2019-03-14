@@ -49,4 +49,4 @@ FPATH="$HOME/.cache/zsh:$FPATH"
 autoload -U promptinit; promptinit
 prompt pure
 
-source $THIRDPARTY/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source $HOME/.thirdparty/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
