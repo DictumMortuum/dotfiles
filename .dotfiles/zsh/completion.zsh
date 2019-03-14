@@ -9,8 +9,6 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
-bindkey -M menuselect '^o' accept-and-infer-next-history
-
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-dirs-first true
