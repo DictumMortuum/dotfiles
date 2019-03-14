@@ -6,13 +6,19 @@ markup=none
 command=~/.local/bin/xkb-switch -W
 interval=persist
 
+[battery]
+command=~/.dotfiles/bin/battery
+markup=pango
+instance=BAT0
+interval=30
+
 [wired]
-label= 
+label=
 command=~/.dotfiles/bin/iface en
 interval=once
 
 [wireless]
-label= 
+label=
 command=~/.dotfiles/bin/iface wlp
 interval=once
 
@@ -23,3 +29,4 @@ interval=1
 [hostname]
 command=hostname
 interval=once
+
