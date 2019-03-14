@@ -1,20 +1,14 @@
 # Ignore all files
 /*
-!.config
-.config/*
 
 # Top-level repo files
 !.vimrc
 !.zshrc
 !.bashrc
-!.bashrc.d
-.bashrc.d/*
-!.bashrc.d/base.sh
 !.wgetrc
 !.editorconfig
 !.curlrc
 !.boostnoterc
-!install.sh
 !.Xresources
 !.xprofile
 
@@ -23,9 +17,9 @@
 
 # [git]
 !.gitignore
-!.gitmodules
 !.gitconfig
 
+# [ssh]
 !.ssh
 .ssh/*
 !.ssh/*.config
@@ -33,6 +27,8 @@
 !.ssh/hosts
 
 # [config]
+!.config
+.config/*
 !.config/Code
 .config/Code/*
 !.config/Code/User
