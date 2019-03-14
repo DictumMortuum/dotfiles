@@ -17,7 +17,7 @@ LANG="en_US.UTF-8"
 : ${LC_ALL:="en_US.UTF-8"}
 export LANG LANGUAGE LC_CTYPE LC_ALL
 
-foreach file in $(ls $HOME/.dotfiles/zsh/* $HOME/.bashrc.d/*); do
+foreach file in $(ls $HOME/.dotfiles/zsh/*); do
   . $file
 done
 
