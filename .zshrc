@@ -31,7 +31,7 @@ PATH="/sbin:$PATH"
 PATH="/bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
-export PATH=$(clearpath)
+export PATH=$(clearpath.tcl)
 
 FPATH="$HOME/.cache/zsh:$FPATH"
 
