@@ -1,0 +1,6 @@
+#!/bin/bash
+
+HOST=$(hostname)
+USER=$(id -un)
+
+echo "${USER}/${HOST} "
