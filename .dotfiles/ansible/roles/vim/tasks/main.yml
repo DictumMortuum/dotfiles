@@ -11,6 +11,8 @@
     state: directory
   loop:
     - ~/.cache/vim/
+    - ~/.vim/
+    - ~/.vim/bundle/
 
 - name: vim - clone repositories
   git:

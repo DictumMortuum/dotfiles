@@ -1,5 +1,3 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
 " ================ General Config ====================
@@ -18,7 +16,7 @@ let base16colorspace=256
 let mapleader=","
 
 " =============== Vundle Initialization ===============
-set rtp+=$THIRDPARTY/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
@@ -27,7 +25,6 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin indent on
@@ -65,7 +62,7 @@ set nowb
 
 " ================ Persistent Undo ==================
 if has('persistent_undo')
-  set undodir=$HOME/.cache/vim/
+  set undodir=~/.cache/vim/
   set undolevels=1000
   set undoreload=10000
   set undofile
