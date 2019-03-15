@@ -1,52 +1,4 @@
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
-set_from_resource $background i3wm.background
-set_from_resource $monitor0   i3wm.monitor0
-set_from_resource $monitor1   i3wm.monitor1
-set_from_resource $monitor2   i3wm.monitor2
-set_from_resource $wallpaper  i3wm.foreground
-set_from_resource $text       i3wm.text
-set_from_resource $selection  i3wm.color1
-set_from_resource $lightbg    i3wm.color0
-
 set $mod Mod4
-font pango:Roboto 12
-
-hide_edge_borders   both
-focus_follows_mouse no
-gaps inner          10
-gaps outer          0
-smart_gaps          true
-floating_modifier   $mod
-
-bindsym $mod+a exec thunar
-bindsym $mod+c exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
-bindsym $mod+d exec rofi -show drun
-bindsym $mod+f fullscreen toggle
-bindsym $mod+h split h
-bindsym $mod+v split v
-bindsym $mod+s exec $HOME/.dotfiles/bin/ssh.sh
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+q kill
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+space floating toggle
-bindsym --release $mod+Print exec scrot -s
-
-# Workspaces
-
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 set $ws0 "0:~"
 set $ws1 "1"
 set $ws2 "2"
@@ -58,6 +10,23 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $wsA "10:A"
+
+font                pango:Roboto 12
+hide_edge_borders   both
+focus_follows_mouse no
+gaps inner          10
+gaps outer          0
+smart_gaps          true
+floating_modifier   $mod
+
+set_from_resource $background i3wm.background
+set_from_resource $monitor0   i3wm.monitor0
+set_from_resource $monitor1   i3wm.monitor1
+set_from_resource $monitor2   i3wm.monitor2
+set_from_resource $wallpaper  i3wm.foreground
+set_from_resource $text       i3wm.text
+set_from_resource $selection  i3wm.color1
+set_from_resource $lightbg    i3wm.color0
 
 workspace $ws0 output $monitor0
 workspace $ws1 output $monitor1
@@ -71,29 +40,51 @@ workspace $ws8 output $monitor2
 workspace $ws9 output $monitor2
 workspace $wsA output $monitor2
 
-bindsym $mod+grave workspace $ws0
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $wsA
-
+bindsym $mod+a           exec thunar
+bindsym $mod+c           exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
+bindsym $mod+d           exec rofi -show drun
+bindsym $mod+f           fullscreen toggle
+bindsym $mod+h           split h
+bindsym $mod+v           split v
+bindsym $mod+s           exec $HOME/.dotfiles/bin/ssh.sh
+bindsym $mod+Return      exec i3-sensible-terminal
+bindsym $mod+grave       workspace $ws0
+bindsym $mod+1           workspace $ws1
+bindsym $mod+2           workspace $ws2
+bindsym $mod+3           workspace $ws3
+bindsym $mod+4           workspace $ws4
+bindsym $mod+5           workspace $ws5
+bindsym $mod+6           workspace $ws6
+bindsym $mod+7           workspace $ws7
+bindsym $mod+8           workspace $ws8
+bindsym $mod+9           workspace $ws9
+bindsym $mod+0           workspace $wsA
+bindsym $mod+Left        focus left
+bindsym $mod+Down        focus down
+bindsym $mod+Up          focus up
+bindsym $mod+Right       focus right
+bindsym $mod+Shift+q     kill
+bindsym $mod+Shift+c     reload
+bindsym $mod+Shift+r     restart
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+grave move container to workspace $ws0
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $wsA
+bindsym $mod+Shift+1     move container to workspace $ws1
+bindsym $mod+Shift+2     move container to workspace $ws2
+bindsym $mod+Shift+3     move container to workspace $ws3
+bindsym $mod+Shift+4     move container to workspace $ws4
+bindsym $mod+Shift+5     move container to workspace $ws5
+bindsym $mod+Shift+6     move container to workspace $ws6
+bindsym $mod+Shift+7     move container to workspace $ws7
+bindsym $mod+Shift+8     move container to workspace $ws8
+bindsym $mod+Shift+9     move container to workspace $ws9
+bindsym $mod+Shift+0     move container to workspace $wsA
+
+bindsym --release $mod+Shift+d exec --no-startup-id xdotool type --clearmodifiers -- "$(date +%F)"
+bindsym --release $mod+Print   exec scrot -s
 
 set $mode_resize Use arrow buttons to resize window
 bindsym $mod+r mode "$mode_resize"
