@@ -7,7 +7,6 @@ alias today="date +%F"
 alias tmp='mktemp -d -p . "temp.$(today).XXXXXXXXX"'
 alias mkt='cd $(tmp)'
 alias mp3-dl="noglob youtube-dl --extract-audio --audio-format mp3"
-alias http_code='curl --silent --show-error --output /dev/null --write-out "%{http_code}\n"'
 alias weather="curl -q http://wttr.in/Athens"
 alias moon="curl -q http://wttr.in/Moon"
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
@@ -18,29 +17,16 @@ alias unixtime='date +%s%3N'
 alias branch='echo ${LOGNAME}-$(unixtime)'
 alias system-update='ANSIBLE_CONFIG=~/.dotfiles/ansible/ansible.cfg ansible-playbook ~/.dotfiles/ansible/update.yml --skip-tags "install"'
 alias system-update-full='ANSIBLE_CONFIG=~/.dotfiles/ansible/ansible.cfg ansible-playbook ~/.dotfiles/ansible/full.yml'
+alias tclsh="rlwrap tclsh"
+alias curl='curl -K ~/.config/curl/config'
+alias curl_status='curl -K ~/.config/curl/status'
+alias curl_times='curl -K ~/.config/curl/times'
 
 # Assumes HIST_IGNORE_SPACE is set
 # making aliases to certain commands to start with space to be ignored from history
 alias ls=" ls --color=tty"
 alias ll=" ls -lh"
 alias history=" fc -il 1"
-
-# rlwrap tclsh to get autocomplete and command history
-# alias tclsh="rlwrap -z $HOME/.tclsh/autocomplete tclsh"
-alias tclsh="rlwrap tclsh"
-
-# Ubuntu custom shortcuts
-# ctrl + alt + d
-# sh -c 'xdotool type --clearmodifiers -- "$(date +%F)"'
-
-alias times='curl --silent --show-error --output /dev/null --write-out "
-time_namelookup: %{time_namelookup}
-time_connect: %{time_connect}
-time_appconnect: %{time_appconnect}
-time_pretransfer: %{time_pretransfer}
-time_redirect: %{time_redirect}
-time_starttransfer: %{time_starttransfer}
-time_total: %{time_total}"'
 
 function unescape() {
   printf '%b\n' "$(<$1)"
