@@ -133,7 +133,7 @@ bar {
     focused_workspace  $selection   $selection   $background
     inactive_workspace $background  $background  $text
     active_workspace   $background  $background  $text
-    urgent_workspace   $lightbg     $lightbg     $text
+    urgent_workspace   $background  $background  $selection
     binding_mode       $background  $background  $text
   }
 }
