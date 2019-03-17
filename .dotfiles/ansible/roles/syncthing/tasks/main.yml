@@ -3,15 +3,11 @@
     url: https://syncthing.net/release-key.txt
     state: present
   become: yes
-  tags:
-    - ubuntu
 
 - name: syncthing - add apt repository
   apt_repository:
     repo: deb https://apt.syncthing.net/ syncthing stable
   become: yes
-  tags:
-    - ubuntu
 
 - name: syncthing - install packages
   include_role:
@@ -19,5 +15,3 @@
   vars:
     apt_packages:
       - syncthing
-  tags:
-    - ubuntu

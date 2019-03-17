@@ -11,10 +11,10 @@
     state: directory
   loop:
     - "{{ thirdparty }}"
-    - ~/.themes/
-    - ~/.screenlayout/
+    - "{{ ansible_env.HOME }}/.themes/"
+    - "{{ ansible_env.HOME }}/.screenlayout/"
 
 - name: dotfiles - untar theme
   unarchive:
     src: "{{ thirdparty }}/assets/oomox-nord.tar.gz"
-    dest: ~/.themes
+    dest: "{{ ansible_env.HOME }}/.themes"

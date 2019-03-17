@@ -1,7 +1,7 @@
 dotfiles_repositories:
   - repo: git@gitlab.com:DictumMortuum/notes.git
-    dest: ~/Notes
+    dest: "{{ ansible_env.HOME }}/Notes"
   - repo: git@gitlab.com:DictumMortuum/pass.git
-    dest: ~/.password-store
+    dest: "{{ ansible_env.HOME }}/.password-store"
   - repo: git@github.com:DictumMortuum/release.git
     dest: "{{ thirdparty }}/assets"

@@ -1,1 +1,3 @@
-thirdparty: ~/.thirdparty
+thirdparty: "{{ ansible_env.HOME }}/.thirdparty"
+secret: "{{ ansible_env.HOME }}/Sync/Secret"
+target_user: dictummortuum

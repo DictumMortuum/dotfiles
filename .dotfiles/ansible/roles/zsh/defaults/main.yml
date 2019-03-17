@@ -1,9 +1,10 @@
-zsh_cache: ~/.cache/zsh
+zsh_cache: "{{ ansible_env.HOME }}/.cache/zsh"
 
 zsh_directories:
   - "{{ zsh_cache }}"
-  - ~/.cache/ssh/
-  - ~/.cache/zsh_completion
+  - "{{ ansible_env.HOME }}/.cache/ssh"
+  - "{{ ansible_env.HOME }}/.cache/zsh_completion"
+  - "{{ ansible_env.HOME }}/.local/bin"
 
 zsh_repositories:
   - repo: git@github.com:sindresorhus/pure.git

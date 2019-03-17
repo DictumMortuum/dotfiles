@@ -1,6 +1,6 @@
 ---
 
-i3_gaps_git_path: "/tmp/i3-gaps-git"
+i3_gaps_git_path: "{{ thirdparty }}/i3-gaps-git"
 
 i3_gaps_dependencies:
   - i3status
@@ -26,3 +26,4 @@ i3_gaps_dependencies:
   - libxcb-randr0-dev
   - libxcb-xrm0
   - libxcb-xrm-dev
+  - libxcb-shape0-dev

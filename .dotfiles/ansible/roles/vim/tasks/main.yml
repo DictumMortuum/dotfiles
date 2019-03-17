@@ -10,9 +10,9 @@
     path: "{{ item }}"
     state: directory
   loop:
-    - ~/.cache/vim/
-    - ~/.vim/
-    - ~/.vim/bundle/
+    - "{{ ansible_env.HOME }}/.cache/vim/"
+    - "{{ ansible_env.HOME }}/.vim/"
+    - "{{ ansible_env.HOME }}/.vim/bundle/"
 
 - name: vim - clone repositories
   git:
@@ -22,6 +22,6 @@
   loop: "{{ vim_repositories }}"
 
 - name: vim - install vundle plugins
-  shell: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa
+  shell: vim -E -s -c "source {{ ansible_env.HOME }}/.vimrc" -c PluginInstall -c qa
   tags:
     - install

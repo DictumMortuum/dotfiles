@@ -3,15 +3,20 @@
     url: https://packages.microsoft.com/keys/microsoft.asc
     state: present
   become: yes
-  tags:
-    - ubuntu
+
+- name: vscode - install packages
+  include_role:
+    name: apt-install
+  vars:
+    apt_packages:
+      - libx11-xcb1
+      - libxcb1
+      - libasound2
 
 - name: vscode - add microsoft apt repository
   apt_repository:
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
   become: yes
-  tags:
-    - ubuntu
 
 - name: vscode - install packages
   include_role:
@@ -19,8 +24,6 @@
   vars:
     apt_packages:
       - code
-  tags:
-    - ubuntu
 
 - name: vscode - install extensions
   shell: code --install-extension "{{ item }}"

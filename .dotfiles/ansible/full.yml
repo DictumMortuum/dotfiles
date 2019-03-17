@@ -3,8 +3,8 @@
   hosts: all
   roles:
     - apt-upgrade
-    - dotfiles
     - zsh
+    - dotfiles
     - vim
     - vscode
     - greenclip

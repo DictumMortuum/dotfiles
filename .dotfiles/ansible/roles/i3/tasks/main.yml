@@ -3,13 +3,9 @@
     repo: "{{ item }}"
   loop: "{{ i3_apt_repositories }}"
   become: yes
-  tags:
-    - ubuntu
 
 - name: i3 - install packages
   include_role:
     name: apt-install
   vars:
     apt_packages: "{{ i3_packages }}"
-  tags:
-    - ubuntu
