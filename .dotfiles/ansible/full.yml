@@ -1,4 +1,7 @@
 ---
+
+# https://color.firefox.com/?theme=XQAAAAIGAQAAAAAAAABBqYhm849SCia2CaaEGccwS-xNKlhV_t_v1qJFeSz0Bb1c1mzpnCmakaJhKqr6fIoyNBJJ-FEtzLP39_fcH6j5bjKsgxiCwJ7xWJXsBPAdf2RS8tq7QiV84xYWmk2z_FDrfacWeoZdb8cSZg978p0R7TilpkFqEAgjJALVLlhoFpMDyCCtvwsVYP19n6LtEhWKJMQ94yN6J8owC3DC5Hbg45__Ff-AAA
+
 - name: Full desktop provision
   hosts: all
   roles:
