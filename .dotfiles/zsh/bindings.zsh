@@ -9,6 +9,8 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
   zle -N zle-line-finish
 fi
 
+export WORDCHARS=''
+
 bindkey -e                        # Use emacs key bindings
 bindkey ' ' magic-space           # [Space] - do history expansion
 bindkey '^[[1;5C' forward-word    # [Ctrl-RightArrow] - move forward one word
