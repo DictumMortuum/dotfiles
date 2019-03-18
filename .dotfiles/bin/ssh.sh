@@ -1,6 +1,6 @@
 #!/bin/bash
 
-box=$(rofi -dmenu -matching fuzzy -location 0 -p "Box" << EOF
+box=$(rofi -dmenu -matching fuzzy -p "box" << EOF
 activityfeedscust-01
 activityfeedscust-02
 activityfeedscust-03
@@ -112,8 +112,9 @@ EOF
 )
 
 [[ -z $box ]] && exit 0
-env=$(ls ~/.ssh/env | rofi -dmenu -matching fuzzy -location 0 -p "Env" -mesg "alt+1: copy host, alt+2: copy env")
+env=$(ls ~/.ssh/env | rofi -dmenu -matching fuzzy -p "enter: ssh, alt+1: copy host, alt+2: copy env")
 ret=$?
+[[ -z $env ]] && exit 0
 
 if [[ $ret = 10 ]]; then
   # alt + 1
