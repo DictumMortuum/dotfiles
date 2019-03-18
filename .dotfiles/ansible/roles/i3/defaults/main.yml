@@ -15,6 +15,7 @@ i3_packages:
   - xclip
   - xdotool
   - dunst
+  - buku
 
 i3_apt_repositories:
   - ppa:papirus/papirus

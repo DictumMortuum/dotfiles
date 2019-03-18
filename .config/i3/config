@@ -41,6 +41,7 @@ workspace $ws9 output $monitor2
 workspace $wsA output $monitor2
 
 bindsym $mod+a           exec thunar
+bindsym $mod+b           exec buku -p -f 3 | sed 's/\t/ /g' | dmenu -i -nb "$background" -nf "$text" -sb "$selection" -sf "$background" | cut -d ' ' -f 1 | xargs --no-run-if-empty buku -o
 bindsym $mod+c           exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
 bindsym $mod+d           exec rofi -show drun
 bindsym $mod+f           fullscreen toggle
