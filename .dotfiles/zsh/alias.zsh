@@ -17,7 +17,6 @@ alias unixtime='date +%s%3N'
 alias branch='echo ${LOGNAME}-$(unixtime)'
 alias system-update='ANSIBLE_CONFIG=~/.dotfiles/ansible/ansible.cfg ansible-playbook ~/.dotfiles/ansible/full.yml'
 alias tclsh="rlwrap tclsh"
-alias curl='curl -K ~/.config/curl/config'
 alias curl_status='curl -K ~/.config/curl/status'
 alias curl_times='curl -K ~/.config/curl/times'
 
