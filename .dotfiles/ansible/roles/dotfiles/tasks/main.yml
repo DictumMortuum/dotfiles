@@ -18,3 +18,15 @@
   unarchive:
     src: "{{ thirdparty }}/assets/oomox-nord.tar.gz"
     dest: "{{ ansible_env.HOME }}/.themes"
+
+- name: dotfiles - copy passmenu
+  copy:
+    src: "{{ thirdparty }}/password-store/contrib/dmenu/passmenu"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    mode: 0700
+
+- name: copy xkb_switch binary
+  copy:
+    src: "{{ xkb_switch_git_path }}/build/xkb-switch"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    mode: 0700

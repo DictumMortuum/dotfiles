@@ -5,3 +5,5 @@ dotfiles_repositories:
     dest: "{{ ansible_env.HOME }}/.password-store"
   - repo: git@github.com:DictumMortuum/release.git
     dest: "{{ thirdparty }}/assets"
+  - repo: git@github.com:zx2c4/password-store.git
+    dest: "{{ thirdparty }}/password-store"

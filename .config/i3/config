@@ -47,6 +47,7 @@ bindsym $mod+d           exec rofi -show drun
 bindsym $mod+f           fullscreen toggle
 bindsym $mod+h           split h
 bindsym $mod+v           split v
+bindsym $mod+p           exec passmenu -b
 bindsym $mod+s           exec $HOME/.dotfiles/bin/ssh.sh
 bindsym $mod+Return      exec i3-sensible-terminal
 bindsym $mod+grave       workspace $ws0
