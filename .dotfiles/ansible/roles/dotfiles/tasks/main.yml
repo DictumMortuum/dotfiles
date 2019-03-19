@@ -22,9 +22,8 @@
 - name: dotfiles - copy passmenu
   copy:
     src: "{{ thirdparty }}/password-store/contrib/dmenu/passmenu"
-    dest: "/usr/local/bin/passmenu"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
     mode: 0700
-  become: yes
 
 - name: copy xkb_switch binary
   copy:
