@@ -45,11 +45,4 @@ puts $fp "*monitor0: $monitor0"
 puts $fp "*monitor1: $monitor1"
 puts $fp "*monitor2: $monitor2"
 
-set i 0
-
-foreach m $monitors {
-  puts $fp "*bar${i}: $m"
-  incr i
-}
-
 close $fp
