@@ -47,6 +47,7 @@ bindsym $mod+d           exec rofi -show drun
 bindsym $mod+f           fullscreen toggle
 bindsym $mod+h           split h
 bindsym $mod+v           split v
+bindsym $mod+j           exec $HOME/.dotfiles/bin/jira.sh
 bindsym $mod+p           exec $HOME/.local/bin/passmenu -b -nb "$background" -nf "$text" -sb "$selection" -sf "$background"
 bindsym $mod+s           exec $HOME/.dotfiles/bin/ssh.sh
 bindsym $mod+Return      exec i3-sensible-terminal
