@@ -1,5 +1,5 @@
 - name: vscode - add microsoft apt key
-  apt_key: 
+  apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
     state: present
   become: yes
@@ -31,5 +31,6 @@
     - arcticicestudio.nord-visual-studio-code
     - shaunlebron.vscode-parinfer
     - sleutho.tcl
+    - EditorConfig.EditorConfig
   tags:
     - install
