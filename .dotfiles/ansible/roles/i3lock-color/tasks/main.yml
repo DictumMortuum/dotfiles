@@ -1,0 +1,38 @@
+---
+- name: i3lock-color - ensure build dependencies are installed
+  include_role:
+    name: apt-install
+  vars:
+    apt_packages: "{{ i3lock_color_gaps_dependencies }}"
+
+- name: i3lock-color - clone repositories
+  git:
+    repo: git@github.com:PandorasFox/i3lock-color.git
+    dest: "{{ i3lock_color_git_path }}"
+    update: yes
+
+- name: i3lock-color - tag
+  command: git tag -f bla
+  args:
+    chdir: "{{ i3lock_color_git_path }}"
+
+- name: i3lock-color - build
+  command: autoreconf -i 
+  args:
+    chdir: "{{ i3lock_color_git_path }}"
+
+- name: i3lock-color - configure
+  command: ./configure
+  args:
+    chdir: "{{ i3lock_color_git_path }}"
+
+- name: i3lock-color - build
+  command: make
+  args:
+    chdir: "{{ i3lock_color_git_path }}"
+
+- name: i3lock-color - copy i3lock binary to bin folder
+  copy:
+    src: "{{ i3lock_color_git_path }}/x86_64-pc-linux-gnu/i3lock"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    mode: 0700
