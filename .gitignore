@@ -9,7 +9,6 @@
 !.editorconfig
 !.boostnoterc
 !.Xresources
-!.xprofile
 
 # Top-level repo directories
 !.dotfiles

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-tclsh ~/.dotfiles/bin/monitors.tcl && xrdb -merge /tmp/monitors
