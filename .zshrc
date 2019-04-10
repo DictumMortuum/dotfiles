@@ -12,6 +12,8 @@ PATH="/bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
+typeset -aU path
+
 export EDITOR=vim
 export VISUAL=$EDITOR
 export NO_AT_BRIDGE=1
@@ -20,7 +22,7 @@ export WORDCHARS=''
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-export PATH=$(clearpath.tcl)
+export PATH
 
 zmodload -i zsh/complist
 
