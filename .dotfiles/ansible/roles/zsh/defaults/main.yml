@@ -4,6 +4,7 @@ zsh_directories:
   - "{{ zsh_cache }}"
   - "{{ ansible_env.HOME }}/.cache/ssh"
   - "{{ ansible_env.HOME }}/.cache/zsh_completion"
+  - "{{ ansible_env.HOME }}/.cache/screenlayout"
   - "{{ ansible_env.HOME }}/.local/bin"
 
 zsh_repositories:
