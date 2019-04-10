@@ -121,7 +121,6 @@ exec_always --no-startup-id compton
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id (killall greenclip ; greenclip daemon)
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
-exec_always --no-startup-id exec ~/.dotfiles/util/layout.sh
 
 bar {
   status_command i3blocks
