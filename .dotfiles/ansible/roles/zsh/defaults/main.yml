@@ -42,3 +42,4 @@ zsh_packages:
   - tree
   - wget
   - zsh
+  - pandoc
