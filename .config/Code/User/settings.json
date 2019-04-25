@@ -21,5 +21,6 @@
     "explorer.confirmDragAndDrop": false,
     "workbench.colorTheme": "Nord",
     "window.titleBarStyle": "custom",
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "files.trimFinalNewlines": true
 }
