@@ -1,5 +1,5 @@
 - name: syncthing - add apt key
-  apt_key: 
+  apt_key:
     url: https://syncthing.net/release-key.txt
     state: present
   become: yes

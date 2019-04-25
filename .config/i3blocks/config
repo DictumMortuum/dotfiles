@@ -23,4 +23,3 @@ interval=1
 
 [host]
 interval=once
-

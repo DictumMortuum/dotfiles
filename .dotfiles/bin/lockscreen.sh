@@ -29,4 +29,3 @@ trap revert SIGHUP SIGINT SIGTERM
   --timecolor="ffffffff" --datecolor="ffffffff"
 
 rm $TMPBG
-

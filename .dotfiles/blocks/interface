@@ -11,4 +11,3 @@ case $BLOCK_BUTTON in
 esac
 
 echo "$IP"
-

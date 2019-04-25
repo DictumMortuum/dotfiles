@@ -17,7 +17,7 @@
     chdir: "{{ i3lock_color_git_path }}"
 
 - name: i3lock-color - build
-  command: autoreconf -i 
+  command: autoreconf -i
   args:
     chdir: "{{ i3lock_color_git_path }}"
 

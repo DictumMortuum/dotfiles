@@ -1,7 +1,7 @@
 - name: vim - install packages
   include_role:
     name: apt-install
-  vars: 
+  vars:
     apt_packages:
       - vim
 
