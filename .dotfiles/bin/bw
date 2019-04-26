@@ -13,5 +13,5 @@ BEGIN {
 }
 
 {
-	print $(NF-field)
+  print $(NF-field)
 }
