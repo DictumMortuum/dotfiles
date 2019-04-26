@@ -1,5 +1,8 @@
 #!/bin/bash
 
+TERM=i3-sensible-terminal
+ENV_LOCATION="$HOME/Sync/Secret/env"
+
 box=$(rofi -dmenu -matching fuzzy -p "box" << EOF
 activityfeedscust-01
 activityfeedscust-02
@@ -112,7 +115,7 @@ EOF
 )
 
 [[ -z $box ]] && exit 0
-env=$(ls ~/.ssh/env | rofi -dmenu -matching fuzzy -p "enter: ssh, alt+1: copy host, alt+2: copy env")
+env=$(ls ${ENV_LOCATION} | rofi -dmenu -matching fuzzy -p "enter: ssh, alt+1: copy host, alt+2: copy env")
 ret=$?
 [[ -z $env ]] && exit 0
 
@@ -123,7 +126,7 @@ elif [[ $ret = 11 ]]; then
   # alt + 2
   echo ${env} | xclip
 else
-  i3-sensible-terminal -x ssh ${box}.internal.${env}.sportsbook.sgdigital.com
+  ${TERM} -x ssh ${box}.internal.${env}.sportsbook.sgdigital.com
 fi
 
 exit 0
