@@ -47,7 +47,9 @@ setopt share_history
 alias dot="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 alias notes="git --git-dir=$HOME/Notes/.git --work-tree=$HOME/Notes"
 alias today='date +%F'
-alias tmp='mktemp -d -p . "temp.$(today).XXXXXXXXX"'
+alias now='date +%FT%T'
+alias unixtime='date +%s%3N'
+alias tmp='mktemp -d -p . "temp.$(now).XXXXXXXXX"'
 alias mkt='cd $(tmp)'
 alias mp3-dl='noglob youtube-dl --extract-audio --audio-format mp3'
 alias weather='curl -q http://wttr.in/Athens'
@@ -56,7 +58,6 @@ alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias vi='vim'
 alias tempfox='firefox --new-instance --profile $(mktemp -d)'
-alias unixtime='date +%s%3N'
 alias branch='echo ${LOGNAME}-$(unixtime)'
 alias system-update='ANSIBLE_CONFIG=~/.dotfiles/ansible/ansible.cfg ansible-playbook ~/.dotfiles/ansible/full.yml'
 alias curl_status='curl -K ~/.config/curl/status'
