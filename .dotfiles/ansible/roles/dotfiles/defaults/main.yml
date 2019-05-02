@@ -7,3 +7,5 @@ dotfiles_repositories:
     dest: "{{ thirdparty }}/assets"
   - repo: git@github.com:zx2c4/password-store.git
     dest: "{{ thirdparty }}/password-store"
+  - repo: git@github.com:pimterry/notes.git
+    dest: "{{ thirdparty }}/notes"
