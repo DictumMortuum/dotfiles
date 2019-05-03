@@ -1,0 +1,25 @@
+- name: notable - get latest
+  uri:
+    url: https://github.com/notable/notable/releases/latest
+  register: result
+
+- name: notable - extracting
+  set_fact:
+    version: "{{ result.url | regex_replace('^.*v(\\d\\.\\d\\.\\d)$', '\\1')}}"
+
+- name: notable - downloading deb package
+  get_url:
+    url: "https://github.com/notable/notable/releases/download/v{{ version }}/notable_{{ version }}_amd64.deb"
+    dest: "{{ thirdparty }}"
+
+- name: notable - install deb package
+  apt:
+    deb: "{{ thirdparty }}/notable_{{ version }}_amd64.deb"
+  become: true
+  tags:
+    - install
+
+- name: notable - generate dotfile
+  template:
+    src: notable.json.j2
+    dest: "{{ home }}/.notable.json"
