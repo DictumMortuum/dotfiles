@@ -22,4 +22,4 @@
 - name: notable - generate dotfile
   template:
     src: notable.json.j2
-    dest: "{{ home }}/.notable.json"
+    dest: "{{ ansible_env.HOME }}/.notable.json"
