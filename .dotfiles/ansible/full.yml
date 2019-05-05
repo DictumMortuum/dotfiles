@@ -15,7 +15,6 @@
     - i3-gaps
     - i3lock-color
     - xkb-switch
-    - gitkraken
-    - syncthing
-    - keybase
     - notable
+    - boostnote
+    - syncthing

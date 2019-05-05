@@ -7,10 +7,16 @@
   set_fact:
     version: "{{ result.url | regex_replace('^.*v(\\d\\.\\d\\d\\.\\d\\d)$', '\\1')}}"
 
+- name: boostnote - check if deb is already downloaded
+  stat:
+    path: "{{ thirdparty }}/boostnote_{{ version }}_amd64.deb"
+  register: boostnote_deb
+
 - name: boostnote - downloading deb package
   get_url:
     url: "https://github.com/BoostIO/boost-releases/releases/download/v{{ version }}/boostnote_{{ version }}_amd64.deb"
     dest: "{{ thirdparty }}"
+  when: boostnote_deb.stat.exists == False
 
 - name: boostnote - install deb package
   apt:
