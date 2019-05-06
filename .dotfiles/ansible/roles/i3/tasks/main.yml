@@ -9,11 +9,3 @@
     name: apt-install
   vars:
     apt_packages: "{{ i3_packages }}"
-
-- name: i3 - install gitkraken snap
-  become: yes
-  shell: snap install gitkraken
-
-- name: i3 - install keybase snap
-  become: yes
-  shell: snap install --edge keybase
