@@ -31,8 +31,17 @@
     dest: "{{ ansible_env.HOME }}/.local/bin/nt"
     mode: 0700
 
-- name: copy xkb_switch binary
+- name: dotfiles - copy xkb_switch binary
   copy:
     src: "{{ xkb_switch_git_path }}/build/xkb-switch"
     dest: "{{ ansible_env.HOME }}/.local/bin"
     mode: 0700
+
+- name: dotfiles - setup cronjob for repository syncing
+  cron:
+    name: "sync repo {{ item }}"
+    special_time: hourly
+    job: "{{ ansible_env.HOME }}/.dotfiles/bin/sync.sh {{ ansible_env.HOME }}/{{ item }}"
+  loop:
+    - Notes
+    - .password-store
