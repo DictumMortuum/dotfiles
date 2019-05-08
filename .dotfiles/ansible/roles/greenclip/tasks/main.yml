@@ -3,3 +3,17 @@
     url: https://github.com/erebe/greenclip/releases/download/3.2/greenclip
     dest: "{{ ansible_env.HOME }}/.local/bin/greenclip"
     mode: 0700
+
+- name: greenclip - copy syncthing service file
+  template:
+    src: greenclip.service.j2
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/greenclip.service"
+    mode: 0700
+
+- name: greenclip - enable syncthing service
+  systemd:
+    name: greenclip
+    enabled: yes
+    masked: no
+    scope: user
+    state: started
