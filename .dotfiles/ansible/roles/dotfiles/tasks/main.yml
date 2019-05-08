@@ -28,7 +28,7 @@
 - name: dotfiles - copy notes
   copy:
     src: "{{ thirdparty }}/notes/notes"
-    dest: "{{ ansible_env.HOME }}/.local/bin/nt"
+    dest: "{{ ansible_env.HOME }}/.local/bin/notes"
     mode: 0700
 
 - name: dotfiles - copy xkb_switch binary
