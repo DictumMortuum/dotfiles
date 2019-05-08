@@ -17,13 +17,13 @@ label=W
 command=~/.dotfiles/blocks/interface wlp
 interval=once
 
-[time]
-command=date "+%Y-%m-%d %H:%M:%S"
-interval=1
-
 [temperature]
 command=curl https://wttr.in\?format=3
 interval=30
+
+[time]
+command=date "+%Y-%m-%d %H:%M:%S"
+interval=1
 
 [host]
 interval=once
