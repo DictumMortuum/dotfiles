@@ -6,6 +6,7 @@ zsh_directories:
   - "{{ ansible_env.HOME }}/.cache/zsh_completion"
   - "{{ ansible_env.HOME }}/.cache/screenlayout"
   - "{{ ansible_env.HOME }}/.local/bin"
+  - "{{ ansible_env.HOME }}/.config/systemd/user"
 
 zsh_repositories:
   - repo: git@github.com:sindresorhus/pure.git
