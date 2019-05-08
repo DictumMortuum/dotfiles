@@ -21,5 +21,9 @@ interval=once
 command=date "+%Y-%m-%d %H:%M:%S"
 interval=1
 
+[temperature]
+command=curl https://wttr.in\?format=3
+interval=30
+
 [host]
 interval=once
