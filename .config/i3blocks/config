@@ -10,11 +10,17 @@ interval=persist
 interval=30
 
 [interface]
+label=C:
 interval=once
 
 [wireless]
-label=W
+label=W:
 command=~/.dotfiles/blocks/interface wlp
+interval=once
+
+[external]
+label=E:
+command=dig +short myip.opendns.com @resolver1.opendns.com
 interval=once
 
 [temperature]
