@@ -47,15 +47,14 @@ setopt share_history
 
 # https://news.ycombinator.com/item?id=11070797
 alias dot="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
-alias notes="git --git-dir=$HOME/Notes/.git --work-tree=$HOME/Notes"
 alias today='date +%F'
 alias now='date +%FT%T'
 alias unixtime='date +%s%3N'
 alias tmp='mktemp -d -p . "temp.$(now).XXXXXXXXX"'
 alias mkt='cd $(tmp)'
 alias mp3-dl='noglob youtube-dl --extract-audio --audio-format mp3'
-alias weather='curl -q http://wttr.in/Athens'
-alias moon='curl -q http://wttr.in/Moon'
+alias weather='noglob curl -q http://wttr.in?lang=el'
+alias moon='noglob curl -q http://wttr.in/Moon?lang=el'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias vi='vim'
