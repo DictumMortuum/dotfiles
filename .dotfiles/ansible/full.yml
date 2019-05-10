@@ -21,6 +21,8 @@
   - apt:
       deb: "{{ item }}"
     loop: "{{ apt_debs }}"
+    tags:
+      - long
 
 - name: Install dotfiles
   hosts: all
