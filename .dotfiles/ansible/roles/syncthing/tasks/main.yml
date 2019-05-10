@@ -15,3 +15,17 @@
   vars:
     apt_packages:
       - syncthing
+
+- name: dotfiles - copy syncthing service file
+  copy:
+    src: "{{ thirdparty }}/syncthing/etc/linux-systemd/user/syncthing.service"
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/syncthing.service"
+    mode: 0700
+
+- name: dotfiles - enable syncthing service
+  systemd:
+    name: syncthing
+    enabled: yes
+    masked: no
+    scope: user
+    state: started
