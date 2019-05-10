@@ -45,3 +45,8 @@
   loop:
     - Notes
     - .password-store
+
+- name: dotfiles - make install duplicates
+  make:
+    chdir: "{{ thirdparty }}/duplicates"
+    target: install

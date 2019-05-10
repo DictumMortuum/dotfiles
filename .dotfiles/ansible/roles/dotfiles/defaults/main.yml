@@ -11,3 +11,5 @@ dotfiles_repositories:
     dest: "{{ thirdparty }}/notes"
   - repo: git@github.com:syncthing/syncthing.git
     dest: "{{ thirdparty }}/syncthing"
+  - repo: git@github.com:DictumMortuum/duplicates.git
+    dest: "{{ thirdparty }}/duplicates"
