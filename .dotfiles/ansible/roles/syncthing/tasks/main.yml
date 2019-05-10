@@ -9,12 +9,10 @@
     repo: deb https://apt.syncthing.net/ syncthing stable
   become: yes
 
-- name: syncthing - install packages
-  include_role:
-    name: apt-install
-  vars:
-    apt_packages:
+- apt:
+    name:
       - syncthing
+  become: yes
 
 - name: dotfiles - copy syncthing service file
   copy:

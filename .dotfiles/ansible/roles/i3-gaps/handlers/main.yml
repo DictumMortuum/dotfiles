@@ -1,5 +1,3 @@
----
-
 - name: autoreconf i3-gaps
   command: autoreconf --force --install
   args:

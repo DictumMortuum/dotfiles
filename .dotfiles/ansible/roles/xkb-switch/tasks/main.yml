@@ -1,15 +1,13 @@
----
-
-- name: ensure xkb_switch build dependencies are installed
-  include_role:
-    name: apt-install
-  vars:
-    apt_packages: "{{ xkb_switch_dependencies }}"
+- apt:
+    name:
+      - libxkbfile-dev
+      - cmake
+  become: yes
 
 - name: xkb_switch - clone repositories
   git:
     repo: git@github.com:ierton/xkb-switch.git
-    dest: "{{ xkb_switch_git_path }}"
+    dest: "{{ thirdparty }}/xkb_switch-git"
     update: yes
   notify:
     - delete xkb_switch build folder

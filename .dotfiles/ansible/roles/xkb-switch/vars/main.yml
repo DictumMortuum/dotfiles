@@ -1,7 +1,0 @@
----
-
-xkb_switch_git_path: "{{ thirdparty }}/xkb_switch-git"
-
-xkb_switch_dependencies:
-  - libxkbfile-dev
-  - cmake

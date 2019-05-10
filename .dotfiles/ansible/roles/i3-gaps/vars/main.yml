@@ -1,5 +1,3 @@
----
-
 i3_gaps_git_path: "{{ thirdparty }}/i3-gaps-git"
 
 i3_gaps_dependencies:

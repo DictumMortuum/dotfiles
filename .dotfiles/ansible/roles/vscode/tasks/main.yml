@@ -4,26 +4,22 @@
     state: present
   become: yes
 
-- name: vscode - install packages
-  include_role:
-    name: apt-install
-  vars:
-    apt_packages:
+- apt:
+    name:
       - libx11-xcb1
       - libxcb1
       - libasound2
+  become: yes
 
 - name: vscode - add microsoft apt repository
   apt_repository:
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
   become: yes
 
-- name: vscode - install packages
-  include_role:
-    name: apt-install
-  vars:
-    apt_packages:
+- apt:
+    name:
       - code
+  become: yes
 
 - name: vscode - install extensions
   shell: code --install-extension "{{ item }}"
@@ -32,5 +28,3 @@
     - shaunlebron.vscode-parinfer
     - sleutho.tcl
     - EditorConfig.EditorConfig
-  tags:
-    - install

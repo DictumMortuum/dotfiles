@@ -1,5 +1,3 @@
----
-
 i3lock_color_git_path: "{{ thirdparty }}/i3lock_color"
 
 i3lock_color_gaps_dependencies:

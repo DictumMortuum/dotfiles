@@ -22,8 +22,6 @@
   apt:
     deb: "{{ thirdparty }}/notable_{{ version }}_amd64.deb"
   become: true
-  tags:
-    - install
 
 - name: notable - generate dotfile
   template:

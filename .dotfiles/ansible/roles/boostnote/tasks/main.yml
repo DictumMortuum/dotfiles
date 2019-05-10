@@ -3,8 +3,7 @@
     url: https://github.com/BoostIO/boost-releases/releases/latest
   register: result
 
-- name: boostnote - extracting
-  set_fact:
+- set_fact:
     version: "{{ result.url | regex_replace('^.*v(\\d\\.\\d\\d\\.\\d\\d)$', '\\1')}}"
 
 - name: boostnote - check if deb is already downloaded
@@ -22,5 +21,3 @@
   apt:
     deb: "{{ thirdparty }}/boostnote_{{ version }}_amd64.deb"
   become: true
-  tags:
-    - install

@@ -1,10 +1,6 @@
----
-
-- name: ensure i3-gaps build dependencies are installed
-  include_role:
-    name: apt-install
-  vars:
-    apt_packages: "{{ i3_gaps_dependencies }}"
+- apt:
+    name: "{{ i3_gaps_dependencies }}"
+  become: yes
 
 - name: i3-gaps - clone repositories
   git:
