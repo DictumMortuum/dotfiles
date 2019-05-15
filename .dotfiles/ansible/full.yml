@@ -47,12 +47,12 @@
       state: link
     loop: "{{ zsh_links }}"
 
-  - name: copy executable files
+  - name: copy files
     copy:
       src: "{{ item.src }}"
       dest: "{{ item.dest }}"
-      mode: 0700
-    loop: "{{ copy_executables }}"
+      mode: "{{ item.mode }}"
+    loop: "{{ copy_files }}"
 
   - name: untar theme
     unarchive:

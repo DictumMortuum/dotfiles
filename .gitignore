@@ -43,6 +43,9 @@
 !.config/compton.conf
 !.config/dunst
 !.config/greenclip.cfg
+!.config/qutebrowser
+.config/qutebrowser/*
+!.config/qutebrowser/config.py
 
 # [gpg]
 !.gnupg

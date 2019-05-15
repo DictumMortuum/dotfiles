@@ -25,6 +25,8 @@ git_repositories:
     dest: "{{ thirdparty }}/zsh-syntax-highlighting"
   - repo: git@github.com:VundleVim/Vundle.vim.git
     dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+  - repo: git@github.com:Linuus/nord-qutebrowser.git
+    dest: "{{ thirdparty }}/nord-qutebrowser"
 
 apt_packages:
   - compton
@@ -66,6 +68,7 @@ apt_packages:
   - zsh
   - pandoc
   - libappindicator1
+  - qutebrowser
 
 apt_repositories:
   - ppa:papirus/papirus
@@ -93,10 +96,16 @@ zsh_links:
   - src: "{{ thirdparty }}/pure/pure.zsh"
     dest: "{{ zsh_cache }}/prompt_pure_setup"
 
-copy_executables:
+copy_files:
   - src: "{{ thirdparty }}/password-store/contrib/dmenu/passmenu"
     dest: "{{ ansible_env.HOME }}/.local/bin/passmenu"
+    mode: "0700"
   - src: "{{ thirdparty }}/notes/notes"
     dest: "{{ ansible_env.HOME }}/.local/bin/notes"
+    mode: "0700"
   - src: "{{ thirdparty }}/xkb_switch-git/build/xkb-switch"
     dest: "{{ ansible_env.HOME }}/.local/bin/xkb-switch"
+    mode: "0700"
+  - src: "{{ thirdparty }}/nord-qutebrowser/nord-qutebrowser.py"
+    dest: "{{ ansible_env.HOME }}/.config/qutebrowser/nord-qutebrowser.py"
+    mode: "0644"
