@@ -141,4 +141,3 @@ bar {
 }
 
 for_window [class="^.*"] border pixel 0
-assign [class="Firefox"] 5
