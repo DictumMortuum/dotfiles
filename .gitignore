@@ -46,6 +46,7 @@
 !.config/qutebrowser
 .config/qutebrowser/*
 !.config/qutebrowser/config.py
+!.config/qutebrowser/quickmarks
 
 # [gpg]
 !.gnupg
