@@ -126,7 +126,13 @@ elif [[ $ret = 11 ]]; then
   # alt + 2
   echo ${env} | xclip
 else
-  ${TERM} -x ssh ${box}.internal.${env}.sportsbook.sgdigital.com
+  if [[ $env =~ ^stage || $env =~ ^prod ]]; then
+    PASSWORD=$(pass openbet/gameop)
+    ESCAPED=$(printf "%q" ${PASSWORD})
+    ${TERM} -x sshpass -p ${ESCAPED} ssh ${box}.internal.${env}.sportsbook.sgdigital.com
+  else
+    ${TERM} -x ssh ${box}.internal.${env}.sportsbook.sgdigital.com
+  fi
 fi
 
 exit 0
