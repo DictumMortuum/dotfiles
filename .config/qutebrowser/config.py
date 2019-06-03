@@ -1,7 +1,7 @@
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
 config.bind('<Ctrl-Shift-p>', 'set content.proxy http://bop.ps.gameop.net:8080"')
 
-c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.128 Safari/537.36"
+c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 c.tabs.padding = {"top": 5, "bottom": 5, "left": 0, "right": 0}
 c.fonts.monospace = 'Hack'
 c.fonts.tabs = '10pt monospace'
