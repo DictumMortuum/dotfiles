@@ -76,6 +76,12 @@
   - name: vim - install vundle plugins
     shell: vim -E -s -c "source {{ ansible_env.HOME }}/.vimrc" -c PluginInstall -c qa
 
+  - name: go-jira - get binary
+    get_url:
+      url: https://github.com/go-jira/go-jira/releases/download/v1.0.20/jira-linux-amd64
+      dest: "{{ ansible_env.HOME }}/.local/bin/jira"
+      mode: 0700
+
 - name: Install applications
   hosts: all
   roles:
