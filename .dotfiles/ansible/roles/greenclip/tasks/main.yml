@@ -10,7 +10,7 @@
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/greenclip.service"
     mode: 0700
 
-- name: greenclip - enable syncthing service
+- name: greenclip - enable greenclip service
   systemd:
     name: greenclip
     enabled: yes
