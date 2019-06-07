@@ -19,6 +19,9 @@ backbonebackoffice-02
 baldur-01
 betplacement-01
 betplacement-02
+betplacement-03
+betstream-01
+betstream-02
 bonusengine-01
 bonusengine-02
 cashout-01
@@ -35,6 +38,8 @@ custbackoffice-01
 custbackoffice-02
 custsync-01
 custsync-02
+dns-slave-01
+dns-slave-02
 feedaggregator-01
 feedaggregator-02
 feedhandler-01
@@ -43,6 +48,8 @@ haproxy-01
 haproxy-02
 informix-01
 informix-02
+informixcm-01
+informixcm-02
 jump
 kafka-01
 kafka-02
@@ -92,6 +99,7 @@ retail-settlement-02
 retail-siteserver-01
 retail-siteserver-02
 retail-sync-01
+retail-sync-02
 retail-sync-client-01
 rewardorchestrator-01
 rewardorchestrator-02
