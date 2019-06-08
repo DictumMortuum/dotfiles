@@ -12,10 +12,8 @@ set $ws9 "9"
 set $wsA "10:A"
 
 set_from_resource $background i3wm.background
-set_from_resource $monitor0   i3wm.monitor0
 set_from_resource $monitor1   i3wm.monitor1
 set_from_resource $monitor2   i3wm.monitor2
-set_from_resource $wallpaper  i3wm.foreground
 set_from_resource $text       i3wm.text
 set_from_resource $selection  i3wm.color1
 set_from_resource $lightbg    i3wm.color0
@@ -48,7 +46,7 @@ bindsym $mod+h           split h
 bindsym $mod+v           split v
 bindsym $mod+j           exec $HOME/.dotfiles/bin/jira.sh
 bindsym $mod+m           exec $HOME/.dotfiles/bin/monitors.sh
-bindsym $mod+p           exec $HOME/.local/bin/passmenu -b -nb "$background" -nf "$text" -sb "$selection" -sf "$background"
+bindsym $mod+p           exec $HOME/.local/bin/passmenu
 bindsym $mod+s           exec $HOME/.dotfiles/bin/ssh.sh
 bindsym $mod+Return      exec i3-sensible-terminal
 bindsym $mod+grave       workspace $ws0

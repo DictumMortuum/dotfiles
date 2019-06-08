@@ -27,6 +27,8 @@ git_repositories:
     dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
   - repo: git@github.com:Linuus/nord-qutebrowser.git
     dest: "{{ thirdparty }}/nord-qutebrowser"
+  - repo: git://git.suckless.org/dmenu
+    dest: "{{ thirdparty }}/dmenu"
 
 apt_packages:
   - compton

@@ -85,6 +85,7 @@
 - name: Install applications
   hosts: all
   roles:
+    - dmenu
     - vscode
     - greenclip
     - i3-gaps

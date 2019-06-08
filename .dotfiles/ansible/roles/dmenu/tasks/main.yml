@@ -1,0 +1,10 @@
+- name: dmenu - generate config.h
+  template:
+    src: config.h.j2
+    dest: "{{ thirdparty }}/dmenu/config.h"
+
+- name: dmenu - make install
+  make:
+    chdir: "{{ thirdparty }}/dmenu"
+    target: install
+  become: true
