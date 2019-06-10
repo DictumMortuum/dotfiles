@@ -16,3 +16,8 @@ c.colors.tabs.selected.even.fg = "#ffffff"
 c.colors.tabs.selected.odd.bg = "#4c566a"
 c.colors.tabs.selected.odd.fg = "#ffffff"
 c.hints.chars = "asdfkl"
+c.hints.border = "1px solid #2e3440"
+c.colors.hints.bg = "#2e3440"
+c.colors.hints.fg = "#ffffff"
+c.colors.hints.match.fg = "#bf616a"
+
