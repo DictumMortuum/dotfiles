@@ -62,7 +62,7 @@
   - name: setup cronjob for repository syncing
     cron:
       name: "sync repo {{ item }}"
-      special_time: hourly
+      minute: "0,20,40"
       job: "{{ ansible_env.HOME }}/.dotfiles/bin/sync.sh {{ ansible_env.HOME }}/{{ item }}"
     loop:
       - Notes
