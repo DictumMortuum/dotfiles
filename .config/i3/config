@@ -47,7 +47,7 @@ bindsym $mod+v           split v
 bindsym $mod+j           exec $HOME/.dotfiles/bin/jira.sh
 bindsym $mod+m           exec $HOME/.dotfiles/bin/monitors.sh
 bindsym $mod+p           exec $HOME/.local/bin/passmenu
-bindsym $mod+s           exec $HOME/.dotfiles/bin/ssh.sh
+bindsym $mod+s           exec CMD='i3-sensible-terminal -x' SSH_BASE=~/Sync/Secret $HOME/.local/bin/ssh.sh
 bindsym $mod+Return      exec i3-sensible-terminal
 bindsym $mod+grave       workspace $ws0
 bindsym $mod+1           workspace $ws1
