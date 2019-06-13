@@ -22,5 +22,6 @@
     "workbench.colorTheme": "Nord",
     "window.titleBarStyle": "custom",
     "breadcrumbs.enabled": true,
-    "files.trimFinalNewlines": true
+    "files.trimFinalNewlines": true,
+    "explorer.confirmDelete": false
 }
