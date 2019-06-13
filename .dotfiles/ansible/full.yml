@@ -82,6 +82,12 @@
       dest: "{{ ansible_env.HOME }}/.local/bin/jira"
       mode: 0700
 
+  - name: clojure - fetch lein
+    get_url:
+      url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+      dest: "{{ ansible_env.HOME }}/.local/bin/lein"
+      mode: 0700
+
 - name: Install applications
   hosts: all
   roles:
