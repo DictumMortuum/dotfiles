@@ -1,6 +1,3 @@
-config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
-config.bind('<Ctrl-Shift-p>', 'set content.proxy http://bop.ps.gameop.net:8080"')
-
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 c.tabs.padding = {"top": 5, "bottom": 5, "left": 0, "right": 0}
 c.fonts.monospace = 'Hack'
@@ -20,4 +17,7 @@ c.hints.border = "1px solid #2e3440"
 c.colors.hints.bg = "#2e3440"
 c.colors.hints.fg = "#ffffff"
 c.colors.hints.match.fg = "#bf616a"
+c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "s": "https://stash.int.openbet.com/plugins/servlet/search?q=\"{}\""}
 
+config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
+config.bind('<Ctrl-Shift-p>', 'set content.proxy http://bop.ps.gameop.net:8080"')
