@@ -24,7 +24,6 @@ command=dig +short myip.opendns.com @resolver1.opendns.com
 interval=once
 
 [temperature]
-command=curl https://wttr.in\?format=3
 interval=30
 
 [time]
