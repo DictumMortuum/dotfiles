@@ -20,9 +20,7 @@
 # [ssh]
 !.ssh
 .ssh/*
-!.ssh/*.config
-!.ssh/env
-!.ssh/hosts
+!.ssh/config
 
 # [config]
 !.config
