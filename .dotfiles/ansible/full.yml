@@ -88,6 +88,12 @@
       dest: "{{ ansible_env.HOME }}/.local/bin/lein"
       mode: 0700
 
+  - name: install datasette
+    pip:
+      name: datasette
+      executable: pip3
+      extra_args: --user
+
 - name: Install applications
   hosts: all
   roles:

@@ -71,6 +71,7 @@ apt_packages:
   - pandoc
   - libappindicator1
   - qutebrowser
+  - youtube-dl
 
 apt_repositories:
   - ppa:papirus/papirus
