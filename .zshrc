@@ -66,6 +66,7 @@ alias curl_times='curl -K ~/.config/curl/times'
 alias ls=' ls --color=tty'
 alias ll=' ls -lh'
 alias history=' fc -il 1'
+alias serve='python3 -m http.server'
 
 function unescape() {
   printf '%b\n' "$(<$1)"
