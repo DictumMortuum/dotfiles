@@ -16,6 +16,7 @@
     chdir: "{{ thirdparty }}/qutebrowser"
 
 - name: qutebrowser - install /usr/bin/ script
+  become: true
   template:
     src: qutebrowser.j2
     dest: "/usr/bin/qutebrowser"

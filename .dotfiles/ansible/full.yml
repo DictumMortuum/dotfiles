@@ -88,7 +88,7 @@
       dest: "{{ ansible_env.HOME }}/.local/bin/lein"
       mode: 0700
 
-  - name: install datasette
+  - name: install python modules
     pip:
       name: "{{ item }}"
       executable: pip3
