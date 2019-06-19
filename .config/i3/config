@@ -64,13 +64,9 @@ bindsym $mod+Shift+h     move left
 bindsym $mod+Shift+j     move down
 bindsym $mod+Shift+k     move up
 bindsym $mod+Shift+l     move right
-bindsym $mod+Shift+h     split h
-bindsym $mod+Shift+v     split v
 bindsym $mod+Shift+q     kill
 bindsym $mod+Shift+c     reload
 bindsym $mod+Shift+r     restart
-bindsym $mod+Shift+j     exec $HOME/.dotfiles/bin/jira.sh
-bindsym $mod+Shift+m     exec $HOME/.dotfiles/bin/monitors.sh
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+grave move container to workspace $ws0
 bindsym $mod+Shift+1     move container to workspace $ws1
@@ -83,6 +79,10 @@ bindsym $mod+Shift+7     move container to workspace $ws7
 bindsym $mod+Shift+8     move container to workspace $ws8
 bindsym $mod+Shift+9     move container to workspace $ws9
 bindsym $mod+Shift+0     move container to workspace $wsA
+bindsym $mod+Ctrl+h      split h
+bindsym $mod+Ctrl+v      split v
+bindsym $mod+Ctrl+j      exec $HOME/.dotfiles/bin/jira.sh
+bindsyn $mod+Ctrl+m      exec $HOME/.dotfiles/bin/monitors.sh
 
 bindsym --release $mod+Shift+d exec --no-startup-id xdotool type --clearmodifiers -- "$(date +%F)"
 bindsym --release $mod+Print   exec scrot -s
