@@ -90,13 +90,17 @@
 
   - name: install datasette
     pip:
-      name: datasette
+      name: "{{ item }}"
       executable: pip3
       extra_args: --user
+    loop:
+      - datasette
+      - tox
 
 - name: Install applications
   hosts: all
   roles:
+    - qutebrowser
     - dmenu
     - vscode
     - greenclip

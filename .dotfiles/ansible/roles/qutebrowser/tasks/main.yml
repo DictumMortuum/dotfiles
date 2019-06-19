@@ -1,0 +1,22 @@
+- name: qutebrowser - clone git repo
+  git:
+    repo: https://github.com/qutebrowser/qutebrowser.git
+    dest: "{{ thirdparty }}/qutebrowser"
+    force: yes
+
+- name: qutebrowser - update dependencies
+  template:
+    src: requirements.txt.j2
+    dest: "{{ thirdparty }}/qutebrowser/requirements.txt"
+    mode: 0700
+
+- name: qutebrowser - build
+  command: tox -e mkvenv-pypi
+  args:
+    chdir: "{{ thirdparty }}/qutebrowser"
+
+- name: qutebrowser - install /usr/bin/ script
+  template:
+    src: qutebrowser.j2
+    dest: "/usr/bin/qutebrowser"
+    mode: 0755
