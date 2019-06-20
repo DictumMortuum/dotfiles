@@ -3,4 +3,4 @@
 HOST=$(hostname)
 USER=$(id -un)
 
-echo "${USER}@${HOST} "
+echo "${USER}@${HOST}"
