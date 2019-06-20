@@ -25,6 +25,8 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 
 call vundle#end()
 filetype plugin indent on
