@@ -29,6 +29,8 @@ git_repositories:
     dest: "{{ thirdparty }}/nord-qutebrowser"
   - repo: git://git.suckless.org/dmenu
     dest: "{{ thirdparty }}/dmenu"
+  - repo: git@github.com:DictumMortuum/st.git
+    dest: "{{ thirdparty }}/st"
 
 apt_packages:
   - compton
