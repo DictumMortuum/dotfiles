@@ -59,7 +59,6 @@ apt_packages:
   - git
   - htop
   - jq
-  - neofetch
   - openvpn
   - openvpn-systemd-resolved
   - rlwrap
