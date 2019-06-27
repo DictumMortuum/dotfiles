@@ -9,4 +9,4 @@ rofi.padding:               0
 rofi.separator-style:       none
 rofi.hide-scrollbar:        true
 rofi.line-margin:           0
-rofi.font:                  sans-serif 11
+rofi.font:                  monospace 13
