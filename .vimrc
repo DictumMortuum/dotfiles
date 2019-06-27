@@ -35,7 +35,6 @@ let g:nord_underline = 1
 let g:nord_italic_comments = 1
 let g:nord_italic = 1
 let g:nord_uniform_status_lines = 1
-let g:nord_comment_brightness = 12
 let g:nord_uniform_diff_background = 1
 let g:nord_cursor_line_number_background = 1
 set laststatus=2
@@ -54,6 +53,16 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 map <C-n> :NERDTreeToggle<CR>
+
+
+" set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 colorscheme nord
 set background=dark
 
