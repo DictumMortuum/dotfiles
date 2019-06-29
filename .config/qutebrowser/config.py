@@ -28,7 +28,8 @@ c.url.searchengines = {
 }
 
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
-config.bind('<Ctrl-Shift-p>', 'set content.proxy http://bop.ps.gameop.net:8080"')
+config.bind('<Ctrl-Shift-p>', 'set content.proxy http://bop.ps.gameop.net:8080')
+config.bind('<Ctrl-Shift-p>', 'set content.proxy http://custproxy.openbet:8080')
 
 def content_persist(p):
   with config.pattern(p) as p:
