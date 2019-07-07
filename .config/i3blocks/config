@@ -3,6 +3,11 @@ separator_block_width=15
 markup=none
 command=~/.dotfiles/blocks/$BLOCK_NAME
 
+[notes]
+command=head -n 1 /tmp/$(date +%F)
+interval=once
+signal=10
+
 [keyboard]
 interval=persist
 

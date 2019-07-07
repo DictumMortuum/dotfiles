@@ -44,6 +44,8 @@ bindsym $mod+d           exec rofi -show drun
 bindsym $mod+f           fullscreen toggle
 bindsym $mod+p           exec $HOME/.local/bin/passmenu
 bindsym $mod+s           exec CMD='st -e' SSH_BASE=~/Sync/Secret $HOME/.local/bin/ssh.sh
+bindsym $mod+n           exec $HOME/.dotfiles/bin/todo.sh add
+bindsym $mod+Shift+n     exec $HOME/.dotfiles/bin/todo.sh del
 bindsym $mod+Return      exec PATH=$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin st -e zsh
 bindsym $mod+grave       workspace $ws0
 bindsym $mod+1           workspace $ws1
