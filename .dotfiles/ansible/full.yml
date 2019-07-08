@@ -108,6 +108,7 @@
     loop:
       - datasette
       - tox
+      - csvs-to-sqlite
 
 - name: Install applications
   hosts: all
