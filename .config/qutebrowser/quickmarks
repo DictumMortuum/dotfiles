@@ -1,4 +1,5 @@
 aws https://aws.amazon.com/
+grafana - gli01 https://metrics.gli01.yellow.czr.us-east-1.sportsbook.sgdigital.com/grafana/d/status-dashboard-goss/node-status?refresh=1m&orgId=1
 grafana - qa02 https://metrics.qa02.yellow.czr.eu-west-1.sportsbook.sgdigital.com/grafana/d/status-dashboard-goss/node-status?refresh=1m&orgId=1
 grafana - uat02 https://metrics.uat02.yellow.czr.us-east-1.sportsbook.sgdigital.com/grafana/d/status-dashboard-goss/node-status?refresh=1m&orgId=1
 openbet staff https://staff.int.openbet.com/
