@@ -6,6 +6,10 @@ touch $TODO
 case $1 in
   add) cat $TODO | rofi -dmenu -p "todo" >> $TODO ;;
   del) sed -i '1d' $TODO ;;
+  shift)
+    head -n 1 $TODO >> $TODO
+    sed -i '1d' $TODO
+    ;;
   *) ;;
 esac
 
