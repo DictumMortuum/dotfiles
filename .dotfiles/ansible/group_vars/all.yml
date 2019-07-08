@@ -92,6 +92,7 @@ directories:
   - "{{ ansible_env.HOME }}/.cache/vim/"
   - "{{ ansible_env.HOME }}/.vim/"
   - "{{ ansible_env.HOME }}/.vim/bundle/"
+  - "{{ ansible_env.HOME }}/.cache/ssh/"
 
 zsh_links:
   - src: "{{ thirdparty }}/zsh-async/async.zsh"
