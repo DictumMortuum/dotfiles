@@ -27,18 +27,18 @@
 - name: Install dotfiles
   hosts: all
   tasks:
+  - name: create directories
+    file:
+      path: "{{ item }}"
+      state: directory
+    loop: "{{ directories }}"
+
   - name: clone repositories
     git:
       repo: "{{ item.repo }}"
       dest: "{{ item.dest }}"
       update: yes
     loop: "{{ git_repositories }}"
-
-  - name: create directories
-    file:
-      path: "{{ item }}"
-      state: directory
-    loop: "{{ directories }}"
 
   - name: symlink to zsh fpath
     file:
