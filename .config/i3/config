@@ -45,9 +45,6 @@ bindsym $mod+f           fullscreen toggle
 bindsym $mod+p           exec $HOME/.local/bin/passmenu
 bindsym $mod+s           exec CMD='st -e' SSH_BASE=~/Sync/Secret $HOME/.local/bin/ssh.sh
 bindsym $mod+Ctrl+s      exec SERVICES_BASE=~/Sync/Secret $HOME/.dotfiles/bin/services.sh
-bindsym $mod+n           exec $HOME/.dotfiles/bin/todo.sh add
-bindsym $mod+Shift+n     exec $HOME/.dotfiles/bin/todo.sh del
-bindsym $mod+Ctrl+n      exec $HOME/.dotfiles/bin/todo.sh shift
 bindsym $mod+Return      exec PATH=$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin st -e zsh
 bindsym $mod+grave       workspace $ws0
 bindsym $mod+1           workspace $ws1
@@ -114,6 +111,16 @@ mode "$mode_system" {
   bindsym Return         mode "default"
   bindsym Escape         mode "default"
   bindsym $mod+BackSpace mode "default"
+}
+
+set $mode_notes (a) add, (d) delete current note, (s) shift current note
+bindsym $mod+n mode "$mode_notes"
+mode "$mode_notes" {
+  bindsym a      exec $HOME/.dotfiles/bin/todo.sh add, mode "default"
+  bindsym d      exec $HOME/.dotfiles/bin/todo.sh del
+  bindsym s      exec $HOME/.dotfiles/bin/todo.sh shift
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 exec_always --no-startup-id hsetroot -solid "$lightbg"
