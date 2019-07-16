@@ -42,11 +42,8 @@ bindsym $mod+a           exec thunar
 bindsym $mod+c           exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
 bindsym $mod+d           exec rofi -show drun
 bindsym $mod+p           exec $HOME/.local/bin/passmenu
-bindsym $mod+s           exec CMD='st -e' SSH_BASE=~/Sync/Secret $HOME/.local/bin/ssh.sh
-bindsym $mod+Ctrl+s      exec SERVICES_BASE=~/Sync/Secret $HOME/.dotfiles/bin/services.sh
 bindsym $mod+Return      exec PATH=$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin st -e zsh
-bindsym $mod+Ctrl+j      exec $HOME/.dotfiles/bin/jira.sh
-bindsym $mod+Ctrl+m      exec $HOME/.dotfiles/bin/monitors.sh
+bindsym $mod+m           exec $HOME/.dotfiles/bin/monitors.sh
 
 # i3 basics
 
@@ -128,6 +125,17 @@ mode "$mode_notes" {
   bindsym a      exec $HOME/.dotfiles/bin/todo.sh add, mode "default"
   bindsym d      exec $HOME/.dotfiles/bin/todo.sh del
   bindsym s      exec $HOME/.dotfiles/bin/todo.sh shift
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+set $mode_work (j) jira, (e) environments, (c) services, (s) ssh
+bindsym $mod+o mode "$mode_work"
+mode "$mode_work" {
+  bindsym j      exec $HOME/.dotfiles/bin/jira.sh
+  bindsym c      exec SERVICES_BASE=~/Sync/Secret $HOME/.dotfiles/bin/services.sh
+  bindsym s      exec CMD='st -e' SSH_BASE=~/Sync/Secret $HOME/.local/bin/ssh.sh
+  bindsym e      exec ls $HOME/Sync/Secret/env | rofi -dmenu | xclip -sel c -f | xclip -sel p
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
