@@ -132,10 +132,10 @@ mode "$mode_notes" {
 set $mode_work (j) jira, (e) environments, (c) services, (s) ssh
 bindsym $mod+o mode "$mode_work"
 mode "$mode_work" {
-  bindsym j      exec $HOME/.dotfiles/bin/jira.sh
-  bindsym c      exec SERVICES_BASE=~/Sync/Secret $HOME/.dotfiles/bin/services.sh
-  bindsym s      exec CMD='st -e' SSH_BASE=~/Sync/Secret $HOME/.local/bin/ssh.sh
-  bindsym e      exec ls $HOME/Sync/Secret/env | rofi -dmenu | xclip -sel c -f | xclip -sel p
+  bindsym j      exec $HOME/.dotfiles/bin/jira.sh, mode "default"
+  bindsym c      exec SERVICES_BASE=~/Sync/Secret $HOME/.dotfiles/bin/services.sh, mode "default"
+  bindsym s      exec CMD='st -e' SSH_BASE=~/Sync/Secret $HOME/.local/bin/ssh.sh, mode "default"
+  bindsym e      exec ls $HOME/Sync/Secret/env | rofi -dmenu | xclip -sel c -f | xclip -sel p, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
