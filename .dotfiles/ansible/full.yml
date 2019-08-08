@@ -100,6 +100,12 @@
       dest: "{{ ansible_env.HOME }}/.local/bin/lein"
       mode: 0700
 
+  - name: jq - get binary
+    get_url:
+      url: https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+      dest: "{{ ansible_env.HOME }}/.local/bin/jq"
+      mode: 0700
+
   - name: install python modules
     pip:
       name: "{{ item }}"
