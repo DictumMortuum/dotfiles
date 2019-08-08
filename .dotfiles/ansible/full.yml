@@ -1,38 +1,11 @@
 # https://color.firefox.com/?theme=XQAAAAIGAQAAAAAAAABBqYhm849SCia2CaaEGccwS-xNKlhV_t_v1qJFeSz0Bb1c1mzpnCmakaJhKqr6fIoyNBJJ-FEtzLP39_fcH6j5bjKsgxiCwJ7xWJXsBPAdf2RS8tq7QiV84xYWmk2z_FDrfacWeoZdb8cSZg978p0R7TilpkFqEAgjJALVLlhoFpMDyCCtvwsVYP19n6LtEhWKJMQ94yN6J8owC3DC5Hbg45__Ff-AAA
 
-- name: Update packages
-  hosts: all
-  become: true
-  tasks:
-  - apt:
-      upgrade: dist
-      update_cache: yes
-      autoremove: yes
-      autoclean: yes
-      cache_valid_time: 3600
-
-  - apt:
-      name: "{{ apt_packages }}"
-
-  - apt_repository:
-      repo: "{{ item }}"
-    loop: "{{ apt_repositories }}"
-
-  - apt:
-      deb: "{{ item }}"
-    loop: "{{ apt_debs }}"
-    tags:
-      - long
+- import_playbook: apt.yml
+- import_playbook: bootstrap.yml
 
 - name: Install dotfiles
   hosts: all
   tasks:
-  - name: create directories
-    file:
-      path: "{{ item }}"
-      state: directory
-    loop: "{{ directories }}"
-
   - name: clone repositories
     git:
       repo: "{{ item.repo }}"
@@ -53,6 +26,13 @@
       dest: "{{ item.dest }}"
       mode: "{{ item.mode }}"
     loop: "{{ copy_files }}"
+
+  - name: fetch files
+    get_url:
+      url: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      mode: "{{ item.mode }}"
+    loop: "{{ fetch_files }}"
 
   - name: untar theme
     unarchive:
@@ -82,39 +62,12 @@
   - name: vim - install vundle plugins
     shell: vim -E -s -c "source {{ ansible_env.HOME }}/.vimrc" -c PluginInstall -c qa
 
-  - name: go-jira - get binary
-    get_url:
-      url: https://github.com/go-jira/go-jira/releases/download/v1.0.20/jira-linux-amd64
-      dest: "{{ ansible_env.HOME }}/.local/bin/jira"
-      mode: 0700
-
-  - name: xurls - get binary
-    get_url:
-      url: https://github.com/mvdan/xurls/releases/download/v2.0.0/xurls_v2.0.0_linux_amd64
-      dest: "{{ ansible_env.HOME }}/.local/bin/xurls"
-      mode: 0700
-
-  - name: clojure - fetch lein
-    get_url:
-      url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
-      dest: "{{ ansible_env.HOME }}/.local/bin/lein"
-      mode: 0700
-
-  - name: jq - get binary
-    get_url:
-      url: https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
-      dest: "{{ ansible_env.HOME }}/.local/bin/jq"
-      mode: 0700
-
   - name: install python modules
     pip:
       name: "{{ item }}"
       executable: pip3
       extra_args: --user
-    loop:
-      - datasette
-      - tox
-      - csvs-to-sqlite
+    loop: "{{ python_modules }}"
 
 - name: Install applications
   hosts: all

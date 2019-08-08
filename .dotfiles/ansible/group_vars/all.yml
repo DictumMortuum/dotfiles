@@ -58,7 +58,6 @@ apt_packages:
   - gawk
   - git
   - htop
-  - jq
   - openvpn
   - openvpn-systemd-resolved
   - rlwrap
@@ -93,6 +92,7 @@ directories:
   - "{{ ansible_env.HOME }}/.vim/"
   - "{{ ansible_env.HOME }}/.vim/bundle/"
   - "{{ ansible_env.HOME }}/.cache/ssh/"
+  - "{{ ansible_env.HOME }}/.ssh/"
 
 zsh_links:
   - src: "{{ thirdparty }}/zsh-async/async.zsh"
@@ -113,3 +113,22 @@ copy_files:
   - src: "{{ thirdparty }}/nord-qutebrowser/nord-qutebrowser.py"
     dest: "{{ ansible_env.HOME }}/.config/qutebrowser/nord-qutebrowser.py"
     mode: "0644"
+
+fetch_files:
+  - src: "https://github.com/go-jira/go-jira/releases/download/v1.0.20/jira-linux-amd64"
+    dest: "{{ ansible_env.HOME }}/.local/bin/jira"
+    mode: "0700"
+  - src: "https://github.com/mvdan/xurls/releases/download/v2.0.0/xurls_v2.0.0_linux_amd64"
+    dest: "{{ ansible_env.HOME }}/.local/bin/xurls"
+    mode: "0700"
+  - src: "https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein"
+    dest: "{{ ansible_env.HOME }}/.local/bin/lein"
+    mode: "0700"
+  - src: "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64"
+    dest: "{{ ansible_env.HOME }}/.local/bin/jq"
+    mode: "0700"
+
+python_modules:
+  - datasette
+  - tox
+  - csvs-to-sqlite

@@ -1,0 +1,13 @@
+- name: sets up the dot command
+  hosts: all
+  tasks:
+    - command: git --git-dir="{{ ansible_env.HOME }}/.dotfiles.git" init
+      args:
+        chdir: "{{ ansible_env.HOME }}"
+
+    - command: git --git-dir="{{ ansible_env.HOME }}/.dotfiles.git" --work-tree="{{ ansible_env.HOME }}" remote add origin git@github.com:DictumMortuum/dotfiles.git
+      ignore_errors: True
+
+    - command: git --git-dir="{{ ansible_env.HOME }}/.dotfiles.git" --work-tree="{{ ansible_env.HOME }}" fetch
+    - command: git --git-dir="{{ ansible_env.HOME }}/.dotfiles.git" --work-tree="{{ ansible_env.HOME }}" checkout master
+    - command: git --git-dir="{{ ansible_env.HOME }}/.dotfiles.git" --work-tree="{{ ansible_env.HOME }}" branch --set-upstream-to=origin/master master
