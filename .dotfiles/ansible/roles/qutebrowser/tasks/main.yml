@@ -4,12 +4,6 @@
     dest: "{{ thirdparty }}/qutebrowser"
     force: yes
 
-- name: qutebrowser - update dependencies
-  template:
-    src: requirements.txt.j2
-    dest: "{{ thirdparty }}/qutebrowser/requirements.txt"
-    mode: 0700
-
 - name: qutebrowser - build
   command: tox -e mkvenv-pypi
   args:
