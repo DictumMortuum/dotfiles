@@ -14,14 +14,13 @@
     chdir: "{{ thirdparty }}/xkb_switch-git/build"
 
 - name: compile xkb_switch
-  command: make
-  args:
+  make:
     chdir: "{{ thirdparty }}/xkb_switch-git/build"
 
 - name: install xkb_switch
-  command: make install
-  args:
+  make:
     chdir: "{{ thirdparty }}/xkb_switch-git/build"
+    target: install
   become: true
 
 - name: copy xkb_switch binary
