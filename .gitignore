@@ -9,6 +9,7 @@
 !.editorconfig
 !.Xresources
 !.xprofile
+!.profile
 
 # Top-level repo directories
 !.dotfiles
