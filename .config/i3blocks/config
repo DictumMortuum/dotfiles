@@ -28,9 +28,6 @@ label=E:
 command=dig +short myip.opendns.com @resolver1.opendns.com
 interval=once
 
-[temperature]
-interval=30
-
 [time]
 command=date "+%Y-%m-%d %H:%M:%S"
 interval=1
