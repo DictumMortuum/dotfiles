@@ -42,7 +42,7 @@ bindsym $mod+a           exec thunar
 bindsym $mod+c           exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
 bindsym $mod+d           exec rofi -show drun
 bindsym $mod+p           exec $HOME/.local/bin/passmenu
-bindsym $mod+Return      exec PATH=$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin st -e zsh
+bindsym $mod+Return      exec st -e zsh
 bindsym $mod+m           exec $HOME/.dotfiles/bin/monitors.sh
 
 # i3 basics
@@ -132,10 +132,12 @@ mode "$mode_notes" {
 set $mode_work (j) jira, (e) environments, (c) services, (s) ssh
 bindsym $mod+o mode "$mode_work"
 mode "$mode_work" {
-  bindsym j      exec $HOME/.dotfiles/bin/jira.sh, mode "default"
-  bindsym c      exec SERVICES_BASE=~/Sync/Secret $HOME/.dotfiles/bin/services.sh, mode "default"
-  bindsym s      exec CMD='st -e' SSH_BASE=~/Sync/Secret $HOME/.local/bin/ssh.sh, mode "default"
-  bindsym e      exec ls $HOME/Sync/Secret/env | rofi -dmenu | xclip -sel c -f | xclip -sel p, mode "default"
+  bindsym j      exec $HOME/.local/bin/openbet.sh jira, mode "default"
+  bindsym c      exec $HOME/.local/bin/openbet.sh service, mode "default"
+  bindsym s      exec $HOME/.local/bin/openbet.sh ssh, mode "default"
+  bindsym e      exec $HOME/.local/bin/openbet.sh environments, mode "default"
+  bindsym b      exec $HOME/.local/bin/openbet.sh box, mode "default"
+  bindsym g      exec $HOME/.local/bin/openbet.sh grafana, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
