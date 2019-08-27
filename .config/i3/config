@@ -132,13 +132,13 @@ mode "$mode_notes" {
 set $mode_work (j) jira, (c) services, (s) ssh, (e) environments, (b) boxes, (g) grafana, (x) scp
 bindsym $mod+o mode "$mode_work"
 mode "$mode_work" {
-  bindsym j      exec $HOME/.local/bin/openbet.sh jira, mode "default"
-  bindsym c      exec $HOME/.local/bin/openbet.sh service, mode "default"
-  bindsym s      exec $HOME/.local/bin/openbet.sh ssh, mode "default"
-  bindsym e      exec $HOME/.local/bin/openbet.sh environments, mode "default"
-  bindsym b      exec $HOME/.local/bin/openbet.sh box, mode "default"
-  bindsym g      exec $HOME/.local/bin/openbet.sh grafana, mode "default"
-  bindsym x      exec $HOME/.local/bin/openbet.sh scp, mode "default"
+  bindsym j      exec $HOME/.local/bin/ob -O jira, mode "default"
+  bindsym c      exec $HOME/.local/bin/ob -O execservice, mode "default"
+  bindsym s      exec $HOME/.local/bin/ob -O ssh, mode "default"
+  bindsym e      exec $HOME/.local/bin/ob -O env, mode "default"
+  bindsym b      exec $HOME/.local/bin/ob -O box, mode "default"
+  bindsym g      exec $HOME/.local/bin/ob -O grafana, mode "default"
+  bindsym x      exec $HOME/.local/bin/ob -O scp, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
