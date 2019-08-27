@@ -16,6 +16,10 @@ function rofi-select() {
   rofi -dmenu -matching fuzzy -i
 }
 
+function to-clipboard() {
+  xclip -sel c -f | xclip -sel p
+}
+
 function screenedit() {
   tmpfile=$(mktemp /tmp/st-edit.XXXXXX)
   trap 'rm "$tmpfile"' 0 1 15
@@ -35,8 +39,17 @@ function lines() {
 
 function tokens() {
   local tmp=$(get-tokens | rofi-select)
-  local cmd=$(echo -e "\ntail -f \nvi \ncode \n" | rofi-select)
+  local cmd=$(echo -e "\ntail -f \nvi \ncode " | rofi-select)
   type-text "${cmd}${tmp}"
+}
+
+function copy() {
+  get-tokens | rofi-select | to-clipboard
+}
+
+function superuser() {
+  local user=$(echo -e "openbet\ninformix\nobdba\ncentos\nroot" | rofi-select)
+  type-text "sudo -iu ${user}"
 }
 
 $1
