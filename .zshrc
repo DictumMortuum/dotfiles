@@ -17,7 +17,6 @@ typeset -aU path
 export EDITOR=vim
 export VISUAL=$EDITOR
 export NO_AT_BRIDGE=1
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
 export LOGNAME=$(id -un)
 export WORDCHARS=''
 export LC_ALL=en_US.UTF-8
