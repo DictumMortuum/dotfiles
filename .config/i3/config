@@ -129,16 +129,17 @@ mode "$mode_notes" {
   bindsym Escape mode "default"
 }
 
-set $mode_work (j) jira, (c) services, (s) ssh, (e) environments, (b) boxes, (g) grafana, (x) scp
+set $mode_work (j) jira, (c) services, (s) ssh, (e) environments, (h) hosts, (g) grafana, (x) scp, (shift+c) customer
 bindsym $mod+o mode "$mode_work"
 mode "$mode_work" {
-  bindsym j      exec $HOME/.local/bin/ob -O jira, mode "default"
-  bindsym c      exec $HOME/.local/bin/ob -O execservice, mode "default"
-  bindsym s      exec $HOME/.local/bin/ob -O ssh, mode "default"
-  bindsym e      exec $HOME/.local/bin/ob -O env, mode "default"
-  bindsym b      exec $HOME/.local/bin/ob -O box, mode "default"
-  bindsym g      exec $HOME/.local/bin/ob -O grafana, mode "default"
-  bindsym x      exec $HOME/.local/bin/ob -O scp, mode "default"
+  bindsym j       exec $HOME/.local/bin/ob -O jira, mode "default"
+  bindsym c       exec $HOME/.local/bin/ob -O execservice, mode "default"
+  bindsym s       exec $HOME/.local/bin/ob -O ssh, mode "default"
+  bindsym e       exec $HOME/.local/bin/ob -O env, mode "default"
+  bindsym h       exec $HOME/.local/bin/ob -O host, mode "default"
+  bindsym g       exec $HOME/.local/bin/ob -O grafana, mode "default"
+  bindsym x       exec $HOME/.local/bin/ob -O scp, mode "default"
+  bindsym Shift+c exec $HOME/.local/bin/ob -O customer, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
