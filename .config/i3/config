@@ -42,7 +42,7 @@ bindsym $mod+a           exec thunar
 bindsym $mod+c           exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
 bindsym $mod+d           exec rofi -show drun
 bindsym $mod+p           exec $HOME/.local/bin/passmenu
-bindsym $mod+Return      exec --no-startup-id $HOME/.dotfiles/bin/terminal.sh
+bindsym $mod+Return      exec st -e tmux
 bindsym $mod+m           exec $HOME/.dotfiles/bin/monitors.sh
 
 # i3 basics
