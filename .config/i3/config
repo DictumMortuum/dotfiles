@@ -38,12 +38,13 @@ workspace $ws8 output $monitor1 primary
 workspace $ws9 output $monitor1 primary
 workspace $wsA output $monitor2 primary
 
-bindsym $mod+a           exec thunar
-bindsym $mod+c           exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
-bindsym $mod+d           exec rofi -show drun
-bindsym $mod+p           exec $HOME/.local/bin/passmenu
-bindsym $mod+Return      exec st -e tmux
-bindsym $mod+m           exec $HOME/.dotfiles/bin/monitors.sh
+bindsym $mod+a            exec thunar
+bindsym $mod+c            exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
+bindsym $mod+d            exec rofi -show drun
+bindsym $mod+p            exec $HOME/.local/bin/passmenu
+bindsym $mod+Shift+Return exec st -e zsh
+bindsym $mod+Return       exec st -e tmux
+bindsym $mod+m            exec $HOME/.dotfiles/bin/monitors.sh
 
 # i3 basics
 
