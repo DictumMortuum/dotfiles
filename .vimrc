@@ -119,3 +119,9 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+
+" hardmode!
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
