@@ -27,9 +27,19 @@ c.url.searchengines = {
   "j": "https://jira.openbet.com/issues/?jql=text~\"{}\""
 }
 
+from pathlib import Path
+home = str(Path.home())
+
+def exec_userscript(com):
+  return 'spawn --userscript {}/.dotfiles/bin/dotctl.sh {}'.format(home, com)
+
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
 config.bind('<Ctrl-Shift-b>', 'set content.proxy http://bop.ps.gameop.net:8080')
 config.bind('<Ctrl-Shift-c>', 'set content.proxy http://custproxy.openbet:8080')
+config.bind('<Ctrl-Shift-e>', exec_userscript('qute-screenedit'))
+config.bind('<Ctrl-Shift-u>', exec_userscript('qute-url'))
+config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
+config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
 
 def content_persist(p):
   with config.pattern(p) as p:
