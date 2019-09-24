@@ -69,7 +69,7 @@ function qute-url() {
 }
 
 function qute-clone() {
-  local repository=$(cat "$QUTE_HTML" | detect-url "git@")
+  local repository=$(cat "$QUTE_HTML" | detect-url "ssh://git@")
   [[ -z $repository ]] && exit 0
   local tmp1=${repository##*:}
   local tmp2=${tmp1#[0-9]*/}
