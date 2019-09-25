@@ -1,3 +1,6 @@
+from pathlib import Path
+home = str(Path.home())
+
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 c.tabs.padding = {"top": 5, "bottom": 5, "left": 0, "right": 0}
 c.fonts.monospace = 'Hack'
@@ -20,6 +23,7 @@ c.hints.border = "1px solid #2e3440"
 c.colors.hints.bg = background
 c.colors.hints.fg = foreground
 c.colors.hints.match.fg = "#bf616a"
+c.editor.command = ['st', '-e', 'vi', '-f', '{file}', '-c', 'normal {line}G{column0}l'];
 
 c.url.searchengines = {
   "DEFAULT": "https://duckduckgo.com/?q={}",
@@ -27,24 +31,25 @@ c.url.searchengines = {
   "j": "https://jira.openbet.com/issues/?jql=text~\"{}\""
 }
 
-from pathlib import Path
-home = str(Path.home())
-
-def exec_userscript(com):
-  return 'spawn --userscript {}/.dotfiles/bin/dotctl.sh {}'.format(home, com)
-
-config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
-config.bind('<Ctrl-Shift-b>', 'set content.proxy http://bop.ps.gameop.net:8080')
-config.bind('<Ctrl-Shift-c>', 'set content.proxy http://custproxy.openbet:8080')
-config.bind('<Ctrl-Shift-e>', exec_userscript('qute-screenedit'))
-config.bind('<Ctrl-Shift-u>', exec_userscript('qute-url'))
-config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
-config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
+proxies = [
+  "http://bop.ps.gameop.net:8080",
+  "http://custproxy.openbet:8080"
+]
 
 def content_persist(p):
   with config.pattern(p) as p:
     p.content.media_capture = True
 
+def exec_userscript(com):
+  return 'spawn --userscript {}/.dotfiles/bin/dotctl.sh {}'.format(home, com)
+
+config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
+config.bind('<Ctrl-Shift-p>', 'config-cycle -p content.proxy system {}'.format(" ".join(proxies)))
+config.bind('<Ctrl-Shift-e>', exec_userscript('qute-screenedit'))
+config.bind('<Ctrl-Shift-u>', exec_userscript('qute-url'))
+config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
+config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
+config.bind('<Ctrl-i>', 'open-editor', mode='insert')
+
 content_persist('*://meet.google.com/')
 content_persist('*://bluejeans.com/')
-
