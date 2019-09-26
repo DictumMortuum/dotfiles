@@ -2,6 +2,7 @@ from pathlib import Path
 home = str(Path.home())
 
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+c.content.pdfjs = True
 c.tabs.padding = {"top": 5, "bottom": 5, "left": 0, "right": 0}
 c.fonts.monospace = 'Hack'
 c.fonts.tabs = '10pt monospace'
@@ -42,9 +43,17 @@ allowed_content = [
   "*://bluejeans.com/*"
 ]
 
-def content_persist(p):
+trusted_SSL = [
+  "*://*sportsbook.sgdigital.com/*"
+]
+
+def allow_media(p):
   with config.pattern(p) as p:
     p.content.media_capture = True
+
+def disable_SSL(p):
+  with config.pattern(p) as p:
+    p.content.ssl_trusted = False
 
 def exec_userscript(com):
   return 'spawn --userscript {}/.dotfiles/bin/dotctl.sh {}'.format(home, com)
@@ -57,4 +66,5 @@ config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
 config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
 config.bind('<Ctrl-i>', 'open-editor', mode='insert')
 
-map(content_persist, allowed_content)
+map(allow_media, allowed_content)
+map(disable_SSL, trusted_SSL)
