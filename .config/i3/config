@@ -165,7 +165,6 @@ exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:
 
 bar {
   status_command i3blocks
-  i3bar_command i3bar -t
   position top
   tray_output none
   height 25

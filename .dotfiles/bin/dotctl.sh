@@ -5,6 +5,23 @@ ID=$(id -u)
 export XDG_RUNTIME_DIR=/run/user/$ID
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$ID/bus
 
+function trigger-blocklet() {
+  pkill -SIGRTMIN+$1 i3blocks
+}
+
+function start-progress() {
+  for i in {1..100}; do
+    printf '#%.0s' $(seq $i) > /tmp/bar$(date +%F)
+    trigger-blocklet 11
+    sleep .5
+  done
+}
+
+function stop-progress() {
+  echo "" > /tmp/bar$(date +%F)
+  trigger-blocklet 11
+}
+
 function notify() {
   notify-send "${THIS}" "${1}"
 }
@@ -77,7 +94,11 @@ function qute-clone() {
   mkdir -p $path
 
   if ! is-git-repo $path; then
+    start-progress &
+    PID=$!
     git clone $repository $path
+    kill $PID
+    stop-progress
     notify "$path finished cloning"
   else
     notify "$path already exists"
