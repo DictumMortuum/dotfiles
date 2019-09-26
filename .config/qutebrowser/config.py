@@ -27,8 +27,8 @@ c.editor.command = ['st', '-e', 'vi', '-f', '{file}', '-c', 'normal {line}G{colu
 
 c.url.searchengines = {
   "DEFAULT": "https://duckduckgo.com/?q={}",
-  "s": "https://stash.int.openbet.com/plugins/servlet/search?q=\"{}\"",
-  "j": "https://jira.openbet.com/issues/?jql=text~\"{}\""
+  "s": 'https://stash.int.openbet.com/plugins/servlet/search?q="{}"',
+  "j": 'https://jira.openbet.com/issues/?jql=text~"{}"'
 }
 
 proxies = [
