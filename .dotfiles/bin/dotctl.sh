@@ -92,7 +92,7 @@ function st-lines() {
   type-text "$tmp"
 }
 
-function st-tokens() {
+function st-copy() {
   local tmp=$(get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
   local cmd=$(echo -e "\ntail -f \nvi \ncode " | rofi-select)
@@ -106,7 +106,7 @@ function qute-tokens() {
   echo $tmp | to-clipboard
 }
 
-function st-copy() {
+function st-tokens() {
   local tmp=$(get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
   echo $tmp | to-clipboard
