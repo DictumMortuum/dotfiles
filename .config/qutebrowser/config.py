@@ -36,6 +36,12 @@ proxies = [
   "http://custproxy.openbet:8080"
 ]
 
+allowed_content = [
+  "*://meet.google.com/*",
+  "*://hangouts.google.com/*",
+  "*://bluejeans.com/*"
+]
+
 def content_persist(p):
   with config.pattern(p) as p:
     p.content.media_capture = True
@@ -51,5 +57,4 @@ config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
 config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
 config.bind('<Ctrl-i>', 'open-editor', mode='insert')
 
-content_persist('*://meet.google.com/')
-content_persist('*://bluejeans.com/')
+map(content_persist, allowed_content)
