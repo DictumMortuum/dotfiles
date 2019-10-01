@@ -133,4 +133,3 @@ python_modules:
   - datasette
   - tox
   - csvs-to-sqlite
-  - python-rofi

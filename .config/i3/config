@@ -146,17 +146,6 @@ mode "$mode_work" {
   bindsym Escape  mode "default"
 }
 
-set $mode_rft (ctrl+s) kill session, (ctrl+w) kill window, (s) switch session, (w) switch window
-bindsym $mod+g mode "$mode_rft"
-mode "$mode_rft" {
-  bindsym Shift+s exec $HOME/.local/bin/rft ks, mode "default"
-  bindsym Shift+w exec $HOME/.local/bin/rft kw, mode "default"
-  bindsym s       exec $HOME/.local/bin/rft ss, mode "default"
-  bindsym w       exec $HOME/.local/bin/rft sw, mode "default"
-  bindsym Return  mode "default"
-  bindsym Escape  mode "default"
-}
-
 exec_always --no-startup-id hsetroot -solid "$lightbg"
 exec_always --no-startup-id start-pulseaudio-x11
 exec_always --no-startup-id compton
