@@ -15,3 +15,8 @@
     src: qutebrowser.j2
     dest: "/usr/bin/qutebrowser"
     mode: 0755
+
+- name: qutebrowser - unzip pdfjs
+  unarchive:
+    src: "{{ thirdparty }}/assets/pdfjs-2.1.266-dist.zip"
+    dest: "{{ ansible_env.HOME }}/.local/share/qutebrowser/pdfjs"

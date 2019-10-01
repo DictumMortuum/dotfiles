@@ -82,6 +82,7 @@ apt_debs:
 directories:
   - "{{ thirdparty }}"
   - "{{ zsh_cache }}"
+  - "{{ ansible_env.HOME }}/.local/share/qutebrowser/pdfjs"
   - "{{ ansible_env.HOME }}/.cache/zsh_completion"
   - "{{ ansible_env.HOME }}/.cache/screenlayout"
   - "{{ ansible_env.HOME }}/.local/bin"
