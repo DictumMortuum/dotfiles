@@ -79,6 +79,18 @@ function qute-screenedit() {
   st -e "vim" "$QUTE_HTML"
 }
 
+function qute-textedit() {
+  st -e "vim" "$QUTE_TEXT"
+}
+
+function qute-copy() {
+  cat $QUTE_TEXT | to-clipboard
+}
+
+function qute-select-copy() {
+  echo $QUTE_SELECTED_TEXT | to-clipboard
+}
+
 function st-url() {
   local tmp=$(detect-url)
   [[ -z $tmp ]] && exit 0
