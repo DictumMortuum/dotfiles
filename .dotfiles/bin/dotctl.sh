@@ -118,6 +118,7 @@ function qute-clone() {
     kill $PID
     notify "$path finished cloning"
   else
+    tmux new-window -c $path
     notify "$path already exists"
   fi
 
