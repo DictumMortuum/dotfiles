@@ -150,7 +150,7 @@ function st-copy() {
 function qute-tokens() {
   local tmp=$(cat "$QUTE_TEXT" | get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
-  echo $tmp | to-clipboard
+  echo $tmp | tr -d '[:space:]' | to-clipboard
 }
 
 function st-tokens() {
