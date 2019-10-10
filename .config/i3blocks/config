@@ -9,7 +9,7 @@ interval=once
 signal=11
 
 [notes]
-command=head -n 1 /tmp/$(date +%F)
+command=head -n 1 /tmp/todo$(date +%F)
 interval=once
 signal=10
 

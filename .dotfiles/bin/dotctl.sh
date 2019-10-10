@@ -1,14 +1,16 @@
 #!/bin/bash
 
+NOW=$(date +%F)
 THIS=$(basename $0)
 ID=$(id -u)
 export XDG_RUNTIME_DIR=/run/user/$ID
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$ID/bus
 JIRA_URL=${JIRA_URL:-"https://jira.openbet.com/browse"}
 
-function cleanup() {
-  PROGRESS=/tmp/bar$(date +%F)
+PROGRESS=/tmp/bar${NOW}
+TODO=/tmp/todo${NOW}
 
+function cleanup() {
   if [[ -f $PROGRESS ]]; then
     echo "" > $PROGRESS
     trigger-blocklet 11
@@ -27,7 +29,7 @@ function trigger-blocklet() {
 
 function progress() {
   for i in {0..100000}; do
-    printf '#%.0s' $(seq $(( $i % 15 )) ) > /tmp/bar$(date +%F)
+    printf '#%.0s' $(seq $(( $i % 15 )) ) > $PROGRESS
     trigger-blocklet 11
     sleep .1
   done
@@ -210,6 +212,22 @@ function i3-logout() {
 
 function i3-exit() {
   i3-msg exit
+}
+
+function todo-add() {
+  cat $TODO | rofi -dmenu -p "todo" >> $TODO
+  trigger-blocklet 10
+}
+
+function todo-del() {
+  sed -i '1d' $TODO
+  trigger-blocklet 10
+}
+
+function todo-shift() {
+  head -n 1 $TODO >> $TODO
+  sed -i '1d' $TODO
+  trigger-blocklet 10
 }
 
 $1
