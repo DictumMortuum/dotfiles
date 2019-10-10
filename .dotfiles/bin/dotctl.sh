@@ -4,6 +4,7 @@ THIS=$(basename $0)
 ID=$(id -u)
 export XDG_RUNTIME_DIR=/run/user/$ID
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$ID/bus
+JIRA_URL=${JIRA_URL:-"https://jira.openbet.com/browse"}
 
 function cleanup() {
   PROGRESS=/tmp/bar$(date +%F)
@@ -46,6 +47,10 @@ function type-text() {
 
 function filter-whitespace() {
   grep -v -e '^[[:space:]]*$'
+}
+
+function get-jira() {
+  grep -o -E '[A-Z]+-[0-9]+' | sort -u
 }
 
 function get-tokens() {
@@ -97,6 +102,18 @@ function qute-copy() {
 
 function qute-select-copy() {
   echo $QUTE_SELECTED_TEXT | to-clipboard
+}
+
+function st-jira() {
+  local tmp=$(get-jira | rofi-select)
+  [[ -z $tmp ]] && exit 0
+  x-www-browser ${JIRA_URL}/${tmp}
+}
+
+function qute-jira() {
+  local tmp=$(cat $QUTE_TEXT | get-jira | rofi-select)
+  [[ -z $tmp ]] && exit 0
+  echo "open -t ${JIRA_URL}/${tmp}" >> "$QUTE_FIFO"
 }
 
 function st-url() {

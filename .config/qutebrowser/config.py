@@ -67,6 +67,7 @@ config.bind('<Ctrl-Shift-c>', exec_userscript('qute-select-copy'))
 config.bind('<Ctrl-Shift-u>', exec_userscript('qute-url'))
 config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
 config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
+config.bind('<Ctrl-Shift-j>', exec_userscript('qute-jira'))
 
 config.bind('<Shift+Ins>', 'insert-text {primary}', mode='insert')
 config.bind('<Ctrl+Ins>', 'insert-text {clipboard}', mode='insert')
