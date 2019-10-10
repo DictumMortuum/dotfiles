@@ -10,6 +10,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $wsA "10:A"
+set $ctl $HOME/.dotfiles/bin/dotctl.sh
 
 set_from_resource $background i3wm.background
 set_from_resource $monitor1   i3wm.monitor1
@@ -110,11 +111,11 @@ mode "$mode_resize" {
 set $mode_system System (l) logout, (r) reboot, (s) shutdown, (e) exit, (Scrl) lock
 bindsym $mod+BackSpace mode "$mode_system"
 mode "$mode_system" {
-  bindsym e              exec --no-startup-id i3-msg exit, mode "default"
-  bindsym l              exec --no-startup-id dm-tool switch-to-greeter, mode "default"
-  bindsym r              exec --no-startup-id systemctl reboot, mode "default"
-  bindsym s              exec --no-startup-id systemctl poweroff -i, mode "default"
-  bindsym Scroll_Lock    exec $HOME/.dotfiles/bin/lockscreen.sh, mode "default"
+  bindsym e              exec --no-startup-id $ctl i3-exit, mode "default"
+  bindsym l              exec --no-startup-id $ctl i3-logout, mode "default"
+  bindsym r              exec --no-startup-id $ctl i3-reboot, mode "default"
+  bindsym s              exec --no-startup-id $ctl i3-poweroff, mode "default"
+  bindsym Scroll_Lock    exec --no-startup-id $ctl i3-lock, mode "default"
   bindsym Return         mode "default"
   bindsym Escape         mode "default"
   bindsym $mod+BackSpace mode "default"

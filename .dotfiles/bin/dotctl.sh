@@ -17,6 +17,10 @@ function cleanup() {
 
 trap cleanup EXIT
 
+function revert-dpms() {
+  xset dpms 0 0 0
+}
+
 function trigger-blocklet() {
   pkill -SIGRTMIN+$1 i3blocks
 }
@@ -180,6 +184,32 @@ function st-superuser() {
   local user=$(echo -e "openbet\ninformix\nobdba\ncentos\nroot" | rofi-select)
   [[ -z $user ]] && exit 0
   type-text "sudo -iu ${user}"
+}
+
+function i3-lock() {
+  TMPIMG=/tmp/screen.png
+  scrot $TMPIMG
+  convert $TMPIMG -scale 5% -scale 2000% $TMPIMG
+  xkb-switch -s us
+  trap revert-dpms SIGHUP SIGINT SIGTERM
+  i3lock -n -u -e -i $TMPIMG
+  rm $TMPIMG
+}
+
+function i3-poweroff() {
+  systemctl poweroff -i
+}
+
+function i3-reboot() {
+  systemctl reboot
+}
+
+function i3-logout() {
+  dm-tool switch-to-greeter
+}
+
+function i3-exit() {
+  i3-msg exit
 }
 
 $1
