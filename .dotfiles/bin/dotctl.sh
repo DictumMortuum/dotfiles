@@ -2,6 +2,8 @@
 
 NOW=$(date +%F)
 THIS=$(basename $0)
+USER=$(id -un)
+HOST=$(hostname)
 ID=$(id -u)
 export XDG_RUNTIME_DIR=/run/user/$ID
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$ID/bus
@@ -87,12 +89,16 @@ function detect-url() {
   fi | sort | uniq | rofi-select
 }
 
-function st-screenedit() {
-  tmpfile=$(mktemp /tmp/st-edit.XXXXXX)
-  trap 'rm "$tmpfile"' 0 1 15
-  cat > "$tmpfile"
-  st -e "vim" "$tmpfile"
+function sync-repo() {
+  GIT_DIR=$1
+  GIT_BRANCH=${2:-master}
+  git -C $GIT_DIR pull origin ${GIT_BRANCH}
+  git -C $GIT_DIR add -A
+  git -C $GIT_DIR commit -m "${USER}@${HOST}" && notify "${GIT_DIR}"
+  git -C $GIT_DIR push origin ${GIT_BRANCH}
 }
+
+# qutebrowser
 
 function qute-screenedit() {
   st -e "vim" "$QUTE_HTML"
@@ -110,22 +116,10 @@ function qute-select-copy() {
   echo $QUTE_SELECTED_TEXT | to-clipboard
 }
 
-function st-jira() {
-  local tmp=$(get-jira | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  x-www-browser ${JIRA_URL}/${tmp}
-}
-
 function qute-jira() {
   local tmp=$(cat $QUTE_TEXT | get-jira | rofi-select)
   [[ -z $tmp ]] && exit 0
   echo "open -t ${JIRA_URL}/${tmp}" >> "$QUTE_FIFO"
-}
-
-function st-url() {
-  local tmp=$(detect-url)
-  [[ -z $tmp ]] && exit 0
-  x-www-browser $tmp
 }
 
 function qute-url() {
@@ -156,24 +150,31 @@ function qute-clone() {
   echo $path | to-clipboard
 }
 
-function st-lines() {
-  local tmp=$(filter-whitespace | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  type-text "$tmp"
-}
-
-function st-copy() {
-  local tmp=$(get-tokens | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  local cmd=$(echo -e "\ntail -f \nvi \ncode " | rofi-select)
-  [[ -z $cmd ]] && exit 0
-  type-text "${cmd}${tmp}"
-}
-
 function qute-tokens() {
   local tmp=$(cat "$QUTE_TEXT" | get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
   echo $tmp | tr -d '[:space:]' | to-clipboard
+}
+
+# st
+
+function st-jira() {
+  local tmp=$(get-jira | rofi-select)
+  [[ -z $tmp ]] && exit 0
+  x-www-browser ${JIRA_URL}/${tmp}
+}
+
+function st-screenedit() {
+  tmpfile=$(mktemp /tmp/st-edit.XXXXXX)
+  trap 'rm "$tmpfile"' 0 1 15
+  cat > "$tmpfile"
+  st -e "vim" "$tmpfile"
+}
+
+function st-url() {
+  local tmp=$(detect-url)
+  [[ -z $tmp ]] && exit 0
+  x-www-browser $tmp
 }
 
 function st-tokens() {
@@ -187,6 +188,22 @@ function st-superuser() {
   [[ -z $user ]] && exit 0
   type-text "sudo -iu ${user}"
 }
+
+function st-copy() {
+  local tmp=$(get-tokens | rofi-select)
+  [[ -z $tmp ]] && exit 0
+  local cmd=$(echo -e "\ntail -f \nvi \ncode " | rofi-select)
+  [[ -z $cmd ]] && exit 0
+  type-text "${cmd}${tmp}"
+}
+
+function st-lines() {
+  local tmp=$(filter-whitespace | rofi-select)
+  [[ -z $tmp ]] && exit 0
+  type-text "$tmp"
+}
+
+# i3
 
 function i3-lock() {
   TMPIMG=/tmp/screen.png
@@ -214,6 +231,8 @@ function i3-exit() {
   i3-msg exit
 }
 
+# todo
+
 function todo-add() {
   cat $TODO | rofi -dmenu -p "todo" >> $TODO
   trigger-blocklet 10
@@ -230,4 +249,4 @@ function todo-shift() {
   trigger-blocklet 10
 }
 
-$1
+$*

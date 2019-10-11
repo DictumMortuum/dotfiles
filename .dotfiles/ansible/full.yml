@@ -43,7 +43,7 @@
     cron:
       name: "sync repo {{ item }}"
       minute: "0,20,40"
-      job: "{{ ansible_env.HOME }}/.dotfiles/bin/sync.sh {{ ansible_env.HOME }}/{{ item }}"
+      job: "{{ ansible_env.HOME }}/.dotfiles/bin/dotctl.sh sync-repo {{ ansible_env.HOME }}/{{ item }}"
     loop:
       - Notes
       - .password-store
