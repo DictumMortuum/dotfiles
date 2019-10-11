@@ -45,7 +45,7 @@ bindsym $mod+d            exec rofi -show drun
 bindsym $mod+p            exec $HOME/.local/bin/passmenu
 bindsym $mod+Shift+Return exec st -e zsh
 bindsym $mod+Return       exec st -e tmux
-bindsym $mod+m            exec $HOME/.dotfiles/bin/monitors.sh
+bindsym $mod+m            exec --no-startup-id $ctl layout
 
 # i3 basics
 

@@ -53,6 +53,11 @@
       chdir: "{{ thirdparty }}/duplicates"
       target: install
 
+  - name: permutations - make install
+    make:
+      chdir: "{{ thirdparty }}/permutations"
+      target: install
+
   - name: st - make install
     make:
       chdir: "{{ thirdparty }}/st"

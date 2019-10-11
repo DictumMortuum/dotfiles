@@ -89,6 +89,10 @@ function detect-url() {
   fi | sort | uniq | rofi-select
 }
 
+function get-monitors() {
+  xrandr -q | grep " connected" | cut -d " " -f1
+}
+
 function sync-repo() {
   GIT_DIR=$1
   GIT_BRANCH=${2:-master}
@@ -96,6 +100,12 @@ function sync-repo() {
   git -C $GIT_DIR add -A
   git -C $GIT_DIR commit -m "${USER}@${HOST}" && notify "${GIT_DIR}"
   git -C $GIT_DIR push origin ${GIT_BRANCH}
+}
+
+function layout() {
+  LAYOUT=$(get-monitors | tr '\n' ' ' | xargs permutations | rofi-select)
+  [[ -z $LAYOUT ]] && exit 0
+  echo "$LAYOUT" | xargs ~/.dotfiles/util/layout.sh
 }
 
 # qutebrowser
