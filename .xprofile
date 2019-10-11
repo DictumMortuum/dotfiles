@@ -1,2 +1,2 @@
 #!/bin/bash
-bash ~/.dotfiles/util/layout.sh
+$HOME/.dotfiles/bin/dotctl.sh detect-layout

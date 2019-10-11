@@ -93,6 +93,46 @@ function get-monitors() {
   xrandr -q | grep " connected" | cut -d " " -f1
 }
 
+function get-xrandr-file() {
+  echo "$HOME/.cache/screenlayout/xrandr.$1"
+}
+
+function get-xresources-file() {
+  echo "$HOME/.cache/screenlayout/xresources.$1"
+}
+
+function generate-xrandr() {
+  MODE="1920x1080"
+  LAYOUT_FILE=$(get-xrandr-file $#)
+
+  cp /dev/null $LAYOUT_FILE
+
+  COMMAND="xrandr --output $1 --primary --mode $MODE"
+
+  while(($# - 1)); do
+    COMMAND+=" --output $2 --mode $MODE --right-of $1"
+    shift
+  done
+
+  echo "#!/bin/bash" > $LAYOUT_FILE
+  echo $COMMAND >> $LAYOUT_FILE
+  chmod +x $LAYOUT_FILE
+  eval $COMMAND
+}
+
+function generate-xresources() {
+  XRESOURCES_FILE=$(get-xresources-file $#)
+
+  cp /dev/null $XRESOURCES_FILE
+
+  for i in $(seq 0 $(($# - 1))); do
+    echo "*monitor${i}: $1" >> $XRESOURCES_FILE
+    shift
+  done
+
+  xrdb -merge $XRESOURCES_FILE
+}
+
 function sync-repo() {
   GIT_DIR=$1
   GIT_BRANCH=${2:-master}
@@ -105,7 +145,14 @@ function sync-repo() {
 function layout() {
   LAYOUT=$(get-monitors | tr '\n' ' ' | xargs permutations | rofi-select)
   [[ -z $LAYOUT ]] && exit 0
-  echo "$LAYOUT" | xargs ~/.dotfiles/util/layout.sh
+  generate-xrandr $LAYOUT
+  generate-xresources $LAYOUT
+}
+
+function detect-layout() {
+  MONITORS=$(get-monitors | wc -l)
+  xrdb -merge $(get-xresources-file $MONITORS)
+  $(get-xrandr-file $MONITORS)
 }
 
 # qutebrowser
