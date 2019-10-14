@@ -55,7 +55,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 map <C-n> :NERDTreeToggle<CR>
 
-
 " set Vim-specific sequences for RGB colors
 if (has("termguicolors"))
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
