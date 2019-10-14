@@ -1,16 +1,41 @@
 #!/bin/bash
 
 NOW=$(date +%F)
-THIS=$(basename $0)
-USER=$(id -un)
 HOST=$(hostname)
-ID=$(id -u)
-export XDG_RUNTIME_DIR=/run/user/$ID
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$ID/bus
-JIRA_URL=${JIRA_URL:-"https://jira.openbet.com/browse"}
-
 PROGRESS=/tmp/bar${NOW}
 TODO=/tmp/todo${NOW}
+
+source ${HOME}/Sync/Secret/machine/${HOST}.vars
+
+export XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS
+
+function redis-get() {
+  echo "${1}=`redis-cli get ${1}`"
+}
+
+function redis-set() {
+  redis-cli set $1 $2
+}
+
+function redis-import() {
+  ID=$(id -u)
+  redis-set THIS $(basename $0)
+  redis-set USER $(id -un)
+  redis-set HOST $(hostname)
+  redis-set ID $ID
+  redis-set XDG_RUNTIME_DIR "/run/user/$ID"
+  redis-set DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/$ID/bus"
+}
+
+function redis-export() {
+  redis-get THIS
+  redis-get USER
+  redis-get HOST
+  redis-get ID
+  redis-get JIRA_URL
+  redis-get XDG_RUNTIME_DIR
+  redis-get DBUS_SESSION_BUS_ADDRESS
+}
 
 function cleanup() {
   if [[ -f $PROGRESS ]]; then
