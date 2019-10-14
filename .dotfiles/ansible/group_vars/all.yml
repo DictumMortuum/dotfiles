@@ -17,6 +17,8 @@ git_repositories:
     dest: "{{ thirdparty }}/syncthing"
   - repo: git@github.com:DictumMortuum/permutations.git
     dest: "{{ thirdparty }}/permutations"
+  - repo: git@github.com:DictumMortuum/bw.git
+    dest: "{{ thirdparty }}/bw"
   - repo: git@github.com:DictumMortuum/duplicates.git
     dest: "{{ thirdparty }}/duplicates"
   - repo: git@github.com:sindresorhus/pure.git
