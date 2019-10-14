@@ -34,7 +34,6 @@
 !.config/Code/User/settings.json
 !.config/i3
 !.config/i3blocks
-!.config/curl
 !.config/terminator
 !.config/rofi
 !.config/gtk-3.0
