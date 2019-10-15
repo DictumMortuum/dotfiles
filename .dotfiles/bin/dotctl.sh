@@ -224,12 +224,9 @@ function qute-clone() {
     git clone $repository $path
     kill $PID
     notify "$path finished cloning"
-  else
-    tmux new-window -c $path
-    notify "$path already exists"
   fi
 
-  echo $path | to-clipboard
+  tmux new-window -c $path
 }
 
 function qute-tokens() {
