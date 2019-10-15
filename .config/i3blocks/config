@@ -1,7 +1,7 @@
 align=center
 separator_block_width=15
 markup=none
-command=~/.dotfiles/blocks/$BLOCK_NAME
+command=~/.config/i3blocks/$BLOCK_NAME
 
 [progress]
 command=tail -n 1 /tmp/bar$(date +%F)
@@ -25,7 +25,7 @@ interval=once
 
 [wireless]
 label=W:
-command=~/.dotfiles/blocks/interface wlp
+command=~/.config/i3blocks/interface wlp
 interval=once
 
 [external]
