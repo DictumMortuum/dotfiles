@@ -31,7 +31,7 @@
   temp = !zsh -i -c 'git checkout -b $(branch)'
   versions = tag --sort -version:refname
 [push]
-	default = matching
+  default = matching
 [diff]
   renames = copies
 [rerere]
@@ -46,7 +46,7 @@
   rewriteRef = refs/notes/*
 [merge]
   defaultToUpstream = true
-	tool = meld
+  tool = meld
 [advice]
   statusHints = false
   pushNonFastForward = false
