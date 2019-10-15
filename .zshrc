@@ -65,10 +65,6 @@ alias ll=' ls -lh'
 alias history=' fc -il 1'
 alias serve='python3 -m http.server'
 
-function unescape() {
-  printf '%b\n' "$(<$1)"
-}
-
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-dirs-first true
