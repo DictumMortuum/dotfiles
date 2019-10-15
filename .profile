@@ -17,4 +17,4 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin directories
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.dotfiles/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
