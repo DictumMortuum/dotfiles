@@ -56,7 +56,7 @@ def disable_SSL(p):
     p.content.ssl_trusted = False
 
 def exec_userscript(com):
-  return 'spawn --userscript {}/.dotfiles/bin/dotctl.sh {}'.format(home, com)
+  return 'spawn --userscript {}/.local/bin/dotctl.sh {}'.format(home, com)
 
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
 config.bind('<Ctrl-Shift-p>', 'config-cycle -p content.proxy system {}'.format(" ".join(proxies)))

@@ -10,7 +10,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $wsA "10:A"
-set $ctl $HOME/.dotfiles/bin/dotctl.sh
+set $ctl $HOME/.local/bin/dotctl.sh
 
 set_from_resource $background i3wm.background
 set_from_resource $monitor1   i3wm.monitor1

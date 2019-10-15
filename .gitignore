@@ -51,3 +51,9 @@
 !.gnupg
 .gnupg/*
 !.gnupg/gpg.conf
+
+!.local
+.local/*
+!.local/bin
+.local/bin/*
+!.local/bin/dotctl.sh
