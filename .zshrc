@@ -9,7 +9,6 @@ PATH="/usr/bin:$PATH"
 PATH="/usr/games:$PATH"
 PATH="/sbin:$PATH"
 PATH="/bin:$PATH"
-PATH="$HOME/.dotfiles/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
 typeset -aU path
