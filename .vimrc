@@ -1,7 +1,7 @@
 set nocompatible
 
 " ================ General Config ====================
-set number
+set relativenumber
 set cursorline
 set backspace=indent,eol,start
 set history=1000
