@@ -5,13 +5,8 @@ set relativenumber
 set cursorline
 set backspace=indent,eol,start
 set history=1000
-set showcmd
-set showmode
 set gcr=a:blinkon0
-set visualbell
-set autoread
 set encoding=utf-8
-set hidden
 syntax on
 let base16colorspace=256
 let mapleader=","
@@ -86,18 +81,11 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
 filetype plugin on
 filetype indent on
 set list listchars=tab:\ \ ,trail:·
 set nowrap
 set linebreak
-
-" ================ Folds ============================
-set foldmethod=indent
-set foldnestmax=3
-set nofoldenable
 
 " ================ Scrolling ========================
 augroup vimrcEx
