@@ -7,6 +7,7 @@ set backspace=indent,eol,start
 set history=1000
 set gcr=a:blinkon0
 set encoding=utf-8
+set clipboard=unnamedplus
 syntax on
 let base16colorspace=256
 let mapleader=","

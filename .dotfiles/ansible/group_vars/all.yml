@@ -75,6 +75,8 @@ apt_packages:
   - libappindicator1
   - qutebrowser
   - youtube-dl
+  - vim-gtk
+  - vim-gnome
 
 apt_repositories:
   - ppa:papirus/papirus
