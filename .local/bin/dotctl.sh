@@ -147,8 +147,8 @@ function generate-xrandr() {
 
 function generate-xresources() {
   XRESOURCES_FILE=$(get-xresources-file $#)
-
   cp /dev/null $XRESOURCES_FILE
+  shift
 
   for i in $(seq 0 $(($# - 1))); do
     echo "*monitor${i}: $1" >> $XRESOURCES_FILE
@@ -172,6 +172,7 @@ function layout() {
   [[ -z $LAYOUT ]] && exit 0
   generate-xrandr $LAYOUT
   generate-xresources $LAYOUT
+  i3-msg restart
 }
 
 function detect-layout() {

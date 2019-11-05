@@ -13,8 +13,8 @@ set $wsA "10:A"
 set $ctl $HOME/.local/bin/dotctl.sh
 
 set_from_resource $background i3wm.background
+set_from_resource $monitor0   i3wm.monitor0
 set_from_resource $monitor1   i3wm.monitor1
-set_from_resource $monitor2   i3wm.monitor2
 set_from_resource $text       i3wm.text
 set_from_resource $selection  i3wm.color1
 set_from_resource $lightbg    i3wm.color0
@@ -32,12 +32,12 @@ workspace $ws1 output primary
 workspace $ws2 output primary
 workspace $ws3 output primary
 workspace $ws4 output primary
-workspace $ws5 output $monitor1 primary
-workspace $ws6 output $monitor1 primary
-workspace $ws7 output $monitor1 primary
-workspace $ws8 output $monitor1 primary
-workspace $ws9 output $monitor1 primary
-workspace $wsA output $monitor2 primary
+workspace $ws5 output $monitor0 primary
+workspace $ws6 output $monitor0 primary
+workspace $ws7 output $monitor0 primary
+workspace $ws8 output $monitor0 primary
+workspace $ws9 output $monitor0 primary
+workspace $wsA output $monitor1 primary
 
 bindsym $mod+a            exec thunar
 bindsym $mod+c            exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
