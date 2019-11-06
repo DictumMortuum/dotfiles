@@ -48,20 +48,11 @@
       - Notes
       - .password-store
 
-  - name: duplicates - make install
+  - name: make install
     make:
-      chdir: "{{ thirdparty }}/duplicates"
+      chdir: "{{ item }}"
       target: install
-
-  - name: permutations - make install
-    make:
-      chdir: "{{ thirdparty }}/permutations"
-      target: install
-
-  - name: bw - make install
-    make:
-      chdir: "{{ thirdparty }}/bw"
-      target: install
+    loop: "{{ make_targets }}"
 
   - name: st - make install
     make:

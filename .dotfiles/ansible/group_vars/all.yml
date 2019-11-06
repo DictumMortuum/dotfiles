@@ -21,6 +21,8 @@ git_repositories:
     dest: "{{ thirdparty }}/bw"
   - repo: git@github.com:DictumMortuum/duplicates.git
     dest: "{{ thirdparty }}/duplicates"
+  - repo: git@github.com:DictumMortuum/i3-utils.git
+    dest: "{{ thirdparty }}/i3-utils"
   - repo: git@github.com:sindresorhus/pure.git
     dest: "{{ thirdparty }}/pure"
   - repo: git@github.com:mafredri/zsh-async.git
@@ -122,6 +124,12 @@ copy_files:
   - src: "{{ thirdparty }}/nord-qutebrowser/nord-qutebrowser.py"
     dest: "{{ ansible_env.HOME }}/.config/qutebrowser/nord-qutebrowser.py"
     mode: "0644"
+
+make_targets:
+  - "{{ thirdparty }}/duplicates"
+  - "{{ thirdparty }}/permutations"
+  - "{{ thirdparty }}/bw"
+  - "{{ thirdparty }}/i3-utils"
 
 fetch_files:
   - src: "https://github.com/go-jira/go-jira/releases/download/v1.0.20/jira-linux-amd64"

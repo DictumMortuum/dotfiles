@@ -115,7 +115,7 @@ function detect-url() {
 }
 
 function get-monitors() {
-  xrandr -q | grep " connected" | cut -d " " -f1
+  i3-utils display active
 }
 
 function get-xrandr-file() {
