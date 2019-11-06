@@ -77,9 +77,11 @@ apt_packages:
   - youtube-dl
   - vim-gtk
   - vim-gnome
+  - golang-go
 
 apt_repositories:
   - ppa:papirus/papirus
+  - ppa:longsleep/golang-backports
 
 apt_debs:
   - https://release.gitkraken.com/linux/gitkraken-amd64.deb
