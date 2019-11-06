@@ -149,12 +149,7 @@ function generate-xresources() {
   XRESOURCES_FILE=$(get-xresources-file $#)
   cp /dev/null $XRESOURCES_FILE
   shift
-
-  for i in $(seq 0 $(($# - 1))); do
-    echo "*monitor${i}: $1" >> $XRESOURCES_FILE
-    shift
-  done
-
+  echo "*secondary: $1" >> $XRESOURCES_FILE
   xrdb -merge $XRESOURCES_FILE
 }
 
