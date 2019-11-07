@@ -22,7 +22,7 @@ git_repositories:
   - repo: git@github.com:DictumMortuum/duplicates.git
     dest: "{{ thirdparty }}/duplicates"
   - repo: git@github.com:DictumMortuum/i3-utils.git
-    dest: "{{ thirdparty }}/i3-utils"
+    dest: "{{ ansible_env.HOME }}/go/src/i3-utils"
   - repo: git@github.com:sindresorhus/pure.git
     dest: "{{ thirdparty }}/pure"
   - repo: git@github.com:mafredri/zsh-async.git
