@@ -129,7 +129,7 @@ make_targets:
   - "{{ thirdparty }}/duplicates"
   - "{{ thirdparty }}/permutations"
   - "{{ thirdparty }}/bw"
-  - "{{ thirdparty }}/i3-utils"
+  - "{{ ansible_env.HOME }}/go/src/i3-utils"
 
 fetch_files:
   - src: "https://github.com/go-jira/go-jira/releases/download/v1.0.20/jira-linux-amd64"
