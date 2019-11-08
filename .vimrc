@@ -8,6 +8,7 @@ set history=1000
 set gcr=a:blinkon0
 set encoding=utf-8
 set clipboard=unnamedplus
+set laststatus=2
 syntax on
 let base16colorspace=256
 let mapleader=","
@@ -18,36 +19,18 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
 call vundle#end()
 filetype plugin indent on
 
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
-let g:nord_italic = 1
-let g:nord_uniform_status_lines = 1
-let g:nord_uniform_diff_background = 1
-let g:nord_cursor_line_number_background = 1
-set laststatus=2
 let g:airline_theme='nord'
-let g:airline_skip_empty_sections = 1
-let g:airline_detect_paste = 1
 let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_symbols.space = "\ua0"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 
 map <C-n> :NERDTreeToggle<CR>
 
