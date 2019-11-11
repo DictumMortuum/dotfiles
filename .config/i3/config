@@ -106,20 +106,20 @@ mode "$mode_resize" {
   bindsym $mod+r mode "default"
 }
 
-set $mode_system System (l) logout, (r) reboot, (s) shutdown, (e) exit, (Scrl) lock
+set $mode_system System [L]ogout, [R]eboot, [S]hutdown, [E]xit, [l]ock
 bindsym $mod+BackSpace mode "$mode_system"
 mode "$mode_system" {
-  bindsym e              exec --no-startup-id $ctl i3-exit, mode "default"
-  bindsym l              exec --no-startup-id $ctl i3-logout, mode "default"
-  bindsym r              exec --no-startup-id $ctl i3-reboot, mode "default"
-  bindsym s              exec --no-startup-id $ctl i3-poweroff, mode "default"
-  bindsym Scroll_Lock    exec --no-startup-id $ctl i3-lock, mode "default"
+  bindsym Shift+e        exec --no-startup-id $ctl i3-exit, mode "default"
+  bindsym Shift+l        exec --no-startup-id $ctl i3-logout, mode "default"
+  bindsym Shift+r        exec --no-startup-id $ctl i3-reboot, mode "default"
+  bindsym Shift+s        exec --no-startup-id $ctl i3-poweroff, mode "default"
+  bindsym l              exec --no-startup-id $ctl i3-lock, mode "default"
   bindsym Return         mode "default"
   bindsym Escape         mode "default"
   bindsym $mod+BackSpace mode "default"
 }
 
-set $mode_notes (a) add, (d) delete current note, (s) shift current note
+set $mode_notes [a]dd, [d]elete current note, [s]hift current note
 bindsym $mod+n mode "$mode_notes"
 mode "$mode_notes" {
   bindsym a      exec $ctl todo-add, mode "default"
@@ -129,17 +129,15 @@ mode "$mode_notes" {
   bindsym Escape mode "default"
 }
 
-set $mode_work (j) jira, (c) service, (shift+s) exec service, (s) ssh, (e) environments, (h) hosts, (g) grafana, (x) scp, (shift+c) customer
+set $mode_work [j]ira, [S]ervice, [s]sh, [e]nvironments, [h]osts, [g]rafana, [C]ustomer
 bindsym $mod+o mode "$mode_work"
 mode "$mode_work" {
   bindsym j       exec $HOME/.local/bin/ob jira, mode "default"
   bindsym s       exec $HOME/.local/bin/ob ssh, mode "default"
-  bindsym c       exec $HOME/.local/bin/ob service, mode "default"
   bindsym Shift+s exec $HOME/.local/bin/ob execservice, mode "default"
   bindsym e       exec $HOME/.local/bin/ob env, mode "default"
   bindsym h       exec $HOME/.local/bin/ob host, mode "default"
   bindsym g       exec $HOME/.local/bin/ob grafana, mode "default"
-  bindsym x       exec $HOME/.local/bin/ob scp, mode "default"
   bindsym Shift+c exec $HOME/.local/bin/ob customer, mode "default"
   bindsym Return  mode "default"
   bindsym Escape  mode "default"
