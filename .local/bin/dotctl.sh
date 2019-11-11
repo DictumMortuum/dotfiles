@@ -66,6 +66,10 @@ function notify() {
   notify-send "${THIS}" "${1}"
 }
 
+function http-status() {
+  curl -s -o /dev/null -w "%{http_code}" $1
+}
+
 function is-git-repo() {
   if [[ -d ${1}/.git ]] || git -C ${1} rev-parse --git-dir > /dev/null 2>&1; then
     return 0
@@ -174,6 +178,19 @@ function detect-layout() {
   MONITORS=$(get-monitors | wc -l)
   xrdb -merge $(get-xresources-file $MONITORS)
   $(get-xrandr-file $MONITORS)
+}
+
+# i3blocks
+
+function temperature() {
+  URL="https://wttr.in?format=3"
+  STATUS=$(http-status $URL)
+
+  if [[ $STATUS -eq 200 ]]; then
+    curl $URL
+  else
+    exit 1
+  fi
 }
 
 # qutebrowser
