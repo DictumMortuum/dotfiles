@@ -139,6 +139,7 @@ mode "$mode_work" {
   bindsym h       exec $HOME/.local/bin/ob host, mode "default"
   bindsym g       exec $HOME/.local/bin/ob grafana, mode "default"
   bindsym Shift+c exec $HOME/.local/bin/ob customer, mode "default"
+  bindsym t       exec $HOME/.local/bin/ob terminal, mode "default"
   bindsym Return  mode "default"
   bindsym Escape  mode "default"
 }
