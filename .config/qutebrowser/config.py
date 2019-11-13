@@ -1,30 +1,14 @@
+import subprocess
 from pathlib import Path
-home = str(Path.home())
 
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 c.content.pdfjs = True
 c.tabs.padding = {"top": 5, "bottom": 5, "left": 0, "right": 0}
 c.fonts.monospace = 'Hack'
 c.fonts.tabs = '10pt monospace'
-config.source('nord-qutebrowser.py')
-foreground = "#ffffff"
-background = "#2e3440"
-selected = "#4c566a"
-c.colors.tabs.bar.bg = background
-c.colors.tabs.even.bg = background
-c.colors.tabs.even.fg = foreground
-c.colors.tabs.odd.bg = background
-c.colors.tabs.odd.fg = foreground
-c.colors.tabs.selected.even.bg = selected
-c.colors.tabs.selected.even.fg = foreground
-c.colors.tabs.selected.odd.bg = selected
-c.colors.tabs.selected.odd.fg = foreground
-c.hints.chars = "asdfkl"
-c.hints.border = "1px solid #2e3440"
-c.colors.hints.bg = background
-c.colors.hints.fg = foreground
-c.colors.hints.match.fg = "#bf616a"
 c.editor.command = ['st', '-e', 'vi', '-f', '{file}', '-c', 'normal {line}G{column0}l'];
+
+home = str(Path.home())
 
 c.url.searchengines = {
   "DEFAULT": "https://duckduckgo.com/?q={}",
@@ -47,6 +31,15 @@ trusted_SSL = [
   "*://*sportsbook.sgdigital.com/*"
 ]
 
+def read_xresources(prefix):
+  props = {}
+  x = subprocess.run(['xrdb', '-query'], stdout=subprocess.PIPE)
+  lines = x.stdout.decode().split('\n')
+  for line in filter(lambda l : l.startswith(prefix), lines):
+    prop, _, value = line.partition(':\t')
+    props[prop] = value
+  return props
+
 def allow_media(p):
   with config.pattern(p) as p:
     p.content.media_capture = True
@@ -58,6 +51,8 @@ def disable_SSL(p):
 def exec_userscript(com):
   return 'spawn --userscript {}/.local/bin/dotctl.sh {}'.format(home, com)
 
+xresources = read_xresources('*')
+
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
 config.bind('<Ctrl-Shift-p>', 'config-cycle -p content.proxy system {}'.format(" ".join(proxies)))
 config.bind('<Ctrl-e>',       exec_userscript('qute-textedit'))
@@ -68,10 +63,26 @@ config.bind('<Ctrl-Shift-u>', exec_userscript('qute-url'))
 config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
 config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
 config.bind('<Ctrl-Shift-j>', exec_userscript('qute-jira'))
-
 config.bind('<Shift+Ins>', 'insert-text {primary}', mode='insert')
 config.bind('<Ctrl+Ins>', 'insert-text {clipboard}', mode='insert')
 config.bind('<Ctrl-i>', 'open-editor', mode='insert')
 
 map(allow_media, allowed_content)
 map(disable_SSL, trusted_SSL)
+
+config.source('nord-qutebrowser.py')
+
+c.colors.tabs.bar.bg = xresources["*background"]
+c.colors.tabs.even.bg = xresources["*background"]
+c.colors.tabs.even.fg = xresources["*text"]
+c.colors.tabs.odd.bg = xresources["*background"]
+c.colors.tabs.odd.fg = xresources["*text"]
+c.colors.tabs.selected.even.bg = xresources["*color8"]
+c.colors.tabs.selected.even.fg = xresources["*text"]
+c.colors.tabs.selected.odd.bg = xresources["*color8"]
+c.colors.tabs.selected.odd.fg = xresources["*text"]
+c.hints.chars = "asdfkl"
+c.hints.border = "1px solid " + xresources["*background"]
+c.colors.hints.bg = xresources["*background"]
+c.colors.hints.fg = xresources["*text"]
+c.colors.hints.match.fg = xresources["*color9"]
