@@ -46,10 +46,8 @@ setopt share_history
 # https://news.ycombinator.com/item?id=11070797
 alias dot="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 alias today='date +%F'
-alias now='date +%FT%T'
 alias unixtime='date +%s%3N'
-alias tmp='mktemp -d -p . "temp.$(now).XXXXXXXXX"'
-alias mkt='cd $(tmp)'
+alias mkt='cd $(mktemp -d -p . "temp.$(today).XXXXXXXXX")'
 alias mp3-dl='noglob youtube-dl --extract-audio --audio-format mp3'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
@@ -73,7 +71,7 @@ zstyle ':completion:*' cache-path ~/.cache/zsh_completion
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select
 zstyle ':completion:*' single-ignored show
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
   function zle-line-init() {
