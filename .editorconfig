@@ -11,3 +11,7 @@ trim_trailing_whitespace = false
 
 [*.sql]
 indent_size = 4
+
+[*.go]
+indent_style = tab
+intent_size = 2
