@@ -54,6 +54,12 @@
       target: install
     loop: "{{ make_targets }}"
 
+  - name: copy fzf binary
+    copy:
+      src: "{{ thirdparty }}/fzf/bin/fzf"
+      dest: "{{ ansible_env.HOME }}/.local/bin/fzf"
+      mode: "0700"
+
   - name: st - make install
     make:
       chdir: "{{ thirdparty }}/st"

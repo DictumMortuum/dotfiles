@@ -37,6 +37,8 @@ git_repositories:
     dest: "{{ thirdparty }}/dmenu"
   - repo: git@github.com:DictumMortuum/st.git
     dest: "{{ thirdparty }}/st"
+  - repo: git@github.com:junegunn/fzf.git
+    dest: "{{ thirdparty }}/fzf"
 
 apt_packages:
   - compton
@@ -130,6 +132,7 @@ make_targets:
   - "{{ thirdparty }}/permutations"
   - "{{ thirdparty }}/bw"
   - "{{ ansible_env.HOME }}/go/src/i3-utils"
+  - "{{ thirdparty }}/fzf"
 
 fetch_files:
   - src: "https://github.com/go-jira/go-jira/releases/download/v1.0.20/jira-linux-amd64"
