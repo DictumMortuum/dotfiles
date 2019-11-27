@@ -4,7 +4,21 @@
     - file:
         path: "{{ item }}"
         state: directory
-      loop: "{{ directories }}"
+      loop:
+        - "{{ thirdparty }}"
+        - "{{ zsh_cache }}"
+        - "{{ ansible_env.HOME }}/.local/share/qutebrowser/pdfjs"
+        - "{{ ansible_env.HOME }}/.cache/zsh_completion"
+        - "{{ ansible_env.HOME }}/.cache/screenlayout"
+        - "{{ ansible_env.HOME }}/.local/bin"
+        - "{{ ansible_env.HOME }}/.config/systemd/user"
+        - "{{ ansible_env.HOME }}/.themes/"
+        - "{{ ansible_env.HOME }}/.screenlayout/"
+        - "{{ ansible_env.HOME }}/.cache/vim/"
+        - "{{ ansible_env.HOME }}/.vim/"
+        - "{{ ansible_env.HOME }}/.vim/bundle/"
+        - "{{ ansible_env.HOME }}/.cache/ssh/"
+        - "{{ ansible_env.HOME }}/.ssh/"
 
     - copy:
         src: "{{ secret }}/{{ item }}"
@@ -16,3 +30,8 @@
 
     - apt:
         name: "git"
+
+    - user:
+        name: dictummortuum
+        group: dictummortuum
+        create_home: True

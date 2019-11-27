@@ -1,0 +1,77 @@
+- hosts: all
+  tasks:
+    - group:
+        name: domus
+        gid: 1990
+        state: present
+
+    - apt:
+        name: zsh
+        state: present
+
+    - user:
+        name: dimitris
+        group: domus
+        groups: sudo
+        append: yes
+        uid: 1986
+        create_home: True
+        shell: /bin/zsh
+        password: "{{ 'default' | password_hash('sha512') }}"
+        update_password: on_create
+      register: dimitris
+
+    - shell: chage -d 0 dimitris
+      when: dimitris.changed
+
+    - user:
+        name: petrina
+        group: domus
+        uid: 1993
+        create_home: True
+        shell: /bin/zsh
+        password: "{{ 'default' | password_hash('sha512') }}"
+        update_password: on_create
+      register: petrina
+
+    - shell: chage -d 0 petrina
+      when: petrina.changed
+
+    - user:
+        name: manolis
+        group: domus
+        uid: 1956
+        create_home: True
+        shell: /bin/zsh
+        password: "{{ 'default' | password_hash('sha512') }}"
+        update_password: on_create
+      register: manolis
+
+    - shell: chage -d 0 manolis
+      when: manolis.changed
+
+    - user:
+        name: fofi
+        group: domus
+        uid: 1960
+        create_home: True
+        shell: /bin/zsh
+        password: "{{ 'default' | password_hash('sha512') }}"
+        update_password: on_create
+      register: fofi
+
+    - shell: chage -d 0 fofi
+      when: fofi.changed
+
+    - user:
+        name: theoni
+        group: domus
+        uid: 1989
+        create_home: True
+        shell: /bin/zsh
+        password: "{{ 'default' | password_hash('sha512') }}"
+        update_password: on_create
+      register: theoni
+
+    - shell: chage -d 0 theoni
+      when: theoni.changed
