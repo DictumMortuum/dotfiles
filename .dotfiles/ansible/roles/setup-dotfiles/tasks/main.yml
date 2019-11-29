@@ -15,3 +15,7 @@
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" checkout --force master
 
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" branch --set-upstream-to=origin/master master
+
+- file:
+    path: "{{ ansible_env.HOME }}/.cache/ssh/"
+    state: directory
