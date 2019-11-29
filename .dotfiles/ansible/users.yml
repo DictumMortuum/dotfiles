@@ -1,6 +1,8 @@
 - hosts: all
+  become: yes
   tasks:
-    - group:
+    - name: create domus
+      group:
         name: domus
         gid: 1992
         state: present
@@ -58,12 +60,8 @@
         create_home: True
         comment: "Manolis Raviolos,,,"
         shell: /bin/zsh
-        password: "{{ 'default' | password_hash('sha512') }}"
-        update_password: on_create
-      register: manolis
 
-    - shell: chage -d 0 manolis
-      when: manolis.changed
+    - shell: passwd -d manolis
 
     - user:
         name: fofi
@@ -72,12 +70,8 @@
         create_home: True
         comment: "Fofi Klironomou,,,"
         shell: /bin/zsh
-        password: "{{ 'default' | password_hash('sha512') }}"
-        update_password: on_create
-      register: fofi
 
-    - shell: chage -d 0 fofi
-      when: fofi.changed
+    - shell: passwd -d fofi
 
     - user:
         name: theoni
