@@ -1,0 +1,51 @@
+- import_playbook: users.yml
+
+- hosts: all
+  tasks:
+    - pacman:
+        name: git
+
+    - pacman:
+        name: tcl
+
+- hosts: all
+  become: yes
+  become_user: dimitris
+  tasks:
+    - copy:
+        src: "~/Sync/Secret/{{ item }}"
+        dest: "{{ ansible_env.HOME }}/.ssh/{{ item }}"
+        mode: 0600
+      with_items:
+        - id_rsa.pub
+        - id_rsa
+
+- hosts: all
+  become: yes
+  become_user: dimitris
+  roles:
+    - setup-dotfiles
+
+- hosts: all
+  become: yes
+  become_user: fofi
+  roles:
+    - setup-dotfiles
+
+- hosts: all
+  become: yes
+  become_user: manolis
+  roles:
+    - setup-dotfiles
+
+- hosts: all
+  become: yes
+  become_user: theoni
+  roles:
+    - setup-dotfiles
+
+- hosts: all
+  become: yes
+  become_user: petrina
+  roles:
+    - setup-dotfiles

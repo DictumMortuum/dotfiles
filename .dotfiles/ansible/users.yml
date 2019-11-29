@@ -2,20 +2,33 @@
   tasks:
     - group:
         name: domus
-        gid: 1990
+        gid: 1992
         state: present
 
-    - apt:
+    - group:
+        name: arcanum
+        gid: 16180
+        state: present
+
+    - pacman:
         name: zsh
         state: present
+
+    - lineinfile:
+        path: /etc/sudoers.d/dimitris
+        state: present
+        line: 'dimitris ALL=(ALL) ALL'
+        create: True
+        validate: /usr/sbin/visudo -cf %s
 
     - user:
         name: dimitris
         group: domus
-        groups: sudo
+        groups: arcanum
         append: yes
         uid: 1986
         create_home: True
+        comment: "Dimitris Raviolos,,,"
         shell: /bin/zsh
         password: "{{ 'default' | password_hash('sha512') }}"
         update_password: on_create
@@ -29,6 +42,7 @@
         group: domus
         uid: 1993
         create_home: True
+        comment: "Petrina Raviolou,,,"
         shell: /bin/zsh
         password: "{{ 'default' | password_hash('sha512') }}"
         update_password: on_create
@@ -42,6 +56,7 @@
         group: domus
         uid: 1956
         create_home: True
+        comment: "Manolis Raviolos,,,"
         shell: /bin/zsh
         password: "{{ 'default' | password_hash('sha512') }}"
         update_password: on_create
@@ -55,6 +70,7 @@
         group: domus
         uid: 1960
         create_home: True
+        comment: "Fofi Klironomou,,,"
         shell: /bin/zsh
         password: "{{ 'default' | password_hash('sha512') }}"
         update_password: on_create
@@ -68,6 +84,7 @@
         group: domus
         uid: 1989
         create_home: True
+        comment: "Theoni Fytrou,,,"
         shell: /bin/zsh
         password: "{{ 'default' | password_hash('sha512') }}"
         update_password: on_create
