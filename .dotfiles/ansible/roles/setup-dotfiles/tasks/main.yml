@@ -6,7 +6,7 @@
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote
   register: dotfiles
 
-- name: Adding the dotfiles remote url
+- name: Add the dotfiles remote url
   command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote add origin https://github.com/DictumMortuum/dotfiles.git
   when: dotfiles.stdout == ""
 
