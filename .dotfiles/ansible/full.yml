@@ -34,37 +34,11 @@
       mode: "{{ item.mode }}"
     loop: "{{ fetch_files }}"
 
-  - name: untar theme
-    unarchive:
-      src: "{{ thirdparty }}/assets/oomox-nord.tar.gz"
-      dest: "{{ ansible_env.HOME }}/.themes"
-
-  - name: setup cronjob for repository syncing
-    cron:
-      name: "sync repo {{ item }}"
-      minute: "0,20,40"
-      job: "{{ ansible_env.HOME }}/.local/bin/dotctl.sh sync-repo {{ ansible_env.HOME }}/{{ item }}"
-    loop:
-      - Notes
-      - .password-store
-
   - name: make install
     make:
       chdir: "{{ item }}"
       target: install
     loop: "{{ make_targets }}"
-
-  - name: copy fzf binary
-    copy:
-      src: "{{ thirdparty }}/fzf/bin/fzf"
-      dest: "{{ ansible_env.HOME }}/.local/bin/fzf"
-      mode: "0700"
-
-  - name: st - make install
-    make:
-      chdir: "{{ thirdparty }}/st"
-      target: install
-    become: true
 
   - name: vim - install vundle plugins
     shell: vim -E -s -c "source {{ ansible_env.HOME }}/.vimrc" -c PluginInstall -c qa

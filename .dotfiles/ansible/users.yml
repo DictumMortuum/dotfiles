@@ -12,21 +12,50 @@
         gid: 16180
         state: present
 
-    - pacman:
-        name: zsh
+    - group:
+        name: dimitris
+        gid: 1986
         state: present
+
+    - group:
+        name: petrina
+        gid: 1993
+        state: present
+
+    - group:
+        name: manolis
+        gid: 1956
+        state: present
+
+    - group:
+        name: fofi
+        gid: 1960
+        state: present
+
+    - group:
+        name: theoni
+        gid: 1989
+        state: present
+
+    - pacman:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - zsh
+        - sudo
+        - vi
 
     - lineinfile:
         path: /etc/sudoers.d/dimitris
         state: present
-        line: 'dimitris ALL=(ALL) ALL'
+        line: 'dimitris ALL=(ALL) NOPASSWD: ALL'
         create: True
         validate: /usr/sbin/visudo -cf %s
 
     - user:
         name: dimitris
-        group: domus
-        groups: arcanum
+        group: dimitris
+        groups: arcanum,domus
         append: yes
         uid: 1986
         create_home: True
@@ -36,12 +65,11 @@
         update_password: on_create
       register: dimitris
 
-    - shell: chage -d 0 dimitris
-      when: dimitris.changed
-
     - user:
         name: petrina
-        group: domus
+        group: petrina
+        groups: domus
+        append: yes
         uid: 1993
         create_home: True
         comment: "Petrina Raviolou,,,"
@@ -55,7 +83,9 @@
 
     - user:
         name: manolis
-        group: domus
+        group: manolis
+        groups: domus
+        append: yes
         uid: 1956
         create_home: True
         comment: "Manolis Raviolos,,,"
@@ -65,7 +95,9 @@
 
     - user:
         name: fofi
-        group: domus
+        group: fofi
+        groups: domus
+        append: yes
         uid: 1960
         create_home: True
         comment: "Fofi Klironomou,,,"
@@ -75,7 +107,9 @@
 
     - user:
         name: theoni
-        group: domus
+        group: theoni
+        groups: domus
+        append: yes
         uid: 1989
         create_home: True
         comment: "Theoni Fytrou,,,"

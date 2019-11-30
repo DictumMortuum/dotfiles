@@ -1,0 +1,59 @@
+- file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+
+- copy:
+    src: "~/Sync/Secret/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/{{ item }}"
+    mode: 0600
+  loop:
+    - id_rsa.pub
+    - id_rsa
+
+- git:
+    repo: git@github.com:DictumMortuum/dotfiles.git
+    dest: "{{ thirdparty }}/dotfiles"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@github.com:sindresorhus/pure.git
+    dest: "{{ thirdparty }}/pure"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@github.com:mafredri/zsh-async.git
+    dest: "{{ thirdparty }}/zsh-async"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@github.com:zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ thirdparty }}/zsh-syntax-highlighting"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- aur:
+    name: vundle-git
+    skip_installed: true
+
+- aur:
+    name: fzf-git
+    skip_installed: true
+
+- aur:
+    name: xurls
+    skip_installed: true
+
+- cron:
+    name: "sync repo {{ item }}"
+    minute: "0,20,40"
+    job: "{{ ansible_env.HOME }}/.local/bin/dotctl.sh sync-repo {{ ansible_env.HOME }}/{{ item }}"
+  loop:
+    - Notes
+    - .password-store

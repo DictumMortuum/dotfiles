@@ -1,4 +1,4 @@
-- name: Initialize dotfiles for {{ home }}
+- name: "Initialize dotfiles for {{ home }}"
   command: git --git-dir="{{ git_dir }}" init
   args:
     chdir: "{{ home }}"
@@ -7,7 +7,7 @@
   register: dotfiles
 
 - name: Add the dotfiles remote url
-  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote add origin https://github.com/DictumMortuum/dotfiles.git
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote add origin "{{ thirdparty }}/dotfiles"
   when: dotfiles.stdout == ""
 
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
@@ -15,7 +15,3 @@
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" checkout --force master
 
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" branch --set-upstream-to=origin/master master
-
-- file:
-    path: "{{ ansible_env.HOME }}/.cache/ssh/"
-    state: directory

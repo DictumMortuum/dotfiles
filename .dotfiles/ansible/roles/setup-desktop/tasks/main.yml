@@ -1,0 +1,62 @@
+- git:
+    repo: git@gitlab.com:DictumMortuum/notes.git
+    dest: "{{ ansible_env.HOME }}/Notes"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@gitlab.com:DictumMortuum/pass.git
+    dest: "{{ ansible_env.HOME }}/.password-store"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@github.com:DictumMortuum/release.git
+    dest: "{{ thirdparty }}/assets"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@github.com:DictumMortuum/permutations.git
+    dest: "{{ thirdparty }}/permutations"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@github.com:DictumMortuum/i3-utils.git
+    dest: "{{ ansible_env.HOME }}/go/src/i3-utils"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git://git.suckless.org/dmenu
+    dest: "{{ thirdparty }}/dmenu"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@github.com:DictumMortuum/st.git
+    dest: "{{ thirdparty }}/st"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- aur:
+    name: xkb-switch
+    skip_installed: true
+
+- file:
+    dest: "{{ ansible_env.HOME }}/.themes"
+    state: directory
+
+- name: untar theme
+  unarchive:
+    src: "{{ thirdparty }}/assets/oomox-nord.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.themes"
+    remote_src: yes
