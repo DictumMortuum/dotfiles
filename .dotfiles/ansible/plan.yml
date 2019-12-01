@@ -1,4 +1,7 @@
-- import_playbook: users.yml
+- hosts: all
+  become: yes
+  roles:
+    - setup-users
 
 - hosts: all
   tasks:
