@@ -1,7 +1,6 @@
 - block:
   become: yes
   become_user: root
-  tasks:
     - name: install git
       pacman: name=git
     - name: install tcl
