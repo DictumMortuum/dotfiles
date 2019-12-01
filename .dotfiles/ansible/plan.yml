@@ -3,8 +3,6 @@
   tasks:
     - name: update pacman cache
       pacman: update_cache=yes
-    - name: create domus directory
-      file: name="{{ thirdparty }}" group=domus mode='0775' state=directory
   roles:
     - setup-users
 
@@ -12,6 +10,7 @@
   become: yes
   become_user: dimitris
   roles:
+    - setup-thirdparty
     - setup-base
     - setup-dotfiles
     - setup-zsh

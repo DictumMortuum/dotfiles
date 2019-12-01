@@ -12,34 +12,14 @@
     - id_rsa.pub
     - id_rsa
 
+- name: create domus directory
+  become: yes
+  file: name="{{ thirdparty }}" group=domus mode='0775' state=directory
+
 - name: clone dotfiles
   git:
     repo: git@github.com:DictumMortuum/dotfiles.git
     dest: "{{ thirdparty }}/dotfiles"
-    update: yes
-    accept_hostkey: yes
-    ssh_opts: "-F /dev/null"
-
-- name: clone pure
-  git:
-    repo: git@github.com:sindresorhus/pure.git
-    dest: "{{ thirdparty }}/pure"
-    update: yes
-    accept_hostkey: yes
-    ssh_opts: "-F /dev/null"
-
-- name: clone zsh-async
-  git:
-    repo: git@github.com:mafredri/zsh-async.git
-    dest: "{{ thirdparty }}/zsh-async"
-    update: yes
-    accept_hostkey: yes
-    ssh_opts: "-F /dev/null"
-
-- name: clone zsh-syntax-highlighting
-  git:
-    repo: git@github.com:zsh-users/zsh-syntax-highlighting.git
-    dest: "{{ thirdparty }}/zsh-syntax-highlighting"
     update: yes
     accept_hostkey: yes
     ssh_opts: "-F /dev/null"

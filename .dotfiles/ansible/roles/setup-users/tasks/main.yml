@@ -25,9 +25,6 @@
 - name: install vi
   pacman: name=vi state=present
 
-- name: install zsh
-  pacman: name=zsh state=present
-
 - name: make dimitris a sudoer
   lineinfile:
     path: /etc/sudoers.d/dimitris
@@ -44,7 +41,6 @@
     uid: 1986
     create_home: True
     comment: "Dimitris Raviolos,,,"
-    shell: /bin/zsh
     password: "{{ 'default' | password_hash('sha512') }}"
     update_password: on_create
   register: dimitris
@@ -57,7 +53,6 @@
     uid: 1993
     create_home: True
     comment: "Petrina Raviolou,,,"
-    shell: /bin/zsh
     password: "{{ 'default' | password_hash('sha512') }}"
     update_password: on_create
   register: petrina
@@ -73,7 +68,6 @@
     uid: 1956
     create_home: True
     comment: "Manolis Raviolos,,,"
-    shell: /bin/zsh
 
 - shell: passwd -d manolis
 
@@ -85,7 +79,6 @@
     uid: 1960
     create_home: True
     comment: "Fofi Klironomou,,,"
-    shell: /bin/zsh
 
 - shell: passwd -d fofi
 
@@ -97,7 +90,6 @@
     uid: 1989
     create_home: True
     comment: "Theoni Fytrou,,,"
-    shell: /bin/zsh
     password: "{{ 'default' | password_hash('sha512') }}"
     update_password: on_create
   register: theoni
