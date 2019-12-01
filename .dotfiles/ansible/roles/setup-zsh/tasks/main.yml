@@ -1,6 +1,10 @@
 - name: install zsh
   pacman: name=zsh state=present
 
+- user:
+    user: "{{ ansible_user_id }}"
+    shell: /bin/zsh
+
 - name: create "{{ zsh_cache }}"
   file: dest="{{ zsh_cache }}" state=directory
 
