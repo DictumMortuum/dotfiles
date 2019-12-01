@@ -15,6 +15,9 @@
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote
   register: dotfiles
 
+- debug:
+    msg: "{{ dotfiles }}"
+
 - name: Add the dotfiles remote url
   command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote add origin "{{ thirdparty }}/dotfiles"
   when: dotfiles.stdout == ""
