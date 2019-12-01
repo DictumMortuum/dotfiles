@@ -1,0 +1,42 @@
+- name: install zsh
+  pacman: name=zsh
+  become: true
+  become_user: root
+
+- name: clone pure
+  git:
+    repo: https://github.com/sindresorhus/pure.git
+    dest: "{{ thirdparty }}/pure"
+    update: yes
+
+- name: clone zsh-async
+  git:
+    repo: https://github.com/mafredri/zsh-async.git
+    dest: "{{ thirdparty }}/zsh-async"
+    update: yes
+
+- name: clone zsh-syntax-highlighting
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ thirdparty }}/zsh-syntax-highlighting"
+    update: yes
+
+- name: "chsh to zsh for {{ ansible_user_id }}"
+  user:
+    user: "{{ ansible_user_id }}"
+    shell: /bin/zsh
+
+- name: create "{{ zsh_cache }}"
+  file: dest="{{ zsh_cache }}" state=directory
+
+- name: create async.zsh link
+  file:
+    src: "{{ thirdparty }}/zsh-async/async.zsh"
+    dest: "{{ zsh_cache }}/async"
+    state: link
+
+- name: create pure.zsh link
+  file:
+    src: "{{ thirdparty }}/pure/pure.zsh"
+    dest: "{{ zsh_cache }}/prompt_pure_setup"
+    state: link

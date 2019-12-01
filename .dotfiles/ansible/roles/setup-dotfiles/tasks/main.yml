@@ -1,3 +1,4 @@
 - include: bootstrap.yml
+- include: zsh.yml
 - include: fzf.yml
 - include: xurls.yml

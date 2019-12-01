@@ -1,2 +1,3 @@
 home: "{{ ansible_env.HOME }}"
 git_dir: "{{ home }}/.dotfiles.git"
+zsh_cache: "{{ ansible_env.HOME }}/.cache/zsh"
