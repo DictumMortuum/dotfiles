@@ -1,48 +1,35 @@
-- name: create domus
+- name: create domus group
   group: name=domus gid=1992 state=present
 
-- name: create arcanum
-  group:
-    name: arcanum
-    gid: 16180
-    state: present
+- name: create arcanum group
+  group: name=arcanum gid=16180 state=present
 
-- name: create dimitris
-  group:
-    name: dimitris
-    gid: 1986
-    state: present
+- name: create dimitris group
+  group: name=dimitris gid=1986 state=present
 
-- name: create petrina
-  group:
-    name: petrina
-    gid: 1993
-    state: present
+- name: create petrina group
+  group: name=petrina gid=1993 state=present
 
-- group:
-    name: manolis
-    gid: 1956
-    state: present
+- name: create manolis group
+  group: name=manolis gid=1956 state=present
 
-- group:
-    name: fofi
-    gid: 1960
-    state: present
+- name: create fofi group
+  group: name=fofi gid=1960 state=present
 
-- group:
-    name: theoni
-    gid: 1989
-    state: present
+- name: create theoni group
+  group: name=theoni gid=1989 state=present
 
-- pacman:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - zsh
-    - sudo
-    - vi
+- name: install sudo
+  pacman: name=sudo state=present
 
-- lineinfile:
+- name: install vi
+  pacman: name=vi state=present
+
+- name: install zsh
+  pacman: name=zsh state=present
+
+- name: make dimitris a sudoer
+  lineinfile:
     path: /etc/sudoers.d/dimitris
     state: present
     line: 'dimitris ALL=(ALL) NOPASSWD: ALL'

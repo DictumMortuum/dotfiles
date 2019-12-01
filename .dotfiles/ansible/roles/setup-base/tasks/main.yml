@@ -1,54 +1,26 @@
-- file:
-    path: "{{ ansible_env.HOME }}/.ssh"
-    state: directory
-
-- copy:
-    src: "~/Sync/Secret/{{ item }}"
-    dest: "{{ ansible_env.HOME }}/.ssh/{{ item }}"
-    mode: 0600
+- pacman:
+    name: "{{ item }}"
   loop:
-    - id_rsa.pub
-    - id_rsa
+    - git
+    - tcl
+    - fakeroot
+    - binutils
+    - vim
+    - awk
+    - file
+    - patch
+    - go
+    - pass
+    - syncthing
+    - jq
+    - gcc
+    - cronie
 
-- git:
-    repo: git@github.com:DictumMortuum/dotfiles.git
-    dest: "{{ thirdparty }}/dotfiles"
-    update: yes
-    accept_hostkey: yes
-    ssh_opts: "-F /dev/null"
+- name: install fzf
+  aur: name=fzf-git skip_installed=true
 
-- git:
-    repo: git@github.com:sindresorhus/pure.git
-    dest: "{{ thirdparty }}/pure"
-    update: yes
-    accept_hostkey: yes
-    ssh_opts: "-F /dev/null"
-
-- git:
-    repo: git@github.com:mafredri/zsh-async.git
-    dest: "{{ thirdparty }}/zsh-async"
-    update: yes
-    accept_hostkey: yes
-    ssh_opts: "-F /dev/null"
-
-- git:
-    repo: git@github.com:zsh-users/zsh-syntax-highlighting.git
-    dest: "{{ thirdparty }}/zsh-syntax-highlighting"
-    update: yes
-    accept_hostkey: yes
-    ssh_opts: "-F /dev/null"
-
-- aur:
-    name: vundle-git
-    skip_installed: true
-
-- aur:
-    name: fzf-git
-    skip_installed: true
-
-- aur:
-    name: xurls
-    skip_installed: true
+- name: install xurls
+  aur: name=xurls skip_installed=true
 
 - cron:
     name: "sync repo {{ item }}"

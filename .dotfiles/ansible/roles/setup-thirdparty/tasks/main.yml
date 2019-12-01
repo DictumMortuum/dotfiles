@@ -1,0 +1,45 @@
+- name: install git
+  pacman: name=git state=present
+
+- name: create .ssh directory
+  file: path="{{ ansible_env.HOME }}/.ssh" state=directory
+
+- copy:
+    src: "~/Sync/Secret/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/{{ item }}"
+    mode: 0600
+  loop:
+    - id_rsa.pub
+    - id_rsa
+
+- name: clone dotfiles
+  git:
+    repo: git@github.com:DictumMortuum/dotfiles.git
+    dest: "{{ thirdparty }}/dotfiles"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- name: clone pure
+  git:
+    repo: git@github.com:sindresorhus/pure.git
+    dest: "{{ thirdparty }}/pure"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- name: clone zsh-async
+  git:
+    repo: git@github.com:mafredri/zsh-async.git
+    dest: "{{ thirdparty }}/zsh-async"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- name: clone zsh-syntax-highlighting
+  git:
+    repo: git@github.com:zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ thirdparty }}/zsh-syntax-highlighting"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"

@@ -1,16 +1,17 @@
-- file:
-    dest: "{{ zsh_cache }}"
-    state: directory
+- name: install zsh
+  pacman: name=zsh state=present
 
-- file:
+- name: create "{{ zsh_cache }}"
+  file: dest="{{ zsh_cache }}" state=directory
+
+- name: create async.zsh link
+  file:
     src: "{{ thirdparty }}/zsh-async/async.zsh"
     dest: "{{ zsh_cache }}/async"
     state: link
 
-- file:
+- name: create pure.zsh link
+  file:
     src: "{{ thirdparty }}/pure/pure.zsh"
     dest: "{{ zsh_cache }}/prompt_pure_setup"
     state: link
-
-- name: vim - install vundle plugins
-  shell: vim -E -s -c "source {{ ansible_env.HOME }}/.vimrc" -c PluginInstall -c qa

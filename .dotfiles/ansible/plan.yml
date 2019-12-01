@@ -1,41 +1,23 @@
 - hosts: all
   become: yes
+  tasks:
+    - name: update pacman cache
+      pacman: update_cache=yes
+    - name: create domus directory
+      file: name="{{ thirdparty }}" group=domus mode='0775' state=directory
   roles:
     - setup-users
-
-- hosts: all
-  tasks:
-    - pacman:
-        update_cache: yes
-
-    - pacman:
-        name: "{{ item }}"
-      loop:
-        - git
-        - tcl
-        - fakeroot
-        - binutils
-        - vim
-        - awk
-        - file
-        - patch
-        - go
-        - pass
-        - syncthing
-        - jq
-        - gcc
-        - cronie
-
-    - file:
-        name: "{{ thirdparty }}"
-        group: domus
-        mode: '0775'
-        state: directory
+    - setup-thirdparty
 
 - hosts: all
   become: yes
-  become_user: dimitris
   roles:
+    - { role: setup-base, become_user: dimitris}
+    - { role: setup-dotfiles, become_user: dimitris }
+    - { role: setup-dotfiles, become_user: fofi }
+    - { role: setup-dotfiles, become_user: manolis }
+    - { role: setup-dotfiles, become_user: theoni }
+    - { role: setup-dotfiles, become_user: petrina }
     - setup-base
     - setup-dotfiles
     - setup-zsh
@@ -45,26 +27,22 @@
   become: yes
   become_user: fofi
   roles:
-    - setup-dotfiles
     - setup-zsh
 
 - hosts: all
   become: yes
   become_user: manolis
   roles:
-    - setup-dotfiles
     - setup-zsh
 
 - hosts: all
   become: yes
   become_user: theoni
   roles:
-    - setup-dotfiles
     - setup-zsh
 
 - hosts: all
   become: yes
   become_user: petrina
   roles:
-    - setup-dotfiles
     - setup-zsh
