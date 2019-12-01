@@ -1,10 +1,10 @@
 - block:
-  become: yes
-  become_user: root
     - name: install git
       pacman: name=git
     - name: install tcl
       pacman: name=tcl
+  become: yes
+  become_user: root
 
 - name: "Initialize dotfiles for {{ home }}"
   command: git --git-dir="{{ git_dir }}" init
