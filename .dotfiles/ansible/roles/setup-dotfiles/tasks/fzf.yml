@@ -1,5 +1,8 @@
-- name: install go
-  pacman: name=go
+- block:
+    - name: install go
+      pacman: name=go
+    - name: install fakeroot
+      pacman: name=fakeroot
   become: yes
   become_user: root
 
