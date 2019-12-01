@@ -3,6 +3,8 @@
       pacman: name=go
     - name: install fakeroot
       pacman: name=fakeroot
+    - name: install binutils
+      pacman: name=binutils
   become: yes
   become_user: root
 
