@@ -1,5 +1,7 @@
 - name: install go
   pacman: name=go
+  become: yes
+  become_user: root
 
 - name: install fzf
   aur: name=xurls skip_installed=true
