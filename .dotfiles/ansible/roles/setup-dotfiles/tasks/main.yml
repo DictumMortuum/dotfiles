@@ -1,17 +1,3 @@
-- name: "Initialize dotfiles for {{ home }}"
-  command: git --git-dir="{{ git_dir }}" init
-  args:
-    chdir: "{{ home }}"
-
-- command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote
-  register: dotfiles
-
-- name: Add the dotfiles remote url
-  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote add origin "{{ thirdparty }}/dotfiles"
-  when: dotfiles.stdout == ""
-
-- command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
-
-- command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" checkout --force master
-
-- command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" branch --set-upstream-to=origin/master master
+- include: bootstrap.yml
+- include: fzf.yml
+- include: xurls.yml

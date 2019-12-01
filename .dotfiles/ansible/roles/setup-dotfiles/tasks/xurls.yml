@@ -1,0 +1,5 @@
+- name: install go
+  pacman: name=go
+
+- name: install fzf
+  aur: name=xurls skip_installed=true
