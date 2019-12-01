@@ -24,6 +24,7 @@
   when: dotfiles.stdout == ""
 
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
+  changed_when: dotfiles.stdout != ""
   register: dotfiles
 
 - debug:
