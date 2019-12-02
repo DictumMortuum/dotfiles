@@ -7,7 +7,7 @@
     ssh_opts: "-F /dev/null"
 
 - name: install cronie
-  git: name=cronie
+  pacman: name=cronie
   become_user: root
 
 - name: install notes cronjob sync
