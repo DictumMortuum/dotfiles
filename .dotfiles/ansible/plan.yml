@@ -12,7 +12,6 @@
   roles:
     - setup-thirdparty
     - setup-dotfiles
-    - setup-desktop
 
 - hosts: all
   become: yes

@@ -47,6 +47,8 @@
     accept_hostkey: yes
     ssh_opts: "-F /dev/null"
 
+- pacman: name=gcc
+
 - aur:
     name: xkb-switch
     skip_installed: true
