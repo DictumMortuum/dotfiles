@@ -5,3 +5,13 @@
     update: yes
     accept_hostkey: yes
     ssh_opts: "-F /dev/null"
+
+- name: install cronie
+  git: name=cronie
+  become_user: root
+
+- name: install notes cronjob sync
+  cron:
+    name: "sync notes repo"
+    minute: "0,20,40"
+    job: "{{ ansible_env.HOME }}/.local/bin/dotctl.sh sync-repo {{ ansible_env.HOME }}/Notes"
