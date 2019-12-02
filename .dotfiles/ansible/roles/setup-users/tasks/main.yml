@@ -41,12 +41,11 @@
     create: True
     validate: /usr/sbin/visudo -cf %s
 
-- user:
-    name: consul
-    group: domus
-    uid: 161
+- name: create consul
+  user: name=consul group=domus uid=161
 
-- user:
+- name: create dimitris
+  user:
     name: dimitris
     group: dimitris
     groups: arcanum,domus
@@ -56,9 +55,9 @@
     comment: "Dimitris Raviolos,,,"
     password: "{{ 'default' | password_hash('sha512') }}"
     update_password: on_create
-  register: dimitris
 
-- user:
+- name: create petrina
+  user:
     name: petrina
     group: petrina
     groups: domus
@@ -68,12 +67,11 @@
     comment: "Petrina Raviolou,,,"
     password: "{{ 'default' | password_hash('sha512') }}"
     update_password: on_create
-  register: petrina
+  notify:
+    - reset petrina password
 
-- shell: chage -d 0 petrina
-  when: petrina.changed
-
-- user:
+- name: create manolis
+  user:
     name: manolis
     group: manolis
     groups: domus
@@ -81,12 +79,11 @@
     uid: 1956
     create_home: True
     comment: "Manolis Raviolos,,,"
-  register: manolis
+  notify:
+    - empty manolis password
 
-- shell: passwd -d manolis
-  when: manolis.changed
-
-- user:
+- name: create fofi
+  user:
     name: fofi
     group: fofi
     groups: domus
@@ -94,12 +91,11 @@
     uid: 1960
     create_home: True
     comment: "Fofi Klironomou,,,"
-  register: fofi
+  notify:
+    - empty fofi password
 
-- shell: passwd -d fofi
-  when: fofi.changed
-
-- user:
+- name: create theoni
+  user:
     name: theoni
     group: theoni
     groups: domus
@@ -109,7 +105,5 @@
     comment: "Theoni Fytrou,,,"
     password: "{{ 'default' | password_hash('sha512') }}"
     update_password: on_create
-  register: theoni
-
-- shell: chage -d 0 theoni
-  when: theoni.changed
+  notify:
+    - reset theoni password

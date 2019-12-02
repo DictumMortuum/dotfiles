@@ -1,0 +1,11 @@
+- name: reset petrina password
+  shell: chage -d 0 petrina
+
+- name: empty manolis password
+  shell: passwd -d manolis
+
+- name: empty fofi password
+  shell: passwd -d fofi
+
+- name: reset theoni password
+  shell: chage -d 0 theoni
