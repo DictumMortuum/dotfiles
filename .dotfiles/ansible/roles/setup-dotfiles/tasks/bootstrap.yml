@@ -24,6 +24,4 @@
 - name: pull latest dotfiles
   command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" pull
   register: dotfiles
-
-- debug:
-    msg: "{{ dotfiles }}"
+  changed_when: dotfiles.stdout != "Already up to date."
