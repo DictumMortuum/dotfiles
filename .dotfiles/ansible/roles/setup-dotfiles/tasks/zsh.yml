@@ -1,6 +1,5 @@
 - name: install zsh
   pacman: name=zsh
-  become: true
   become_user: root
 
 - block:
@@ -21,14 +20,12 @@
       repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
       dest: "{{ thirdparty }}/zsh-syntax-highlighting"
       update: yes
-  become: true
   become_user: consul
 
 - name: chsh to zsh for {{ ansible_user_id }}
   user:
     user: "{{ ansible_user_id }}"
     shell: /bin/zsh
-  become: true
   become_user: root
 
 - name: create {{ zsh_cache }}

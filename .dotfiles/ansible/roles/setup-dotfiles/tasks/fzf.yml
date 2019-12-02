@@ -11,7 +11,6 @@
       pacman: name=file
     - name: install patch
       pacman: name=patch
-  become: yes
   become_user: root
 
 - name: install fzf
