@@ -26,4 +26,4 @@
   register: dotfiles
 
 - debug:
-    msg: dotfiles
+    msg: "{{ dotfiles }}"
