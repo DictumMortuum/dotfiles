@@ -25,7 +25,7 @@
     msg: "{{ dotfiles }}"
 
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
-  changed_when: dotfiles.stdout != ""
+  changed_when: dotfiles.stderr != ""
   register: dotfiles
 
 - debug:
