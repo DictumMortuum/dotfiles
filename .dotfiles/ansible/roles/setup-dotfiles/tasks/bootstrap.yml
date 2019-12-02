@@ -22,24 +22,24 @@
   register: dotfiles
 
 - debug:
-    msg: dotfiles
+    msg: "{{ dotfiles }}"
 
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
   changed_when: dotfiles.stdout != ""
   register: dotfiles
 
 - debug:
-    msg: dotfiles
+    msg: "{{ dotfiles }}"
 
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" checkout --force master
   changed_when: dotfiles.stdout != "Your branch is up to date with 'origin/master'."
   register: dotfiles
 
 - debug:
-    msg: dotfiles
+    msg: "{{ dotfiles }}"
 
 - command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" branch --set-upstream-to=origin/master master
   register: dotfiles
 
 - debug:
-    msg: dotfiles
+    msg: "{{ dotfiles }}"
