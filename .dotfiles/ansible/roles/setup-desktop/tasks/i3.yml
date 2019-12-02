@@ -12,6 +12,7 @@
     dest: "{{ thirdparty }}/i3-utils"
     update: yes
   become_user: consul
+  notify: make i3-utils
 
 - pacman: name=pkgconfig
   become_user: root
@@ -30,25 +31,18 @@
     dest: "{{ thirdparty }}/dmenu"
     update: yes
   become_user: consul
+  notify: make dmenu
 
 - git:
     repo: https://github.com/DictumMortuum/st.git
     dest: "{{ thirdparty }}/st"
     update: yes
   become_user: consul
+  notify: make st
 
 - git:
     repo: https://github.com/DictumMortuum/permutations.git
     dest: "{{ thirdparty }}/permutations"
     update: yes
   become_user: consul
-
-- make:
-    chdir: "{{ thirdparty }}/{{ item }}"
-    target: install
-  loop:
-    - i3-utils
-    - dmenu
-    - st
-    - permutations
-  become_user: root
+  notify: make permutations

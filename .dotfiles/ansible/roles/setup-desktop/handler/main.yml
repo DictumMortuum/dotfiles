@@ -1,0 +1,23 @@
+- name: make i3-utils
+  make:
+    chdir: "{{ thirdparty }}/i3-utils"
+    target: install
+  become_user: root
+
+- name: make dmenu
+  make:
+    chdir: "{{ thirdparty }}/dmenu"
+    target: install
+  become_user: root
+
+- name: make permutations
+  make:
+    chdir: "{{ thirdparty }}/permutations"
+    target: install
+  become_user: root
+
+- name: make st
+  make:
+    chdir: "{{ thirdparty }}/st"
+    target: install
+  become_user: root
