@@ -2,6 +2,3 @@
 - include: zsh.yml
 - include: fzf.yml
 - include: xurls.yml
-
-- include: ssh.yml
-  when: "{{ ansible_user_id }} == 'dimitris'"

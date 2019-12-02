@@ -13,7 +13,7 @@
   become: yes
   become_user: dimitris
   roles:
-    - setup-ssh
+    - setup-personal
     - setup-dotfiles
 
 - hosts: all

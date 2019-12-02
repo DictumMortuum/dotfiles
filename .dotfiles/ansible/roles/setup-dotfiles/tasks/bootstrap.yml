@@ -6,24 +6,28 @@
   become: yes
   become_user: root
 
-- name: "Initialize dotfiles for {{ home }}"
+- name: initialize dotfiles for {{ home }}
   command: git --git-dir="{{ git_dir }}" init
   args:
     creates: "{{ git_dir }}"
     chdir: "{{ home }}"
 
-- command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote
+- name: check if remote exists
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote
   register: dotfiles
   changed_when: dotfiles.stdout != "origin"
 
-- name: Add the dotfiles remote url
+- name: add the dotfiles remote url
   command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote add origin "{{ thirdparty }}/dotfiles"
   when: dotfiles.stdout == ""
 
-- command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
+- name: fetch dotfiles
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
   changed_when: dotfiles.stderr != ""
 
-- command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" checkout --force master
+- name: checkout master
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" checkout --force master
   changed_when: dotfiles.stdout != "Your branch is up to date with 'origin/master'."
 
-- command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" branch --set-upstream-to=origin/master master
+- name: set local master to track remote master branch
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" branch --set-upstream-to=origin/master master

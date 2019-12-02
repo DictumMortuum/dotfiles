@@ -24,14 +24,14 @@
   become: true
   become_user: consul
 
-- name: "chsh to zsh for {{ ansible_user_id }}"
+- name: chsh to zsh for {{ ansible_user_id }}
   user:
     user: "{{ ansible_user_id }}"
     shell: /bin/zsh
   become: true
   become_user: root
 
-- name: create "{{ zsh_cache }}"
+- name: create {{ zsh_cache }}
   file: dest="{{ zsh_cache }}" state=directory
 
 - name: create async.zsh link

@@ -1,0 +1,7 @@
+- name: clone notes
+  git:
+    repo: git@gitlab.com:DictumMortuum/notes.git
+    dest: "{{ ansible_env.HOME }}/Notes"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"

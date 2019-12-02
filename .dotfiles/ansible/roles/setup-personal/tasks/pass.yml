@@ -1,0 +1,11 @@
+- name: install pass
+  pacman: name=pass
+  become_user: root
+
+- name: clone password store
+  git:
+    repo: git@gitlab.com:DictumMortuum/pass.git
+    dest: "{{ ansible_env.HOME }}/.password-store"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"

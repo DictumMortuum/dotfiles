@@ -1,7 +1,8 @@
 - name: create .ssh directory
   file: path="{{ ansible_env.HOME }}/.ssh" state=directory
 
-- copy:
+- name: copy ssh keys for {{ ansible_user_id }}
+  copy:
     src: "~/Sync/Secret/{{ item }}"
     dest: "{{ ansible_env.HOME }}/.ssh/{{ item }}"
     mode: 0600
