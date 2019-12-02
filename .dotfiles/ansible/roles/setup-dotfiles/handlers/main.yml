@@ -1,0 +1,11 @@
+- name: add the dotfiles remote url
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote add origin "{{ thirdparty }}/dotfiles"
+
+- name: fetch dotfiles
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
+
+- name: checkout master
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" checkout --force master
+
+- name: set local master to track remote master branch
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" branch --set-upstream-to=origin/master master

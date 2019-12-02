@@ -3,7 +3,6 @@
       pacman: name=git
     - name: install tcl
       pacman: name=tcl
-  become: yes
   become_user: root
 
 - name: initialize dotfiles for {{ home }}
@@ -14,20 +13,16 @@
 
 - name: check if remote exists
   command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote
-  register: dotfiles
   changed_when: dotfiles.stdout != "origin"
+  notify:
+    - add the dotfiles remote url
+    - fetch dotfiles
+    - checkout master
+    - set local master to track remote master branch
 
-- name: add the dotfiles remote url
-  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote add origin "{{ thirdparty }}/dotfiles"
-  when: dotfiles.stdout == ""
+- name: pull latest dotfiles
+  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" pull
+  register: dotfiles
 
-- name: fetch dotfiles
-  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" fetch
-  changed_when: dotfiles.stderr != ""
-
-- name: checkout master
-  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" checkout --force master
-  changed_when: dotfiles.stdout != "Your branch is up to date with 'origin/master'."
-
-- name: set local master to track remote master branch
-  command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" branch --set-upstream-to=origin/master master
+- debug:
+    msg: dotfiles
