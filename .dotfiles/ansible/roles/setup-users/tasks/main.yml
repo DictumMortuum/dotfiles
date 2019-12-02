@@ -33,11 +33,11 @@
     create: True
     validate: /usr/sbin/visudo -cf %s
 
-- name: make the deploy user a sudoer
+- name: make consul a sudoer
   lineinfile:
-    path: /etc/sudoers.d/deploy
+    path: /etc/sudoers.d/consul
     state: present
-    line: 'deploy ALL=(ALL) NOPASSWD: ALL'
+    line: 'consul ALL=(ALL) NOPASSWD: ALL'
     create: True
     validate: /usr/sbin/visudo -cf %s
 

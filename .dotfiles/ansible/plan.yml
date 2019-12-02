@@ -1,8 +1,5 @@
 - hosts: all
   become: yes
-  tasks:
-    - name: update pacman cache
-      pacman: update_cache=yes
   roles:
     - setup-users
 
@@ -16,6 +13,7 @@
   become: yes
   become_user: dimitris
   roles:
+    - setup-ssh
     - setup-dotfiles
 
 - hosts: all

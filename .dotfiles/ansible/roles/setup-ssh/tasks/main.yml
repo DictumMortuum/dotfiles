@@ -1,0 +1,10 @@
+- name: create .ssh directory
+  file: path="{{ ansible_env.HOME }}/.ssh" state=directory
+
+- copy:
+    src: "~/Sync/Secret/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/{{ item }}"
+    mode: 0600
+  loop:
+    - id_rsa.pub
+    - id_rsa
