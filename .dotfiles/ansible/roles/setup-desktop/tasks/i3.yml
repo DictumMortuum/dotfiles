@@ -18,6 +18,12 @@
 - pacman: name=fontconfig
   become_user: root
 
+- pacman: name=libxft
+  become_user: root
+
+- pacman: name=libxinerama
+  become_user: root
+
 - git:
     repo: git://git.suckless.org/dmenu
     dest: "{{ thirdparty }}/dmenu"
