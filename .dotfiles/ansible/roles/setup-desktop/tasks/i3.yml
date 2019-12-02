@@ -11,6 +11,7 @@
     repo: https://github.com/DictumMortuum/i3-utils.git
     dest: "{{ thirdparty }}/i3-utils"
     update: yes
+  become_user: consul
 
 - pacman: name=pkgconfig
   become_user: root
@@ -28,16 +29,19 @@
     repo: git://git.suckless.org/dmenu
     dest: "{{ thirdparty }}/dmenu"
     update: yes
+  become_user: consul
 
 - git:
     repo: https://github.com/DictumMortuum/st.git
     dest: "{{ thirdparty }}/st"
     update: yes
+  become_user: consul
 
 - git:
     repo: https://github.com/DictumMortuum/permutations.git
     dest: "{{ thirdparty }}/permutations"
     update: yes
+  become_user: consul
 
 - make:
     chdir: "{{ thirdparty }}/{{ item }}"
