@@ -1,6 +1,7 @@
 - name: install git
   pacman: name=git
   become: yes
+  become_user: root
 
 - name: create .ssh directory
   file: path="{{ ansible_env.HOME }}/.ssh" state=directory
@@ -14,8 +15,9 @@
     - id_rsa
 
 - name: create domus directory
-  become: yes
   file: name="{{ thirdparty }}" group=domus mode='0775' state=directory
+  become: yes
+  become_user: root
 
 - name: clone dotfiles
   git:
