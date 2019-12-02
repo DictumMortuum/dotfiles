@@ -1,0 +1,24 @@
+- name: create .ssh directory
+  file: path="{{ ansible_env.HOME }}/.ssh" state=directory
+
+- copy:
+    src: "~/Sync/Secret/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/{{ item }}"
+    mode: 0600
+  loop:
+    - id_rsa.pub
+    - id_rsa
+
+- git:
+    repo: git@gitlab.com:DictumMortuum/notes.git
+    dest: "{{ ansible_env.HOME }}/Notes"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+
+- git:
+    repo: git@gitlab.com:DictumMortuum/pass.git
+    dest: "{{ ansible_env.HOME }}/.password-store"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"

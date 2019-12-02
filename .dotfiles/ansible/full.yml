@@ -6,20 +6,6 @@
 - name: Install dotfiles
   hosts: all
   tasks:
-  - name: clone repositories
-    git:
-      repo: "{{ item.repo }}"
-      dest: "{{ item.dest }}"
-      update: yes
-    loop: "{{ git_repositories }}"
-
-  - name: symlink to zsh fpath
-    file:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-      state: link
-    loop: "{{ zsh_links }}"
-
   - name: copy files
     copy:
       src: "{{ item.src }}"
@@ -39,16 +25,6 @@
       chdir: "{{ item }}"
       target: install
     loop: "{{ make_targets }}"
-
-  - name: vim - install vundle plugins
-    shell: vim -E -s -c "source {{ ansible_env.HOME }}/.vimrc" -c PluginInstall -c qa
-
-  - name: install python modules
-    pip:
-      name: "{{ item }}"
-      executable: pip3
-      extra_args: --user
-    loop: "{{ python_modules }}"
 
 - name: Install applications
   hosts: all
