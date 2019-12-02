@@ -5,6 +5,8 @@
       pacman: name=fakeroot
     - name: install binutils
       pacman: name=binutils
+    - name: install awk
+      pacman: name=awk
   become: yes
   become_user: root
 
