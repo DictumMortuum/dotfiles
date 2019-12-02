@@ -68,12 +68,10 @@
     uid: 1956
     create_home: True
     comment: "Manolis Raviolos,,,"
+  register: manolis
 
 - shell: passwd -d manolis
-  register: passwd
-
-- debug:
-    msg: "{{ passwd }}"
+  when: manolis.changed
 
 - user:
     name: fofi
@@ -83,8 +81,10 @@
     uid: 1960
     create_home: True
     comment: "Fofi Klironomou,,,"
+  register: fofi
 
 - shell: passwd -d fofi
+  when: fofi.changed
 
 - user:
     name: theoni
