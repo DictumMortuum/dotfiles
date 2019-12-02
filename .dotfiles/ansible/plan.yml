@@ -15,6 +15,7 @@
   roles:
     - setup-personal
     - setup-dotfiles
+    - setup-desktop
 
 - hosts: all
   become: yes
