@@ -1,0 +1,21 @@
+- name: checkout release
+  git:
+    repo: git@github.com:DictumMortuum/release.git
+    dest: "{{ thirdparty }}/assets"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+  become_user: dimitris
+
+- name: create /usr/share/themes
+  file:
+    dest: "/usr/share/themes"
+    state: directory
+  become_user: root
+
+- name: untar theme
+  unarchive:
+    src: "{{ thirdparty }}/assets/oomox-nord.tar.gz"
+    dest: "/usr/share/themes"
+    remote_src: yes
+  become_user: root

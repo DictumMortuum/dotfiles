@@ -1,0 +1,37 @@
+- pacman: name=i3-gaps
+
+- pacman: name=gcc
+
+- aur:
+    name: xkb-switch
+    skip_installed: true
+
+- git:
+    repo: https://github.com/DictumMortuum/i3-utils.git
+    dest: "{{ thirdparty }}/i3-utils"
+    update: yes
+
+- git:
+    repo: git://git.suckless.org/dmenu
+    dest: "{{ thirdparty }}/dmenu"
+    update: yes
+
+- git:
+    repo: https://github.com/DictumMortuum/st.git
+    dest: "{{ thirdparty }}/st"
+    update: yes
+
+- git:
+    repo: https://github.com/DictumMortuum/permutations.git
+    dest: "{{ thirdparty }}/permutations"
+    update: yes
+
+- make:
+    chdir: "{{ thirdparty }}/{{ item }}"
+    target: install
+  loop:
+    - i3-utils
+    - dmenu
+    - st
+    - permutations
+  become: true
