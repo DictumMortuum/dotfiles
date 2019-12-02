@@ -13,6 +13,7 @@
 
 - name: check if remote exists
   command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" remote
+  register: dotfiles
   changed_when: dotfiles.stdout != "origin"
   notify:
     - add the dotfiles remote url
