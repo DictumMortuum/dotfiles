@@ -1,6 +1,7 @@
-- pacman: name=i3-gaps
+#- pacman: name=i3-gaps
 
 - pacman: name=gcc
+  become_user: root
 
 - aur:
     name: xkb-switch
@@ -34,4 +35,4 @@
     - dmenu
     - st
     - permutations
-  become: true
+  become_user: root
