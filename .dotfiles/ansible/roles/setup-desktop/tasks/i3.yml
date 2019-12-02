@@ -7,13 +7,16 @@
     name: xkb-switch
     skip_installed: true
 
-- pacman: name=pkgconfig
-  become_user: root
-
 - git:
     repo: https://github.com/DictumMortuum/i3-utils.git
     dest: "{{ thirdparty }}/i3-utils"
     update: yes
+
+- pacman: name=pkgconfig
+  become_user: root
+
+- pacman: name=fontconfig
+  become_user: root
 
 - git:
     repo: git://git.suckless.org/dmenu
