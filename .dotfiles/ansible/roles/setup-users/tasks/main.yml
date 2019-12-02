@@ -70,6 +70,10 @@
     comment: "Manolis Raviolos,,,"
 
 - shell: passwd -d manolis
+  register: passwd
+
+- debug:
+    msg: "{{ passwd }}"
 
 - user:
     name: fofi
