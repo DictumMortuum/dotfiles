@@ -7,6 +7,10 @@
       pacman: name=binutils
     - name: install awk
       pacman: name=awk
+    - name: install file
+      pacman: name=file
+    - name: install patch
+      pacman: name=patch
   become: yes
   become_user: root
 
