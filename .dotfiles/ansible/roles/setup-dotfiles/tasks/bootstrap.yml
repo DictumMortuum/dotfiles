@@ -21,6 +21,8 @@
     - checkout master
     - set local master to track remote master branch
 
+- meta: flush_handlers
+
 - name: pull latest dotfiles
   command: git --git-dir="{{ git_dir }}" --work-tree="{{ home }}" pull
   register: dotfiles
