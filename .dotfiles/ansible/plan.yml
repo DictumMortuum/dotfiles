@@ -8,9 +8,14 @@
 
 - hosts: all
   become: yes
-  become_user: dimitris
+  become_user: consul
   roles:
     - setup-thirdparty
+
+- hosts: all
+  become: yes
+  become_user: dimitris
+  roles:
     - setup-dotfiles
 
 - hosts: all

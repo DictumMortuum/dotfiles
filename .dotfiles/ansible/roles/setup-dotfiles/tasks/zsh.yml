@@ -3,23 +3,26 @@
   become: true
   become_user: root
 
-- name: clone pure
-  git:
-    repo: https://github.com/sindresorhus/pure.git
-    dest: "{{ thirdparty }}/pure"
-    update: yes
+- block:
+  - name: clone pure
+    git:
+      repo: https://github.com/sindresorhus/pure.git
+      dest: "{{ thirdparty }}/pure"
+      update: yes
 
-- name: clone zsh-async
-  git:
-    repo: https://github.com/mafredri/zsh-async.git
-    dest: "{{ thirdparty }}/zsh-async"
-    update: yes
+  - name: clone zsh-async
+    git:
+      repo: https://github.com/mafredri/zsh-async.git
+      dest: "{{ thirdparty }}/zsh-async"
+      update: yes
 
-- name: clone zsh-syntax-highlighting
-  git:
-    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: "{{ thirdparty }}/zsh-syntax-highlighting"
-    update: yes
+  - name: clone zsh-syntax-highlighting
+    git:
+      repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+      dest: "{{ thirdparty }}/zsh-syntax-highlighting"
+      update: yes
+  become: true
+  become_user: consul
 
 - name: "chsh to zsh for {{ ansible_user_id }}"
   user:

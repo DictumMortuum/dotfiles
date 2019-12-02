@@ -33,6 +33,19 @@
     create: True
     validate: /usr/sbin/visudo -cf %s
 
+- name: make the deploy user a sudoer
+  lineinfile:
+    path: /etc/sudoers.d/deploy
+    state: present
+    line: 'deploy ALL=(ALL) NOPASSWD: ALL'
+    create: True
+    validate: /usr/sbin/visudo -cf %s
+
+- user:
+    name: consul
+    group: domus
+    uid: 161
+
 - user:
     name: dimitris
     group: dimitris
