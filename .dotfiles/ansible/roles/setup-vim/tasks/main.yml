@@ -1,5 +1,0 @@
-- name: install vundle
-  aur: name=vundle-git skip_installed=true
-
-- name: vim - install vundle plugins
-  shell: vim -E -s -c "source {{ ansible_env.HOME }}/.vimrc" -c PluginInstall -c qa

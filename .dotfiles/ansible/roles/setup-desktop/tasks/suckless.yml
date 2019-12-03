@@ -24,7 +24,9 @@
     dest: "{{ thirdparty }}/dmenu"
     update: yes
   become_user: consul
-  notify: make dmenu
+  notify:
+    - copy dmenu config
+    - make dmenu
 
 - name: fetch st
   git:

@@ -24,3 +24,39 @@
     update: yes
   become_user: consul
   notify: make permutations
+
+- name: install arandr
+  pacman: name=arandr
+  become_user: root
+
+- name: install i3lock
+  pacman: name=i3lock
+  become_user: root
+
+- name: install i3blocks
+  pacman: name=i3blocks
+  become_user: root
+
+- name: install compton
+  pacman: name=picom
+  become_user: root
+
+- name: install thunar
+  pacman: name=thunar
+  become_user: root
+
+- name: install pavucontrol
+  pacman: name=pavucontrol
+  become_user: root
+
+- name: install xclip
+  pacman: name=xclip
+  become_user: root
+
+- name: install xdotool
+  pacman: name=xdotool
+  become_user: root
+
+- name: install dunst
+  pacman: name=dunst
+  become_user: root

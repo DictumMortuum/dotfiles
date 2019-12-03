@@ -1,0 +1,10 @@
+- name: install fontconfig
+  pacman: name=fontconfig
+  become_user: root
+
+- name: install roboto fonts
+  pacman: name=ttf-roboto
+  become_user: root
+
+- name: install nerd fonts
+  aur: name=nerd-fonts-complete skip_installed=true

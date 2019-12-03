@@ -15,10 +15,3 @@
     name: "sync notes repo"
     minute: "0,20,40"
     job: "{{ ansible_env.HOME }}/.local/bin/dotctl.sh sync-repo {{ ansible_env.HOME }}/Notes"
-
-# pacman notable
-
-- name: generate notable dotfile
-  template:
-    src: notable.json.j2
-    dest: "{{ ansible_env.HOME }}/.notable.json"

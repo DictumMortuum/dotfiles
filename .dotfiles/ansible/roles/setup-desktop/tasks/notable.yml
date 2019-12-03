@@ -1,0 +1,7 @@
+- name: install notable
+  aur: name=notable-bin skip_installed=true
+
+- name: generate notable dotfile
+  template:
+    src: notable.json.j2
+    dest: "{{ ansible_env.HOME }}/.notable.json"

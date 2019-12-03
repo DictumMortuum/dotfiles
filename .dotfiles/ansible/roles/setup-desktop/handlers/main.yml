@@ -4,6 +4,11 @@
     target: install
   become_user: root
 
+- name: copy dmenu config
+  template:
+    src: config.h.j2
+    dest: "{{ thirdparty }}/dmenu/config.h"
+
 - name: make dmenu
   make:
     chdir: "{{ thirdparty }}/dmenu"
