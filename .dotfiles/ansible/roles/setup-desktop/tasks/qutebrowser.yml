@@ -5,6 +5,10 @@
 - name: create {{ ansible_env.HOME }}/.local/share/qutebrowser/pdfjs
   file: dest="{{ ansible_env.HOME }}/.local/share/qutebrowser/pdfjs" state=directory
 
+- name: install unzip
+  pacman: name=unzip
+  become_user: root
+
 - name: unzip pdfjs for qutebrowser
   unarchive:
     src: "{{ thirdparty }}/assets/pdfjs-2.1.266-dist.zip"
