@@ -1,16 +1,25 @@
-- block:
-    - name: install go
-      pacman: name=go
-    - name: install fakeroot
-      pacman: name=fakeroot
-    - name: install binutils
-      pacman: name=binutils
-    - name: install awk
-      pacman: name=awk
-    - name: install file
-      pacman: name=file
-    - name: install patch
-      pacman: name=patch
+- name: install go
+  pacman: name=go
+  become_user: root
+
+- name: install fakeroot
+  pacman: name=fakeroot
+  become_user: root
+
+- name: install binutils
+  pacman: name=binutils
+  become_user: root
+
+- name: install awk
+  pacman: name=awk
+  become_user: root
+
+- name: install file
+  pacman: name=file
+  become_user: root
+
+- name: install patch
+  pacman: name=patch
   become_user: root
 
 - name: install fzf

@@ -21,3 +21,11 @@
     chdir: "{{ thirdparty }}/st"
     target: install
   become_user: root
+
+#- name: enable greenclip service
+#  systemd:
+#    name: greenclip
+#    enabled: yes
+#    masked: no
+#    scope: user
+#    state: started

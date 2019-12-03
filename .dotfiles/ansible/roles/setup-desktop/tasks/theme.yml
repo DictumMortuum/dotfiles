@@ -1,4 +1,4 @@
-- name: checkout release
+- name: fetch release
   git:
     repo: git@github.com:DictumMortuum/release.git
     dest: "{{ thirdparty }}/assets"

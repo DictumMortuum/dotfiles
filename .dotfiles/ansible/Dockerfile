@@ -8,6 +8,8 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 RUN ssh-keygen -A
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+RUN pacman -Sy --noconfirm
+RUN pacman -S --noconfirm python
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]

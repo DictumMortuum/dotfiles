@@ -1,2 +1,4 @@
 - include: i3.yml
+- include: suckless.yml
+- include: greenclip.yml
 - include: theme.yml

@@ -1,46 +1,24 @@
-#- pacman: name=i3-gaps
-
-- pacman: name=gcc
+- name: install i3-gaps
+  pacman: name=i3-gaps
   become_user: root
 
-- aur:
-    name: xkb-switch
-    skip_installed: true
+- name: install gcc
+  pacman: name=gcc
+  become_user: root
 
-- git:
+- name: install xkb-switch
+  aur: name=xkb-switch skip_installed=true
+
+- name: fetch i3-utils
+  git:
     repo: https://github.com/DictumMortuum/i3-utils.git
     dest: "{{ thirdparty }}/i3-utils"
     update: yes
   become_user: consul
   notify: make i3-utils
 
-- pacman: name=pkgconfig
-  become_user: root
-
-- pacman: name=fontconfig
-  become_user: root
-
-- pacman: name=libxft
-  become_user: root
-
-- pacman: name=libxinerama
-  become_user: root
-
-- git:
-    repo: git://git.suckless.org/dmenu
-    dest: "{{ thirdparty }}/dmenu"
-    update: yes
-  become_user: consul
-  notify: make dmenu
-
-- git:
-    repo: https://github.com/DictumMortuum/st.git
-    dest: "{{ thirdparty }}/st"
-    update: yes
-  become_user: consul
-  notify: make st
-
-- git:
+- name: fetch permutations
+  git:
     repo: https://github.com/DictumMortuum/permutations.git
     dest: "{{ thirdparty }}/permutations"
     update: yes

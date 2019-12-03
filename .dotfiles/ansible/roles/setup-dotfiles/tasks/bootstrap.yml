@@ -1,8 +1,9 @@
-- block:
-    - name: install git
-      pacman: name=git
-    - name: install tcl
-      pacman: name=tcl
+- name: install git
+  pacman: name=git
+  become_user: root
+
+- name: install tcl
+  pacman: name=tcl
   become_user: root
 
 - name: initialize dotfiles for {{ home }}

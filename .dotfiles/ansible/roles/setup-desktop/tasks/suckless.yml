@@ -1,0 +1,35 @@
+- name: install gcc
+  pacman: name=gcc
+  become_user: root
+
+- name: install pkgconfig
+  pacman: name=pkgconfig
+  become_user: root
+
+- name: install fontconfig
+  pacman: name=fontconfig
+  become_user: root
+
+- name: install libxft
+  pacman: name=libxft
+  become_user: root
+
+- name: install libxinerama
+  pacman: name=libxinerama
+  become_user: root
+
+- name: fetch dmenu
+  git:
+    repo: git://git.suckless.org/dmenu
+    dest: "{{ thirdparty }}/dmenu"
+    update: yes
+  become_user: consul
+  notify: make dmenu
+
+- name: fetch st
+  git:
+    repo: https://github.com/DictumMortuum/st.git
+    dest: "{{ thirdparty }}/st"
+    update: yes
+  become_user: consul
+  notify: make st
