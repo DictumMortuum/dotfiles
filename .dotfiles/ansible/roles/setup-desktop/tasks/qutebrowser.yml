@@ -27,3 +27,4 @@
     src: "{{ thirdparty }}/nord-qutebrowser/nord-qutebrowser.py"
     dest: "{{ ansible_env.HOME }}/.config/qutebrowser/nord-qutebrowser.py"
     mode: "0644"
+    remote_src: yes
