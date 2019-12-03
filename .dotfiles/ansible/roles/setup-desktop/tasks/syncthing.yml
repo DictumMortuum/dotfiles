@@ -2,10 +2,10 @@
   pacman: name=syncthing
   become_user: root
 
-- name: enable syncthing service
-  systemd:
-    name: syncthing
-    enabled: yes
-    masked: no
-    scope: user
-    state: started
+#- name: enable syncthing service
+#  systemd:
+#    name: syncthing
+#    enabled: yes
+#    masked: no
+#    scope: user
+#    state: started
