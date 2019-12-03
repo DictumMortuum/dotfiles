@@ -2,6 +2,9 @@
   pacman: name=qutebrowser
   become_user: root
 
+- name: create "{{ ansible_env.HOME }}/.local/share/qutebrowser
+  file: dest="{{ ansible_env.HOME }}/.local/share/qutebrowser state=directory
+
 - name: unzip pdfjs for qutebrowser
   unarchive:
     src: "{{ thirdparty }}/assets/pdfjs-2.1.266-dist.zip"
