@@ -18,3 +18,5 @@
 - name: install openvpn
   pacman: name=openvpn
   become_user: root
+
+- include: vim.yml

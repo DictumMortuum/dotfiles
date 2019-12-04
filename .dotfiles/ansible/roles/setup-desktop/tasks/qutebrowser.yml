@@ -2,6 +2,15 @@
   pacman: name=qutebrowser
   become_user: root
 
+- name: fetch release
+  git:
+    repo: git@github.com:DictumMortuum/release.git
+    dest: "{{ thirdparty }}/assets"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+  become_user: dimitris
+
 - name: create {{ ansible_env.HOME }}/.local/share/qutebrowser/pdfjs
   file: dest="{{ ansible_env.HOME }}/.local/share/qutebrowser/pdfjs" state=directory
 

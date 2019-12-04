@@ -8,6 +8,7 @@
   template:
     src: config.h.j2
     dest: "{{ thirdparty }}/dmenu/config.h"
+  become_user: consul
 
 - name: make dmenu
   make:

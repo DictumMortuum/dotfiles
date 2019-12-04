@@ -2,9 +2,9 @@
   pacman: name=gcc
   become_user: root
 
-- name: install pkgconfig
-  pacman: name=pkgconfig
-  become_user: root
+#- name: install pkgconfig
+#  pacman: name=pkgconfig
+#  become_user: root
 
 - name: install fontconfig
   pacman: name=fontconfig

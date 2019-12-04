@@ -10,9 +10,9 @@
   pacman: name=binutils
   become_user: root
 
-- name: install awk
-  pacman: name=awk
-  become_user: root
+#- name: install awk
+#  pacman: name=awk state=latest
+#  become_user: root
 
 - name: install file
   pacman: name=file
