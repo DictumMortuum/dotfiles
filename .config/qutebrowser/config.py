@@ -7,6 +7,8 @@ c.tabs.padding = {"top": 5, "bottom": 5, "left": 0, "right": 0}
 c.fonts.monospace = 'Hack'
 c.fonts.tabs = '10pt monospace'
 c.editor.command = ['st', '-e', 'vi', '-f', '{file}', '-c', 'normal {line}G{column0}l'];
+c.url.default_page = 'http://127.0.0.1:1234/startpage'
+c.url.start_pages = 'http://127.0.0.1:1234/startpage'
 
 home = str(Path.home())
 
