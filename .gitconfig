@@ -34,6 +34,10 @@
   default = matching
 [diff]
   renames = copies
+  tool = vimdiff
+  guitool = meld
+[difftool]
+  prompt = false
 [rerere]
   enabled = true
 [blame]
