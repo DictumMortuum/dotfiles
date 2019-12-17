@@ -1,0 +1,23 @@
+- name: set document-font to roboto
+  dconf:
+    key: "/org/gnome/desktop/interface/document-font-name"
+    value: "'Roboto 11'"
+    state: present
+
+- name: set font to roboto
+  dconf:
+    key: "/org/gnome/desktop/interface/font-name"
+    value: "'Roboto 11'"
+    state: present
+
+- name: set titlebar-font to roboto
+  dconf:
+    key: "/org/gnome/desktop/wm/preferences/titlebar-font"
+    value: "'Roboto 11'"
+    state: present
+
+- name: set monospace-font to hack
+  dconf:
+    key: "/org/gnome/desktop/interface/monospace-font-name"
+    value: "'Hack 10'"
+    state: present

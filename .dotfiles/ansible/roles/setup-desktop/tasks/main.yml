@@ -1,3 +1,4 @@
+- include: avatars.yml
 - include: fonts.yml
 - include: greenclip.yml
 - include: i3.yml
@@ -5,5 +6,5 @@
 - include: qutebrowser.yml
 - include: suckless.yml
 - include: syncthing.yml
-- include: theme.yml
 - include: vscode.yml
+- include: gnome.yml

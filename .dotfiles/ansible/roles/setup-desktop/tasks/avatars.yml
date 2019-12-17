@@ -1,0 +1,24 @@
+- name: fetch release
+  git:
+    repo: git@github.com:DictumMortuum/release.git
+    dest: "{{ thirdparty }}/assets"
+    update: yes
+    accept_hostkey: yes
+    ssh_opts: "-F /dev/null"
+  become_user: dimitris
+
+- name: create avatars
+  copy:
+    src: "{{ thirdparty }}/assets/icons/{{ item }}"
+    dest: "/home/{{ item }}/.face"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0744'
+    remote_src: yes
+  become_user: root
+  loop:
+    - dimitris
+    - fofi
+    - manolis
+    - petrina
+    - theoni

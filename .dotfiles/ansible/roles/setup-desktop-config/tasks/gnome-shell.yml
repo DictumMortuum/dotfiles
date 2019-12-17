@@ -1,0 +1,35 @@
+- name: enable dash to dock
+  dconf:
+    key: "/org/gnome/shell/enabled-extensions"
+    value: "['dash-to-dock@micxgx.gmail.com']"
+    state: present
+
+- name: enable custom-theme-shrink on dock
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/custom-theme-shrink"
+    value: "true"
+    state: present
+
+- name: enable dock-fixed on dock
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dock-fixed"
+    value: "true"
+    state: present
+
+- name: set dock-position on dock to BOTTOM
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dock-position"
+    value: "'BOTTOM'"
+    state: present
+
+- name: extend dock
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/extend-height"
+    value: "true"
+    state: present
+
+- name: set favorite apps
+  dconf:
+    key: "/org/gnome/shell/favorite-apps"
+    value: "['org.gnome.Nautilus.desktop', 'firefox.desktop']"
+    state: present

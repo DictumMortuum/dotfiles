@@ -16,27 +16,32 @@
     - setup-personal
     - setup-dotfiles
     - setup-desktop
+    - setup-desktop-config
 
 - hosts: all
   become: yes
   become_user: fofi
   roles:
     - setup-dotfiles
+    - setup-desktop-config
 
 - hosts: all
   become: yes
   become_user: manolis
   roles:
     - setup-dotfiles
+    - setup-desktop-config
 
 - hosts: all
   become: yes
   become_user: theoni
   roles:
     - setup-dotfiles
+    - setup-desktop-config
 
 - hosts: all
   become: yes
   become_user: petrina
   roles:
     - setup-dotfiles
+    - setup-desktop-config

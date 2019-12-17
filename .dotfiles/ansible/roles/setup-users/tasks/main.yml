@@ -4,6 +4,9 @@
 - name: create arcanum group
   group: name=arcanum gid=16180 state=present
 
+- name: create nonsignum group
+  group: name=nonsignum gid=27182 state=present
+
 - name: create dimitris group
   group: name=dimitris gid=1986 state=present
 
@@ -74,25 +77,25 @@
   user:
     name: manolis
     group: manolis
-    groups: domus
+    groups: domus,nonsignum
     append: yes
     uid: 1956
     create_home: True
     comment: "Manolis Raviolos,,,"
-  notify:
-    - empty manolis password
+    password: "{{ 'default' | password_hash('sha512') }}"
+    update_password: on_create
 
 - name: create fofi
   user:
     name: fofi
     group: fofi
-    groups: domus
+    groups: domus,nonsignum
     append: yes
     uid: 1960
     create_home: True
     comment: "Fofi Klironomou,,,"
-  notify:
-    - empty fofi password
+    password: "{{ 'default' | password_hash('sha512') }}"
+    update_password: on_create
 
 - name: create theoni
   user:

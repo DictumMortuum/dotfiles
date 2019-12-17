@@ -2,10 +2,10 @@
   pacman: name=code
   become_user: root
 
-- name: install vscode extensions
-  shell: code --install-extension "{{ item }}"
-  loop:
-    - arcticicestudio.nord-visual-studio-code
-    - shaunlebron.vscode-parinfer
-    - sleutho.tcl
-    - EditorConfig.EditorConfig
+#- name: install vscode extensions
+#  shell: code --install-extension "{{ item }}"
+#  loop:
+#    - arcticicestudio.nord-visual-studio-code
+#    - shaunlebron.vscode-parinfer
+#    - sleutho.tcl
+#    - EditorConfig.EditorConfig

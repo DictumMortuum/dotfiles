@@ -1,0 +1,35 @@
+- name: set picture-options
+  dconf:
+    key: "/org/gnome/desktop/{{ item }}/picture-options"
+    value: "'zoom'"
+    state: present
+  loop:
+    - background
+    - screensaver
+
+- name: set picture-uri
+  dconf:
+    key: "/org/gnome/desktop/{{ item }}/picture-uri"
+    value: "'file:///usr/share/backgrounds/gnome/Stripes.jpg'"
+    state: present
+  loop:
+    - background
+    - screensaver
+
+- name: set primary-color
+  dconf:
+    key: "/org/gnome/desktop/background/primary-color"
+    value: "'#ffffff'"
+    state: present
+  loop:
+    - background
+    - screensaver
+
+- name: set secondary-color
+  dconf:
+    key: "/org/gnome/desktop/{{ item }}/secondary-color"
+    value: "'#000000'"
+    state: present
+  loop:
+    - background
+    - screensaver

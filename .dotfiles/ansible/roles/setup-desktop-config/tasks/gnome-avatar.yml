@@ -1,0 +1,13 @@
+- name: copy {{ ansible_user_id }} avatar into gdm
+  copy:
+    src: "/home/{{ ansible_user_id }}/.face"
+    dest: "/var/lib/AccountsService/icons/{{ ansible_user_id }}"
+    remote_src: yes
+  become_user: root
+
+- name: set profile picture for {{ ansible_user_id }} in gdm
+  lineinfile:
+    path: "/var/lib/AccountsService/users/{{ ansible_user_id }}"
+    regexp: "^Icon="
+    line: 'Icon=/var/lib/AccountsService/icons/{{ ansible_user_id }}'
+  become_user: root
