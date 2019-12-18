@@ -10,6 +10,7 @@
 !.xprofile
 !.profile
 !.tmux.conf
+!.ansible.cfg
 
 # Top-level repo directories
 !.dotfiles

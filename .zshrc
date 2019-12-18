@@ -47,7 +47,6 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-# https://news.ycombinator.com/item?id=11070797
 alias dot="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 alias today='date +%F'
 alias unixtime='date +%s%3N'
@@ -58,7 +57,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias vi='vim'
 alias tempfox='firefox --new-instance --profile $(mktemp -d)'
 alias branch='echo ${LOGNAME}-$(unixtime)'
-alias system-update='ANSIBLE_CONFIG=~/.dotfiles/ansible/ansible.cfg ansible-playbook ~/.dotfiles/ansible/full.yml'
+alias system-update='ansible-playbook -i localhost, --connection=local full.yml --ask-become-pass --ask-pass'
 alias http_status='noglob curl -s -o /dev/null -w "%{http_code}"'
 alias curl_times='noglob curl -s -o /dev/null -w "namelookup: %{time_namelookup}\nconnect: %{time_connect} \nappconnect: %{time_appconnect} \npretransfer: %{time_pretransfer} \nredirect: %{time_redirect} \nstarttransfer: %{time_starttransfer} \ntotal: %{time_total}"'
 alias ls=' ls --color=tty'
