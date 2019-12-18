@@ -12,9 +12,6 @@
 !.tmux.conf
 !.ansible.cfg
 
-# Top-level repo directories
-!.dotfiles
-
 # [git]
 !.gitignore
 !.gitconfig
@@ -38,6 +35,7 @@
 !.config/rofi
 !.config/compton.conf
 !.config/dunst
+!.config/githooks
 !.config/greenclip.cfg
 !.config/qutebrowser
 .config/qutebrowser/*
