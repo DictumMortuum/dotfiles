@@ -57,7 +57,7 @@
   implicitIdentity = false
   detachedHead = false
 [init]
-  templatedir = ~/.dotfiles/githooks/
+  templatedir = ~/.config/githooks/
 [hooks]
   user = github DictumMortuum theio.vrefos@gmail.com
   user = gitlab DictumMortuum theio.vrefos@gmail.com
