@@ -14,7 +14,7 @@ set $ctl $HOME/.local/bin/dotctl.sh
 
 set_from_resource $background i3wm.background
 set_from_resource $secondary  i3wm.secondary
-set_from_resource $text       i3wm.text
+set_from_resource $text       i3wm.color7
 set_from_resource $selection  i3wm.color1
 set_from_resource $lightbg    i3wm.color0
 
