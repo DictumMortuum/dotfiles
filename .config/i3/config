@@ -40,7 +40,7 @@ workspace $ws9 output $secondary primary
 bindsym $mod+a            exec thunar
 bindsym $mod+c            exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
 bindsym $mod+d            exec rofi -show drun
-bindsym $mod+p            exec $HOME/.local/bin/passmenu
+bindsym $mod+p            exec $HOME/.local/bin/passmenu --type
 bindsym $mod+Shift+Return exec st -e zsh
 bindsym $mod+Return       exec st -e tmux
 bindsym $mod+m            exec --no-startup-id $ctl layout
