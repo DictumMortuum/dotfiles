@@ -90,7 +90,6 @@ bindsym $mod+Shift+8     move container to workspace $ws8
 bindsym $mod+Shift+9     move container to workspace $ws9
 bindsym $mod+Shift+0     move container to workspace $wsA
 
-bindsym --release $mod+Shift+d exec --no-startup-id xdotool type --clearmodifiers -- "$(date +%F)"
 bindsym --release $mod+Print   exec scrot -s
 
 set $mode_resize Use arrow buttons to resize window
