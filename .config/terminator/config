@@ -6,7 +6,7 @@
   handle_size = 0
   inactive_color_offset = 1.0
   suppress_multiple_term_dialog = True
-  title_font = Hack 13
+  title_font = monospace 13
   title_inactive_bg_color = "#4C566A"
   title_inactive_fg_color = "#D8DEE9"
   title_receive_bg_color = "#8FBCBB"
@@ -34,7 +34,7 @@
     background_darkness = 1.0
     copy_on_selection = True
     cursor_color = "#D8DEE9"
-    font = Hack 13
+    font = monospace 13
     foreground_color = "#d8dee9"
     palette = "#3b4252:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#e5e9f0:#4c566a:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#8fbcbb:#eceff4"
     scrollback_infinite = True
