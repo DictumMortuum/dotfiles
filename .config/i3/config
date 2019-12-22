@@ -144,7 +144,7 @@ mode "$mode_work" {
 exec_always --no-startup-id hsetroot -solid "$lightbg"
 exec_always --no-startup-id start-pulseaudio-x11
 exec_always --no-startup-id compton
-exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec_always --no-startup-id dunst
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
 
 bar {
