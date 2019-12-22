@@ -42,11 +42,6 @@
 !.config/qutebrowser/config.py
 !.config/qutebrowser/quickmarks
 
-# [gpg]
-!.gnupg
-.gnupg/*
-!.gnupg/gpg.conf
-
 !.local
 .local/*
 !.local/bin
