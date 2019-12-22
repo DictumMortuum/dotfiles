@@ -1,27 +1,4 @@
-# Ignore all files
 /*
-
-# Top-level repo files
-!.vimrc
-!.zshrc
-!.bashrc
-!.editorconfig
-!.Xresources
-!.xprofile
-!.profile
-!.tmux.conf
-!.ansible.cfg
-
-# [git]
-!.gitignore
-!.gitconfig
-
-# [ssh]
-!.ssh
-.ssh/*
-!.ssh/config
-
-# [config]
 !.config
 .config/*
 !.config/Code
@@ -29,21 +6,35 @@
 !.config/Code/User
 .config/Code/User/*
 !.config/Code/User/settings.json
-!.config/i3
-!.config/i3blocks
-!.config/terminator
-!.config/rofi
-!.config/compton.conf
 !.config/dunst
 !.config/githooks
-!.config/greenclip.cfg
+!.config/i3
+!.config/i3blocks
 !.config/qutebrowser
 .config/qutebrowser/*
 !.config/qutebrowser/config.py
 !.config/qutebrowser/quickmarks
-
+!.config/rofi
+!.config/terminator
+!.config/compton.conf
+!.config/greenclip.cfg
 !.local
 .local/*
 !.local/bin
 .local/bin/*
 !.local/bin/dotctl.sh
+!.ssh
+.ssh/*
+!.ssh/config
+!.ansible.cfg
+!.bashrc
+!.editorconfig
+!.gitconfig
+!.gitignore
+!.profile
+!.tmux.conf
+!.vimrc
+!.xprofile
+!.Xresources
+!.zshrc
+LICENSE
