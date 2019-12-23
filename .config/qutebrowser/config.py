@@ -4,6 +4,7 @@ from pathlib import Path
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 c.content.pdfjs = True
 c.tabs.padding = {"top": 8, "bottom": 8, "left": 5, "right": 5}
+c.tabs.title.format = '{current_title}'
 c.fonts.tabs = '10pt monospace'
 c.editor.command = ['st', '-e', 'vi', '-f', '{file}', '-c', 'normal {line}G{column0}l'];
 c.url.default_page = 'http://127.0.0.1:1234/startpage'
