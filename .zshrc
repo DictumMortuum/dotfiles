@@ -110,4 +110,4 @@ bindkey "${terminfo[kend]}" end-of-line
 promptinit
 prompt pure
 
-source ~/.thirdparty/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source /opt/domus/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
