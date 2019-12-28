@@ -30,7 +30,7 @@ interval=once
 
 [external]
 label=E:
-command=dig +short myip.opendns.com @resolver1.opendns.com
+command=dig -4 +short myip.opendns.com @resolver1.opendns.com
 interval=once
 
 [time]
