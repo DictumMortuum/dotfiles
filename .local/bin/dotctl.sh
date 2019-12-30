@@ -136,6 +136,7 @@ function generate-xrandr() {
   cp /dev/null $LAYOUT_FILE
 
   echo "#!/bin/bash" >> $LAYOUT_FILE
+  echo "xrandr --setprovideroutputsource modesetting NVIDIA-0" >> $LAYOUT_FILE
   echo "xrandr --output $1 --primary --auto" >> $LAYOUT_FILE
 
   while(($# - 1)); do
