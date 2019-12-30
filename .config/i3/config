@@ -92,18 +92,6 @@ bindsym $mod+Shift+0     move container to workspace $wsA
 
 bindsym --release $mod+Print   exec scrot -s
 
-set $mode_resize Use arrow buttons to resize window
-bindsym $mod+r mode "$mode_resize"
-mode "$mode_resize" {
-  bindsym Left   resize grow   width  5 px or 5 ppt
-  bindsym Down   resize shrink height 5 px or 5 ppt
-  bindsym Up     resize grow   height 5 px or 5 ppt
-  bindsym Right  resize shrink width  5 px or 5 ppt
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym $mod+r mode "default"
-}
-
 set $mode_system System [L]ogout, [R]eboot, [S]hutdown, [E]xit, [l]ock
 bindsym $mod+BackSpace mode "$mode_system"
 mode "$mode_system" {
