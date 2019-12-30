@@ -131,22 +131,20 @@ function get-xresources-file() {
 }
 
 function generate-xrandr() {
-  MODE="1920x1080"
   LAYOUT_FILE=$(get-xrandr-file $#)
 
   cp /dev/null $LAYOUT_FILE
 
-  COMMAND="xrandr --output $1 --primary --mode $MODE"
+  echo "#!/bin/bash" >> $LAYOUT_FILE
+  echo "xrandr --output $1 --primary --auto" >> $LAYOUT_FILE
 
   while(($# - 1)); do
-    COMMAND+=" --output $2 --mode $MODE --right-of $1"
+    echo "xrandr --output $2 --auto --right-of $1" >> $LAYOUT_FILE
     shift
   done
 
-  echo "#!/bin/bash" > $LAYOUT_FILE
-  echo $COMMAND >> $LAYOUT_FILE
   chmod +x $LAYOUT_FILE
-  eval $COMMAND
+  $LAYOUT_FILE
 }
 
 function generate-xresources() {
