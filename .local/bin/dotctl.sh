@@ -251,7 +251,7 @@ function qute-tokens() {
 function st-jira() {
   local tmp=$(get-jira | rofi-select)
   [[ -z $tmp ]] && exit 0
-  x-www-browser ${JIRA_URL}/${tmp}
+  xdg-open ${JIRA_URL}/${tmp}
 }
 
 function st-screenedit() {
@@ -264,7 +264,7 @@ function st-screenedit() {
 function st-url() {
   local tmp=$(detect-url)
   [[ -z $tmp ]] && exit 0
-  x-www-browser $tmp
+  xdg-open $tmp
 }
 
 function st-tokens() {
