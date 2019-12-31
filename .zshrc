@@ -90,6 +90,7 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 autoload -U edit-command-line
 autoload -U promptinit
+autoload -U compinit
 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
@@ -107,6 +108,7 @@ bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
+compinit
 promptinit
 prompt pure
 
