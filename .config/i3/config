@@ -140,7 +140,7 @@ bar {
   position top
   tray_output none
   height 28
-  font pango:monospace medium 9
+  font pango:monospace 9
   strip_workspace_numbers yes
   colors {
     background         $background
