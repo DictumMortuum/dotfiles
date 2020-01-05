@@ -16,26 +16,5 @@ signal=10
 [keyboard]
 interval=persist
 
-[battery]
-interval=30
-
-[interface]
-label=C:
-interval=once
-
-[wireless]
-label=W:
-command=~/.config/i3blocks/interface wlp
-interval=once
-
-[external]
-label=E:
-command=dig -4 +short myip.opendns.com @resolver1.opendns.com
-interval=once
-
-[time]
-command=date "+%Y-%m-%d %H:%M:%S"
-interval=1
-
 [host]
 interval=once

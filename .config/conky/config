@@ -1,0 +1,38 @@
+conky.config = {
+own_window = true,
+own_window_type = 'override',
+own_window_transparent = true,
+own_window_hints = 'undecorated,below,skip_taskbar,skip_pager',
+own_window_colour = '#000000',
+xinerama_head = 2,
+alignment = 'bottom_left',
+use_xft = true,
+font = 'monospace',
+draw_shades = false,
+default_color = '#ffffff',
+color1 = '#bf616a',
+background = true,
+use_spacer = 'none',
+double_buffer = true,
+update_interval = 1,
+gap_y = 0,
+};
+
+conky.text = [[
+kernel: $kernel
+machine: $machine
+uptime: $uptime
+CPU: ${cpu cpu0}%
+RAM: ${color1}$mem${color}/$memmax
+swap: ${color1}$swap${color}/$swapmax
+battery: ${battery BAT0}${battery BAT1}
+file system: ${fs_used_perc}%
+temperature: ${hwmon temp 1}°C
+IP: ${execi 300 dig -4 +short myip.opendns.com @resolver1.opendns.com}
+${voffset 2}${hr}${voffset 2}
+${alignr}New York: ${tztime America/New_York %Y-%m-%d %H %z %Z}
+${alignr}London: ${tztime Europe/London %Y-%m-%d %H %z %Z}
+${alignr}Athens: ${tztime Europe/Athens %Y-%m-%d %H %z %Z}
+${voffset 2}${hr}${voffset 2}
+${font monospace:size=20}${time %A, %d %B %Y, %T}${font}
+]];
