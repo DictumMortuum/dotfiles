@@ -314,10 +314,6 @@ function i3-reboot() {
   systemctl reboot
 }
 
-function i3-logout() {
-  dm-tool switch-to-greeter
-}
-
 function i3-exit() {
   i3-msg exit
 }
