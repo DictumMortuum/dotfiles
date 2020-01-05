@@ -5,7 +5,7 @@ own_window_transparent = true,
 own_window_hints = 'undecorated,below,skip_taskbar,skip_pager',
 own_window_colour = '#000000',
 xinerama_head = 2,
-alignment = 'bottom_left',
+alignment = 'middle_middle',
 use_xft = true,
 font = 'monospace',
 draw_shades = false,
@@ -19,20 +19,20 @@ gap_y = 0,
 };
 
 conky.text = [[
-kernel: $kernel
-machine: $machine
-uptime: $uptime
-CPU: ${cpu cpu0}%
-RAM: ${color1}$mem${color}/$memmax
-swap: ${color1}$swap${color}/$swapmax
-battery: ${battery BAT0}${battery BAT1}
-file system: ${fs_used_perc}%
-temperature: ${hwmon temp 1}°C
-IP: ${execi 300 dig -4 +short myip.opendns.com @resolver1.opendns.com}
-${voffset 2}${hr}${voffset 2}
-${alignr}New York: ${tztime America/New_York %Y-%m-%d %H %z %Z}
-${alignr}London: ${tztime Europe/London %Y-%m-%d %H %z %Z}
-${alignr}Athens: ${tztime Europe/Athens %Y-%m-%d %H %z %Z}
-${voffset 2}${hr}${voffset 2}
-${font monospace:size=20}${time %A, %d %B %Y, %T}${font}
+${font monospace:size=25}${time %A, %d %B %Y, %T}${font}
+${voffset 2}${hr 2}${voffset 2}
+kernel: $alignr $kernel
+machine: $alignr $machine
+uptime: $alignr $uptime
+CPU: $alignr ${cpu cpu0}%
+RAM: $alignr ${color1}$mem${color}/$memmax
+swap: $alignr ${color1}$swap${color}/$swapmax
+battery: $alignr ${battery BAT0}${battery BAT1}
+file system: $alignr ${fs_used_perc}%
+temperature: $alignr ${hwmon temp 1}°C
+IP: $alignr ${execi 300 dig -4 +short myip.opendns.com @resolver1.opendns.com}
+${voffset 2}${hr 2}${voffset 2}
+New York: $alignr ${tztime America/New_York %Y-%m-%d %H %z %Z}
+London: $alignr ${tztime Europe/London %Y-%m-%d %H %z %Z}
+Athens: $alignr ${tztime Europe/Athens %Y-%m-%d %H %z %Z}
 ]];
