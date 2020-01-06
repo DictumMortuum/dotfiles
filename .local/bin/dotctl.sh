@@ -1,25 +1,8 @@
 #!/bin/bash
 
-USER=$(id -un)
-HOST=$(hostname)
 ID=$(id -u)
-NOW=$(date +%F)
-HOST=$(hostname)
-XDG_RUNTIME_DIR="/run/user/${ID}"
-DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${ID}/bus"
-PROGRESS=/tmp/bar${NOW}
-TODO=/tmp/todo${NOW}
-
-export XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS
-
-function cleanup() {
-  if [[ -f $PROGRESS ]]; then
-    echo "" > $PROGRESS
-    trigger-blocklet 11
-  fi
-}
-
-trap cleanup EXIT
+export XDG_RUNTIME_DIR="/run/user/${ID}"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${ID}/bus"
 
 function revert-dpms() {
   xset dpms 0 0 0
@@ -31,7 +14,6 @@ function trigger-blocklet() {
 
 function progress() {
   for i in {0..100000}; do
-    printf '#%.0s' $(seq $(( $i % 15 )) ) > $PROGRESS
     trigger-blocklet 11
     sleep .1
   done
@@ -136,7 +118,7 @@ function sync-repo() {
   GIT_BRANCH=${2:-master}
   git -C $GIT_DIR pull origin ${GIT_BRANCH}
   git -C $GIT_DIR add -A
-  git -C $GIT_DIR commit -m "${USER}@${HOST}" && notify "${GIT_DIR}"
+  git -C $GIT_DIR commit -m "$(id -un)@$(hostname)" && notify "${GIT_DIR}"
   git -C $GIT_DIR push origin ${GIT_BRANCH}
 }
 
@@ -296,19 +278,16 @@ function i3-exit() {
 # todo
 
 function todo-add() {
-  cat $TODO | rofi -dmenu -p "todo" >> $TODO
-  trigger-blocklet 10
+  cat /tmp/todo | rofi -dmenu -p "todo" >> /tmp/todo
 }
 
 function todo-del() {
-  sed -i '1d' $TODO
-  trigger-blocklet 10
+  sed -i '1d' /tmp/todo
 }
 
 function todo-shift() {
-  head -n 1 $TODO >> $TODO
-  sed -i '1d' $TODO
-  trigger-blocklet 10
+  head -n 1 /tmp/todo >> /tmp/todo
+  sed -i '1d' /tmp/todo
 }
 
 $*

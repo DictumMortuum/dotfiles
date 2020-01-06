@@ -4,17 +4,14 @@ markup=none
 command=~/.config/i3blocks/$BLOCK_NAME
 
 [progress]
-command=tail -n 1 /tmp/bar$(date +%F)
+command=echo $(printf '#%.0s' $(seq $(date +%1N)))
 interval=once
 signal=11
 
-[notes]
-command=head -n 1 /tmp/todo$(date +%F)
-interval=once
-signal=10
-
 [keyboard]
+command=while true; do xkb-switch -p ; xkb-switch -w ; done
 interval=persist
 
 [host]
+command=echo $(id -un)@$(hostname)
 interval=once
