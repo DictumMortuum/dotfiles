@@ -1,7 +1,6 @@
 align=center
 separator_block_width=15
 markup=none
-command=~/.config/i3blocks/$BLOCK_NAME
 
 [progress]
 command=echo $(printf '#%.0s' $(seq $(date +%1N)))
