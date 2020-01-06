@@ -37,4 +37,6 @@ ${voffset 2}${hr 2}${voffset 2}
 New York: $alignr ${tztime America/New_York %Y-%m-%d %H %z %Z}
 London: $alignr ${tztime Europe/London %Y-%m-%d %H %z %Z}
 Athens: $alignr ${tztime Europe/Athens %Y-%m-%d %H %z %Z}
+${if_existing /tmp/todo}${voffset 2}${hr 2}${voffset 2}
+${tail /tmp/todo 5}$endif
 ]];
