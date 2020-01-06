@@ -31,6 +31,8 @@ battery: $alignr ${battery BAT0}${battery BAT1}
 file system: $alignr ${fs_used_perc}%
 temperature: $alignr ${hwmon temp 1}°C
 IP: $alignr ${execi 300 dig -4 +short myip.opendns.com @resolver1.opendns.com}
+download speed: $alignr ${downspeed wlo1}
+upload speed: $alignr ${upspeed wlo1}
 ${voffset 2}${hr 2}${voffset 2}
 New York: $alignr ${tztime America/New_York %Y-%m-%d %H %z %Z}
 London: $alignr ${tztime Europe/London %Y-%m-%d %H %z %Z}
