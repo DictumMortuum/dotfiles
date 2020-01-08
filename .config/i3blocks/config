@@ -8,7 +8,7 @@ interval=once
 signal=11
 
 [keyboard]
-command=while true; do xkb-switch -p ; xkb-switch -w ; done
+command=xkb-switch -p ; xkb-switch -W
 interval=persist
 
 [host]
