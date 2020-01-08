@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ID=$(id -u)
+JIRA_URL=https://jira.openbet.com/browse
 export XDG_RUNTIME_DIR="/run/user/${ID}"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${ID}/bus"
 
