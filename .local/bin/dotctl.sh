@@ -13,6 +13,7 @@ function trigger-blocklet() {
 }
 
 function progress() {
+  date +%s%3N > /tmp/unix
   for i in {0..100000}; do
     trigger-blocklet 11
     sleep .1

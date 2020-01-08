@@ -3,7 +3,7 @@ separator_block_width=15
 markup=none
 
 [progress]
-command=echo $(printf '#%.0s' $(seq $(date +%1N)))
+command=echo $(( `date +%s%3N` - `cat /tmp/unix` ))
 interval=once
 signal=11
 
