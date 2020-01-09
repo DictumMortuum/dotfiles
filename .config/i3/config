@@ -13,7 +13,6 @@ set $wsA "10:A"
 set $ctl $HOME/.local/bin/dotctl.sh
 
 set_from_resource $background i3wm.background
-set_from_resource $secondary  i3wm.secondary
 set_from_resource $text       i3wm.color7
 set_from_resource $selection  i3wm.color1
 set_from_resource $lightbg    i3wm.color0
@@ -25,16 +24,16 @@ gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
 
-workspace $ws0 output primary
-workspace $ws1 output primary
-workspace $ws2 output primary
-workspace $ws3 output primary
-workspace $ws4 output primary
-workspace $ws5 output $secondary primary
-workspace $ws6 output $secondary primary
-workspace $ws7 output $secondary primary
-workspace $ws8 output $secondary primary
-workspace $ws9 output $secondary primary
+workspace $ws0 output DP-0.2 primary
+workspace $ws1 output DP-0.2 primary
+workspace $ws2 output DP-0.2 primary
+workspace $ws3 output DP-0.2 primary
+workspace $ws4 output DP-0.2 primary
+workspace $ws5 output DP-0.1 primary
+workspace $ws6 output DP-0.1 primary
+workspace $ws7 output DP-0.1 primary
+workspace $ws8 output DP-0.1 primary
+workspace $ws9 output DP-0.1 primary
 
 bindsym $mod+a            exec thunar
 bindsym $mod+c            exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'

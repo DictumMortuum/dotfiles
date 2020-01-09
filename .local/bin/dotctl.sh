@@ -85,10 +85,6 @@ function get-xrandr-file() {
   echo "$HOME/.cache/screenlayout/xrandr.$1"
 }
 
-function get-xresources-file() {
-  echo "$HOME/.cache/screenlayout/xresources.$1"
-}
-
 function generate-xrandr() {
   LAYOUT_FILE=$(get-xrandr-file $#)
 
@@ -96,23 +92,17 @@ function generate-xrandr() {
 
   echo "#!/bin/bash" >> $LAYOUT_FILE
   echo "xrandr --setprovideroutputsource modesetting NVIDIA-0" >> $LAYOUT_FILE
-  echo "xrandr --output $1 --primary --auto" >> $LAYOUT_FILE
+  echo "xrandr --output $1 --auto" >> $LAYOUT_FILE
 
   while(($# - 1)); do
     echo "xrandr --output $2 --auto --right-of $1" >> $LAYOUT_FILE
     shift
   done
 
+  echo "xrandr --output $1 --primary" >> $LAYOUT_FILE
+
   chmod +x $LAYOUT_FILE
   $LAYOUT_FILE
-}
-
-function generate-xresources() {
-  XRESOURCES_FILE=$(get-xresources-file $#)
-  cp /dev/null $XRESOURCES_FILE
-  shift
-  echo "*secondary: $1" >> $XRESOURCES_FILE
-  xrdb -merge $XRESOURCES_FILE
 }
 
 function sync-repo() {
@@ -128,14 +118,11 @@ function layout() {
   LAYOUT=$(get-monitors | tr '\n' ' ' | xargs permutations | rofi-select)
   [[ -z $LAYOUT ]] && exit 0
   generate-xrandr $LAYOUT
-  generate-xresources $LAYOUT
   i3-msg restart
 }
 
 function detect-layout() {
-  MONITORS=$(get-monitors | wc -l)
-  xrdb -merge $(get-xresources-file $MONITORS)
-  $(get-xrandr-file $MONITORS)
+  $(get-xrandr-file $(get-monitors | wc -l))
 }
 
 # i3blocks
