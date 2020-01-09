@@ -277,19 +277,4 @@ function i3-exit() {
   i3-msg exit
 }
 
-# todo
-
-function todo-add() {
-  cat /tmp/todo | rofi -dmenu -p "todo" >> /tmp/todo
-}
-
-function todo-del() {
-  sed -i '1d' /tmp/todo
-}
-
-function todo-shift() {
-  head -n 1 /tmp/todo >> /tmp/todo
-  sed -i '1d' /tmp/todo
-}
-
 $*

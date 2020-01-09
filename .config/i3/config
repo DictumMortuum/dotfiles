@@ -104,16 +104,6 @@ mode "$mode_system" {
   bindsym $mod+BackSpace mode "default"
 }
 
-set $mode_notes [a]dd, [d]elete current note, [s]hift current note
-bindsym $mod+n mode "$mode_notes"
-mode "$mode_notes" {
-  bindsym a      exec $ctl todo-add, mode "default"
-  bindsym d      exec $ctl todo-del
-  bindsym s      exec $ctl todo-shift
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
 set $mode_work [j]ira, [S]ervice, [s]sh, [e]nvironments, [h]osts, [g]rafana, [c]ustomer, [t]erminals
 bindsym $mod+o mode "$mode_work"
 mode "$mode_work" {
