@@ -6,14 +6,6 @@
   diff = auto
   status = auto
   ui = true
-[color "status"]
-  added = green bold
-  changed  = cyan bold
-  untracked = yellow bold
-[color "branch"]
-  current = cyan bold
-  local = yellow
-  remote = green
 [alias]
   branch-exists = show-ref --verify --quiet
   cm = !git add --all && git commit -m
