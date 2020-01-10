@@ -2,7 +2,6 @@
 {
     "editor.tabSize": 2,
     "editor.fontFamily": "monospace",
-    "editor.fontSize": 13,
     "window.zoomLevel": 1,
     "telemetry.enableTelemetry": false,
     "typescript.check.npmIsInstalled": false,
