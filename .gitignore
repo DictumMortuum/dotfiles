@@ -18,7 +18,7 @@
 !.config/rofi
 !.config/terminator
 !.config/compton.conf
-!.config/greenclip.cfga
+!.config/greenclip.cfg
 !.local
 .local/*
 !.local/bin
