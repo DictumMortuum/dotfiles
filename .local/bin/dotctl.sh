@@ -64,11 +64,23 @@ function detect-url() {
   fi | sort | uniq | rofi-select
 }
 
+function sync-repo() {
+  GIT_DIR=$1
+  GIT_BRANCH=${2:-master}
+  git -C $GIT_DIR pull origin ${GIT_BRANCH}
+  git -C $GIT_DIR add -A
+  git -C $GIT_DIR commit -m "$(id -un)@$(hostname)" && notify-send $(basename $0) "${GIT_DIR}"
+  git -C $GIT_DIR push origin ${GIT_BRANCH}
+}
+
+# monitors
+
 function get-monitors() {
   i3-utils display active
 }
 
 function get-xrandr-file() {
+  mkdir -p $HOME/.cache/screenlayout
   echo "$HOME/.cache/screenlayout/xrandr.$1"
 }
 
@@ -90,15 +102,6 @@ function generate-xrandr() {
 
   chmod +x $LAYOUT_FILE
   $LAYOUT_FILE
-}
-
-function sync-repo() {
-  GIT_DIR=$1
-  GIT_BRANCH=${2:-master}
-  git -C $GIT_DIR pull origin ${GIT_BRANCH}
-  git -C $GIT_DIR add -A
-  git -C $GIT_DIR commit -m "$(id -un)@$(hostname)" && notify-send $(basename $0) "${GIT_DIR}"
-  git -C $GIT_DIR push origin ${GIT_BRANCH}
 }
 
 function layout() {
