@@ -20,7 +20,7 @@
   n = config --local user.name
   p = push -u origin master
   s = status -sb
-  temp = !zsh -i -c 'git checkout -b $(branch)'
+  temp = !git checkout -b $(id -un)-$(date +%s%3N)
   versions = tag --sort -version:refname
 [push]
   default = matching
