@@ -105,4 +105,4 @@ compinit
 promptinit
 prompt pure
 
-source /opt/domus/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+[[ -d /opt/domus ]] && source /opt/domus/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
