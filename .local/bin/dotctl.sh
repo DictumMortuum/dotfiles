@@ -4,14 +4,10 @@ ID=$(id -u)
 export XDG_RUNTIME_DIR="/run/user/${ID}"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${ID}/bus"
 
-function trigger-blocklet() {
-  pkill -SIGRTMIN+$1 i3blocks
-}
-
 function progress() {
   date +%s%3N > /tmp/unix
   for i in {0..100000}; do
-    trigger-blocklet 11
+    pkill -SIGRTMIN+11 i3blocks
     sleep .1
   done
 }
