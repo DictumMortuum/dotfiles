@@ -213,14 +213,6 @@ function st-superuser() {
   type-text "sudo -iu ${user}"
 }
 
-function st-copy() {
-  local tmp=$(get-tokens | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  local cmd=$(echo -e "\ntail -f \nvi \ncode " | rofi-select)
-  [[ -z $cmd ]] && exit 0
-  type-text "${cmd}${tmp}"
-}
-
 function st-lines() {
   local tmp=$(filter-whitespace | rofi-select)
   [[ -z $tmp ]] && exit 0
