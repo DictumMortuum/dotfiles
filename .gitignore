@@ -16,7 +16,6 @@
 !.config/qutebrowser/config.py
 !.config/qutebrowser/quickmarks
 !.config/rofi
-!.config/terminator
 !.config/compton.conf
 !.config/greenclip.cfg
 !.local
