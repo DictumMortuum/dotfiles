@@ -46,7 +46,6 @@ setopt inc_append_history
 setopt share_history
 
 alias dot="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
-alias unixtime='date +%s%3N'
 alias mkt='cd $(mktemp -d -p . "temp.$(date +%F).XXXXXXXXX")'
 alias mp3-dl='noglob youtube-dl --extract-audio --audio-format mp3'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
