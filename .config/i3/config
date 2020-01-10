@@ -24,16 +24,16 @@ gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
 
-workspace $ws0 output DP-0.2 primary
-workspace $ws1 output DP-0.2 primary
-workspace $ws2 output DP-0.2 primary
-workspace $ws3 output DP-0.2 primary
-workspace $ws4 output DP-0.2 primary
-workspace $ws5 output DP-0.1 primary
-workspace $ws6 output DP-0.1 primary
-workspace $ws7 output DP-0.1 primary
-workspace $ws8 output DP-0.1 primary
-workspace $ws9 output DP-0.1 primary
+workspace $ws0 output DP-0.2 DP-1-1 primary
+workspace $ws1 output DP-0.2 DP-1-1 primary
+workspace $ws2 output DP-0.2 DP-1-1 primary
+workspace $ws3 output DP-0.2 DP-1-1 primary
+workspace $ws4 output DP-0.2 DP-1-1 primary
+workspace $ws5 output DP-0.1 DP-1-2 primary
+workspace $ws6 output DP-0.1 DP-1-2 primary
+workspace $ws7 output DP-0.1 DP-1-2 primary
+workspace $ws8 output DP-0.1 DP-1-2 primary
+workspace $ws9 output DP-0.1 DP-1-2 primary
 
 bindsym $mod+a            exec thunar
 bindsym $mod+c            exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
