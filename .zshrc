@@ -48,8 +48,6 @@ setopt share_history
 alias dot="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 alias mkt='cd $(mktemp -d -p . "temp.$(date +%F).XXXXXXXXX")'
 alias mp3-dl='noglob youtube-dl --extract-audio --audio-format mp3'
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias tempfox='firefox --new-instance --profile $(mktemp -d)'
 alias system-update='ansible-playbook -i localhost, --connection=local full.yml --ask-become-pass --ask-pass'
 alias http_status='noglob curl -s -o /dev/null -w "%{http_code}"'
