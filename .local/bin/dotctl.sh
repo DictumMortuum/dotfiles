@@ -125,19 +125,6 @@ function detect-layout() {
   $(get-xrandr-file $(get-monitors | wc -l))
 }
 
-# i3blocks
-
-function temperature() {
-  URL="https://wttr.in?format=3"
-  STATUS=$(http-status $URL)
-
-  if [[ $STATUS -eq 200 ]]; then
-    curl $URL
-  else
-    exit 1
-  fi
-}
-
 # qutebrowser
 
 function qute-screenedit() {
