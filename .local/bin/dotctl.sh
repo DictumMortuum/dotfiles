@@ -4,10 +4,6 @@ ID=$(id -u)
 export XDG_RUNTIME_DIR="/run/user/${ID}"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${ID}/bus"
 
-function revert-dpms() {
-  xset dpms 0 0 0
-}
-
 function trigger-blocklet() {
   pkill -SIGRTMIN+$1 i3blocks
 }
@@ -221,7 +217,7 @@ function i3-lock() {
   scrot $TMPIMG
   convert $TMPIMG -scale 5% -scale 2000% $TMPIMG
   xkb-switch -s us
-  trap revert-dpms SIGHUP SIGINT SIGTERM
+  trap "xset dpms 0 0 0" SIGHUP SIGINT SIGTERM
   i3lock -n -u -e -i $TMPIMG
   rm $TMPIMG
 }
