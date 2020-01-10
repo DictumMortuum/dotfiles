@@ -20,10 +20,6 @@ function progress() {
   done
 }
 
-function notify() {
-  notify-send $(basename $0) "${1}"
-}
-
 function http-status() {
   curl -s -o /dev/null -w "%{http_code}" $1
 }
@@ -109,7 +105,7 @@ function sync-repo() {
   GIT_BRANCH=${2:-master}
   git -C $GIT_DIR pull origin ${GIT_BRANCH}
   git -C $GIT_DIR add -A
-  git -C $GIT_DIR commit -m "$(id -un)@$(hostname)" && notify "${GIT_DIR}"
+  git -C $GIT_DIR commit -m "$(id -un)@$(hostname)" && notify-send $(basename $0) "${GIT_DIR}"
   git -C $GIT_DIR push origin ${GIT_BRANCH}
 }
 
@@ -167,7 +163,7 @@ function qute-clone() {
     PID=$!
     git clone $repository $path
     kill $PID
-    notify "$path finished cloning"
+    notify-send $(basename $0) "$path finished cloning"
   fi
 
   tmux new-window -c $path
