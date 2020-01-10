@@ -24,9 +24,6 @@
 !.local/bin
 .local/bin/*
 !.local/bin/dotctl.sh
-!.ssh
-.ssh/*
-!.ssh/config
 !.ansible.cfg
 !.bashrc
 !.editorconfig
