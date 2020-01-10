@@ -252,16 +252,4 @@ function i3-lock() {
   rm $TMPIMG
 }
 
-function i3-poweroff() {
-  systemctl poweroff -i
-}
-
-function i3-reboot() {
-  systemctl reboot
-}
-
-function i3-exit() {
-  i3-msg exit
-}
-
 $*
