@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ID=$(id -u)
-JIRA_URL=https://jira.openbet.com/browse
 export XDG_RUNTIME_DIR="/run/user/${ID}"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${ID}/bus"
 
@@ -146,7 +145,7 @@ function qute-select-copy() {
 function qute-jira() {
   local tmp=$(cat $QUTE_TEXT | get-jira | rofi-select)
   [[ -z $tmp ]] && exit 0
-  echo "open -t ${JIRA_URL}/${tmp}" >> "$QUTE_FIFO"
+  echo "open -t https://jira.openbet.com/browse/${tmp}" >> "$QUTE_FIFO"
 }
 
 function qute-url() {
@@ -185,7 +184,7 @@ function qute-tokens() {
 function st-jira() {
   local tmp=$(get-jira | rofi-select)
   [[ -z $tmp ]] && exit 0
-  xdg-open ${JIRA_URL}/${tmp}
+  xdg-open https://jira.openbet.com/browse/${tmp}
 }
 
 function st-screenedit() {
