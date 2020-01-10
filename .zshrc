@@ -57,7 +57,6 @@ alias system-update='ansible-playbook -i localhost, --connection=local full.yml 
 alias http_status='noglob curl -s -o /dev/null -w "%{http_code}"'
 alias curl_times='noglob curl -s -o /dev/null -w "namelookup: %{time_namelookup}\nconnect: %{time_connect} \nappconnect: %{time_appconnect} \npretransfer: %{time_pretransfer} \nredirect: %{time_redirect} \nstarttransfer: %{time_starttransfer} \ntotal: %{time_total}"'
 alias ls=' ls --color=tty'
-alias ll=' ls -lh'
 alias history=' fc -il 1'
 alias serve='python3 -m http.server'
 
