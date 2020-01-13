@@ -1,15 +1,4 @@
 set $mod Mod4
-set $ws0 "0:~"
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $wsA "10:A"
 set $ctl $HOME/.local/bin/dotctl.sh
 
 set_from_resource $background i3wm.background
@@ -23,17 +12,6 @@ gaps inner          10
 gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
-
-workspace $ws0 output DP-0.2 DP-1-1 primary
-workspace $ws1 output DP-0.2 DP-1-1 primary
-workspace $ws2 output DP-0.2 DP-1-1 primary
-workspace $ws3 output DP-0.2 DP-1-1 primary
-workspace $ws4 output DP-0.2 DP-1-1 primary
-workspace $ws5 output DP-0.1 DP-1-2 primary
-workspace $ws6 output DP-0.1 DP-1-2 primary
-workspace $ws7 output DP-0.1 DP-1-2 primary
-workspace $ws8 output DP-0.1 DP-1-2 primary
-workspace $ws9 output DP-0.1 DP-1-2 primary
 
 bindsym $mod+a            exec thunar
 bindsym $mod+c            exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
@@ -56,36 +34,18 @@ bindsym $mod+f           fullscreen toggle
 # vim-like movement
 
 bindsym $mod+h           focus left
+bindsym $mod+j           exec i3-utils focus prev
+bindsym $mod+k           exec i3-utils focus next
 bindsym $mod+l           focus right
 bindsym $mod+Shift+h     move left
+bindsym $mod+Shift+j     exec i3-utils move prev
+bindsym $mod+Shift+k     exec i3-utils move next
 bindsym $mod+Shift+l     move right
 
 # i3 workspaces
 
 bindsym $mod+equal       workspace next
 bindsym $mod+minus       workspace prev
-bindsym $mod+grave       workspace $ws0
-bindsym $mod+1           workspace $ws1
-bindsym $mod+2           workspace $ws2
-bindsym $mod+3           workspace $ws3
-bindsym $mod+4           workspace $ws4
-bindsym $mod+5           workspace $ws5
-bindsym $mod+6           workspace $ws6
-bindsym $mod+7           workspace $ws7
-bindsym $mod+8           workspace $ws8
-bindsym $mod+9           workspace $ws9
-bindsym $mod+0           workspace $wsA
-bindsym $mod+Shift+grave move container to workspace $ws0
-bindsym $mod+Shift+1     move container to workspace $ws1
-bindsym $mod+Shift+2     move container to workspace $ws2
-bindsym $mod+Shift+3     move container to workspace $ws3
-bindsym $mod+Shift+4     move container to workspace $ws4
-bindsym $mod+Shift+5     move container to workspace $ws5
-bindsym $mod+Shift+6     move container to workspace $ws6
-bindsym $mod+Shift+7     move container to workspace $ws7
-bindsym $mod+Shift+8     move container to workspace $ws8
-bindsym $mod+Shift+9     move container to workspace $ws9
-bindsym $mod+Shift+0     move container to workspace $wsA
 
 bindsym --release $mod+Print   exec scrot -s
 
