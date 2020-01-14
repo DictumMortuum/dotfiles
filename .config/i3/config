@@ -67,7 +67,7 @@ mode "$mode_work" {
 exec_always --no-startup-id hsetroot -solid "$lightbg"
 exec_always --no-startup-id start-pulseaudio-x11
 exec_always --no-startup-id compton
-exec_always --no-startup-id dunst
+exec_always --no-startup-id dunst -lb "$background" -lf "$text" -nb "$background" -nf "$text" -cb "$background" -cfr "$selection" -follow keyboard
 exec_always --no-startup-id conky -c ~/.config/conky/config
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
 
