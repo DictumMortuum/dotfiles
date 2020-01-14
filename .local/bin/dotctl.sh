@@ -40,16 +40,8 @@ function rofi-select() {
   rofi -dmenu -matching fuzzy -i
 }
 
-function get-clipboard() {
-  xclip -o -sel clipboard
-}
-
 function to-clipboard() {
   xclip -sel clipboard
-}
-
-function get-primary() {
-  xclip -o -sel primary
 }
 
 function detect-url() {
