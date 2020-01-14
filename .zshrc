@@ -4,11 +4,7 @@ SAVEHIST=10000
 FPATH="$HOME/.cache/zsh:$FPATH"
 PATH="/usr/local/sbin:$PATH"
 PATH="/usr/local/bin:$PATH"
-PATH="/usr/sbin:$PATH"
 PATH="/usr/bin:$PATH"
-PATH="/usr/games:$PATH"
-PATH="/sbin:$PATH"
-PATH="/bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
