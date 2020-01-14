@@ -73,21 +73,6 @@ function sync-repo() {
   git -C $GIT_DIR push origin ${GIT_BRANCH}
 }
 
-# monitors
-
-function get-monitors() {
-  i3-utils display active
-}
-
-function get-xrandr-file() {
-  mkdir -p $HOME/.cache/screenlayout
-  echo "$HOME/.cache/screenlayout/xrandr.$1"
-}
-
-function detect-layout() {
-  $(get-xrandr-file $(get-monitors | wc -l))
-}
-
 # qutebrowser
 
 function qute-screenedit() {

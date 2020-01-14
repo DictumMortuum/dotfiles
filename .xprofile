@@ -1,2 +1,2 @@
 #!/bin/bash
-$HOME/.local/bin/dotctl.sh detect-layout
+$(i3-utils layout detect)
