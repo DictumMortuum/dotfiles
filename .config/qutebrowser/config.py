@@ -51,6 +51,8 @@ config.bind('<Ctrl-Shift-j>', exec_userscript('qute-jira'))
 config.bind('<Shift+Ins>', 'insert-text {primary}', mode='insert')
 config.bind('<Ctrl+Ins>', 'insert-text {clipboard}', mode='insert')
 config.bind('<Ctrl-i>', 'open-editor', mode='insert')
+config.bind('J', 'tab-prev')
+config.bind('K', 'tab-next')
 
 xresources = read_xresources('*')
 
