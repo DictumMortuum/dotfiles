@@ -12,10 +12,6 @@ function progress() {
   done
 }
 
-function http-status() {
-  curl -s -o /dev/null -w "%{http_code}" $1
-}
-
 function is-git-repo() {
   if [[ -d ${1}/.git ]] || git -C ${1} rev-parse --git-dir > /dev/null 2>&1; then
     return 0
