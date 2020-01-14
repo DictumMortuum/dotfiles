@@ -19,7 +19,7 @@ bindsym $mod+d               exec rofi -show drun
 bindsym $mod+p               exec --no-startup-id passmenu --type
 bindsym $mod+Shift+Return    exec --no-startup-id st -e zsh
 bindsym $mod+Return          exec --no-startup-id st -e tmux
-bindsym $mod+m               exec --no-startup-id $ctl layout
+bindsym $mod+m               exec --no-startup-id i3-utils display change
 bindsym $mod+Shift+q         kill
 bindsym $mod+Shift+c         reload
 bindsym $mod+Shift+r         restart

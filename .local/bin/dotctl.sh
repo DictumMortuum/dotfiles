@@ -84,33 +84,6 @@ function get-xrandr-file() {
   echo "$HOME/.cache/screenlayout/xrandr.$1"
 }
 
-function generate-xrandr() {
-  LAYOUT_FILE=$(get-xrandr-file $#)
-
-  cp /dev/null $LAYOUT_FILE
-
-  echo "#!/bin/bash" >> $LAYOUT_FILE
-  echo "xrandr --setprovideroutputsource modesetting NVIDIA-0" >> $LAYOUT_FILE
-  echo "xrandr --output $1 --auto" >> $LAYOUT_FILE
-
-  while(($# - 1)); do
-    echo "xrandr --output $2 --auto --right-of $1" >> $LAYOUT_FILE
-    shift
-  done
-
-  echo "xrandr --output $1 --primary" >> $LAYOUT_FILE
-
-  chmod +x $LAYOUT_FILE
-  $LAYOUT_FILE
-}
-
-function layout() {
-  LAYOUT=$(get-monitors | tr '\n' ' ' | xargs permutations | rofi-select)
-  [[ -z $LAYOUT ]] && exit 0
-  generate-xrandr $LAYOUT
-  i3-msg restart
-}
-
 function detect-layout() {
   $(get-xrandr-file $(get-monitors | wc -l))
 }
