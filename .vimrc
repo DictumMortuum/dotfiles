@@ -18,7 +18,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'editorconfig/editorconfig-vim'
@@ -31,8 +30,6 @@ filetype plugin indent on
 
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
-
-map <C-n> :NERDTreeToggle<CR>
 
 " set Vim-specific sequences for RGB colors
 if (has("termguicolors"))
