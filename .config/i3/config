@@ -13,7 +13,7 @@ smart_gaps          true
 floating_modifier   $mod
 
 bindsym $mod+a               exec thunar
-bindsym $mod+c               exec CM_LAUNCHER=rofi clipmenu
+bindsym $mod+c               exec CM_LAUNCHER=rofi clipmenu -p "clipboard"
 bindsym $mod+d               exec rofi -show drun
 bindsym $mod+p               exec --no-startup-id passmenu --type
 bindsym $mod+Shift+Return    exec --no-startup-id st -e zsh
