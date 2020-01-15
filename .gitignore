@@ -16,7 +16,6 @@
 !.config/qutebrowser/quickmarks
 !.config/rofi
 !.config/compton.conf
-!.config/greenclip.cfg
 !.local
 .local/*
 !.local/bin
