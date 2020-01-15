@@ -1,9 +1,9 @@
 set $mod Mod4
 
-set_from_resource $background i3wm.background
-set_from_resource $text       i3wm.color7
-set_from_resource $selection  i3wm.color1
-set_from_resource $lightbg    i3wm.color0
+set_from_resource $bg  i3wm.background
+set_from_resource $fg  i3wm.color7
+set_from_resource $sel i3wm.color1
+set_from_resource $lbg i3wm.color0
 
 hide_edge_borders   both
 focus_follows_mouse no
@@ -64,10 +64,10 @@ mode "$mode_work" {
   bindsym Escape  mode "default"
 }
 
-exec_always --no-startup-id hsetroot -solid "$lightbg"
+exec_always --no-startup-id hsetroot -solid "$lbg"
 exec_always --no-startup-id start-pulseaudio-x11
 exec_always --no-startup-id compton
-exec_always --no-startup-id dunst -lb "$background" -lf "$text" -nb "$background" -nf "$text" -cb "$background" -cfr "$selection" -follow keyboard -history_key ctrl+shift+grave
+exec_always --no-startup-id dunst -lb "$bg" -lf "$fg" -nb "$bg" -nf "$fg" -cb "$bg" -cfr "$sel" -follow keyboard -history_key ctrl+shift+grave
 exec_always --no-startup-id conky -c ~/.config/conky/config
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
 
@@ -79,13 +79,13 @@ bar {
   font pango:monospace 9
   strip_workspace_numbers yes
   colors {
-    background         $background
-    separator          $text
-    focused_workspace  $selection   $selection   $background
-    inactive_workspace $background  $background  $text
-    active_workspace   $background  $background  $text
-    urgent_workspace   $background  $background  $selection
-    binding_mode       $background  $background  $text
+    background         $bg
+    separator          $fg
+    focused_workspace  $sel $sel $bg
+    inactive_workspace $bg  $bg  $fg
+    active_workspace   $bg  $bg  $fg
+    urgent_workspace   $bg  $bg  $sel
+    binding_mode       $bg  $bg  $fg
   }
 }
 
