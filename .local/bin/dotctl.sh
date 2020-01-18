@@ -24,10 +24,6 @@ function type-text() {
   xdotool type --delay 3 --clearmodifiers -- "$*"
 }
 
-function filter-whitespace() {
-  grep -v -e '^[[:space:]]*$'
-}
-
 function get-jira() {
   grep -o -E '[A-Z]+-[0-9]+' | sort -u
 }
@@ -146,7 +142,7 @@ function st-superuser() {
 }
 
 function st-lines() {
-  local tmp=$(filter-whitespace | rofi-select)
+  local tmp=$(grep -v -e '^[[:space:]]*$' | rofi-select)
   [[ -z $tmp ]] && exit 0
   type-text "$tmp"
 }
