@@ -12,14 +12,6 @@ function progress() {
   done
 }
 
-function is-git-repo() {
-  if [[ -d ${1}/.git ]] || git -C ${1} rev-parse --git-dir > /dev/null 2>&1; then
-    return 0
-  else
-    return 1
-  fi
-}
-
 function type-text() {
   xdotool type --delay 3 --clearmodifiers -- "$*"
 }
@@ -91,7 +83,9 @@ function qute-clone() {
   local path="$HOME/Code/${tmp2%%.git}"
   mkdir -p $path
 
-  if ! is-git-repo $path; then
+  if [[ -d ${1}/.git ]] || git -C ${1} rev-parse --git-dir > /dev/null 2>&1; then
+    notify-send $(basename $0) "$path already checked out"
+  else
     progress &
     PID=$!
     git clone $repository $path
