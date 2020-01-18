@@ -40,10 +40,6 @@ function rofi-select() {
   rofi -dmenu -matching fuzzy -i
 }
 
-function to-clipboard() {
-  xclip -sel clipboard
-}
-
 function detect-url() {
   if [[ $# -eq 0 ]]; then
     xurls
@@ -72,11 +68,11 @@ function qute-textedit() {
 }
 
 function qute-copy() {
-  cat $QUTE_TEXT | to-clipboard
+  cat $QUTE_TEXT | xclip -sel clipboard
 }
 
 function qute-select-copy() {
-  echo $QUTE_SELECTED_TEXT | to-clipboard
+  echo $QUTE_SELECTED_TEXT | xclip -sel clipboard
 }
 
 function qute-jira() {
@@ -113,7 +109,7 @@ function qute-clone() {
 function qute-tokens() {
   local tmp=$(cat "$QUTE_TEXT" | get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
-  echo $tmp | tr -d '[:space:]' | to-clipboard
+  echo $tmp | tr -d '[:space:]' | xclip -sel clipboard
 }
 
 # st
@@ -140,7 +136,7 @@ function st-url() {
 function st-tokens() {
   local tmp=$(get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
-  echo $tmp | to-clipboard
+  echo $tmp | xclip -sel clipboard
 }
 
 function st-superuser() {
