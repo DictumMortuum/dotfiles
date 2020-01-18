@@ -2,9 +2,6 @@
   editor = vim
   trustctime = false
 [color]
-  branch = auto
-  diff = auto
-  status = auto
   ui = true
 [alias]
   branch-exists = show-ref --verify --quiet
