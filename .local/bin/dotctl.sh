@@ -99,7 +99,7 @@ function qute-clone() {
 function qute-tokens() {
   local tmp=$(cat "$QUTE_TEXT" | get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
-  echo $tmp | tr -d '[:space:]' | xclip -sel clipboard
+  echo -n $tmp | tr -d '[:space:]' | xclip -sel clipboard
 }
 
 # st
@@ -126,7 +126,7 @@ function st-url() {
 function st-tokens() {
   local tmp=$(get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
-  echo $tmp | xclip -sel clipboard
+  echo -n $tmp | tr -d '[:space:]' | xclip -sel clipboard
 }
 
 function st-superuser() {
