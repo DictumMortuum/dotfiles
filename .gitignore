@@ -21,7 +21,6 @@
 !.local/bin
 .local/bin/*
 !.local/bin/dotctl.sh
-!.ansible.cfg
 !.bashrc
 !.editorconfig
 !.gitconfig
