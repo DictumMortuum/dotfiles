@@ -15,12 +15,12 @@
 }
 
 #window {
-  border: 1px;
+  border: 1 1 0 1;
 }
 
 #element {
+  border: 0 0 1 0;
   padding: 10;
-  border: 1px;
 }
 
 #element.selected.normal {
@@ -34,16 +34,17 @@
 }
 
 #prompt {
+  border: 0 1 1 0;
   padding: 10;
 }
 
 #entry {
+  border: 0 1 1 0;
   padding: 10;
 }
 
 #scrollbar {
-  width: 8px;
+  border: 1 0 1 1;
   handle-color: @separatorcolor;
-  handle-width: 8px;
 }
 
