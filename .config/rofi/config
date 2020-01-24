@@ -2,4 +2,3 @@ rofi.show-icons:     true
 rofi.theme:          nord
 rofi.matching:       fuzzy
 rofi.case-sensitive: true
-rofi.font:           monospace 13
