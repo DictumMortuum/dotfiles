@@ -1,4 +1,0 @@
-rofi.show-icons:     true
-rofi.theme:          nord
-rofi.matching:       fuzzy
-rofi.case-sensitive: true

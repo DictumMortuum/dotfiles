@@ -1,3 +1,8 @@
+configuration {
+  matching: "fuzzy";
+  case-sensitive: true;
+}
+
 * {
   backgroundcolor: #2e3440;
   separatorcolor: #3b4252;
@@ -47,4 +52,3 @@
   border: 1 0 1 1;
   handle-color: @separatorcolor;
 }
-
