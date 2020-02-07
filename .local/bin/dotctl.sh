@@ -59,10 +59,6 @@ function qute-copy() {
   cat $QUTE_TEXT | xclip -sel clipboard
 }
 
-function qute-select-copy() {
-  echo $QUTE_SELECTED_TEXT | xclip -sel clipboard
-}
-
 function qute-jira() {
   local tmp=$(cat $QUTE_TEXT | get-jira | rofi-select)
   [[ -z $tmp ]] && exit 0

@@ -43,7 +43,6 @@ config.bind('<Ctrl-Shift-p>', 'config-cycle -p content.proxy system {}'.format("
 config.bind('<Ctrl-e>',       exec_userscript('qute-textedit'))
 config.bind('<Ctrl-Shift-e>', exec_userscript('qute-screenedit'))
 config.bind('<Ctrl-Alt-c>',   exec_userscript('qute-copy'))
-config.bind('<Ctrl-Shift-c>', exec_userscript('qute-select-copy'))
 config.bind('<Ctrl-Shift-u>', exec_userscript('qute-url'))
 config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
 config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
