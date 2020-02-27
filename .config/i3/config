@@ -35,7 +35,7 @@ bindsym $mod+Shift+j         exec --no-startup-id i3-utils move prev
 bindsym $mod+Shift+k         exec --no-startup-id i3-utils move next
 bindsym $mod+Shift+l         move right
 bindsym $mod+w               exec rofi -show window
-bindsym --release $mod+Print exec --no-startup-id scrot -s
+bindsym --release $mod+Print exec --no-startup-id scrot -s -e 'mv $f ~/Pictures/'
 
 set $mode_system System [R]eboot, [S]hutdown, [E]xit, [l]ock
 bindsym $mod+BackSpace mode "$mode_system"
