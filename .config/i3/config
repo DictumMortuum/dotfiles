@@ -26,6 +26,7 @@ bindsym $mod+Ctrl+space      floating toggle
 bindsym $mod+Ctrl+h          split h
 bindsym $mod+Ctrl+v          split v
 bindsym $mod+f               fullscreen toggle
+bindsym $mod+Shift+f         fullscreen toggle global
 bindsym $mod+h               focus left
 bindsym $mod+j               exec --no-startup-id i3-utils focus prev
 bindsym $mod+k               exec --no-startup-id i3-utils focus next
