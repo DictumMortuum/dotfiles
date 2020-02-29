@@ -35,14 +35,11 @@ set background=dark
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
-set nobackup
-set nowb
+set nowritebackup
 
 " ================ Persistent Undo ==================
 if has('persistent_undo')
   set undodir=~/.cache/vim/
-  set undolevels=1000
-  set undoreload=10000
   set undofile
 endif
 
