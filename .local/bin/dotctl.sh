@@ -56,7 +56,7 @@ function qute-textedit() {
 }
 
 function qute-copy() {
-  cat $QUTE_TEXT | xclip -sel clipboard
+  cat $QUTE_TEXT | xsel -ib
 }
 
 function qute-jira() {
@@ -95,7 +95,7 @@ function qute-clone() {
 function qute-tokens() {
   local tmp=$(cat "$QUTE_TEXT" | get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
-  echo -n $tmp | tr -d '[:space:]' | xclip -sel clipboard
+  echo -n $tmp | tr -d '[:space:]' | xsel -ib
 }
 
 # st
@@ -122,7 +122,7 @@ function st-url() {
 function st-tokens() {
   local tmp=$(get-tokens | rofi-select)
   [[ -z $tmp ]] && exit 0
-  echo -n $tmp | tr -d '[:space:]' | xclip -sel clipboard
+  echo -n $tmp | tr -d '[:space:]' | xsel -ib
 }
 
 function st-superuser() {
