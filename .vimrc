@@ -1,12 +1,5 @@
 set nocompatible
 
-" ================ General Config ====================
-set relativenumber
-set cursorline
-set backspace=indent,eol,start
-set clipboard=unnamedplus
-syntax on
-
 " =============== git-plug Initialization ===============
 set runtimepath+=/opt/domus/vim
 
@@ -23,21 +16,23 @@ call plug#end()
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 
-" set Vim-specific sequences for RGB colors
+colorscheme nord
+
+set background=dark
+set relativenumber
+set cursorline
+set backspace=indent,eol,start
+set clipboard=unnamedplus
+set noswapfile
+set nowritebackup
+syntax on
+
 if (has("termguicolors")) && (v:version < 802)
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
-colorscheme nord
-set background=dark
-
-" ================ Turn Off Swap Files ==============
-set noswapfile
-set nowritebackup
-
-" ================ Persistent Undo ==================
 if has('persistent_undo')
   set undodir=~/.cache/vim/
   set undofile
