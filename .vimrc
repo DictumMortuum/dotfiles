@@ -4,16 +4,10 @@ set nocompatible
 set relativenumber
 set cursorline
 set backspace=indent,eol,start
-set history=1000
-set gcr=a:blinkon0
-set encoding=utf-8
 set clipboard=unnamedplus
-set laststatus=2
 syntax on
-let base16colorspace=256
-let mapleader=","
 
-" =============== Vundle Initialization ===============
+" =============== git-plug Initialization ===============
 set runtimepath+=/opt/domus/vim
 
 call plug#begin('/opt/domus/vim/plugged')
