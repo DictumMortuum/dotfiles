@@ -14,19 +14,17 @@ let base16colorspace=256
 let mapleader=","
 
 " =============== Vundle Initialization ===============
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set runtimepath+=/opt/domus/vim
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-
-call vundle#end()
-filetype plugin indent on
+call plug#begin('/opt/domus/vim/plugged')
+Plug 'gmarik/Vundle.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'arcticicestudio/nord-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+call plug#end()
 
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
