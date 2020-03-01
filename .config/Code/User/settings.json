@@ -1,13 +1,13 @@
 {
-    "editor.tabSize": 2,
-    "telemetry.enableTelemetry": false,
-    "extensions.ignoreRecommendations": true,
-    "editor.renderWhitespace": "boundary",
-    "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "Nord",
-    "window.titleBarStyle": "custom",
-    "explorer.confirmDelete": false,
-    "files.trimFinalNewlines": true,
-    "window.zoomLevel": 2,
-    "editor.fontFamily": "monospace"
+  "editor.tabSize": 2,
+  "telemetry.enableTelemetry": false,
+  "extensions.ignoreRecommendations": true,
+  "editor.renderWhitespace": "boundary",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.colorTheme": "Nord",
+  "window.titleBarStyle": "custom",
+  "explorer.confirmDelete": false,
+  "files.trimFinalNewlines": true,
+  "window.zoomLevel": 2,
+  "editor.fontFamily": "monospace"
 }
