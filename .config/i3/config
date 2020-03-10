@@ -53,13 +53,13 @@ mode "$mode_system" {
 set $mode_work [j]ira, [S]ervice, [s]sh, [e]nvironments, [h]osts, [g]rafana, [c]ustomer, [t]erminals
 bindsym $mod+o mode "$mode_work"
 mode "$mode_work" {
-  bindsym j       exec $HOME/.local/bin/ob jira, mode "default"
-  bindsym s       exec $HOME/.local/bin/ob ssh, mode "default"
-  bindsym Shift+s exec $HOME/.local/bin/ob service exec, mode "default"
-  bindsym e       exec $HOME/.local/bin/ob env, mode "default"
-  bindsym h       exec $HOME/.local/bin/ob host, mode "default"
-  bindsym g       exec $HOME/.local/bin/ob grafana, mode "default"
-  bindsym t       exec $HOME/.local/bin/ob ssh terminal, mode "default"
+  bindsym j       exec ob jira, mode "default"
+  bindsym s       exec ob ssh, mode "default"
+  bindsym Shift+s exec ob service exec, mode "default"
+  bindsym e       exec ob env, mode "default"
+  bindsym h       exec ob host, mode "default"
+  bindsym g       exec ob grafana, mode "default"
+  bindsym t       exec ob ssh terminal, mode "default"
   bindsym Return  mode "default"
   bindsym Escape  mode "default"
 }
