@@ -26,7 +26,6 @@ LICENSE
 !.local/bin
 .local/bin/*
 !.local/bin/dotctl.sh
-!.profile
 !.tmux.conf
 !.vimrc
 !.xprofile
