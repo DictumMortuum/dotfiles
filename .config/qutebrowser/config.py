@@ -1,5 +1,4 @@
 import subprocess
-from pathlib import Path
 
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 c.content.pdfjs = True
@@ -12,8 +11,6 @@ c.url.default_page = 'http://127.0.0.1:1234/startpage'
 c.url.start_pages = 'http://127.0.0.1:1234/startpage'
 c.content.media_capture = True
 c.hints.chars = "asdfkl"
-
-home = str(Path.home())
 
 c.url.searchengines = {
   "DEFAULT": "https://duckduckgo.com/?q={}",
@@ -36,13 +33,13 @@ def read_xresources(prefix):
   return props
 
 def exec_userscript(com):
-  return 'spawn --userscript {}/.local/bin/dotctl.sh {}'.format(home, com)
+  return 'spawn --userscript /usr/local/bin/dotctl {}'.format(com)
 
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
 config.bind('<Ctrl-Shift-p>', 'config-cycle -p content.proxy system {}'.format(" ".join(proxies)))
-config.bind('<Ctrl-e>',       exec_userscript('qute-textedit'))
+config.bind('<Ctrl-e>', exec_userscript('qute-textedit'))
 config.bind('<Ctrl-Shift-e>', exec_userscript('qute-screenedit'))
-config.bind('<Ctrl-Alt-c>',   exec_userscript('qute-copy'))
+config.bind('<Ctrl-Alt-c>', exec_userscript('qute-copy'))
 config.bind('<Ctrl-Shift-u>', exec_userscript('qute-url'))
 config.bind('<Ctrl-Shift-g>', exec_userscript('qute-clone'))
 config.bind('<Ctrl-Shift-t>', exec_userscript('qute-tokens'))
