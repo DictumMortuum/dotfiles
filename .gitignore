@@ -28,6 +28,5 @@ LICENSE
 !.local/bin/dotctl.sh
 !.tmux.conf
 !.vimrc
-!.xprofile
 !.Xresources
 !.zshrc

@@ -64,6 +64,7 @@ mode "$mode_work" {
   bindsym Escape  mode "default"
 }
 
+exec_always --no-startup-id $(i3-utils layout detect)
 exec_always --no-startup-id hsetroot -solid "$lbg"
 exec_always --no-startup-id start-pulseaudio-x11
 exec_always --no-startup-id compton
