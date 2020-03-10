@@ -22,7 +22,6 @@
 !.local/bin
 .local/bin/*
 !.local/bin/dotctl.sh
-!.bashrc
 !.editorconfig
 !.gitconfig
 !.gitignore
