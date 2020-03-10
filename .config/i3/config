@@ -44,7 +44,7 @@ mode "$mode_system" {
   bindsym Shift+e        exec --no-startup-id i3-msg exit, mode "default"
   bindsym Shift+r        exec --no-startup-id systemctl reboot, mode "default"
   bindsym Shift+s        exec --no-startup-id systemctl poweroff, mode "default"
-  bindsym l              exec --no-startup-id $HOME/.local/bin/dotctl.sh i3-lock, mode "default"
+  bindsym l              exec --no-startup-id dotctl i3-lock, mode "default"
   bindsym Return         mode "default"
   bindsym Escape         mode "default"
   bindsym $mod+BackSpace mode "default"
