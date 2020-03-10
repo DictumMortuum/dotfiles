@@ -11,13 +11,12 @@
   committers = log --format=%ae
   current-commit = rev-parse --short HEAD
   current-branch = rev-parse --abbrev-ref HEAD
-  e = config --local user.email
   files = diff-tree --no-commit-id --name-only -r
   l = log --oneline --decorate
-  n = config --local user.name
   p = push -u origin master
   s = status -sb
   temp = !git checkout -b $(id -un)-$(date +%s%3N)
+  user = config --local --get-regexp '^user'
   versions = tag --sort -version:refname
 [push]
   default = matching
