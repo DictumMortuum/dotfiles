@@ -88,7 +88,7 @@ bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
-compinit
+compinit -d ~/.cache/zsh/zcompdump
 promptinit
 prompt pure
 
