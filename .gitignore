@@ -1,6 +1,7 @@
 /*
 !.config
 .config/*
+!.config/bin
 !.config/Code
 .config/Code/*
 !.config/Code/User
@@ -21,11 +22,6 @@
 !.gitconfig
 !.gitignore
 LICENSE
-!.local
-.local/*
-!.local/bin
-.local/bin/*
-!.local/bin/dotctl.sh
 !.tmux.conf
 !.vimrc
 !.Xresources
