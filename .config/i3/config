@@ -45,7 +45,6 @@ mode "$mode_system" {
   bindsym Shift+r        exec --no-startup-id systemctl reboot, mode "default"
   bindsym Shift+s        exec --no-startup-id systemctl poweroff, mode "default"
   bindsym l              exec --no-startup-id dotctl i3-lock, mode "default"
-  bindsym Return         mode "default"
   bindsym Escape         mode "default"
   bindsym $mod+BackSpace mode "default"
 }
@@ -60,7 +59,6 @@ mode "$mode_work" {
   bindsym h       exec ob host, mode "default"
   bindsym g       exec ob grafana, mode "default"
   bindsym t       exec ob ssh terminal, mode "default"
-  bindsym Return  mode "default"
   bindsym Escape  mode "default"
 }
 
