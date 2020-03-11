@@ -1,15 +1,12 @@
-align=center
 separator_block_width=15
-markup=none
-
-[progress]
-command=echo $(( `date +%s%3N` - `cat /tmp/unix` ))
-interval=once
-signal=11
 
 [keyboard]
 command=xkb-switch -p ; xkb-switch -W
 interval=persist
+
+[time]
+command=date +"%A, %d %B %Y, %k:%M"
+interval=20
 
 [host]
 command=echo $(id -un)@$(hostname)

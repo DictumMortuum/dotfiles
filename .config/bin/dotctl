@@ -4,14 +4,6 @@ ID=$(id -u)
 export XDG_RUNTIME_DIR="/run/user/${ID}"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${ID}/bus"
 
-function progress() {
-  date +%s%3N > /tmp/unix
-  for i in {0..100000}; do
-    pkill -SIGRTMIN+11 i3blocks
-    sleep .1
-  done
-}
-
 function type-text() {
   xdotool type --delay 3 --clearmodifiers -- "$*"
 }
@@ -82,10 +74,7 @@ function qute-clone() {
   if [[ -d ${1}/.git ]] || git -C ${1} rev-parse --git-dir > /dev/null 2>&1; then
     notify-send $(basename $0) "$path already checked out"
   else
-    progress &
-    PID=$!
     git clone $repository $path
-    kill $PID
     notify-send $(basename $0) "$path finished cloning"
   fi
 
