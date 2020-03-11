@@ -73,7 +73,7 @@ function qute-clone() {
   local path="$HOME/Code/${tmp2%%.git}"
   mkdir -p $path
 
-  if [[ -d ${1}/.git ]] || git -C ${1} rev-parse --git-dir > /dev/null 2>&1; then
+  if [[ -d ${path}/.git ]] || git -C ${path} rev-parse --git-dir > /dev/null 2>&1; then
     notify-send $(basename $0) "$path already checked out"
   else
     git clone $repository $path
