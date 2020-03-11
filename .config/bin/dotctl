@@ -88,7 +88,7 @@ function qute-tokens() {
 }
 
 function qute-search() {
-  cat "$QUTE_TEXT" | get-tokens | xargs -I{} echo open -bt s {}
+  cat "$QUTE_TEXT" | get-tokens | xargs -I{} echo "open -b s {}" >> "$QUTE_FIFO"
 }
 
 # st
