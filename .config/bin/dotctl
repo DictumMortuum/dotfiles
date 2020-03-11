@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 ID=$(id -u)
 export XDG_RUNTIME_DIR="/run/user/${ID}"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${ID}/bus"
@@ -17,7 +19,11 @@ function get-tokens() {
 }
 
 function rofi-select() {
-  rofi -dmenu -matching fuzzy -i
+  rofi -dmenu -matching fuzzy -i | if [[ $# -eq 0 ]]; then
+    cat -
+  else
+    xargs --no-run-if-empty -I{} $*
+  fi
 }
 
 function detect-url() {
@@ -25,7 +31,7 @@ function detect-url() {
     xurls
   else
     xurls -m $1
-  fi | sort | uniq | rofi-select
+  fi | sort | uniq
 }
 
 function sync-repo() {
@@ -52,19 +58,15 @@ function qute-copy() {
 }
 
 function qute-jira() {
-  local tmp=$(cat $QUTE_TEXT | get-jira | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  echo "open -t https://jira.openbet.com/browse/${tmp}" >> "$QUTE_FIFO"
+  cat $QUTE_TEXT | get-jira | rofi-select "echo open -t https://jira.openbet.com/browse/{}" >> "$QUTE_FIFO"
 }
 
 function qute-url() {
-  local tmp=$(cat "$QUTE_HTML" | detect-url)
-  [[ -z $tmp ]] && exit 0
-  echo "open -t $tmp" >> "$QUTE_FIFO"
+  cat "$QUTE_HTML" | detect-url | rofi-select "echo open -t {}" >> "$QUTE_FIFO"
 }
 
 function qute-clone() {
-  local repository=$(cat "$QUTE_HTML" | detect-url "(ssh://)?(git://)?git@")
+  local repository=$(cat "$QUTE_HTML" | detect-url "(ssh://)?(git://)?git@" | rofi-select)
   [[ -z $repository ]] && exit 0
   local tmp1=${repository##*:}
   local tmp2=${tmp1#[0-9]*/}
@@ -82,17 +84,13 @@ function qute-clone() {
 }
 
 function qute-tokens() {
-  local tmp=$(cat "$QUTE_TEXT" | get-tokens | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  echo -n $tmp | tr -d '[:space:]' | xsel -ib
+  cat "$QUTE_TEXT" | get-tokens | rofi-select 'echo -n {}' | tr -d '[:space:]' | xsel -ib
 }
 
 # st
 
 function st-jira() {
-  local tmp=$(get-jira | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  xdg-open https://jira.openbet.com/browse/${tmp}
+  get-jira | rofi-select 'xdg-open https://jira.openbet.com/browse/{}'
 }
 
 function st-screenedit() {
@@ -103,15 +101,11 @@ function st-screenedit() {
 }
 
 function st-url() {
-  local tmp=$(detect-url)
-  [[ -z $tmp ]] && exit 0
-  xdg-open $tmp
+  detect-url | rofi-select 'xdg-open {}'
 }
 
 function st-tokens() {
-  local tmp=$(get-tokens | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  echo -n $tmp | tr -d '[:space:]' | xsel -ib
+  get-tokens | rofi-select 'echo -n {}' | tr -d '[:space:]' | xsel -ib
 }
 
 function st-superuser() {
