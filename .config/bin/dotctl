@@ -14,16 +14,16 @@ function get-jira() {
   grep -o -E '[A-Z]+-[0-9]+' | sort -u
 }
 
-function get-tokens() {
-  grep -o -E '[^[:space:]]+' | sort -u -f -r
-}
-
 function rofi-select() {
   rofi -dmenu -matching fuzzy -i | if [[ $# -eq 0 ]]; then
     cat -
   else
     xargs --no-run-if-empty -I{} $*
   fi
+}
+
+function get-tokens() {
+  grep -o -E '[^[:space:]]+' | sort -u -f -r | rofi-select 'echo -n {}' | tr -d '[:space:]'
 }
 
 function detect-url() {
@@ -84,7 +84,11 @@ function qute-clone() {
 }
 
 function qute-tokens() {
-  cat "$QUTE_TEXT" | get-tokens | rofi-select 'echo -n {}' | tr -d '[:space:]' | xsel -ib
+  cat "$QUTE_TEXT" | get-tokens | xsel -ib
+}
+
+function qute-search() {
+  cat "$QUTE_TEXT" | get-tokens | xargs -I{} echo open -bt s {}
 }
 
 # st
@@ -105,7 +109,7 @@ function st-url() {
 }
 
 function st-tokens() {
-  get-tokens | rofi-select 'echo -n {}' | tr -d '[:space:]' | xsel -ib
+  get-tokens | xsel -ib
 }
 
 function st-superuser() {
