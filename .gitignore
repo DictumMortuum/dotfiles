@@ -24,5 +24,6 @@
 LICENSE
 !.tmux.conf
 !.vimrc
+!.xprofile
 !.Xresources
 !.zshrc
