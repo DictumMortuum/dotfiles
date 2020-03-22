@@ -18,11 +18,11 @@
 !.config/qutebrowser/config.py
 !.config/qutebrowser/quickmarks
 !.config/rofi
+!.config/tmux
 !.editorconfig
 !.gitconfig
 !.gitignore
 LICENSE
-!.tmux.conf
 !.vimrc
 !.xprofile
 !.Xresources
