@@ -7,8 +7,8 @@ c.tabs.title.format = '{current_title}'
 c.fonts.monospace = 'monospace'
 c.fonts.tabs = '9pt monospace'
 c.editor.command = ['st', '-e', 'vi', '-f', '{file}', '-c', 'normal {line}G{column0}l'];
-c.url.default_page = 'http://127.0.0.1:1234/startpage'
-c.url.start_pages = 'http://127.0.0.1:1234/startpage'
+c.url.default_page = 'https://satellite.dictummortuum.com/static/home'
+c.url.start_pages = 'https://satellite.dictummortuum.com/static/home'
 c.content.media_capture = True
 c.hints.chars = "asdfkl"
 
