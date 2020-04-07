@@ -1,25 +1,14 @@
 import subprocess
 import os
+import json
 
-home = os.path.expanduser("~")
-
-c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
-c.content.pdfjs = True
-c.tabs.padding = {"top": 8, "bottom": 8, "left": 5, "right": 5}
-c.tabs.title.format = '{current_title}'
-c.fonts.monospace = 'monospace'
-c.fonts.tabs = '9pt monospace'
-c.editor.command = ['st', '-e', 'vi', '-f', '{file}', '-c', 'normal {line}G{column0}l'];
-c.url.default_page = 'https://satellite.dictummortuum.com/static/home'
-c.url.start_pages = 'https://satellite.dictummortuum.com/static/home'
-c.content.media_capture = True
-c.hints.chars = "asdfkl"
-
-c.url.searchengines = {
-  "DEFAULT": "https://duckduckgo.com/?q={}",
-  "s": 'https://stash.int.openbet.com/plugins/servlet/search?q="{}"',
-  "j": 'https://jira.openbet.com/issues/?jql=text~"{}"'
-}
+def read_searchengines(path):
+  engines = {}
+  if os.path.exists(path):
+    with open(path) as f:
+      engines = json.load(f)
+  engines["DEFAULT"] = "https://duckduckgo.com/?q={}"
+  c.url.searchengines = engines
 
 def read_proxies(path):
   if os.path.exists(path):
@@ -54,9 +43,22 @@ config.bind('<Ctrl-i>', 'open-editor', mode='insert')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 
+home = os.path.expanduser("~")
 read_proxies(home + '/.cache/qutebrowser/proxies')
+read_searchengines(home + '/.cache/qutebrowser/searchengines')
 xresources = read_xresources('*')
 
+c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+c.content.pdfjs = True
+c.tabs.padding = {"top": 8, "bottom": 8, "left": 5, "right": 5}
+c.tabs.title.format = '{current_title}'
+c.fonts.monospace = 'monospace'
+c.fonts.tabs = '9pt monospace'
+c.editor.command = ['st', '-e', 'vi', '-f', '{file}', '-c', 'normal {line}G{column0}l'];
+c.url.default_page = 'https://satellite.dictummortuum.com/static/home'
+c.url.start_pages = 'https://satellite.dictummortuum.com/static/home'
+c.content.media_capture = True
+c.hints.chars = "asdfkl"
 c.hints.border = "1px solid " + xresources["*background"]
 c.colors.completion.category.bg = xresources["*background"]
 c.colors.completion.category.border.bottom = xresources["*background"]
