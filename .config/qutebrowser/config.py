@@ -1,4 +1,7 @@
 import subprocess
+import os
+
+home = os.path.expanduser("~")
 
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 c.content.pdfjs = True
@@ -18,10 +21,11 @@ c.url.searchengines = {
   "j": 'https://jira.openbet.com/issues/?jql=text~"{}"'
 }
 
-proxies = [
-  "http://bop.ps.gameop.net:8080",
-  "http://custproxy.openbet:8080"
-]
+def read_proxies(path):
+  if os.path.exists(path):
+    with open(path, 'r') as f:
+      proxies = ["system"] + [line.rstrip() for line in f]
+      config.bind('<Ctrl-Shift-p>', 'config-cycle -p content.proxy ' + " ".join(proxies))
 
 def read_xresources(prefix):
   props = {}
@@ -36,7 +40,6 @@ def exec_userscript(com):
   return 'spawn --userscript /usr/local/bin/dotctl {}'.format(com)
 
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
-config.bind('<Ctrl-Shift-p>', 'config-cycle -p content.proxy system {}'.format(" ".join(proxies)))
 config.bind('<Ctrl-e>', exec_userscript('qute-textedit'))
 config.bind('<Ctrl-Shift-e>', exec_userscript('qute-screenedit'))
 config.bind('<Ctrl-Alt-c>', exec_userscript('qute-copy'))
@@ -51,6 +54,7 @@ config.bind('<Ctrl-i>', 'open-editor', mode='insert')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 
+read_proxies(home + '/.cache/qutebrowser/proxies')
 xresources = read_xresources('*')
 
 c.hints.border = "1px solid " + xresources["*background"]
