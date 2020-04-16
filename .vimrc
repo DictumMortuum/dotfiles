@@ -24,6 +24,7 @@ call plug#begin('/opt/domus/vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'arcticicestudio/nord-vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
