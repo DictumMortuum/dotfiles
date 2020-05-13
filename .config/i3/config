@@ -17,7 +17,7 @@ bindsym $mod+d               exec rofi -show drun -show-icons
 bindsym $mod+p               exec --no-startup-id passmenu --type
 bindsym $mod+Shift+Return    exec --no-startup-id st -e zsh
 bindsym $mod+Return          exec --no-startup-id st -e tmux -f ~/.config/tmux/tmux.conf
-bindsym $mod+m               exec --no-startup-id i3-utils layout change
+bindsym $mod+m               exec --no-startup-id i3-utils layout control
 bindsym $mod+Shift+q         kill
 bindsym $mod+Shift+c         reload
 bindsym $mod+Shift+r         restart
@@ -67,7 +67,6 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/background.png
 exec_always --no-startup-id start-pulseaudio-x11
 exec_always --no-startup-id compton
 exec_always --no-startup-id dunst -lb "$bg" -lf "$fg" -nb "$bg" -nf "$fg" -cb "$bg" -cfr "$sel" -follow keyboard -history_key ctrl+shift+grave
-exec_always --no-startup-id conky -c ~/.config/conky/config -m $(i3-utils layout conky)
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
 
 bar {
