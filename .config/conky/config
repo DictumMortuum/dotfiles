@@ -1,12 +1,12 @@
 conky.config = {
 own_window = true,
 own_window_type = 'override',
-own_window_transparent = true,
+own_window_transparent = false,
 own_window_hints = 'undecorated,below,skip_taskbar,skip_pager',
-own_window_colour = '#000000',
-alignment = 'middle_middle',
+own_window_colour = '#2B3440',
+alignment = 'bottom_right',
 use_xft = true,
-font = 'monospace',
+font = 'monospace:size=10',
 draw_shades = false,
 default_color = '#ffffff',
 color1 = '#bf616a',
@@ -18,8 +18,7 @@ gap_y = 0,
 };
 
 conky.text = [[
-${font monospace:size=25}${time %A, %d %B %Y, %T}${font}
-${voffset 2}${hr 2}${voffset 2}
+${voffset 1000}
 kernel: $alignr $kernel
 machine: $alignr $machine
 uptime: $alignr $uptime
@@ -30,10 +29,9 @@ battery: $alignr ${battery BAT0}${battery BAT1}
 file system: $alignr ${fs_used_perc}%
 temperature: $alignr ${hwmon temp 1}°C
 IP: $alignr ${execi 300 dig -4 +short myip.opendns.com @resolver1.opendns.com}
-download speed: $alignr ${downspeed wlo1}
-upload speed: $alignr ${upspeed wlo1}
 ${voffset 2}${hr 2}${voffset 2}
-New York: $alignr ${tztime America/New_York %Y-%m-%d %H %z %Z}
-London: $alignr ${tztime Europe/London %Y-%m-%d %H %z %Z}
-Athens: $alignr ${tztime Europe/Athens %Y-%m-%d %H %z %Z}
+New York: $alignr ${tztime America/New_York %Y-%m-%d %H:%m %z %4Z}
+London: $alignr ${tztime Europe/London %Y-%m-%d %H:%m %z %4Z}
+Athens: $alignr ${tztime Europe/Athens %Y-%m-%d %H:%m %z %4Z}
+${voffset 2}${hr 2}${voffset 2}
 ]];
