@@ -8,12 +8,12 @@
 .config/Code/User/*
 !.config/Code/User/keybindings.json
 !.config/Code/User/settings.json
-!.config/compton.conf
 !.config/conky
 !.config/git
 !.config/githooks
 !.config/i3
 !.config/i3blocks
+!.config/picom.conf
 !.config/qutebrowser
 .config/qutebrowser/*
 !.config/qutebrowser/config.py
@@ -24,6 +24,5 @@
 !.gitignore
 LICENSE
 !.vimrc
-!.xprofile
 !.Xresources
 !.zshrc
