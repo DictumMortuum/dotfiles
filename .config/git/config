@@ -39,6 +39,8 @@
 [merge]
   defaultToUpstream = true
   tool = meld
+[pull]
+  ff = only
 [advice]
   statusHints = false
   pushNonFastForward = false
