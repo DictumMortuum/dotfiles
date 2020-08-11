@@ -7,7 +7,7 @@ def read_searchengines(path):
   if os.path.exists(path):
     with open(path) as f:
       engines = json.load(f)
-  engines["DEFAULT"] = "https://duckduckgo.com/?q={}"
+  engines["DEFAULT"] = "https://google.com/search?hl=en&q={}"
   c.url.searchengines = engines
 
 def read_proxies(path):
