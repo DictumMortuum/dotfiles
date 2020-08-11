@@ -48,6 +48,7 @@ read_proxies(home + '/.cache/qutebrowser/proxies')
 read_searchengines(home + '/.cache/qutebrowser/searchengines')
 xresources = read_xresources('*')
 
+c.aliases = {"q": "close", "w": "session-save", "wq": "quit --save", "ff": "spawn firefox {url}"}
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 c.content.pdfjs = True
 c.tabs.padding = {"top": 8, "bottom": 8, "left": 5, "right": 5}
