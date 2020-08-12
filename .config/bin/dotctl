@@ -91,6 +91,16 @@ function qute-search() {
   cat "$QUTE_TEXT" | get-tokens | xargs -I{} echo "open -b s {}" >> "$QUTE_FIFO"
 }
 
+function qute-bookmark-save() {
+  local path="$HOME/Sync/Secret/lists/bookmarks"
+  echo "[$QUTE_TITLE]($QUTE_URL)" >> $path
+  sort -u -o $path $path
+}
+
+function qute-bookmark-open() {
+  cat "$HOME/Sync/Secret/lists/bookmarks" | rofi-select | xurls | xargs -I{} echo "open -t {}" >> "$QUTE_FIFO"
+}
+
 # st
 
 function st-jira() {
