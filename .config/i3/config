@@ -11,12 +11,6 @@ gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
 
-bindsym $mod+a               exec nautilus -w
-bindsym $mod+c               exec CM_LAUNCHER=rofi clipmenu -p "clipboard"
-bindsym $mod+d               exec rofi -show drun -show-icons
-bindsym $mod+p               exec --no-startup-id passmenu --type
-bindsym $mod+Shift+Return    exec --no-startup-id st -e zsh
-bindsym $mod+Return          exec --no-startup-id st -e tmux -f ~/.config/tmux/tmux.conf
 bindsym $mod+m               exec --no-startup-id i3-utils layout control
 bindsym $mod+Shift+q         kill
 bindsym $mod+Shift+c         reload
@@ -36,7 +30,6 @@ bindsym $mod+Shift+k         exec --no-startup-id i3-utils move next
 bindsym $mod+Shift+l         move right
 bindsym $mod+Ctrl+j          exec --no-startup-id i3-utils create prev
 bindsym $mod+Ctrl+k          exec --no-startup-id i3-utils create next
-bindsym $mod+w               exec rofi -show window
 bindsym --release $mod+Print exec --no-startup-id scrot -s -e 'mv $f ~/Pictures/'
 
 set $mode_system System [R]eboot, [S]hutdown, [E]xit, [l]ock

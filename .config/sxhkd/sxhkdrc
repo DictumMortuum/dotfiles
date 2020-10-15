@@ -1,0 +1,24 @@
+super + a
+  nautilus -w
+
+super + c
+  CM_LAUNCHER=rofi clipmenu -p "clipboard"
+
+super + d
+  rofi -show drun -show-icons -modi drun
+
+super + p
+  passmenu --type
+
+super + w
+  rofi -show window
+
+super + {shift +,_} Return
+  st -e {zsh,tmux -f ~/.config/tmux/tmux.conf}
+
+super + Print
+  sleep 0.2; scrot -s -e 'mv $f ~/Pictures/'
+
+super + o ; {j,s,shift + s,e,h,g}
+  FORCE_DESKTOP=true ob {jira,ssh --centos,ssh --centos --exec,env,host,grafana}
+

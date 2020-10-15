@@ -18,6 +18,7 @@
 .config/qutebrowser/*
 !.config/qutebrowser/config.py
 !.config/rofi
+!.config/sxhkd
 !.config/tmux
 !.editorconfig
 !.gitignore
