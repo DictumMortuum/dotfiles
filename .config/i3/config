@@ -11,7 +11,6 @@ gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
 
-bindsym $mod+m               exec --no-startup-id i3-utils layout control
 bindsym $mod+Shift+q         kill
 bindsym $mod+Shift+c         reload
 bindsym $mod+Shift+r         restart
@@ -30,7 +29,6 @@ bindsym $mod+Shift+k         exec --no-startup-id i3-utils move next
 bindsym $mod+Shift+l         move right
 bindsym $mod+Ctrl+j          exec --no-startup-id i3-utils create prev
 bindsym $mod+Ctrl+k          exec --no-startup-id i3-utils create next
-bindsym --release $mod+Print exec --no-startup-id scrot -s -e 'mv $f ~/Pictures/'
 
 set $mode_system System [R]eboot, [S]hutdown, [E]xit, [l]ock
 bindsym $mod+BackSpace mode "$mode_system"
@@ -41,18 +39,6 @@ mode "$mode_system" {
   bindsym l              exec --no-startup-id dotctl i3-lock, mode "default"
   bindsym Escape         mode "default"
   bindsym $mod+BackSpace mode "default"
-}
-
-set $mode_work [j]ira, [S]ervice, [s]sh, [e]nvironments, [h]osts, [g]rafana, [c]ustomer, [t]erminals
-bindsym $mod+o mode "$mode_work"
-mode "$mode_work" {
-  bindsym j       exec ob jira, mode "default"
-  bindsym s       exec ob ssh --centos, mode "default"
-  bindsym Shift+s exec ob ssh --centos --exec, mode "default"
-  bindsym e       exec ob env, mode "default"
-  bindsym h       exec ob host, mode "default"
-  bindsym g       exec ob grafana, mode "default"
-  bindsym Escape  mode "default"
 }
 
 exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/nord.png

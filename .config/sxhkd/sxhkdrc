@@ -7,6 +7,9 @@ super + c
 super + d
   rofi -show drun -show-icons -modi drun
 
+super + m
+  i3-utils layout control
+
 super + p
   passmenu --type
 
@@ -21,4 +24,3 @@ super + Print
 
 super + o ; {j,s,shift + s,e,h,g}
   FORCE_DESKTOP=true ob {jira,ssh --centos,ssh --centos --exec,env,host,grafana}
-
