@@ -42,11 +42,9 @@ mode "$mode_system" {
 }
 
 exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/nord.png
-exec_always --no-startup-id start-pulseaudio-x11
 exec_always --no-startup-id picom
 exec_always --no-startup-id dunst -lb "$bg" -lf "$fg" -nb "$bg" -nf "$fg" -cb "$bg" -cfr "$sel" -follow keyboard -history_key ctrl+shift+grave
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
-exec_always --no-startup-id clipmenud
 
 bar {
   status_command i3blocks
