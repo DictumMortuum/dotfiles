@@ -11,24 +11,24 @@ gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
 
-bindsym $mod+Shift+q         kill
-bindsym $mod+Shift+c         reload
-bindsym $mod+Shift+r         restart
-bindsym $mod+Ctrl+space      floating toggle
-bindsym $mod+Ctrl+h          split h
-bindsym $mod+Ctrl+v          split v
-bindsym $mod+f               fullscreen toggle
-bindsym $mod+Shift+f         fullscreen toggle global
-bindsym $mod+h               focus left
-bindsym $mod+j               exec --no-startup-id i3-utils focus prev
-bindsym $mod+k               exec --no-startup-id i3-utils focus next
-bindsym $mod+l               focus right
-bindsym $mod+Shift+h         move left
-bindsym $mod+Shift+j         exec --no-startup-id i3-utils move prev
-bindsym $mod+Shift+k         exec --no-startup-id i3-utils move next
-bindsym $mod+Shift+l         move right
-bindsym $mod+Ctrl+j          exec --no-startup-id i3-utils create prev
-bindsym $mod+Ctrl+k          exec --no-startup-id i3-utils create next
+bindsym $mod+Shift+q    kill
+bindsym $mod+Shift+c    reload
+bindsym $mod+Shift+r    restart
+bindsym $mod+Ctrl+space floating toggle
+bindsym $mod+Ctrl+h     split h
+bindsym $mod+Ctrl+v     split v
+bindsym $mod+f          fullscreen toggle
+bindsym $mod+Shift+f    fullscreen toggle global
+bindsym $mod+h          focus left
+bindsym $mod+j          exec --no-startup-id i3-utils focus prev
+bindsym $mod+k          exec --no-startup-id i3-utils focus next
+bindsym $mod+l          focus right
+bindsym $mod+Shift+h    move left
+bindsym $mod+Shift+j    exec --no-startup-id i3-utils move prev
+bindsym $mod+Shift+k    exec --no-startup-id i3-utils move next
+bindsym $mod+Shift+l    move right
+bindsym $mod+Ctrl+j     exec --no-startup-id i3-utils create prev
+bindsym $mod+Ctrl+k     exec --no-startup-id i3-utils create next
 
 set $mode_system System [R]eboot, [S]hutdown, [E]xit, [l]ock
 bindsym $mod+BackSpace mode "$mode_system"
