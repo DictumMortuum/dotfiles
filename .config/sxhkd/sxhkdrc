@@ -7,8 +7,8 @@ super + c
 super + d
   rofi -show drun -show-icons -modi drun
 
-super + m ; {d,r,shift+r,g}
-  i3-utils layout {dock,restore,restore --full,diablo}
+super + m ; {d,r,shift+r,ctrl+r,g}
+  i3-utils layout {dock,restore,restore --all,restore --interactive,diablo}
 
 super + p
   passmenu --type
