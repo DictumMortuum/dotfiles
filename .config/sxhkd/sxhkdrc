@@ -8,10 +8,13 @@ super + d
   rofi -show drun -show-icons -modi drun
 
 super + m ; {d,r,shift+r,ctrl+r,g}
-  i3-utils layout {dock,restore,restore --all,restore --interactive,diablo}
+  FORCE_DESKTOP=true i3-utils layout {dock,restore,restore --all,restore --interactive,diablo}
 
 super + p
   passmenu --type
+
+super + shift + {c,r}
+  i3-msg {reload,restart} ; killall -SIGUSR1 sxhkd
 
 super + w
   rofi -show window
@@ -22,5 +25,5 @@ super + {shift +,_} Return
 super + Print
   sleep 0.2; scrot -s -e 'mv $f ~/Pictures/'
 
-super + o ; {j,s,shift + s,e,h,g}
+super + o ; {j,s,shift+s,e,h,g}
   FORCE_DESKTOP=true ob {jira,ssh --centos,ssh --centos --exec,env,host,grafana}

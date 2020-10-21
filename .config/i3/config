@@ -11,24 +11,18 @@ gaps outer          0
 smart_gaps          true
 floating_modifier   $mod
 
-bindsym $mod+Shift+q    kill
-bindsym $mod+Shift+c    reload
-bindsym $mod+Shift+r    restart
-bindsym $mod+Ctrl+space floating toggle
-bindsym $mod+Ctrl+h     split h
-bindsym $mod+Ctrl+v     split v
-bindsym $mod+f          fullscreen toggle
-bindsym $mod+Shift+f    fullscreen toggle global
-bindsym $mod+h          focus left
-bindsym $mod+j          exec --no-startup-id i3-utils focus prev
-bindsym $mod+k          exec --no-startup-id i3-utils focus next
-bindsym $mod+l          focus right
-bindsym $mod+Shift+h    move left
-bindsym $mod+Shift+j    exec --no-startup-id i3-utils move prev
-bindsym $mod+Shift+k    exec --no-startup-id i3-utils move next
-bindsym $mod+Shift+l    move right
-bindsym $mod+Ctrl+j     exec --no-startup-id i3-utils create prev
-bindsym $mod+Ctrl+k     exec --no-startup-id i3-utils create next
+bindsym $mod+Shift+q kill
+bindsym $mod+f       fullscreen toggle
+bindsym $mod+h       focus left
+bindsym $mod+j       exec --no-startup-id i3-utils focus prev
+bindsym $mod+k       exec --no-startup-id i3-utils focus next
+bindsym $mod+l       focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j exec --no-startup-id i3-utils move prev
+bindsym $mod+Shift+k exec --no-startup-id i3-utils move next
+bindsym $mod+Shift+l move right
+bindsym $mod+Ctrl+j  exec --no-startup-id i3-utils create prev
+bindsym $mod+Ctrl+k  exec --no-startup-id i3-utils create next
 
 set $mode_system System [R]eboot, [S]hutdown, [E]xit, [l]ock
 bindsym $mod+BackSpace mode "$mode_system"
@@ -39,6 +33,17 @@ mode "$mode_system" {
   bindsym l              exec --no-startup-id dotctl i3-lock, mode "default"
   bindsym Escape         mode "default"
   bindsym $mod+BackSpace mode "default"
+}
+
+set $mode_options Toggle [f]loat, Toggle [F]ullscreen global, split [h]orizontally, split [v]ertically
+bindsym $mod+Tab mode "$mode_options"
+mode "$mode_options" {
+  bindsym f        floating toggle
+  bindsym Shift+f  fullscreen toggle global
+  bindsym h        split h
+  bindsym v        split v
+  bindsym Escape   mode "default"
+  bindsym $mod+Tab mode "default"
 }
 
 exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/nord.png
