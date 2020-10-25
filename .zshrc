@@ -40,7 +40,6 @@ setopt share_history
 alias dot="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 alias mkt='cd $(mktemp -d -p . "temp.$(date +%F).XXXXXXXXX")'
 alias mp3-dl='noglob youtube-dl --extract-audio --audio-format mp3'
-alias tempfox='firefox --new-instance --profile $(mktemp -d)'
 alias ls=' ls --color=tty'
 alias history=' fc -il 1'
 
