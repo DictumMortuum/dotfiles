@@ -55,7 +55,6 @@ bar {
   status_command i3blocks
   position top
   tray_output none
-  height 28
   font pango:sans 11
   strip_workspace_numbers yes
   colors {
