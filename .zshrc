@@ -1,4 +1,4 @@
-HISTFILE=$HOME/.zsh_history
+HISTFILE=~/.cache/zsh/history
 HISTSIZE=10000
 SAVEHIST=10000
 FPATH="$HOME/.cache/zsh:$FPATH"
@@ -48,7 +48,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-dirs-first true
 zstyle ':completion:*' accept-exact-dirs true
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.cache/zsh_completion
+zstyle ':completion:*' cache-path ~/.cache/zsh/completion
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select
 zstyle ':completion:*' single-ignored show
