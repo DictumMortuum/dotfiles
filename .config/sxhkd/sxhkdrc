@@ -16,6 +16,9 @@ super + m ; {d,r,shift+r,ctrl+r,g}
 super + p
   passmenu --type
 
+super + s ; {n,p}
+  dotctl sync-repo {~/Notes,~/.password-store}
+
 super + shift + {c,r}
   i3-msg {reload,restart} ; killall -SIGUSR1 sxhkd
 
