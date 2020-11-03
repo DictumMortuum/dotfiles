@@ -13,23 +13,26 @@ super + d
 super + m ; {d,r,shift+r,ctrl+r,g}
   FORCE_DESKTOP=true i3-utils layout {dock,restore,restore --all,restore --interactive,diablo}
 
+super + n
+  dotctl audio-select-sink
+
+super + o ; {j,s,shift+s,e,h,g}
+  FORCE_DESKTOP=true ob {jira,ssh --centos,ssh --centos --exec,env,host,grafana}
+
 super + p
   passmenu --type
 
 super + s ; {n,p}
   dotctl sync-repo {~/Notes,~/.password-store}
 
-super + shift + {c,r}
-  i3-msg {reload,restart} ; killall -SIGUSR1 sxhkd
-
 super + w
   rofi -show window
+
+super + shift + {c,r}
+  i3-msg {reload,restart} ; killall -SIGUSR1 sxhkd
 
 super + {shift +,_} Return
   st -e {zsh,tmux -f ~/.config/tmux/tmux.conf}
 
 super + Print
   sleep 0.2; scrot -s -e 'mv $f ~/Pictures/'
-
-super + o ; {j,s,shift+s,e,h,g}
-  FORCE_DESKTOP=true ob {jira,ssh --centos,ssh --centos --exec,env,host,grafana}

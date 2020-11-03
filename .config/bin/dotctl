@@ -146,4 +146,29 @@ function i3-lock() {
   rm $TMPIMG
 }
 
+# audio
+
+audio-move-sink-inputs() {
+  local sink="$1"
+  [[ -z $sink ]] && exit 0
+  inputs=$(pactl list sink-inputs)
+
+  while read -r input; do
+    index=$(echo "$input" | grep -oP "\d+$")
+    pactl move-sink-input "$index" "$sink"
+  done < <(echo "$inputs" | grep "Sink Input")
+}
+
+audio-list-sinks() {
+  pactl list sinks short | sed -e "s/\t/\ /g"
+}
+
+audio-select-sink() {
+  sink=$(audio-list-sinks | rofi-select)
+  sink=$(echo "$sink" | cut -f 1 -d " ")
+  [[ -z $sink ]] && exit 0
+  pactl set-default-sink $sink
+  audio-move-sink-inputs $sink
+}
+
 $*
