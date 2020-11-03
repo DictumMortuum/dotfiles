@@ -160,7 +160,7 @@ audio-move-sink-inputs() {
 }
 
 audio-list-sinks() {
-  pactl list sinks short | sed -e "s/\t/\ /g"
+  pactl list sinks | awk '/Sink/ { printf "%s",$2 }; /Description/ { gsub(/Description:/," "); print }'| tr -d '#'
 }
 
 audio-select-sink() {
