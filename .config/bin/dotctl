@@ -134,6 +134,12 @@ function st-lines() {
   type-text "$tmp"
 }
 
+function st-cmd() {
+  local tmp=$(echo -e "curl ifconfig.me" | rofi-select)
+  [[ -z $tmp ]] && exit 0
+  type-text "$tmp"
+}
+
 # i3
 
 function i3-lock() {
@@ -160,12 +166,11 @@ audio-move-sink-inputs() {
 }
 
 audio-list-sinks() {
-  pactl list sinks | awk '/Sink/ { printf "%s",$2 }; /Description/ { gsub(/Description:/," "); print }'| tr -d '#'
+  pactl list sinks | awk '/Sink/ { printf "%s",$2 }; /Description/ { gsub(/Description:/," "); print }' | tr -d '#'
 }
 
 audio-select-sink() {
-  sink=$(audio-list-sinks | rofi-select)
-  sink=$(echo "$sink" | cut -f 1 -d " ")
+  sink=$(audio-list-sinks | rofi-select | cut -f 1 -d " ")
   [[ -z $sink ]] && exit 0
   pactl set-default-sink $sink
   audio-move-sink-inputs $sink
