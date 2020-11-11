@@ -36,3 +36,6 @@ super + {shift +,_} Return
 
 super + Print
   sleep 0.2; scrot -s -e 'mv $f ~/Pictures/'
+
+super + {shift +,_} {1-9}
+  i3-msg {move container to workspace,workspace} {1-9}
