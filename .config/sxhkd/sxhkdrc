@@ -39,3 +39,6 @@ super + Print
 
 super + {shift +,_} {1-9}
   i3-msg {move container to workspace,workspace} {1-9}
+
+XF86Audio{Raise,Lower}Volume
+  pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
