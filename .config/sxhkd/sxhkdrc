@@ -28,6 +28,9 @@ super + s ; {n,p}
 super + w
   rofi -show window
 
+super + y
+  dotctl save-link
+
 super + shift + {c,r}
   i3-msg {reload,restart} ; killall -SIGUSR1 sxhkd
 

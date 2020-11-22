@@ -176,4 +176,13 @@ audio-select-sink() {
   audio-move-sink-inputs $sink
 }
 
+# sxhkd
+
+save-link() {
+  xdotool selectwindow key --clearmodifiers ctrl+l ctrl+c
+  url=$(xsel)
+  notify-send "$url saved successfully"
+  curl -X POST -F "url=$url" -F "host=$(hostname)" -F "user=$(id -un)" https://servus.dictummortuum.com/links
+}
+
 $*
