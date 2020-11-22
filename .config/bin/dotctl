@@ -182,7 +182,11 @@ save-link() {
   xdotool selectwindow key --clearmodifiers ctrl+l ctrl+c
   url=$(xsel)
   curl -X POST -F "url=$url" -F "host=$(hostname)" -F "user=$(id -un)" https://servus.dictummortuum.com/links
-  youtube-dl --no-playlist --extract-audio --audio-format mp3 --output "~/Music/%(title)s.%(ext)s" $url && notify-send "$url saved successfully"
+
+  if [[ $url =~ "https://www.youtube.com/watch" ]]; then
+    notify-send "downloading ... $url"
+    youtube-dl --no-playlist --extract-audio --audio-format mp3 --output "~/Music/%(title)s.%(ext)s" $url && notify-send "Song downloaded successfully"
+  fi
 }
 
 $*
