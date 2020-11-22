@@ -178,6 +178,10 @@ audio-select-sink() {
 
 # sxhkd
 
+mp3-dl() {
+  youtube-dl --no-playlist --extract-audio --audio-format mp3 --output "~/Music/%(title)s.%(ext)s" $1
+}
+
 save-link() {
   xdotool selectwindow key --clearmodifiers ctrl+l ctrl+c
   url=$(xsel)
@@ -185,7 +189,7 @@ save-link() {
 
   if [[ $url =~ "https://www.youtube.com/watch" ]]; then
     notify-send "downloading ... $url"
-    youtube-dl --no-playlist --extract-audio --audio-format mp3 --output "~/Music/%(title)s.%(ext)s" $url && notify-send "Song downloaded successfully"
+    mp3-dl $url && notify-send "Song downloaded successfully"
   fi
 }
 
