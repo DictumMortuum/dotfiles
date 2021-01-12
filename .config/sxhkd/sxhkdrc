@@ -17,7 +17,7 @@ super + n
   dotctl audio-select-sink
 
 super + o ; {j,s,shift+s,e,h,g}
-  FORCE_DESKTOP=true ob {jira,ssh --centos,ssh --centos --exec,env,host,grafana}
+  FORCE_DESKTOP=true ob {jira,ssh --centos,ssh --centos --exec,env,host,env links}
 
 super + p
   passmenu --type
