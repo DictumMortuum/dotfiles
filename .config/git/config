@@ -13,7 +13,7 @@
   current-branch = rev-parse --abbrev-ref HEAD
   files = diff-tree --no-commit-id --name-only -r
   l = log --oneline --decorate
-  p = push -u origin master
+  p = push -u origin HEAD
   s = status -sb
   temp = !git checkout -b $(id -un)-$(date +%s%3N)
   user = config --local --get-regexp '^user'
