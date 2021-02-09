@@ -86,7 +86,12 @@ bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
-compinit -d ~/.cache/zsh/zcompdump
+if [[ $(find ~/.cache/zsh/zcompdump -mtime -1 | wc -l) > 0 ]]; then
+  compinit -d ~/.cache/zsh/zcompdump
+else
+  compinit -d ~/.cache/zsh/zcompdump -C
+fi
+
 promptinit
 prompt pure
 
