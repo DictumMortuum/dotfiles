@@ -1,16 +1,18 @@
 [global]
 monitor = 0
 follow = keyboard
-geometry = "500x100-40+40"
-horizontal_padding = 16
-padding = 20
+geometry = "400x100-40+40"
+horizontal_padding = 8
+padding = 8
 line_height = 5
 frame_width = 1
-font = monospace 14
+font = monospace 12
 markup = full
 format = "<span foreground='#88c0d0'>%s</span>\n%b"
-alignment = center
 browser = /usr/bin/firefox -new-tab
+alignment = left
+icon_position = right
+max_icon_size = 64
 
 [shortcuts]
 close = ctrl+space

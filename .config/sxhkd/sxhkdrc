@@ -10,8 +10,8 @@ super + c
 super + d
   rofi -show drun -show-icons -modi drun
 
-super + i
-  dotctl get-router
+super + i ; {r}
+  i3-utils {servus router}
 
 super + m ; {d,r,shift+r,ctrl+r,g}
   FORCE_DESKTOP=true i3-utils layout {dock,restore,restore --all,restore --interactive,diablo}

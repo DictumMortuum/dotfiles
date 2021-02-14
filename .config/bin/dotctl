@@ -193,9 +193,4 @@ save-link() {
   fi
 }
 
-get-router() {
-  out=$(curl -s "https://servus.dictummortuum.com/router/latest" | jq '.response | .CurrentDown,"/",.InitialDown' | xargs echo)
-  notify-send "Current speed" "$out"
-}
-
 $*
