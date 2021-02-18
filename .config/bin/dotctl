@@ -122,20 +122,8 @@ function st-tokens() {
   get-tokens | xsel -ib
 }
 
-function st-superuser() {
-  local user=$(echo -e "openbet\ninformix\nobdba\ncentos\nroot" | rofi-select)
-  [[ -z $user ]] && exit 0
-  type-text "sudo -iu ${user}"
-}
-
 function st-lines() {
   local tmp=$(grep -v -e '^[[:space:]]*$' | rofi-select)
-  [[ -z $tmp ]] && exit 0
-  type-text "$tmp"
-}
-
-function st-cmd() {
-  local tmp=$(echo -e "curl ifconfig.me" | rofi-select)
   [[ -z $tmp ]] && exit 0
   type-text "$tmp"
 }
