@@ -58,6 +58,8 @@ bar {
   tray_output none
   font pango:sans 11
   strip_workspace_numbers yes
+  mode hide_edge_borders
+  modifier Mod1
   colors {
     background         $bg
     separator          $fg

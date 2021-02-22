@@ -6,7 +6,7 @@ interval=persist
 
 [time]
 command=date +"%A, %d %B %Y, %k:%M"
-interval=20
+interval=1
 
 [host]
 command=echo $(id -un)@$(hostname)
