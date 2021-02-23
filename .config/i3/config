@@ -59,7 +59,8 @@ bar {
   font pango:sans 11
   strip_workspace_numbers yes
   mode hide
-  modifier Mod1
+  hidden_state show
+  modifier none
   colors {
     background         $bg
     separator          $fg
