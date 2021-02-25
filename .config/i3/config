@@ -37,14 +37,14 @@ mode "$mode_system" {
 }
 
 set $mode_options Toggle [f]loat, Toggle [F]ullscreen global, split [h]orizontally, split [v]ertically
-bindsym $mod+Tab mode "$mode_options"
+bindsym $mod+Shift+Tab mode "$mode_options"
 mode "$mode_options" {
-  bindsym f        floating toggle
-  bindsym Shift+f  fullscreen toggle global
-  bindsym h        split h
-  bindsym v        split v
-  bindsym Escape   mode "default"
-  bindsym $mod+Tab mode "default"
+  bindsym f              floating toggle
+  bindsym Shift+f        fullscreen toggle global
+  bindsym h              split h
+  bindsym v              split v
+  bindsym Escape         mode "default"
+  bindsym $mod+Shift+Tab mode "default"
 }
 
 exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/nord.png

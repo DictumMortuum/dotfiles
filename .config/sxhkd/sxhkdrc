@@ -49,5 +49,8 @@ super + {shift +,_} {1-9}
 XF86Audio{Raise,Lower}Volume
   pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
 
-Menu
+{Menu, super + space}
   i3-msg bar hidden_state toggle
+
+super + Tab
+  i3-utils tab
