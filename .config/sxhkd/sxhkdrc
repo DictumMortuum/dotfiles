@@ -52,5 +52,11 @@ XF86Audio{Raise,Lower}Volume
 {Menu, super + space}
   i3-msg bar hidden_state toggle
 
+super + {shift +,_} minus
+  i3-msg {move scratchpad,scratchpad show}
+
+super + equal
+  i3-msg floating toggle
+
 super + Tab
   i3-utils tab
