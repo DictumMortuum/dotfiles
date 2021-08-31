@@ -153,8 +153,23 @@ audio-move-sink-inputs() {
   done < <(echo "$inputs" | grep "Sink Input")
 }
 
+audio-move-source-outputs() {
+  local output="$1"
+  [[ -z $output ]] && exit 0
+  inputs=$(pactl list source-outputs)
+
+  while read -r input; do
+    index=$(echo "$input" | grep -oP "\d+$")
+    pactl move-source-output "$index" "$output"
+  done < <(echo "$inputs" | grep "Source Output")
+}
+
 audio-list-sinks() {
-  pactl list sinks | awk '/Sink #/ { printf "%s",$2 }; /Description/ { gsub(/Description:/," "); print }' | tr -d '#'
+  pactl list sinks | awk '/Sink #/ { printf "%s",$2 }; /Description/ { gsub(/Description:/," "); print }' | tr -d '#' | grep -v "HDMI"
+}
+
+audio-list-sources() {
+  pactl list sources | awk '/Source #/ { printf "%s",$2 }; /Description/ { gsub(/Description:/," "); print }' | tr -d '#' | grep -v "Monitor"
 }
 
 audio-select-sink() {
@@ -162,6 +177,13 @@ audio-select-sink() {
   [[ -z $sink ]] && exit 0
   pactl set-default-sink $sink
   audio-move-sink-inputs $sink
+}
+
+audio-select-source() {
+  source=$(audio-list-sources | rofi-select | cut -f 1 -d " ")
+  [[ -z $source ]] && exit 0
+  pactl set-default-source $source
+  audio-move-source-outputs $source
 }
 
 # sxhkd
