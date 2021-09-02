@@ -17,7 +17,7 @@ super + m ; {d,r,shift+r,ctrl+r,g}
   FORCE_DESKTOP=true i3-utils layout {dock,restore,restore --all,restore --interactive,diablo}
 
 super + {shift+,_} n
-  dotctl {audio-select-sources,audio-select-sink}
+  dotctl {audio-select-source,audio-select-sink}
 
 super + o ; {j,s,shift+s,e,h,g}
   FORCE_DESKTOP=true ob {jira,ssh --centos,ssh --centos --exec,env,host,env links}
