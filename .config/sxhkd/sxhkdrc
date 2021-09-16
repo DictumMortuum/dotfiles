@@ -28,6 +28,9 @@ super + p
 super + s ; {n,p}
   dotctl sync-repo {~/Notes,~/.password-store}
 
+super + t
+  i3-utils browser jira
+
 super + w
   rofi -show window
 
