@@ -2,6 +2,7 @@ configuration {
   matching: "fuzzy";
   case-sensitive: true;
 }
+
 * {
     nord0: #2E3440;
     nord3: #4C566A;
@@ -60,7 +61,7 @@ listview {
 }
 element {
     border:  0;
-    padding: 1px ;
+    padding: 7px;
 }
 element-text {
     background-color: inherit;
