@@ -9,5 +9,6 @@
   "explorer.confirmDelete": false,
   "files.trimFinalNewlines": true,
   "window.zoomLevel": 2,
-  "editor.fontFamily": "monospace"
+  "editor.fontFamily": "monospace",
+  "terminal.integrated.persistentSessionReviveProcess": "never"
 }
