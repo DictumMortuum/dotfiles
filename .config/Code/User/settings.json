@@ -10,5 +10,6 @@
   "files.trimFinalNewlines": true,
   "window.zoomLevel": 2,
   "editor.fontFamily": "monospace",
-  "terminal.integrated.persistentSessionReviveProcess": "never"
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
