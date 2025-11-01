@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=i3
+Name=i3-dictum
 Comment=improved dynamic tiling window manager
 Exec=i3 -c /usr/share/dotfiles/i3rc
-TryExec=i3
+TryExec=i3 -c /usr/share/dotfiles/i3rc
 Type=Application
-X-LightDM-DesktopName=i3
-DesktopNames=i3
+X-LightDM-DesktopName=i3-dictum
+DesktopNames=i3-dictum
 Keywords=tiling;wm;windowmanager;window;manager;

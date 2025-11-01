@@ -52,7 +52,7 @@ exec_always --no-startup-id dunst -lb "$bg" -nb "$bg" -cb "$bg" -sep_color "$sel
 exec_always --no-startup-id setxkbmap -model pc105 -layout "us,gr" -option 'grp:alt_shift_toggle,compose:caps'
 
 bar {
-  status_command i3blocks
+  status_command i3blocks -c /usr/share/dotfiles/i3blocksrc
   position top
   tray_output none
   font pango:sans 11
