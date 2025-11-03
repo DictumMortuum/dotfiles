@@ -46,8 +46,6 @@
   pushNonFastForward = false
   implicitIdentity = false
   detachedHead = false
-[init]
-  templatedir = ~/.config/githooks/
 [hooks]
   user = github DictumMortuum theio.vrefos@gmail.com
   user = gitlab DictumMortuum theio.vrefos@gmail.com
@@ -55,6 +53,4 @@
   user = gratgt02 {Dimitris Raviolos} dimitrios.raviolos@unify.com
   user = gitsrv2 {Dimitris Raviolos} dimitrios.raviolos@unify.com
   user = stash.int.openbet.com {Dimitris Raviolos} dimitris.raviolos@sgdigital.com
-[user]
-  email = dimitris.raviolos@openbet.com
-  name = Dimitris Raviolos
+  user = git.server.gr {Dimitris Raviolos} dimitris.raviolos@gmail.com
