@@ -1,0 +1,33 @@
+#!/bin/bash
+
+is-nvidia() {
+  [[ $(nvidia-smi -q | awk '/Product Name/ { print $4 }') == "NVIDIA" ]]
+}
+
+is-docked() {
+  [[ $(xrandr -q | grep connected | grep -v disconnected | wc -l) -ne 1 ]]
+}
+
+cmd-exists () {
+  type "$1" >/dev/null 2>/dev/null
+}
+
+package-exists() {
+  pacman -Q $1 >/dev/null 2>/dev/null
+}
+
+if $(is-nvidia); then
+  xrandr --setprovideroutputsource modesetting NVIDIA-0
+fi
+
+if $(is-docked); then
+  xrandr --output DP-0.2 --auto --primary --output DP-0.1 --auto --right-of DP-0.2 --output eDP-1-1 --auto --right-of DP-0.1
+fi
+
+if $(package-exists sxhkd); then
+  sxhkd -c /usr/share/dotfiles/sxhkdrc &
+fi
+
+if $(cmd-exists clipmenud); then
+  clipmenud &
+fi
